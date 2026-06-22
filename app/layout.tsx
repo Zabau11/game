@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vertex AI Connection Test",
-  description: "Safely verify a Vertex AI API key from the server.",
+  title: "AI Consensus",
+  description: "Can you predict what AI believes?",
 };
 
 export default function RootLayout({
@@ -28,4 +28,3 @@ export default function RootLayout({
     </html>
   );
 }
-
