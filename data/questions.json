@@ -1,0 +1,1633 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-06-22T18:41:50.982Z",
+  "consensusLabel": "AI consensus estimate",
+  "models": [
+    "gemini-2.5-flash",
+    "claude-haiku-4-5",
+    "moonshotai/kimi-k2-thinking-maas",
+    "mistral-small-latest"
+  ],
+  "questions": [
+    {
+      "id": "zombie-brands-001",
+      "category": "brands",
+      "question": "Which brand would survive longest in a zombie apocalypse?",
+      "options": [
+        {
+          "id": "costco",
+          "label": "Costco",
+          "percentage": 60
+        },
+        {
+          "id": "ikea",
+          "label": "IKEA",
+          "percentage": 15
+        },
+        {
+          "id": "tesla",
+          "label": "Tesla",
+          "percentage": 15
+        },
+        {
+          "id": "disney",
+          "label": "Disney",
+          "percentage": 10
+        }
+      ],
+      "status": "ready",
+      "winner": "costco",
+      "explanation": "Costco's bulk supplies and community focus make it the most resilient, followed by Disney's emotional appeal, IKEA's modular utility, and Tesla's niche adaptability.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "costco": 80,
+            "ikea": 10,
+            "tesla": 5,
+            "disney": 5
+          },
+          "explanation": "Costco's bulk supplies, warehouse structure, and potential for self-sufficiency make it the most likely survivor, while the others offer less practical immediate advantages.",
+          "latencyMs": 13273
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "costco": 70,
+            "ikea": 15,
+            "tesla": 10,
+            "disney": 5
+          },
+          "explanation": "Costco wins decisively due to its massive bulk supplies of food, water, and essentials that would sustain survivors far longer than entertainment, furniture, or vehicles.",
+          "latencyMs": 2251
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "costco": 50,
+            "ikea": 15,
+            "tesla": 30,
+            "disney": 5
+          },
+          "explanation": "Costco's massive stockpiles of food and supplies give it the best survival chance, followed by Tesla's energy tech, IKEA's furniture, and Disney's entertainment assets are least practical.",
+          "latencyMs": 4787
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "costco": 40,
+            "ikea": 20,
+            "tesla": 15,
+            "disney": 25
+          },
+          "explanation": "Costco's bulk supplies and community focus make it the most resilient, followed by Disney's emotional appeal, IKEA's modular utility, and Tesla's niche adaptability.",
+          "latencyMs": 1198
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.279Z"
+    },
+    {
+      "id": "mars-company-001",
+      "category": "companies",
+      "question": "Which company would be most likely to build the first city on Mars?",
+      "options": [
+        {
+          "id": "spacex",
+          "label": "SpaceX",
+          "percentage": 88
+        },
+        {
+          "id": "amazon",
+          "label": "Amazon",
+          "percentage": 6
+        },
+        {
+          "id": "apple",
+          "label": "Apple",
+          "percentage": 2
+        },
+        {
+          "id": "toyota",
+          "label": "Toyota",
+          "percentage": 4
+        }
+      ],
+      "status": "ready",
+      "winner": "spacex",
+      "explanation": "SpaceX is the clear leader due to its dedicated Mars colonization plans and Starship development.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "spacex": 90,
+            "amazon": 5,
+            "apple": 0,
+            "toyota": 5
+          },
+          "explanation": "SpaceX is overwhelmingly the most likely candidate due to its explicit mission and ongoing development in space colonization, while Amazon and Toyota have tangential relevance and Apple has none.",
+          "latencyMs": 12193
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "spacex": 88,
+            "amazon": 5,
+            "apple": 2,
+            "toyota": 5
+          },
+          "explanation": "SpaceX has explicit Mars colonization goals, active rocket development, and leadership focused on space exploration, making it overwhelmingly more likely than tech companies or automakers without space programs.",
+          "latencyMs": 1436
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "spacex": 90,
+            "amazon": 8,
+            "apple": 1,
+            "toyota": 1
+          },
+          "explanation": "SpaceX is the clear leader due to its dedicated Mars colonization plans and Starship development.",
+          "latencyMs": 2717
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "spacex": 85,
+            "amazon": 5,
+            "apple": 5,
+            "toyota": 5
+          },
+          "explanation": "SpaceX is the only company with a stated mission to colonize Mars, while others lack relevant expertise or ambition.",
+          "latencyMs": 765
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.281Z"
+    },
+    {
+      "id": "startup-founder-001",
+      "category": "fiction",
+      "question": "Which fictional character would make the best startup founder?",
+      "options": [
+        {
+          "id": "tony-stark",
+          "label": "Tony Stark",
+          "percentage": 43
+        },
+        {
+          "id": "hermione-granger",
+          "label": "Hermione Granger",
+          "percentage": 22
+        },
+        {
+          "id": "bruce-wayne",
+          "label": "Bruce Wayne",
+          "percentage": 19
+        },
+        {
+          "id": "leslie-knope",
+          "label": "Leslie Knope",
+          "percentage": 16
+        }
+      ],
+      "status": "ready",
+      "winner": "tony-stark",
+      "explanation": "Tony Stark leads due to innovation and leadership, followed by Hermione's resourcefulness, Bruce's strategic vision, and Leslie's organizational skills.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "tony-stark": 35,
+            "hermione-granger": 25,
+            "bruce-wayne": 25,
+            "leslie-knope": 15
+          },
+          "explanation": "Tony Stark's innovative genius and existing business acumen make him a strong contender, while Hermione's intelligence and Bruce Wayne's resources are also highly valuable for a startup.",
+          "latencyMs": 2301
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "tony-stark": 40,
+            "hermione-granger": 20,
+            "bruce-wayne": 25,
+            "leslie-knope": 15
+          },
+          "explanation": "Tony Stark edges out the competition with his combination of visionary innovation, risk-taking, and proven ability to build transformative technology, though Bruce Wayne's resources and strategic thinking make him a close alternative.",
+          "latencyMs": 2474
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "tony-stark": 55,
+            "hermione-granger": 12,
+            "bruce-wayne": 8,
+            "leslie-knope": 25
+          },
+          "explanation": "Tony Stark's tech innovation record dominates; Leslie Knope's team-building passion is second; Hermione's risk-aversion and Bruce's secrecy rank them lower.",
+          "latencyMs": 6730
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "tony-stark": 40,
+            "hermione-granger": 30,
+            "bruce-wayne": 20,
+            "leslie-knope": 10
+          },
+          "explanation": "Tony Stark leads due to innovation and leadership, followed by Hermione's resourcefulness, Bruce's strategic vision, and Leslie's organizational skills.",
+          "latencyMs": 907
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.281Z"
+    },
+    {
+      "id": "future-city-001",
+      "category": "cities",
+      "question": "Which city feels most like the future?",
+      "options": [
+        {
+          "id": "tokyo",
+          "label": "Tokyo",
+          "percentage": 28
+        },
+        {
+          "id": "singapore",
+          "label": "Singapore",
+          "percentage": 22
+        },
+        {
+          "id": "dubai",
+          "label": "Dubai",
+          "percentage": 23
+        },
+        {
+          "id": "seoul",
+          "label": "Seoul",
+          "percentage": 27
+        }
+      ],
+      "status": "ready",
+      "winner": "tokyo",
+      "explanation": "Dubai and Singapore often evoke a sense of futuristic architecture and urban planning, while Seoul and Tokyo are also highly advanced cities.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "tokyo": 20,
+            "singapore": 25,
+            "dubai": 30,
+            "seoul": 25
+          },
+          "explanation": "Dubai and Singapore often evoke a sense of futuristic architecture and urban planning, while Seoul and Tokyo are also highly advanced cities.",
+          "latencyMs": 11606
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "tokyo": 32,
+            "singapore": 22,
+            "dubai": 18,
+            "seoul": 28
+          },
+          "explanation": "Tokyo edges out Seoul with its blend of cutting-edge technology, robotics, and seamless urban integration, while Dubai emphasizes spectacle over substance and Singapore and Seoul offer strong but slightly less iconic futuristic vibes.",
+          "latencyMs": 1939
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "tokyo": 33,
+            "singapore": 20,
+            "dubai": 15,
+            "seoul": 32
+          },
+          "explanation": "Tokyo's cultural legacy as the cyberpunk future narrowly edges out Seoul's hyper-digital present, with Singapore and Dubai representing more niche futurist visions.",
+          "latencyMs": 6786
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "tokyo": 25,
+            "singapore": 20,
+            "dubai": 30,
+            "seoul": 25
+          },
+          "explanation": "Dubai leads due to its futuristic architecture and rapid technological adoption, while others balance with strong innovation and cultural futurism.",
+          "latencyMs": 1537
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.282Z"
+    },
+    {
+      "id": "explain-to-1800-001",
+      "category": "technology",
+      "question": "Which product would be hardest to explain to someone from 1800?",
+      "options": [
+        {
+          "id": "smartphone",
+          "label": "Smartphone",
+          "percentage": 44
+        },
+        {
+          "id": "microwave",
+          "label": "Microwave",
+          "percentage": 15
+        },
+        {
+          "id": "airplane",
+          "label": "Airplane",
+          "percentage": 14
+        },
+        {
+          "id": "video-game",
+          "label": "Video game",
+          "percentage": 27
+        }
+      ],
+      "status": "ready",
+      "winner": "smartphone",
+      "explanation": "The smartphone combines multiple complex technologies, making it the hardest to explain from 1800.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "smartphone": 45,
+            "microwave": 10,
+            "airplane": 10,
+            "video-game": 35
+          },
+          "explanation": "The smartphone and video game would be the hardest to explain due to their abstract functions and digital nature, while the microwave and airplane have more tangible, albeit advanced, counterparts.",
+          "latencyMs": 1346
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "smartphone": 60,
+            "microwave": 15,
+            "airplane": 5,
+            "video-game": 20
+          },
+          "explanation": "A smartphone would be hardest to explain since it combines invisible wireless communication, touchscreen technology, and digital information in ways that have no 1800s analogue, whereas airplanes follow mechanical principles and microwaves/video games have more concrete physical explanations.",
+          "latencyMs": 3066
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "smartphone": 40,
+            "microwave": 10,
+            "airplane": 20,
+            "video-game": 30
+          },
+          "explanation": "Smartphone involves the most abstract concepts—wireless communication, internet, and computing—making it hardest to explain.",
+          "latencyMs": 11042
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "smartphone": 30,
+            "microwave": 25,
+            "airplane": 20,
+            "video-game": 25
+          },
+          "explanation": "The smartphone combines multiple complex technologies, making it the hardest to explain from 1800.",
+          "latencyMs": 842
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.282Z"
+    },
+    {
+      "id": "alien-ambassador-001",
+      "category": "fiction",
+      "question": "Which fictional character should represent humanity in first contact with aliens?",
+      "options": [
+        {
+          "id": "captain-picard",
+          "label": "Captain Picard",
+          "percentage": 42
+        },
+        {
+          "id": "wonder-woman",
+          "label": "Wonder Woman",
+          "percentage": 22
+        },
+        {
+          "id": "gandalf",
+          "label": "Gandalf",
+          "percentage": 22
+        },
+        {
+          "id": "ted-lasso",
+          "label": "Ted Lasso",
+          "percentage": 14
+        }
+      ],
+      "status": "ready",
+      "winner": "captain-picard",
+      "explanation": "The distribution balances optimism, strength, wisdom, and diplomacy as key traits for first contact.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "captain-picard": 40,
+            "wonder-woman": 20,
+            "gandalf": 25,
+            "ted-lasso": 15
+          },
+          "explanation": "Captain Picard is the most suitable choice due to his diplomatic experience and philosophical approach, while Gandalf and Wonder Woman offer wisdom and strength, and Ted Lasso provides humor and empathy.",
+          "latencyMs": 11804
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "captain-picard": 55,
+            "wonder-woman": 20,
+            "gandalf": 10,
+            "ted-lasso": 15
+          },
+          "explanation": "Captain Picard dominates as the obvious choice due to his extensive first-contact experience and diplomatic expertise, while Wonder Woman offers diplomatic credibility as a bridge between worlds, Ted Lasso brings optimistic humanity, and Gandalf rounds out the options.",
+          "latencyMs": 1729
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "captain-picard": 50,
+            "wonder-woman": 17,
+            "gandalf": 28,
+            "ted-lasso": 5
+          },
+          "explanation": "Picard is professionally trained for first contact, Gandalf has ancient wisdom, Wonder Woman is diplomatic but intimidating, and Ted Lasso is too naive.",
+          "latencyMs": 6161
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "captain-picard": 25,
+            "wonder-woman": 30,
+            "gandalf": 25,
+            "ted-lasso": 20
+          },
+          "explanation": "The distribution balances optimism, strength, wisdom, and diplomacy as key traits for first contact.",
+          "latencyMs": 853
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.283Z"
+    },
+    {
+      "id": "island-brand-001",
+      "category": "brands",
+      "question": "Which brand would be most useful on a deserted island?",
+      "options": [
+        {
+          "id": "patagonia",
+          "label": "Patagonia",
+          "percentage": 33
+        },
+        {
+          "id": "costco",
+          "label": "Costco",
+          "percentage": 44
+        },
+        {
+          "id": "apple",
+          "label": "Apple",
+          "percentage": 11
+        },
+        {
+          "id": "lego",
+          "label": "LEGO",
+          "percentage": 12
+        }
+      ],
+      "status": "ready",
+      "winner": "costco",
+      "explanation": "Costco leads due to bulk supplies, while LEGO and Apple offer versatile tools, and Patagonia provides durable clothing.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "patagonia": 20,
+            "costco": 70,
+            "apple": 5,
+            "lego": 5
+          },
+          "explanation": "Costco offers the most practical items for survival, while Patagonia provides durable clothing, and LEGO and Apple offer minimal utility on a deserted island.",
+          "latencyMs": 1037
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "patagonia": 40,
+            "costco": 45,
+            "apple": 10,
+            "lego": 5
+          },
+          "explanation": "Costco and Patagonia offer practical survival supplies, while LEGO and Apple provide minimal utility without infrastructure on a deserted island.",
+          "latencyMs": 1702
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "patagonia": 50,
+            "costco": 30,
+            "apple": 5,
+            "lego": 15
+          },
+          "explanation": "Patagonia's specialized outdoor gear is most critical for survival, Costco's bulk supplies are valuable but less specialized, while LEGO and Apple offer minimal practical utility on a deserted island.",
+          "latencyMs": 4704
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "patagonia": 20,
+            "costco": 30,
+            "apple": 25,
+            "lego": 25
+          },
+          "explanation": "Costco leads due to bulk supplies, while LEGO and Apple offer versatile tools, and Patagonia provides durable clothing.",
+          "latencyMs": 926
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.283Z"
+    },
+    {
+      "id": "time-traveler-job-001",
+      "category": "culture",
+      "question": "Which modern job would confuse a time traveler from 1920 the most?",
+      "options": [
+        {
+          "id": "influencer",
+          "label": "Influencer",
+          "percentage": 43
+        },
+        {
+          "id": "app-developer",
+          "label": "App developer",
+          "percentage": 21
+        },
+        {
+          "id": "esports-coach",
+          "label": "Esports coach",
+          "percentage": 25
+        },
+        {
+          "id": "data-scientist",
+          "label": "Data scientist",
+          "percentage": 11
+        }
+      ],
+      "status": "ready",
+      "winner": "influencer",
+      "explanation": "Influencer represents a completely novel social/economic phenomenon with no 1920 parallel, while data analysis had existing analogs.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "influencer": 40,
+            "app-developer": 20,
+            "esports-coach": 30,
+            "data-scientist": 10
+          },
+          "explanation": "An influencer would be the most perplexing as the concept of monetizing personal life and digital popularity is utterly alien to someone from 1920, while the other roles, though technologically advanced, have some conceptual parallels to existing professions.",
+          "latencyMs": 3360
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "influencer": 35,
+            "app-developer": 20,
+            "esports-coach": 30,
+            "data-scientist": 15
+          },
+          "explanation": "Influencer ranks highest because the concept of earning money through social media attention would be most fundamentally alien to 1920s understanding, while esports-coach is close behind due to the combination of video games and professional coaching being equally bewildering.",
+          "latencyMs": 2051
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "influencer": 60,
+            "app-developer": 25,
+            "esports-coach": 10,
+            "data-scientist": 5
+          },
+          "explanation": "Influencer represents a completely novel social/economic phenomenon with no 1920 parallel, while data analysis had existing analogs.",
+          "latencyMs": 7824
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "influencer": 35,
+            "app-developer": 20,
+            "esports-coach": 30,
+            "data-scientist": 15
+          },
+          "explanation": "A time traveler from 1920 would struggle most with abstract digital roles, with influencer and esports coach leading due to their reliance on modern internet culture.",
+          "latencyMs": 801
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.283Z"
+    },
+    {
+      "id": "supervillain-ceo-001",
+      "category": "fiction",
+      "question": "Which fictional villain would be the most effective CEO?",
+      "options": [
+        {
+          "id": "darth-vader",
+          "label": "Darth Vader",
+          "percentage": 16
+        },
+        {
+          "id": "lex-luthor",
+          "label": "Lex Luthor",
+          "percentage": 41
+        },
+        {
+          "id": "loki",
+          "label": "Loki",
+          "percentage": 14
+        },
+        {
+          "id": "miranda-priestly",
+          "label": "Miranda Priestly",
+          "percentage": 29
+        }
+      ],
+      "status": "ready",
+      "winner": "lex-luthor",
+      "explanation": "Each villain brings unique strengths, making the distribution balanced but speculative.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "darth-vader": 10,
+            "lex-luthor": 60,
+            "loki": 10,
+            "miranda-priestly": 20
+          },
+          "explanation": "Lex Luthor's established business acumen and ruthless intelligence make him the most suitable CEO, while Miranda Priestly has management experience, and Darth Vader and Loki lack the specific corporate focus.",
+          "latencyMs": 11913
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "darth-vader": 15,
+            "lex-luthor": 30,
+            "loki": 10,
+            "miranda-priestly": 45
+          },
+          "explanation": "Miranda Priestly edges out the competition due to her proven track record of ruthless efficiency, clear vision, and actual corporate leadership experience in a realistic setting.",
+          "latencyMs": 1622
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "darth-vader": 15,
+            "lex-luthor": 50,
+            "loki": 10,
+            "miranda-priestly": 25
+          },
+          "explanation": "Lex Luthor's proven business empire makes him the clear winner, followed by Miranda Priestly's realistic executive skills, Darth Vader's lethal command experience, and Loki's chaotic nature ranking last.",
+          "latencyMs": 8353
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "darth-vader": 25,
+            "lex-luthor": 25,
+            "loki": 25,
+            "miranda-priestly": 25
+          },
+          "explanation": "Each villain brings unique strengths, making the distribution balanced but speculative.",
+          "latencyMs": 1038
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.284Z"
+    },
+    {
+      "id": "moon-franchise-001",
+      "category": "brands",
+      "question": "Which restaurant chain would open the first location on the Moon?",
+      "options": [
+        {
+          "id": "mcdonalds",
+          "label": "McDonald's",
+          "percentage": 41
+        },
+        {
+          "id": "starbucks",
+          "label": "Starbucks",
+          "percentage": 18
+        },
+        {
+          "id": "dominos",
+          "label": "Domino's",
+          "percentage": 30
+        },
+        {
+          "id": "subway",
+          "label": "Subway",
+          "percentage": 11
+        }
+      ],
+      "status": "ready",
+      "winner": "mcdonalds",
+      "explanation": "McDonald's has the highest probability due to its global brand recognition and adaptability, while Subway's lower chance reflects its less iconic lunar appeal.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "mcdonalds": 35,
+            "starbucks": 20,
+            "dominos": 30,
+            "subway": 15
+          },
+          "explanation": "McDonald's and Domino's are favored due to their global ubiquity and established delivery/franchise models, while Starbucks and Subway have a slightly lower, but still significant, chance.",
+          "latencyMs": 2120
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "mcdonalds": 25,
+            "starbucks": 25,
+            "dominos": 35,
+            "subway": 15
+          },
+          "explanation": "Domino's edges ahead due to its bold marketing history and pizza's universal appeal, while Starbucks and McDonald's follow as global powerhouses, and Subway trails as the least iconic for such a venture.",
+          "latencyMs": 1741
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "mcdonalds": 45,
+            "starbucks": 15,
+            "dominos": 30,
+            "subway": 10
+          },
+          "explanation": "McDonald's has the deepest resources and most aggressive global expansion history, making it the likely leader, though Domino's space-friendly branding and public statements position it as a strong challenger.",
+          "latencyMs": 6004
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "mcdonalds": 60,
+            "starbucks": 10,
+            "dominos": 25,
+            "subway": 5
+          },
+          "explanation": "McDonald's has the highest probability due to its global brand recognition and adaptability, while Subway's lower chance reflects its less iconic lunar appeal.",
+          "latencyMs": 923
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.284Z"
+    },
+    {
+      "id": "robot-pet-001",
+      "category": "animals",
+      "question": "Which animal would make the best blueprint for a household robot?",
+      "options": [
+        {
+          "id": "dog",
+          "label": "Dog",
+          "percentage": 33
+        },
+        {
+          "id": "octopus",
+          "label": "Octopus",
+          "percentage": 33
+        },
+        {
+          "id": "cat",
+          "label": "Cat",
+          "percentage": 18
+        },
+        {
+          "id": "ant",
+          "label": "Ant",
+          "percentage": 16
+        }
+      ],
+      "status": "ready",
+      "winner": "dog",
+      "explanation": "Octopuses offer high adaptability and problem-solving, while ants provide efficiency in teamwork, with dogs and cats offering more familiar but limited utility.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "dog": 30,
+            "octopus": 40,
+            "cat": 20,
+            "ant": 10
+          },
+          "explanation": "The octopus is favored for its dexterity and adaptability, while dogs and cats offer companionship and some utility, and ants provide inspiration for swarm robotics.",
+          "latencyMs": 1422
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "dog": 32,
+            "octopus": 28,
+            "cat": 18,
+            "ant": 22
+          },
+          "explanation": "Dogs edge out other options due to their combination of intelligence, trainability, and intuitive human-robot interaction appeal, though octopuses' dexterity and ants' efficiency are compelling alternatives.",
+          "latencyMs": 2743
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "dog": 50,
+            "octopus": 25,
+            "cat": 20,
+            "ant": 5
+          },
+          "explanation": "Dogs provide the most practical blueprint with proven terrestrial locomotion, trainable command-following behavior, and natural household compatibility, while octopus arms inspire multi-tasking potential despite locomotion challenges.",
+          "latencyMs": 7660
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "dog": 20,
+            "octopus": 40,
+            "cat": 15,
+            "ant": 25
+          },
+          "explanation": "Octopuses offer high adaptability and problem-solving, while ants provide efficiency in teamwork, with dogs and cats offering more familiar but limited utility.",
+          "latencyMs": 982
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.284Z"
+    },
+    {
+      "id": "apocalypse-vehicle-001",
+      "category": "vehicles",
+      "question": "Which vehicle would be the best choice during an apocalypse?",
+      "options": [
+        {
+          "id": "pickup-truck",
+          "label": "Pickup truck",
+          "percentage": 49
+        },
+        {
+          "id": "electric-suv",
+          "label": "Electric SUV",
+          "percentage": 6
+        },
+        {
+          "id": "motorcycle",
+          "label": "Motorcycle",
+          "percentage": 17
+        },
+        {
+          "id": "school-bus",
+          "label": "School bus",
+          "percentage": 28
+        }
+      ],
+      "status": "ready",
+      "winner": "pickup-truck",
+      "explanation": "The pickup truck offers the best balance of utility, durability, and fuel flexibility for apocalyptic survival.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "pickup-truck": 60,
+            "electric-suv": 5,
+            "motorcycle": 20,
+            "school-bus": 15
+          },
+          "explanation": "A pickup truck is generally the most versatile and durable for an apocalypse, while a school bus offers space but is less agile, an electric SUV has range limitations, and a motorcycle is fast but offers little protection or cargo.",
+          "latencyMs": 1277
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "pickup-truck": 50,
+            "electric-suv": 5,
+            "motorcycle": 10,
+            "school-bus": 35
+          },
+          "explanation": "A pickup truck offers the best balance of cargo capacity, fuel efficiency, off-road capability, and self-sufficiency for apocalyptic survival, while a school bus provides excellent shelter and capacity but poor fuel economy, and an electric SUV is impractical without charging infrastructure.",
+          "latencyMs": 1792
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "pickup-truck": 45,
+            "electric-suv": 5,
+            "motorcycle": 20,
+            "school-bus": 30
+          },
+          "explanation": "Pickup trucks offer the best balance of cargo capacity, fuel efficiency, maneuverability, and repairability for apocalypse survival.",
+          "latencyMs": 3808
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "pickup-truck": 40,
+            "electric-suv": 10,
+            "motorcycle": 20,
+            "school-bus": 30
+          },
+          "explanation": "The pickup truck offers the best balance of utility, durability, and fuel flexibility for apocalyptic survival.",
+          "latencyMs": 843
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.285Z"
+    },
+    {
+      "id": "internet-symbol-001",
+      "category": "culture",
+      "question": "Which object best represents the internet?",
+      "options": [
+        {
+          "id": "spider-web",
+          "label": "Spider web",
+          "percentage": 39
+        },
+        {
+          "id": "library",
+          "label": "Library",
+          "percentage": 17
+        },
+        {
+          "id": "highway",
+          "label": "Highway",
+          "percentage": 28
+        },
+        {
+          "id": "shopping-mall",
+          "label": "Shopping mall",
+          "percentage": 16
+        }
+      ],
+      "status": "ready",
+      "winner": "spider-web",
+      "explanation": "The spider-web best captures the internet's interconnected, decentralized nature, though other options reflect its complexity and accessibility.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "spider-web": 40,
+            "library": 15,
+            "highway": 30,
+            "shopping-mall": 15
+          },
+          "explanation": "The spider web and highway are strong contenders due to their interconnectedness and pathways, while the shopping mall and library represent aspects of content and commerce.",
+          "latencyMs": 1153
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "spider-web": 35,
+            "library": 20,
+            "highway": 25,
+            "shopping-mall": 20
+          },
+          "explanation": "Spider-web best captures the internet's interconnected, decentralized nature, while highway, shopping-mall, and library each represent different aspects like connectivity, commerce, and information respectively.",
+          "latencyMs": 1482
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "spider-web": 40,
+            "library": 20,
+            "highway": 30,
+            "shopping-mall": 10
+          },
+          "explanation": "The internet is best represented as a spider‑web of connections, but also as a highway for data, a library of knowledge, and a shopping mall for commerce.",
+          "latencyMs": 3013
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "spider-web": 40,
+            "library": 15,
+            "highway": 25,
+            "shopping-mall": 20
+          },
+          "explanation": "The spider-web best captures the internet's interconnected, decentralized nature, though other options reflect its complexity and accessibility.",
+          "latencyMs": 730
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.285Z"
+    },
+    {
+      "id": "detective-001",
+      "category": "fiction",
+      "question": "Which fictional character would solve a mystery the fastest?",
+      "options": [
+        {
+          "id": "sherlock-holmes",
+          "label": "Sherlock Holmes",
+          "percentage": 41
+        },
+        {
+          "id": "batman",
+          "label": "Batman",
+          "percentage": 23
+        },
+        {
+          "id": "velma",
+          "label": "Velma",
+          "percentage": 16
+        },
+        {
+          "id": "benoit-blanc",
+          "label": "Benoit Blanc",
+          "percentage": 20
+        }
+      ],
+      "status": "ready",
+      "winner": "sherlock-holmes",
+      "explanation": "Sherlock Holmes edges out others due to his legendary deductive speed, but Velma and Benoit Blanc are close contenders.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "sherlock-holmes": 50,
+            "batman": 25,
+            "velma": 10,
+            "benoit-blanc": 15
+          },
+          "explanation": "Sherlock Holmes is widely considered the quintessential and most efficient fictional detective, followed by Batman's formidable intellect, Benoit Blanc's quirky brilliance, and Velma's consistent, albeit often slower, problem-solving.",
+          "latencyMs": 1443
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "sherlock-holmes": 35,
+            "batman": 25,
+            "velma": 25,
+            "benoit-blanc": 15
+          },
+          "explanation": "Sherlock Holmes edges out the others with his legendary deductive speed, though Velma's methodical approach, Batman's resources, and Benoit Blanc's cunning are all competitive in this playful matchup.",
+          "latencyMs": 2547
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "sherlock-holmes": 45,
+            "batman": 20,
+            "velma": 5,
+            "benoit-blanc": 30
+          },
+          "explanation": "Sherlock Holmes's pure deductive reasoning makes him the fastest mystery solver, followed by Benoit Blanc's modern methods, Batman's resource-intensive approach, and Velma's more accidental discoveries.",
+          "latencyMs": 2572
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "sherlock-holmes": 35,
+            "batman": 20,
+            "velma": 25,
+            "benoit-blanc": 20
+          },
+          "explanation": "Sherlock Holmes edges out others due to his legendary deductive speed, but Velma and Benoit Blanc are close contenders.",
+          "latencyMs": 792
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.285Z"
+    },
+    {
+      "id": "civilization-food-001",
+      "category": "food",
+      "question": "Which food would be hardest for humanity to give up?",
+      "options": [
+        {
+          "id": "bread",
+          "label": "Bread",
+          "percentage": 34
+        },
+        {
+          "id": "rice",
+          "label": "Rice",
+          "percentage": 28
+        },
+        {
+          "id": "chocolate",
+          "label": "Chocolate",
+          "percentage": 21
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "percentage": 17
+        }
+      ],
+      "status": "ready",
+      "winner": "bread",
+      "explanation": "Rice is the staple for billions, bread is also widespread, cheese is less universal, and chocolate is a treat.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "bread": 45,
+            "rice": 20,
+            "chocolate": 15,
+            "cheese": 20
+          },
+          "explanation": "Bread is likely the hardest to give up due to its widespread cultural significance and fundamental role as a staple food across many diets.",
+          "latencyMs": 2147
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "bread": 40,
+            "rice": 20,
+            "chocolate": 25,
+            "cheese": 15
+          },
+          "explanation": "Bread edges out as hardest to give up due to its foundational role across global cuisines and cultures, followed by chocolate for its addictive appeal, while rice and cheese are more regionally dependent.",
+          "latencyMs": 1599
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "bread": 30,
+            "rice": 55,
+            "chocolate": 5,
+            "cheese": 10
+          },
+          "explanation": "Rice is the staple for billions, bread is also widespread, cheese is less universal, and chocolate is a treat.",
+          "latencyMs": 8561
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "bread": 20,
+            "rice": 15,
+            "chocolate": 40,
+            "cheese": 25
+          },
+          "explanation": "Chocolate's universal appeal and addictive properties make it the hardest to give up, while rice is the most replaceable staple.",
+          "latencyMs": 979
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.285Z"
+    },
+    {
+      "id": "luxury-in-space-001",
+      "category": "space",
+      "question": "Which everyday item would feel most luxurious on a long space mission?",
+      "options": [
+        {
+          "id": "hot-shower",
+          "label": "Hot shower",
+          "percentage": 35
+        },
+        {
+          "id": "fresh-fruit",
+          "label": "Fresh fruit",
+          "percentage": 28
+        },
+        {
+          "id": "soft-bed",
+          "label": "Soft bed",
+          "percentage": 16
+        },
+        {
+          "id": "real-window",
+          "label": "Real window",
+          "percentage": 21
+        }
+      ],
+      "status": "ready",
+      "winner": "hot-shower",
+      "explanation": "Fresh fruit is the most psychologically valuable luxury due to sensory deprivation in space, while hot showers and windows tie for second.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "hot-shower": 40,
+            "fresh-fruit": 20,
+            "soft-bed": 15,
+            "real-window": 25
+          },
+          "explanation": "A hot shower would likely be the most missed and luxurious item on a long space mission due to its sensory experience and hygiene benefits.",
+          "latencyMs": 1001
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "hot-shower": 40,
+            "fresh-fruit": 25,
+            "soft-bed": 20,
+            "real-window": 15
+          },
+          "explanation": "A hot shower ranks highest as the most missed sensory comfort in space, while fresh fruit offers psychological luxury through taste and natural freshness that would be scarce on long missions.",
+          "latencyMs": 1605
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "hot-shower": 35,
+            "fresh-fruit": 30,
+            "soft-bed": 15,
+            "real-window": 20
+          },
+          "explanation": "Hot shower wins due to complete impossibility in microgravity and unparalleled sensory experience, narrowly beating fresh fruit's rare multi-sensory appeal, with window and bed as less transformative comforts.",
+          "latencyMs": 10977
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "hot-shower": 25,
+            "fresh-fruit": 35,
+            "soft-bed": 15,
+            "real-window": 25
+          },
+          "explanation": "Fresh fruit is the most psychologically valuable luxury due to sensory deprivation in space, while hot showers and windows tie for second.",
+          "latencyMs": 945
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.285Z"
+    },
+    {
+      "id": "world-capital-001",
+      "category": "cities",
+      "question": "Which city would make the best capital of the world?",
+      "options": [
+        {
+          "id": "new-york",
+          "label": "New York",
+          "percentage": 29
+        },
+        {
+          "id": "geneva",
+          "label": "Geneva",
+          "percentage": 28
+        },
+        {
+          "id": "singapore",
+          "label": "Singapore",
+          "percentage": 24
+        },
+        {
+          "id": "istanbul",
+          "label": "Istanbul",
+          "percentage": 19
+        }
+      ],
+      "status": "ready",
+      "winner": "new-york",
+      "explanation": "New York is the most globally recognized and influential city, while the others offer unique but less universal appeal as a world capital.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "new-york": 30,
+            "geneva": 25,
+            "singapore": 25,
+            "istanbul": 20
+          },
+          "explanation": "New York is favored for its global influence, while Geneva and Singapore are strong contenders for neutrality and efficiency, and Istanbul offers a unique East-meets-West appeal.",
+          "latencyMs": 1037
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "new-york": 28,
+            "geneva": 25,
+            "singapore": 25,
+            "istanbul": 22
+          },
+          "explanation": "New York edges ahead due to its global cultural and financial influence, while the others are competitive for their geographic centrality, neutrality, or strategic positioning.",
+          "latencyMs": 1479
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "new-york": 20,
+            "geneva": 40,
+            "singapore": 30,
+            "istanbul": 10
+          },
+          "explanation": "Geneva leads due to Switzerland's neutrality and existing international institutions, Singapore follows as a modern multicultural hub, while New York and Istanbul trail due to geopolitical biases and current political challenges respectively.",
+          "latencyMs": 4835
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "new-york": 40,
+            "geneva": 20,
+            "singapore": 15,
+            "istanbul": 25
+          },
+          "explanation": "New York is the most globally recognized and influential city, while the others offer unique but less universal appeal as a world capital.",
+          "latencyMs": 1009
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.286Z"
+    },
+    {
+      "id": "best-teacher-001",
+      "category": "fiction",
+      "question": "Which fictional character would make the best school teacher?",
+      "options": [
+        {
+          "id": "yoda",
+          "label": "Yoda",
+          "percentage": 15
+        },
+        {
+          "id": "mary-poppins",
+          "label": "Mary Poppins",
+          "percentage": 25
+        },
+        {
+          "id": "uncle-iroh",
+          "label": "Uncle Iroh",
+          "percentage": 15
+        },
+        {
+          "id": "ms-frizzle",
+          "label": "Ms. Frizzle",
+          "percentage": 45
+        }
+      ],
+      "status": "ready",
+      "winner": "ms-frizzle",
+      "explanation": "Ms. Frizzle leads with the highest probability due to her energetic, hands-on teaching style, followed by Mary Poppins for her magical yet structured approach.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "yoda": 15,
+            "mary-poppins": 30,
+            "uncle-iroh": 20,
+            "ms-frizzle": 35
+          },
+          "explanation": "Ms. Frizzle and Mary Poppins are strong contenders due to their direct experience and magical teaching methods, while Uncle Iroh and Yoda offer wisdom and unique perspectives.",
+          "latencyMs": 1044
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "yoda": 20,
+            "mary-poppins": 25,
+            "uncle-iroh": 15,
+            "ms-frizzle": 40
+          },
+          "explanation": "Ms. Frizzle edges out the others due to her explicit teaching role, infectious enthusiasm for learning, and adventurous pedagogy that makes education engaging and memorable.",
+          "latencyMs": 1641
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "yoda": 5,
+            "mary-poppins": 15,
+            "uncle-iroh": 10,
+            "ms-frizzle": 70
+          },
+          "explanation": "Ms. Frizzle's hands-on magical teaching style makes her the best school teacher, while the others have mentorship qualities but are less suited for a classroom.",
+          "latencyMs": 5635
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "yoda": 20,
+            "mary-poppins": 30,
+            "uncle-iroh": 15,
+            "ms-frizzle": 35
+          },
+          "explanation": "Ms. Frizzle leads with the highest probability due to her energetic, hands-on teaching style, followed by Mary Poppins for her magical yet structured approach.",
+          "latencyMs": 952
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.286Z"
+    },
+    {
+      "id": "brand-personality-001",
+      "category": "brands",
+      "question": "Which brand has the strongest personality?",
+      "options": [
+        {
+          "id": "apple",
+          "label": "Apple",
+          "percentage": 24
+        },
+        {
+          "id": "nike",
+          "label": "Nike",
+          "percentage": 24
+        },
+        {
+          "id": "lego",
+          "label": "LEGO",
+          "percentage": 22
+        },
+        {
+          "id": "red-bull",
+          "label": "Red Bull",
+          "percentage": 30
+        }
+      ],
+      "status": "ready",
+      "winner": "red-bull",
+      "explanation": "Red Bull leads due to its bold, energetic branding, while Apple, LEGO, and Nike follow closely with distinct but slightly less dominant personalities.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "apple": 20,
+            "nike": 25,
+            "lego": 20,
+            "red-bull": 35
+          },
+          "explanation": "Red Bull is perceived to have the strongest personality due to its extreme sports association and high-energy branding, followed closely by Nike's aspirational messaging, and then Apple and LEGO with their distinct but slightly less overtly 'strong' personalities.",
+          "latencyMs": 1843
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "apple": 25,
+            "nike": 20,
+            "lego": 35,
+            "red-bull": 20
+          },
+          "explanation": "LEGO edges out the others with its distinctive playful, creative, and universally beloved identity that spans generations, though all four brands have exceptionally strong personalities.",
+          "latencyMs": 2168
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "apple": 25,
+            "nike": 30,
+            "lego": 10,
+            "red-bull": 35
+          },
+          "explanation": "Red Bull's extreme, singularly-focused personality edges out Nike's inspirational and Apple's premium personas, while LEGO's playful identity is strong but gentler.",
+          "latencyMs": 5731
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "apple": 25,
+            "nike": 20,
+            "lego": 25,
+            "red-bull": 30
+          },
+          "explanation": "Red Bull leads due to its bold, energetic branding, while Apple, LEGO, and Nike follow closely with distinct but slightly less dominant personalities.",
+          "latencyMs": 924
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:30.286Z"
+    },
+    {
+      "id": "future-museum-001",
+      "category": "technology",
+      "question": "Which current technology is most likely to look ridiculous in a museum 100 years from now?",
+      "options": [
+        {
+          "id": "vr-headset",
+          "label": "VR headset",
+          "percentage": 36
+        },
+        {
+          "id": "smartwatch",
+          "label": "Smartwatch",
+          "percentage": 19
+        },
+        {
+          "id": "electric-scooter",
+          "label": "Electric scooter",
+          "percentage": 33
+        },
+        {
+          "id": "delivery-drone",
+          "label": "Delivery drone",
+          "percentage": 12
+        }
+      ],
+      "status": "ready",
+      "winner": "vr-headset",
+      "explanation": "VR headsets are bulky and primitive compared to likely future neural interfaces, making them most likely to appear ridiculous in a museum.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "vr-headset": 35,
+            "smartwatch": 10,
+            "electric-scooter": 40,
+            "delivery-drone": 15
+          },
+          "explanation": "Electric scooters are likely to appear most ridiculous due to their current clunky design and potential for rapid evolution or obsolescence, while VR headsets also have significant room for design improvement.",
+          "latencyMs": 12051
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "vr-headset": 30,
+            "smartwatch": 20,
+            "electric-scooter": 35,
+            "delivery-drone": 15
+          },
+          "explanation": "Electric scooters and VR headsets are most likely to seem quaintly primitive due to their awkward form factors and limited capabilities compared to future alternatives, while smartwatches and drones have more timeless functional designs.",
+          "latencyMs": 1740
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "vr-headset": 50,
+            "smartwatch": 15,
+            "electric-scooter": 30,
+            "delivery-drone": 5
+          },
+          "explanation": "VR headsets are bulky and primitive compared to likely future neural interfaces, making them most likely to appear ridiculous in a museum.",
+          "latencyMs": 5997
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "vr-headset": 30,
+            "smartwatch": 30,
+            "electric-scooter": 25,
+            "delivery-drone": 15
+          },
+          "explanation": "Wearables and immersive tech are rapidly evolving, making VR headsets and smartwatches likely to seem outdated, while drones and scooters may persist in recognizable forms.",
+          "latencyMs": 886
+        }
+      ],
+      "generatedAt": "2026-06-22T18:41:50.982Z"
+    }
+  ]
+}
