@@ -20,14 +20,11 @@ type Props = {
   editionLabel: string;
   revealMs?: number;
   forceReducedMotion?: boolean;
-  showShortcuts?: boolean;
 };
 
 type Screen = "landing" | "playing" | "score";
 type Phase = "predict" | "locked" | "reveal";
 
-const LETTERS = ["A", "B", "C", "D"];
-const ACCENTS = ["#F04A2E", "#26C2CE", "#F2A93B", "#67C24A"];
 const VERDICTS = [
   "The machine is unknowable to you.",
   "You think like a human.",
@@ -37,6 +34,7 @@ const VERDICTS = [
   "You ARE the machine.",
 ];
 const BEATS = [6, 19, 43, 68, 85, 97];
+const WORDS = ["machine", "model", "AI", "consensus", "LLM"];
 
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 const pad2 = (n: number) => String(n).padStart(2, "0");
@@ -49,7 +47,6 @@ export function MachineConsensus({
   editionLabel,
   revealMs = 1500,
   forceReducedMotion = false,
-  showShortcuts = true,
 }: Props) {
   const total = questions.length;
 
@@ -65,12 +62,16 @@ export function MachineConsensus({
   const [endless, setEndless] = useState(false);
   const [copied, setCopied] = useState(false);
   const [reduced, setReduced] = useState(false);
+  const [displayWord, setDisplayWord] = useState(WORDS[0]);
+  const [wordIndex, setWordIndex] = useState(0);
 
   const rafRef = useRef<number | null>(null);
   const lockTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const revealTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const qRef = useRef<HTMLHeadingElement | null>(null);
+  const wordTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const typeTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const roundBodyRef = useRef<HTMLDivElement | null>(null);
 
   const isReduced = useCallback(
     () => reduced || forceReducedMotion,
@@ -83,6 +84,19 @@ export function MachineConsensus({
     if (revealTimerRef.current) clearTimeout(revealTimerRef.current);
   }, []);
 
+  const typeWord = useCallback((target: string) => {
+    if (typeTimerRef.current) clearInterval(typeTimerRef.current);
+    setDisplayWord("");
+    let i = 0;
+    typeTimerRef.current = setInterval(() => {
+      i++;
+      setDisplayWord(target.slice(0, i));
+      if (i >= target.length && typeTimerRef.current) {
+        clearInterval(typeTimerRef.current);
+      }
+    }, 72);
+  }, []);
+
   useEffect(() => {
     try {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
@@ -93,8 +107,25 @@ export function MachineConsensus({
     return () => {
       clearTimers();
       if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+      if (wordTimerRef.current) clearInterval(wordTimerRef.current);
+      if (typeTimerRef.current) clearInterval(typeTimerRef.current);
     };
   }, [clearTimers]);
+
+  useEffect(() => {
+    if (screen !== "landing" || isReduced()) return;
+    wordTimerRef.current = setInterval(() => {
+      setWordIndex((prev) => {
+        const next = (prev + 1) % WORDS.length;
+        typeWord(WORDS[next]);
+        return next;
+      });
+    }, 3000);
+    return () => {
+      if (wordTimerRef.current) clearInterval(wordTimerRef.current);
+      if (typeTimerRef.current) clearInterval(typeTimerRef.current);
+    };
+  }, [screen, isReduced, typeWord]);
 
   const runReveal = useCallback(() => {
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -192,7 +223,6 @@ export function MachineConsensus({
     copyTimerRef.current = setTimeout(() => setCopied(false), 1800);
   }, [results, total]);
 
-  // keyboard — keep a fresh handler in a ref so the listener reads latest state
   const keyHandlerRef = useRef<(e: KeyboardEvent) => void>(() => {});
   keyHandlerRef.current = (e: KeyboardEvent) => {
     if (shareOpen) {
@@ -206,10 +236,7 @@ export function MachineConsensus({
     if (screen === "playing") {
       if (phase === "predict") {
         const n = parseInt(e.key, 10);
-        if (n >= 1 && n <= 4) {
-          e.preventDefault();
-          choose(n - 1);
-        }
+        if (n >= 1 && n <= 4) { e.preventDefault(); choose(n - 1); }
       } else if (phase === "reveal" && revealDone) {
         if (e.key === "Enter" || e.key === " " || e.key === "ArrowRight") {
           e.preventDefault();
@@ -224,17 +251,16 @@ export function MachineConsensus({
     return () => window.removeEventListener("keydown", h);
   }, []);
 
-  // question flip animation on question / screen change
   useEffect(() => {
     if (screen !== "playing" || isReduced()) return;
-    const el = qRef.current;
+    const el = roundBodyRef.current;
     if (!el) return;
     el.style.animation = "none";
     void el.offsetWidth;
-    el.style.animation = "mcFlip .5s cubic-bezier(.2,.8,.2,1)";
+    el.style.animation = "pk-fadeUp .4s cubic-bezier(.22,.61,.36,1)";
   }, [qIndex, screen, isReduced]);
 
-  // ----- derived values -----
+  // Derived
   const q = questions[qIndex % total];
   const win = q.winnerIndex;
   const maxPct = q.pct[win];
@@ -252,414 +278,303 @@ export function MachineConsensus({
   const beatPct = BEATS[correctCount] || 0;
   const totalLabel = endless ? "∞" : pad2(total);
 
+  const choiceClass = (i: number): string => {
+    const cls = ["mc-choice"];
+    if (inReveal) {
+      if (i === win) cls.push("mc-choice--winner");
+      else if (i === picked) cls.push("mc-choice--wrong");
+      else cls.push("mc-choice--faded");
+      cls.push("mc-choice--locked");
+    } else if (phase === "locked") {
+      if (i === picked) cls.push("mc-choice--selected");
+      else cls.push("mc-choice--faded");
+      cls.push("mc-choice--locked");
+    }
+    return cls.join(" ");
+  };
+
+  const roundBadgeClass = (): string => {
+    if (inReveal) {
+      return pickedCorrect
+        ? "mc-round-badge mc-round-badge--correct"
+        : "mc-round-badge mc-round-badge--wrong";
+    }
+    return "mc-round-badge";
+  };
+
+  const roundBadgeLabel = (): string => {
+    if (inReveal) return pickedCorrect ? "✓ Correct" : "✗ Missed";
+    return endless ? `Round ${qIndex + 1}` : `Question ${qIndex + 1} of ${total}`;
+  };
+
   return (
     <div className="mc-root">
-      <header className="mc-header">
-        <div className="mc-brand">
-          <span className="mc-logo-dot" />
-          <span className="mc-wordmark">MACHINE CONSENSUS</span>
-        </div>
 
-        {screen === "playing" ? (
-          <div className="mc-head-meta">
-            <div className="mc-pips">
-              {questions.map((_, i) => (
-                <span
-                  key={i}
-                  className="mc-pip"
-                  style={{
-                    background:
-                      i < answered
-                        ? "#F1ECDF"
-                        : i === cur
-                          ? "#F2A93B"
-                          : "rgba(241,236,223,0.2)",
-                  }}
-                />
-              ))}
-            </div>
-            <span className="mc-counter">
-              {pad2(qIndex + 1)} / {totalLabel}
-            </span>
+      {/* ── Header ── */}
+      <header className="mc-header">
+        <div className="mc-header-inner">
+          <div className="mc-brand">
+            <span className="mc-logo-dot" />
+            Machine Consensus
           </div>
-        ) : (
-          <span className="mc-edition">
-            EDITION {editionLabel} · {dateShort}
-          </span>
-        )}
+
+          {screen === "playing" ? (
+            <div className="mc-progress">
+              <div className="mc-pips">
+                {questions.map((_, i) => (
+                  <span
+                    key={i}
+                    className={`mc-pip${i < answered ? " mc-pip--done" : i === cur ? " mc-pip--active" : ""}`}
+                  />
+                ))}
+              </div>
+              <span className="mc-counter">
+                {pad2(qIndex + 1)} / {totalLabel}
+              </span>
+            </div>
+          ) : screen === "score" ? (
+            <span className="mc-edition">{dateShort} · Edition {editionLabel}</span>
+          ) : (
+            <nav className="mc-nav-links">
+              <a href="#" onClick={(e) => e.preventDefault()}>How to play</a>
+              <a href="#" onClick={(e) => e.preventDefault()}>About</a>
+            </nav>
+          )}
+
+          <div style={{ width: 140, flexShrink: 0 }} />
+        </div>
       </header>
 
+      {/* ── Main ── */}
       <main className="mc-main">
-        {/* ============ LANDING ============ */}
+
+        {/* LANDING */}
         {screen === "landing" && (
-          <section className="mc-section mc-landing">
-            <div className="mc-landing-mid">
-              <div
-                className="mc-kicker"
-                style={{ marginBottom: "clamp(12px,2.4vh,24px)" }}
-              >
-                DAILY EDITION — {dateLabel}
+          <>
+            <div className="mc-ambient" aria-hidden>
+              <span style={{ top: "11%", left: "3%",  opacity: 0.055, animation: "pk-float1 24s ease-in-out infinite" }}>Which model ranks empathy highest?</span>
+              <span style={{ top: "74%", left: "2%",  opacity: 0.045, animation: "pk-float3 30s ease-in-out infinite", animationDelay: "-6s" }}>What do AIs agree on?</span>
+              <span style={{ top: "88%", left: "22%", opacity: 0.04,  animation: "pk-float2 34s ease-in-out infinite", animationDelay: "-14s" }}>Name the most creative model.</span>
+              <span style={{ top: "18%", right: "2%", opacity: 0.055, animation: "pk-float4 27s ease-in-out infinite", animationDelay: "-3s" }}>Which AI prefers poetry over code?</span>
+              <span style={{ top: "62%", right: "3%", opacity: 0.05,  animation: "pk-float1 32s ease-in-out infinite", animationDelay: "-11s" }}>What is the consensus on beauty?</span>
+              <span style={{ top: "6%",  left: "36%", opacity: 0.038, animation: "pk-float3 38s ease-in-out infinite", animationDelay: "-20s" }}>Can machines dream of logic?</span>
+              <span style={{ top: "84%", right: "10%",opacity: 0.048, animation: "pk-float2 29s ease-in-out infinite", animationDelay: "-8s" }}>Which answer ranked first?</span>
+              <span style={{ top: "44%", left: "1%",  opacity: 0.04,  animation: "pk-float4 36s ease-in-out infinite", animationDelay: "-17s" }}>Give a synonym for &ldquo;consensus.&rdquo;</span>
+            </div>
+
+            <div className="mc-landing">
+              <div className="mc-badge">
+                <span className="mc-badge-dot" />
+                The AI prediction game
               </div>
-              <h1
-                className="mc-display"
-                style={{ fontSize: "clamp(34px,7.4vh,86px)", maxWidth: "15ch" }}
-              >
-                Can you predict what{" "}
-                <span className="accent">the machines</span> agree on?
+
+              <h1 className="mc-display">
+                Think like a<br />
+                {displayWord || " "}.
               </h1>
-              <p
-                className="mc-lede"
-                style={{ margin: "clamp(16px,2.6vh,26px) 0 0" }}
-              >
-                Five questions. Five hidden machine votes. Guess which answer the
-                AI models ranked first — then watch the electorate reveal its
-                tally.
+
+              <p className="mc-lede">
+                Five questions. A panel of AI models votes in secret.
+                Predict the consensus — then watch the tally revealed.
               </p>
-              <div className="mc-cta-row">
-                <button className="mc-btn mc-btn--light mc-hx7 mc-play" onClick={start}>
-                  Play today&rsquo;s five<span className="mc-arrow">→</span>
+
+              <div className="mc-cta-wrap">
+                <button className="mc-btn-play" onClick={start}>
+                  Play today&rsquo;s five
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </button>
-                <span className="mc-hint">5 QUESTIONS · PRESS ENTER</span>
+              </div>
+
+              <div className="mc-meta-row">
+                <span>5 questions</span>
+                <span className="mc-meta-sep" />
+                <span>~2 minutes</span>
+                <span className="mc-meta-sep" />
+                <span>No account needed</span>
+              </div>
+
+              <div className="mc-poll">
+                <span className="mc-poll-label">Polling</span>
+                {models.map((m) => (
+                  <span key={m} className="mc-chip">{m}</span>
+                ))}
               </div>
             </div>
-            <div className="mc-poll">
-              <span className="mc-poll-label">POLLING —</span>
-              {models.map((model) => (
-                <span key={model} className="mc-chip">
-                  {model}
-                </span>
-              ))}
-            </div>
-          </section>
+          </>
         )}
 
-        {/* ============ PLAYING ============ */}
+        {/* PLAYING */}
         {screen === "playing" && (
-          <section className="mc-section mc-playing">
-            <div className="mc-topbar">
-              {inChoose && (
-                <div className="mc-phase mc-phase--predict">
-                  PREDICT THE AI FAVORITE
-                </div>
-              )}
-              {inReveal && (
-                <div className="mc-phase mc-phase--reveal">
-                  THE MACHINE HAS VOTED
-                </div>
-              )}
-              {phase === "predict" && !isReduced() && (
-                <div className="mc-needle">
-                  <div className="mc-needle-sweep" />
-                </div>
-              )}
+          <section className="mc-game-card">
+            <div className="mc-card-top">
+              <span className={roundBadgeClass()}>{roundBadgeLabel()}</span>
+              <div className="mc-streak-area">
+                <span className="mc-streak-label">Streak</span>
+                <span className="mc-streak-num">
+                  {results.filter((r) => r.correct).length}
+                </span>
+              </div>
             </div>
 
-            <h1
-              ref={qRef}
-              className="mc-question"
-              style={{
-                fontSize: inReveal
-                  ? "clamp(22px,3.6vh,40px)"
-                  : "clamp(28px,5.4vh,62px)",
-              }}
-            >
-              {q.prompt}
-            </h1>
+            <div ref={roundBodyRef} className="mc-round-body" key={qIndex}>
+              <div className="mc-phase-label">
+                {inReveal ? "The machine has voted" : "Predict the AI favorite"}
+              </div>
 
-            {/* choose / locked */}
-            {inChoose && (
-              <>
-                <div className="mc-cards">
-                  {q.options.map((opt, i) => {
-                    const accent = ACCENTS[i];
-                    const isPicked = picked === i;
-                    const lockStyle: React.CSSProperties = {};
-                    if (phase === "locked") {
-                      if (isPicked) {
-                        lockStyle.background = accent;
-                        lockStyle.color = "#15130E";
-                        lockStyle.transform = "translateY(-8px)";
-                        lockStyle.borderColor = accent;
-                        lockStyle.pointerEvents = "none";
-                      } else {
-                        lockStyle.opacity = 0.26;
-                        lockStyle.filter = "grayscale(.6)";
-                        lockStyle.pointerEvents = "none";
-                      }
-                    }
-                    return (
-                      <button
-                        key={i}
-                        className={`mc-card${phase === "locked" ? " mc-card--locked" : ""}`}
-                        onClick={() => choose(i)}
-                        style={
-                          {
-                            "--accent": accent,
-                            ...lockStyle,
-                          } as React.CSSProperties
-                        }
-                      >
-                        <div className="mc-card-top">
-                          <span className="mc-card-letter">{LETTERS[i]}</span>
-                          <span className="mc-card-shortcut">{i + 1}</span>
-                        </div>
-                        <div>
-                          <div className="mc-card-name">{opt.name}</div>
-                          <div className="mc-card-mark">{opt.mark}</div>
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-                {showShortcuts && (
-                  <div className="mc-keys">
-                    KEYS 1–4 TO PREDICT · ENTER ADVANCES
-                  </div>
-                )}
-              </>
-            )}
+              <div className="mc-prompt-box">
+                <p className="mc-prompt-text">{q.prompt}</p>
+              </div>
 
-            {/* reveal */}
-            {inReveal && (
-              <div className="mc-reveal">
-                <div className="mc-bars">
-                  {q.options.map((opt, i) => {
-                    const accent = ACCENTS[i];
-                    const isPicked = picked === i;
-                    const isWinner = i === win;
-                    return (
-                      <div
-                        key={i}
-                        style={{ ["--accent" as string]: accent } as React.CSSProperties}
-                      >
-                        <div className="mc-bar-head">
-                          <div className="mc-bar-labels">
-                            <span
-                              className="mc-bar-name"
-                              style={
-                                isWinner || isPicked ? undefined : { opacity: 0.55 }
-                              }
-                            >
-                              {opt.name}
-                            </span>
-                            {isPicked && (
-                              <span
-                                className="mc-tag"
-                                style={
-                                  pickedCorrect
-                                    ? { color: "#67C24A", borderColor: "#67C24A" }
-                                    : { color: "#F04A2E", borderColor: "#F04A2E" }
-                                }
-                              >
-                                {pickedCorrect ? "YOUR PICK ✓" : "YOUR PICK ✗"}
-                              </span>
-                            )}
-                            {isWinner && (
-                              <span className="mc-tag mc-tag--consensus">
-                                CONSENSUS
-                              </span>
-                            )}
-                          </div>
-                          <span className="mc-bar-pct">
-                            {Math.round(q.pct[i] * eased)}
-                            <span className="sign">%</span>
+              {inChoose && (
+                <p className="mc-choices-hint">
+                  Which answer did the AI panel rank first?
+                </p>
+              )}
+
+              <div className="mc-choices">
+                {q.options.map((opt, i) => (
+                  <button
+                    key={i}
+                    className={choiceClass(i)}
+                    onClick={() => choose(i)}
+                    disabled={phase !== "predict"}
+                  >
+                    {opt.name}
+                  </button>
+                ))}
+              </div>
+
+              {inReveal && (
+                <>
+                  <div className="mc-reveal-bars">
+                    {q.options.map((opt, i) => (
+                      <div key={i} className="mc-bar-item">
+                        <div className="mc-bar-header">
+                          <span className={`mc-bar-name${i === win ? " mc-bar-name--winner" : ""}`}>
+                            {opt.name}
+                          </span>
+                          <span className={`mc-bar-pct${i === win ? " mc-bar-pct--winner" : ""}`}>
+                            {Math.round(q.pct[i] * eased)}%
                           </span>
                         </div>
                         <div className="mc-bar-track">
                           <div
-                            className="mc-bar-fill"
-                            style={{
-                              width: `${((q.pct[i] / maxPct) * eased * 100).toFixed(2)}%`,
-                            }}
+                            className={`mc-bar-fill${i === win ? " mc-bar-fill--winner" : ""}`}
+                            style={{ width: `${((q.pct[i] / maxPct) * eased * 100).toFixed(2)}%` }}
                           />
                         </div>
                       </div>
-                    );
-                  })}
-                </div>
-
-                {revealDone && (
-                  <div className="mc-explain">
-                    <div
-                      className="mc-result-line"
-                      style={{ color: pickedCorrect ? "#67C24A" : "#F04A2E" }}
-                    >
-                      {pickedCorrect ? "✓" : "✗"}{" "}
-                      {pickedCorrect
-                        ? "YOU READ THE MACHINE"
-                        : "THE MACHINE DISAGREED"}
-                    </div>
-                    <div className="mc-winrow">
-                      <span className="mc-winname">{q.options[win].name}</span>
-                      <span
-                        className="mc-winpct"
-                        style={{ color: ACCENTS[win] }}
-                      >
-                        {q.pct[win]}%
-                      </span>
-                    </div>
-                    <p className="mc-explain-text">{q.explanation}</p>
-                    <div className="mc-dissent">
-                      <span className="mc-dissent-tag">DISSENT</span>
-                      <p className="mc-dissent-text">{q.disagreement}</p>
-                    </div>
-                    <button className="mc-btn mc-btn--light mc-hx6 mc-next" onClick={next}>
-                      {!endless && qIndex >= total - 1
-                        ? "See verdict"
-                        : "Next question"}
-                      <span className="mc-arrow">→</span>
-                    </button>
+                    ))}
                   </div>
-                )}
-              </div>
-            )}
+
+                  {revealDone && (
+                    <div className="mc-explain">
+                      <div className={`mc-result-line${pickedCorrect ? " mc-result-line--correct" : " mc-result-line--wrong"}`}>
+                        {pickedCorrect ? "✓ You read the machine" : "✗ The machine disagreed"}
+                      </div>
+                      <p className="mc-explain-text">{q.explanation}</p>
+                      <div className="mc-dissent-row">
+                        <span className="mc-dissent-tag">Dissent</span>
+                        <p className="mc-dissent-text">{q.disagreement}</p>
+                      </div>
+                      <button className="mc-btn-next" onClick={next}>
+                        {!endless && qIndex >= total - 1 ? "See verdict" : "Next question"} →
+                      </button>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
           </section>
         )}
 
-        {/* ============ SCORE ============ */}
+        {/* SCORE */}
         {screen === "score" && (
-          <section className="mc-section mc-score">
-            <div className="mc-kicker">TODAY&rsquo;S VERDICT — {dateLabel}</div>
-            <div className="mc-score-row">
-              <div className="mc-score-num">
-                {correctCount} / {total}
-              </div>
-              <div className="mc-verdict-wrap">
-                <div className="mc-verdict">{verdict}</div>
-              </div>
+          <section className="mc-score-card">
+            <div className="mc-score-over">Today&rsquo;s Verdict — {dateLabel}</div>
+            <div className="mc-score-big">
+              {correctCount}
+              <span className="mc-score-denom"> / {total}</span>
             </div>
+            <div className="mc-score-correct">correct answers</div>
+            <div className="mc-score-verdict">{verdict}</div>
 
             <div className="mc-symbols">
               {dailyResults.map((r, i) => (
-                <div
-                  key={i}
-                  className="mc-symbol"
-                  style={
-                    r.correct
-                      ? {
-                          background: "#67C24A",
-                          color: "#15130E",
-                          borderColor: "#67C24A",
-                        }
-                      : {
-                          background: "transparent",
-                          color: "#F04A2E",
-                          borderColor: "rgba(240,74,46,0.7)",
-                        }
-                  }
-                >
+                <div key={i} className={`mc-symbol${r.correct ? " mc-symbol--correct" : " mc-symbol--wrong"}`}>
                   {r.correct ? "✓" : "✗"}
                 </div>
               ))}
             </div>
 
             <div className="mc-stats">
-              <div>
-                <div className="mc-stat-label">CURRENT STREAK</div>
-                <div className="mc-stat-num">
-                  {streak}
-                  <span className="mc-stat-unit">DAYS</span>
+              <div className="mc-stat">
+                <div className="mc-stat-label">Streak</div>
+                <div className="mc-stat-value">
+                  {streak}<span className="mc-stat-unit">days</span>
                 </div>
               </div>
-              <div>
-                <div className="mc-stat-label">YOU BEAT</div>
-                <div className="mc-stat-num mc-stat-num--amber">{beatPct}%</div>
-                <div className="mc-stat-sub">OF HUMAN PLAYERS TODAY</div>
+              <div className="mc-stat">
+                <div className="mc-stat-label">You beat</div>
+                <div className="mc-stat-value">
+                  {beatPct}<span className="mc-stat-unit">%</span>
+                </div>
               </div>
             </div>
 
-            <div className="mc-actions">
+            <div className="mc-score-actions">
               <button
-                className="mc-btn mc-btn--light mc-hy3 mc-action"
-                onClick={() => {
-                  setShareOpen(true);
-                  setCopied(false);
-                }}
+                className="mc-btn-share"
+                onClick={() => { setShareOpen(true); setCopied(false); }}
               >
                 Share result
               </button>
-              <button
-                className="mc-btn mc-btn--ghost mc-hy3 mc-action"
-                onClick={endlessMode}
-              >
-                Endless mode<span className="mc-arrow">→</span>
+              <button className="mc-btn-ghost" onClick={endlessMode}>
+                Endless mode →
               </button>
             </div>
           </section>
         )}
+
       </main>
 
-      {/* ============ SHARE OVERLAY ============ */}
+      {/* ── Share overlay ── */}
       {shareOpen && (
         <div className="mc-overlay" onClick={() => setShareOpen(false)}>
-          <div
-            className="mc-share-card"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="mc-share-stripe">
-              <span style={{ background: "#F04A2E" }} />
-              <span style={{ background: "#26C2CE" }} />
-              <span style={{ background: "#F2A93B" }} />
-              <span style={{ background: "#67C24A" }} />
+          <div className="mc-share-card" onClick={(e) => e.stopPropagation()}>
+            <div className="mc-share-brand">
+              <span className="mc-logo-dot" />
+              Machine Consensus
             </div>
-            <div className="mc-share-body">
-              <div className="mc-share-brand">
-                <span className="dot" />
-                <span className="name">MACHINE CONSENSUS</span>
-              </div>
-              <div className="mc-share-edition">
-                EDITION {editionLabel} · {dateLabel}
-              </div>
-              <div className="mc-share-scorerow">
-                <span className="mc-share-score">
-                  {correctCount} / {total}
-                </span>
-                <span className="mc-share-tag">{verdict}</span>
-              </div>
-              <div className="mc-share-grid">
-                {dailyResults.map((r, i) => (
-                  <div
-                    key={i}
-                    className="mc-share-cell"
-                    style={
-                      r.correct
-                        ? {
-                            background: "#67C24A",
-                            color: "#15130E",
-                            borderColor: "#67C24A",
-                          }
-                        : {
-                            background: "transparent",
-                            color: "#F04A2E",
-                            borderColor: "rgba(240,74,46,0.7)",
-                          }
-                    }
-                  >
-                    {r.correct ? "✓" : "✗"}
-                  </div>
-                ))}
-              </div>
-              <div className="mc-share-foot">
-                NO ANSWERS REVEALED · MACHINECONSENSUS.GAME
-              </div>
-              <div className="mc-share-actions">
-                <button
-                  className="mc-btn mc-btn--light mc-share-copy"
-                  onClick={copyShare}
-                >
-                  {copied ? "COPIED ✓" : "Copy result"}
-                </button>
-                <button
-                  className="mc-btn mc-btn--ghost mc-share-close"
-                  onClick={() => setShareOpen(false)}
-                >
-                  Close
-                </button>
-              </div>
+            <div className="mc-share-edition">
+              Edition {editionLabel} · {dateLabel}
+            </div>
+            <div className="mc-share-scorerow">
+              <span className="mc-share-score">{correctCount}</span>
+              <span className="mc-share-tag">{verdict}</span>
+            </div>
+            <div className="mc-share-grid">
+              {dailyResults.map((r, i) => (
+                <div key={i} className={`mc-share-cell${r.correct ? " mc-share-cell--correct" : " mc-share-cell--wrong"}`}>
+                  {r.correct ? "✓" : "✗"}
+                </div>
+              ))}
+            </div>
+            <div className="mc-share-foot">No answers revealed · machineconsensus.game</div>
+            <div className="mc-share-actions">
+              <button className="mc-btn-copy" onClick={copyShare}>
+                {copied ? "Copied ✓" : "Copy result"}
+              </button>
+              <button className="mc-btn-close" onClick={() => setShareOpen(false)}>
+                Close
+              </button>
             </div>
           </div>
         </div>
       )}
+
     </div>
   );
 }
