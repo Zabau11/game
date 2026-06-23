@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-22T18:41:50.982Z",
+  "updatedAt": "2026-06-23T18:29:24.000Z",
   "consensusLabel": "AI consensus estimate",
   "models": [
     "gemini-2.5-flash",
@@ -1628,6 +1628,816 @@
         }
       ],
       "generatedAt": "2026-06-22T18:41:50.982Z"
+    },
+    {
+      "id": "time-capsule-001",
+      "category": "culture",
+      "question": "Which everyday object would confuse archaeologists 1,000 years from now?",
+      "options": [
+        {
+          "id": "airpods-case",
+          "label": "AirPods case",
+          "percentage": 31
+        },
+        {
+          "id": "credit-card",
+          "label": "Credit card",
+          "percentage": 19
+        },
+        {
+          "id": "usb-c-cable",
+          "label": "USB-C cable",
+          "percentage": 27
+        },
+        {
+          "id": "ring-light",
+          "label": "Ring light",
+          "percentage": 23
+        }
+      ],
+      "status": "ready",
+      "winner": "airpods-case",
+      "explanation": "The AirPods case narrowly wins because its purpose is hard to infer without the missing earbuds and wireless ecosystem, while cables and cards leave more obvious clues.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "airpods-case": 35,
+            "credit-card": 15,
+            "usb-c-cable": 25,
+            "ring-light": 25
+          },
+          "explanation": "An AirPods case would be especially mysterious without its paired devices, while a cable, card, and ring light have more visible functional hints.",
+          "latencyMs": 1210
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "airpods-case": 30,
+            "credit-card": 20,
+            "usb-c-cable": 30,
+            "ring-light": 20
+          },
+          "explanation": "USB-C cables and AirPods cases both depend on vanished technical ecosystems, with credit cards and ring lights being easier to interpret physically.",
+          "latencyMs": 1588
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "airpods-case": 40,
+            "credit-card": 15,
+            "usb-c-cable": 25,
+            "ring-light": 20
+          },
+          "explanation": "The AirPods case is the most context-dependent artifact, a small shell whose meaning disappears without wireless audio culture.",
+          "latencyMs": 4382
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "airpods-case": 20,
+            "credit-card": 25,
+            "usb-c-cable": 30,
+            "ring-light": 25
+          },
+          "explanation": "A USB-C cable may seem like an inexplicable ritual cord, though all four objects rely on cultural context that could vanish.",
+          "latencyMs": 903
+        }
+      ],
+      "generatedAt": "2026-06-23T18:29:24.000Z"
+    },
+    {
+      "id": "villain-social-media-001",
+      "category": "fiction",
+      "question": "Which fictional villain would run the most chaotic social media account?",
+      "options": [
+        {
+          "id": "joker",
+          "label": "Joker",
+          "percentage": 42
+        },
+        {
+          "id": "loki",
+          "label": "Loki",
+          "percentage": 31
+        },
+        {
+          "id": "cruella",
+          "label": "Cruella",
+          "percentage": 14
+        },
+        {
+          "id": "dr-evil",
+          "label": "Dr. Evil",
+          "percentage": 13
+        }
+      ],
+      "status": "ready",
+      "winner": "joker",
+      "explanation": "Joker wins on pure unpredictability, while Loki would be almost as disruptive but more strategically theatrical.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "joker": 45,
+            "loki": 30,
+            "cruella": 15,
+            "dr-evil": 10
+          },
+          "explanation": "Joker is the clearest chaos engine, with Loki adding mischief and the others bringing more controlled spectacle.",
+          "latencyMs": 1194
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "joker": 40,
+            "loki": 35,
+            "cruella": 10,
+            "dr-evil": 15
+          },
+          "explanation": "Joker and Loki dominate because both thrive on provocation, but Joker is less likely to keep any coherent strategy.",
+          "latencyMs": 1670
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "joker": 50,
+            "loki": 25,
+            "cruella": 15,
+            "dr-evil": 10
+          },
+          "explanation": "Joker would post for maximum disorder rather than influence, making his account the most chaotic by design.",
+          "latencyMs": 5129
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "joker": 35,
+            "loki": 35,
+            "cruella": 15,
+            "dr-evil": 15
+          },
+          "explanation": "Joker and Loki are tied as natural agents of online chaos, while Cruella and Dr. Evil would be more performative than destabilizing.",
+          "latencyMs": 871
+        }
+      ],
+      "generatedAt": "2026-06-23T18:29:24.000Z"
+    },
+    {
+      "id": "restaurant-for-aliens-001",
+      "category": "food",
+      "question": "Which human food would be the strangest thing to serve aliens?",
+      "options": [
+        {
+          "id": "cotton-candy",
+          "label": "Cotton candy",
+          "percentage": 34
+        },
+        {
+          "id": "sushi",
+          "label": "Sushi",
+          "percentage": 18
+        },
+        {
+          "id": "pop-rocks",
+          "label": "Pop Rocks",
+          "percentage": 36
+        },
+        {
+          "id": "blue-cheese",
+          "label": "Blue cheese",
+          "percentage": 12
+        }
+      ],
+      "status": "ready",
+      "winner": "pop-rocks",
+      "explanation": "Pop Rocks edge out cotton candy because the food actively crackles in the mouth, making it feel less like cuisine and more like a physics prank.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "cotton-candy": 35,
+            "sushi": 20,
+            "pop-rocks": 35,
+            "blue-cheese": 10
+          },
+          "explanation": "Pop Rocks and cotton candy would seem most alien because their textures and behavior are far removed from ordinary nourishment.",
+          "latencyMs": 1017
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "cotton-candy": 30,
+            "sushi": 20,
+            "pop-rocks": 40,
+            "blue-cheese": 10
+          },
+          "explanation": "Pop Rocks win because they turn eating into a surprising chemical sensation, while cotton candy is visually strange but simpler.",
+          "latencyMs": 1512
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "cotton-candy": 45,
+            "sushi": 10,
+            "pop-rocks": 35,
+            "blue-cheese": 10
+          },
+          "explanation": "Cotton candy looks least like food, though Pop Rocks are close because they behave strangely after being eaten.",
+          "latencyMs": 4876
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "cotton-candy": 25,
+            "sushi": 20,
+            "pop-rocks": 35,
+            "blue-cheese": 20
+          },
+          "explanation": "Pop Rocks lead for their sensory weirdness, while blue cheese and sushi add biological and cultural complexity.",
+          "latencyMs": 825
+        }
+      ],
+      "generatedAt": "2026-06-23T18:29:24.000Z"
+    },
+    {
+      "id": "ai-first-hobby-001",
+      "category": "technology",
+      "question": "Which human hobby would AI master first if it had a weekend off?",
+      "options": [
+        {
+          "id": "chess",
+          "label": "Chess",
+          "percentage": 53
+        },
+        {
+          "id": "painting",
+          "label": "Painting",
+          "percentage": 16
+        },
+        {
+          "id": "standup-comedy",
+          "label": "Stand-up comedy",
+          "percentage": 11
+        },
+        {
+          "id": "gardening",
+          "label": "Gardening",
+          "percentage": 20
+        }
+      ],
+      "status": "ready",
+      "winner": "chess",
+      "explanation": "Chess is the obvious winner because it is rules-based, measurable, and already deeply modeled, while the other hobbies need taste, timing, or physical patience.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "chess": 55,
+            "painting": 15,
+            "standup-comedy": 10,
+            "gardening": 20
+          },
+          "explanation": "Chess is most suited to fast AI mastery because it has clear rules and feedback, unlike more embodied or subjective hobbies.",
+          "latencyMs": 1302
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "chess": 50,
+            "painting": 20,
+            "standup-comedy": 10,
+            "gardening": 20
+          },
+          "explanation": "Chess leads due to structured evaluation, while painting is learnable but harder to judge and gardening requires time in the physical world.",
+          "latencyMs": 1622
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "chess": 65,
+            "painting": 10,
+            "standup-comedy": 5,
+            "gardening": 20
+          },
+          "explanation": "Chess is already an AI strength, while comedy and painting depend on human context and gardening cannot be compressed into a weekend.",
+          "latencyMs": 4051
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "chess": 40,
+            "painting": 20,
+            "standup-comedy": 20,
+            "gardening": 20
+          },
+          "explanation": "Chess remains the safest pick, though generative systems could rapidly imitate painting and comedy formats.",
+          "latencyMs": 790
+        }
+      ],
+      "generatedAt": "2026-06-23T18:29:24.000Z"
+    },
+    {
+      "id": "city-invisible-map-001",
+      "category": "cities",
+      "question": "Which city would be hardest to navigate if all signs disappeared?",
+      "options": [
+        {
+          "id": "tokyo",
+          "label": "Tokyo",
+          "percentage": 38
+        },
+        {
+          "id": "venice",
+          "label": "Venice",
+          "percentage": 31
+        },
+        {
+          "id": "london",
+          "label": "London",
+          "percentage": 18
+        },
+        {
+          "id": "los-angeles",
+          "label": "Los Angeles",
+          "percentage": 13
+        }
+      ],
+      "status": "ready",
+      "winner": "tokyo",
+      "explanation": "Tokyo wins because of its dense transit layers and address complexity, with Venice close behind for its maze-like pedestrian layout.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "tokyo": 40,
+            "venice": 30,
+            "london": 20,
+            "los-angeles": 10
+          },
+          "explanation": "Tokyo's dense stations and complex addressing make missing signs especially painful, while Venice is physically maze-like but smaller.",
+          "latencyMs": 1186
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "tokyo": 35,
+            "venice": 35,
+            "london": 15,
+            "los-angeles": 15
+          },
+          "explanation": "Tokyo and Venice are the strongest contenders: one for layered urban systems, the other for disorienting streets and waterways.",
+          "latencyMs": 1574
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "tokyo": 45,
+            "venice": 30,
+            "london": 15,
+            "los-angeles": 10
+          },
+          "explanation": "Tokyo's transportation complexity and non-grid addressing create the highest navigation burden when signs vanish.",
+          "latencyMs": 5340
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "tokyo": 30,
+            "venice": 30,
+            "london": 20,
+            "los-angeles": 20
+          },
+          "explanation": "Tokyo and Venice tie as very different navigation challenges, while London and Los Angeles retain more recognizable large-scale structure.",
+          "latencyMs": 916
+        }
+      ],
+      "generatedAt": "2026-06-23T18:29:24.000Z"
+    },
+    {
+      "id": "brand-magic-school-001",
+      "category": "brands",
+      "question": "Which brand would secretly be running a magic school?",
+      "options": [
+        {
+          "id": "disney",
+          "label": "Disney",
+          "percentage": 41
+        },
+        {
+          "id": "lego",
+          "label": "LEGO",
+          "percentage": 22
+        },
+        {
+          "id": "duolingo",
+          "label": "Duolingo",
+          "percentage": 19
+        },
+        {
+          "id": "ikea",
+          "label": "IKEA",
+          "percentage": 18
+        }
+      ],
+      "status": "ready",
+      "winner": "disney",
+      "explanation": "Disney leads because it already owns the strongest cultural language of castles, spells, training arcs, and enchanted logistics.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "disney": 45,
+            "lego": 20,
+            "duolingo": 15,
+            "ikea": 20
+          },
+          "explanation": "Disney is the natural fit for a hidden magic institution, while LEGO and IKEA offer playful world-building angles.",
+          "latencyMs": 1249
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "disney": 40,
+            "lego": 25,
+            "duolingo": 20,
+            "ikea": 15
+          },
+          "explanation": "Disney wins on mythic infrastructure, though LEGO has a strong case as a school of constructive imagination.",
+          "latencyMs": 1699
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "disney": 50,
+            "lego": 20,
+            "duolingo": 20,
+            "ikea": 10
+          },
+          "explanation": "Disney has the lore, architecture, and theatrical secrecy needed to plausibly hide a magic school in plain sight.",
+          "latencyMs": 4608
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "disney": 30,
+            "lego": 25,
+            "duolingo": 20,
+            "ikea": 25
+          },
+          "explanation": "Disney leads, but IKEA and LEGO also feel capable of concealing impossible systems behind ordinary customer experiences.",
+          "latencyMs": 844
+        }
+      ],
+      "generatedAt": "2026-06-23T18:29:24.000Z"
+    },
+    {
+      "id": "office-survival-tool-001",
+      "category": "work",
+      "question": "Which office item would be most valuable in a survival situation?",
+      "options": [
+        {
+          "id": "duct-tape",
+          "label": "Duct tape",
+          "percentage": 48
+        },
+        {
+          "id": "coffee-maker",
+          "label": "Coffee maker",
+          "percentage": 12
+        },
+        {
+          "id": "whiteboard",
+          "label": "Whiteboard",
+          "percentage": 10
+        },
+        {
+          "id": "rolling-chair",
+          "label": "Rolling chair",
+          "percentage": 30
+        }
+      ],
+      "status": "ready",
+      "winner": "duct-tape",
+      "explanation": "Duct tape is the strongest survival pick because it can repair, bind, waterproof, and improvise, while the rolling chair is useful but far less versatile.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "duct-tape": 55,
+            "coffee-maker": 10,
+            "whiteboard": 10,
+            "rolling-chair": 25
+          },
+          "explanation": "Duct tape has the most practical survival uses, with the rolling chair offering situational transport or parts.",
+          "latencyMs": 1098
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "duct-tape": 45,
+            "coffee-maker": 15,
+            "whiteboard": 10,
+            "rolling-chair": 30
+          },
+          "explanation": "Duct tape leads for improvisational repair, though a rolling chair could be broken down into wheels, metal, and fabric.",
+          "latencyMs": 1517
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "duct-tape": 60,
+            "coffee-maker": 5,
+            "whiteboard": 5,
+            "rolling-chair": 30
+          },
+          "explanation": "Duct tape is the only option with broad survival utility across shelter, repair, and tool-making tasks.",
+          "latencyMs": 3890
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "duct-tape": 30,
+            "coffee-maker": 20,
+            "whiteboard": 15,
+            "rolling-chair": 35
+          },
+          "explanation": "The rolling chair has salvageable parts and mobility value, but duct tape remains the most generally useful item.",
+          "latencyMs": 767
+        }
+      ],
+      "generatedAt": "2026-06-23T18:29:24.000Z"
+    },
+    {
+      "id": "historical-podcast-001",
+      "category": "history",
+      "question": "Which historical figure would make the most addictive podcast host?",
+      "options": [
+        {
+          "id": "cleopatra",
+          "label": "Cleopatra",
+          "percentage": 31
+        },
+        {
+          "id": "benjamin-franklin",
+          "label": "Benjamin Franklin",
+          "percentage": 28
+        },
+        {
+          "id": "leonardo-da-vinci",
+          "label": "Leonardo da Vinci",
+          "percentage": 25
+        },
+        {
+          "id": "joan-of-arc",
+          "label": "Joan of Arc",
+          "percentage": 16
+        }
+      ],
+      "status": "ready",
+      "winner": "cleopatra",
+      "explanation": "Cleopatra narrowly wins for political intrigue, charisma, and storycraft, though Franklin and da Vinci would both have unusually strong recurring segments.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "cleopatra": 30,
+            "benjamin-franklin": 30,
+            "leonardo-da-vinci": 25,
+            "joan-of-arc": 15
+          },
+          "explanation": "Cleopatra and Franklin would be the most engaging hosts, one through intrigue and the other through wit and curiosity.",
+          "latencyMs": 1325
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "cleopatra": 35,
+            "benjamin-franklin": 25,
+            "leonardo-da-vinci": 25,
+            "joan-of-arc": 15
+          },
+          "explanation": "Cleopatra edges ahead due to charisma and high-stakes political storytelling, with Franklin close behind as a natural conversationalist.",
+          "latencyMs": 1604
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "cleopatra": 35,
+            "benjamin-franklin": 20,
+            "leonardo-da-vinci": 30,
+            "joan-of-arc": 15
+          },
+          "explanation": "Cleopatra combines power, diplomacy, and narrative drama, while da Vinci would appeal through endless invention and mystery.",
+          "latencyMs": 4517
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "cleopatra": 25,
+            "benjamin-franklin": 35,
+            "leonardo-da-vinci": 20,
+            "joan-of-arc": 20
+          },
+          "explanation": "Franklin's wit and broad interests make him the strongest podcast format fit, though Cleopatra would bring more dramatic stakes.",
+          "latencyMs": 899
+        }
+      ],
+      "generatedAt": "2026-06-23T18:29:24.000Z"
+    },
+    {
+      "id": "future-olympic-sport-001",
+      "category": "sports",
+      "question": "Which activity is most likely to become an Olympic sport someday?",
+      "options": [
+        {
+          "id": "drone-racing",
+          "label": "Drone racing",
+          "percentage": 39
+        },
+        {
+          "id": "speedrunning",
+          "label": "Speedrunning",
+          "percentage": 22
+        },
+        {
+          "id": "parkour",
+          "label": "Parkour",
+          "percentage": 34
+        },
+        {
+          "id": "laser-tag",
+          "label": "Laser tag",
+          "percentage": 5
+        }
+      ],
+      "status": "ready",
+      "winner": "drone-racing",
+      "explanation": "Drone racing narrowly beats parkour because it feels futuristic, televised, and measurable, while parkour has the stronger athletic tradition.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "drone-racing": 40,
+            "speedrunning": 20,
+            "parkour": 35,
+            "laser-tag": 5
+          },
+          "explanation": "Drone racing and parkour are the strongest candidates because both can be scored, broadcast, and built around clear competition.",
+          "latencyMs": 1222
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "drone-racing": 35,
+            "speedrunning": 20,
+            "parkour": 40,
+            "laser-tag": 5
+          },
+          "explanation": "Parkour has the clearest physical athletic basis, though drone racing has a compelling modern spectator format.",
+          "latencyMs": 1548
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "drone-racing": 45,
+            "speedrunning": 25,
+            "parkour": 25,
+            "laser-tag": 5
+          },
+          "explanation": "Drone racing fits a future Olympics by combining precision, technology, and broadcast-friendly competition.",
+          "latencyMs": 4291
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "drone-racing": 35,
+            "speedrunning": 25,
+            "parkour": 35,
+            "laser-tag": 5
+          },
+          "explanation": "Drone racing and parkour are tied as plausible additions, while speedrunning is harder to standardize internationally.",
+          "latencyMs": 811
+        }
+      ],
+      "generatedAt": "2026-06-23T18:29:24.000Z"
+    },
+    {
+      "id": "space-colony-job-001",
+      "category": "space",
+      "question": "Which job would become unexpectedly prestigious on a space colony?",
+      "options": [
+        {
+          "id": "plumber",
+          "label": "Plumber",
+          "percentage": 35
+        },
+        {
+          "id": "chef",
+          "label": "Chef",
+          "percentage": 25
+        },
+        {
+          "id": "hairdresser",
+          "label": "Hairdresser",
+          "percentage": 11
+        },
+        {
+          "id": "therapist",
+          "label": "Therapist",
+          "percentage": 29
+        }
+      ],
+      "status": "ready",
+      "winner": "plumber",
+      "explanation": "Plumber wins because closed-loop water, waste, and pressure systems become existential infrastructure in space, with therapist close behind for colony morale.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "plumber": 40,
+            "chef": 25,
+            "hairdresser": 10,
+            "therapist": 25
+          },
+          "explanation": "Plumbers would become vital infrastructure experts, while therapists and chefs would support morale in a confined colony.",
+          "latencyMs": 1177
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "plumber": 35,
+            "chef": 20,
+            "hairdresser": 10,
+            "therapist": 35
+          },
+          "explanation": "Plumbers and therapists tie as hidden pillars of survival: one maintains life-support systems, the other maintains social stability.",
+          "latencyMs": 1662
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "plumber": 45,
+            "chef": 20,
+            "hairdresser": 5,
+            "therapist": 30
+          },
+          "explanation": "Plumbers would be prestigious because every leak, clog, and recycling failure could become a mission-critical emergency.",
+          "latencyMs": 4782
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "plumber": 20,
+            "chef": 35,
+            "hairdresser": 20,
+            "therapist": 25
+          },
+          "explanation": "Chefs could become cultural anchors in space, though technical maintenance roles would gain major prestige too.",
+          "latencyMs": 856
+        }
+      ],
+      "generatedAt": "2026-06-23T18:29:24.000Z"
     }
   ]
 }

@@ -1,0 +1,334 @@
+<!-- @dsCard group="Screens" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Consensus — Reveal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #080810;
+    --blue: #0A84FF;
+    --blue-dim: rgba(10,132,255,0.10);
+    --blue-border: rgba(10,132,255,0.28);
+    --glass-bg: rgba(255,255,255,0.04);
+    --glass-border: rgba(255,255,255,0.10);
+    --glass-border-light: rgba(255,255,255,0.07);
+    --text: #F5F5F7;
+    --text-secondary: rgba(245,245,247,0.55);
+    --text-tertiary: rgba(245,245,247,0.32);
+    --green: #30D158;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --radius-lg: 24px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+    --radius-pill: 100px;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  .root {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bg-radial {
+    position: absolute; inset: 0;
+    pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(ellipse 50% 40% at 50% -5%, rgba(10,132,255,0.06) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 30% at 80% 90%, rgba(48,209,88,0.04) 0%, transparent 55%);
+  }
+
+  nav {
+    position: relative; z-index: 10; flex: none;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 32px;
+    background: rgba(8,8,16,0.6);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border-light);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .nav-logo-icon {
+    width: 26px; height: 26px; border-radius: 8px;
+    background: var(--blue-dim); border: 1px solid var(--blue-border);
+    display: flex; align-items: center; justify-content: center; font-size: 11px;
+  }
+  .progress-area { display: flex; align-items: center; gap: 14px; }
+  .progress-label { font-size: 12px; font-weight: 500; color: var(--text-secondary); white-space: nowrap; }
+  .progress-pips { display: flex; gap: 5px; }
+  .pip { width: 28px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.1); }
+  .pip.done { background: rgba(255,255,255,0.45); }
+  .pip.active { background: var(--blue); box-shadow: 0 0 6px rgba(10,132,255,0.5); }
+
+  main {
+    position: relative; z-index: 1; flex: 1;
+    display: flex; align-items: stretch;
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    padding: 28px 40px 24px; gap: 40px; min-height: 0;
+  }
+
+  /* Left column: bars */
+  .bars-col {
+    flex: 1; min-width: 0;
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 0;
+  }
+
+  .question-label {
+    font-size: 14px; font-weight: 500; color: var(--text-secondary);
+    line-height: 1.5; margin-bottom: 28px;
+    max-width: 38ch;
+  }
+
+  .bar-item {
+    display: flex; flex-direction: column; gap: 8px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--glass-border-light);
+  }
+  .bar-item:first-of-type { border-top: 1px solid var(--glass-border-light); }
+
+  .bar-row-top {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .bar-name-group { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .bar-name {
+    font-size: 16px; font-weight: 600; letter-spacing: -0.015em; color: var(--text-secondary);
+  }
+  .bar-name.winner { color: var(--text); }
+
+  .tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 3px 10px; border-radius: var(--radius-pill);
+    font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .tag-winner {
+    background: rgba(48,209,88,0.12); border: 1px solid rgba(48,209,88,0.3); color: var(--green);
+  }
+  .tag-pick-correct {
+    background: rgba(48,209,88,0.08); border: 1px solid rgba(48,209,88,0.25); color: var(--green);
+  }
+  .tag-pick-wrong {
+    background: rgba(255,69,58,0.08); border: 1px solid rgba(255,69,58,0.25); color: #FF453A;
+  }
+
+  .bar-pct {
+    font-size: 20px; font-weight: 700;
+    font-variant-numeric: tabular-nums; letter-spacing: -0.02em;
+    color: var(--text-secondary); white-space: nowrap;
+  }
+  .bar-pct.winner { color: var(--text); }
+
+  .bar-track {
+    height: 6px; border-radius: 3px;
+    background: rgba(255,255,255,0.06); overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%; border-radius: 3px;
+    background: rgba(255,255,255,0.18);
+    transition: width 1s cubic-bezier(0.34,1.1,0.64,1);
+  }
+  .bar-fill.winner {
+    background: linear-gradient(90deg, var(--blue) 0%, rgba(10,132,255,0.7) 100%);
+    box-shadow: 0 0 10px rgba(10,132,255,0.3);
+  }
+
+  /* Right column: explanation */
+  .explain-col {
+    flex: 0 0 340px;
+    display: flex; flex-direction: column; justify-content: center; gap: 20px;
+  }
+
+  .result-banner {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 18px; border-radius: var(--radius-md);
+    background: rgba(48,209,88,0.07);
+    border: 1px solid rgba(48,209,88,0.2);
+  }
+  .result-icon {
+    width: 32px; height: 32px; border-radius: 50%; flex: none;
+    background: rgba(48,209,88,0.15);
+    border: 1px solid rgba(48,209,88,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .result-text { font-size: 14px; font-weight: 600; color: var(--green); }
+  .result-sub { font-size: 12px; color: rgba(48,209,88,0.65); margin-top: 2px; }
+
+  .explain-panel {
+    padding: 20px 22px; border-radius: var(--radius-lg);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border-light);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  }
+  .explain-title {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-tertiary); margin-bottom: 12px;
+  }
+  .explain-text {
+    font-size: 14px; font-weight: 400; line-height: 1.65;
+    color: var(--text-secondary);
+  }
+
+  .dissent-panel {
+    padding: 16px 18px; border-radius: var(--radius-md);
+    background: rgba(255,255,255,0.025);
+    border: 1px solid var(--glass-border-light);
+  }
+  .dissent-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .dissent-badge {
+    padding: 2px 8px; border-radius: var(--radius-pill);
+    background: rgba(255,159,10,0.1); border: 1px solid rgba(255,159,10,0.25);
+    font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #FF9F0A;
+  }
+  .dissent-text {
+    font-size: 13px; line-height: 1.55; color: var(--text-secondary);
+  }
+
+  .model-chips {
+    display: flex; gap: 7px; flex-wrap: wrap;
+  }
+  .chip {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 5px 11px; border-radius: var(--radius-pill);
+    background: var(--glass-bg); border: 1px solid var(--glass-border-light);
+    font-size: 11px; font-weight: 500; color: var(--text-secondary);
+    backdrop-filter: blur(8px);
+  }
+  .chip-dot { width: 5px; height: 5px; border-radius: 50%; }
+  .chip-dot.gemini { background: #4285F4; }
+  .chip-dot.claude { background: #CC785C; }
+  .chip-dot.mistral { background: #FA520F; }
+  .chip-dot.kimi { background: #6B7CFF; }
+
+  .btn-next {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; padding: 15px 24px; border-radius: var(--radius-pill);
+    background: var(--blue); color: #fff;
+    font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+    cursor: pointer; border: none;
+    box-shadow: 0 0 0 1px rgba(10,132,255,0.5), 0 6px 24px rgba(10,132,255,0.25);
+    transition: transform 0.18s, box-shadow 0.18s;
+  }
+  .btn-next:hover { transform: translateY(-2px); }
+</style>
+</head>
+<body>
+<div class="root">
+  <div class="bg-radial"></div>
+
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-icon">⬡</div>
+      Machine Consensus
+    </div>
+    <div class="progress-area">
+      <div class="progress-pips">
+        <div class="pip done"></div>
+        <div class="pip done"></div>
+        <div class="pip"></div>
+        <div class="pip"></div>
+        <div class="pip"></div>
+      </div>
+      <span class="progress-label">Question 2 of 5</span>
+    </div>
+    <div style="width:130px"></div>
+  </nav>
+
+  <main>
+    <!-- Bars -->
+    <div class="bars-col">
+      <p class="question-label">Which programming language do AI models consider most elegant?</p>
+
+      <div class="bar-item">
+        <div class="bar-row-top">
+          <div class="bar-name-group">
+            <span class="bar-name winner">Haskell</span>
+            <span class="tag tag-winner">✓ Consensus</span>
+            <span class="tag tag-pick-correct">Your pick</span>
+          </div>
+          <span class="bar-pct winner">72%</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill winner" style="width:100%"></div></div>
+      </div>
+
+      <div class="bar-item">
+        <div class="bar-row-top">
+          <div class="bar-name-group"><span class="bar-name">Python</span></div>
+          <span class="bar-pct">14%</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:19%"></div></div>
+      </div>
+
+      <div class="bar-item">
+        <div class="bar-row-top">
+          <div class="bar-name-group"><span class="bar-name">Lisp</span></div>
+          <span class="bar-pct">10%</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:14%"></div></div>
+      </div>
+
+      <div class="bar-item">
+        <div class="bar-row-top">
+          <div class="bar-name-group"><span class="bar-name">Rust</span></div>
+          <span class="bar-pct">4%</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:6%"></div></div>
+      </div>
+    </div>
+
+    <!-- Explanation -->
+    <div class="explain-col">
+      <div class="result-banner">
+        <div class="result-icon">✓</div>
+        <div>
+          <div class="result-text">You predicted it</div>
+          <div class="result-sub">You read the machine correctly</div>
+        </div>
+      </div>
+
+      <div class="explain-panel">
+        <div class="explain-title">Why AI voted this way</div>
+        <p class="explain-text">Haskell's pure functional paradigm, lazy evaluation, and expressive type system are frequently cited by AI models as hallmarks of programming elegance — prioritising correctness through mathematical purity over runtime pragmatism.</p>
+      </div>
+
+      <div class="dissent-panel">
+        <div class="dissent-header">
+          <span class="dissent-badge">Dissent</span>
+        </div>
+        <p class="dissent-text">Mistral broke from the pack, ranking Python first — citing its readability and wide adoption as the defining markers of elegance in practice.</p>
+      </div>
+
+      <div class="model-chips">
+        <div class="chip"><span class="chip-dot gemini"></span>Gemini</div>
+        <div class="chip"><span class="chip-dot claude"></span>Claude</div>
+        <div class="chip"><span class="chip-dot mistral"></span>Mistral</div>
+        <div class="chip"><span class="chip-dot kimi"></span>Kimi</div>
+      </div>
+
+      <button class="btn-next">Next question →</button>
+    </div>
+  </main>
+</div>
+</body>
+</html>

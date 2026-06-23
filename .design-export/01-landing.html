@@ -1,0 +1,420 @@
+<!-- @dsCard group="Screens" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Consensus — Landing</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #080810;
+    --blue: #0A84FF;
+    --blue-dim: rgba(10, 132, 255, 0.15);
+    --blue-border: rgba(10, 132, 255, 0.35);
+    --glass-bg: rgba(255,255,255,0.04);
+    --glass-border: rgba(255,255,255,0.10);
+    --glass-border-light: rgba(255,255,255,0.07);
+    --text: #F5F5F7;
+    --text-secondary: rgba(245,245,247,0.55);
+    --text-tertiary: rgba(245,245,247,0.32);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --radius-lg: 24px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+    --radius-pill: 100px;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  .root {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Background */
+  .bg-radial {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% -5%, rgba(10,132,255,0.09) 0%, transparent 70%),
+      radial-gradient(ellipse 100% 80% at 20% 110%, rgba(10,132,255,0.05) 0%, transparent 60%);
+  }
+
+  /* Orbit visual */
+  .orbit-visual {
+    position: absolute;
+    top: 50%;
+    right: 6%;
+    transform: translateY(-50%);
+    width: 420px;
+    height: 420px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.55;
+  }
+  .orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .orbit-ring-1 { inset: 0; }
+  .orbit-ring-2 { inset: 40px; border-color: rgba(10,132,255,0.12); }
+  .orbit-ring-3 { inset: 90px; border-color: rgba(255,255,255,0.05); }
+  .orbit-ring-4 { inset: 148px; border-color: rgba(10,132,255,0.18); }
+
+  .orbit-dot {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--blue);
+  }
+  .orbit-dot-1 { width: 6px; height: 6px; top: 20px; left: 50%; transform: translateX(-50%); opacity: 0.9; box-shadow: 0 0 12px 3px rgba(10,132,255,0.5); }
+  .orbit-dot-2 { width: 5px; height: 5px; top: 50%; right: 38px; transform: translateY(-50%); opacity: 0.6; }
+  .orbit-dot-3 { width: 4px; height: 4px; bottom: 88px; left: 88px; opacity: 0.45; }
+  .orbit-dot-4 { width: 7px; height: 7px; top: 130px; left: 26px; opacity: 0.3; background: rgba(255,255,255,0.5); }
+
+  .orbit-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(10,132,255,0.25) 0%, transparent 70%);
+    border: 1px solid rgba(10,132,255,0.3);
+  }
+  .orbit-center::after {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+    background: rgba(10,132,255,0.15);
+    border: 1px solid rgba(10,132,255,0.4);
+  }
+
+  /* Navigation */
+  nav {
+    position: relative;
+    z-index: 10;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    background: rgba(8,8,16,0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border-light);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .nav-logo-icon {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: var(--blue-dim);
+    border: 1px solid var(--blue-border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+  }
+
+  .nav-tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border-light);
+    border-radius: var(--radius-pill);
+    padding: 4px;
+  }
+  .nav-tab {
+    padding: 7px 18px;
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: var(--text-secondary);
+  }
+  .nav-tab.active {
+    background: rgba(255,255,255,0.09);
+    color: var(--text);
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-icon-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border-light);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 15px;
+  }
+
+  /* Main content */
+  main {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 580px;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .eyebrow-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--blue);
+    box-shadow: 0 0 8px 2px rgba(10,132,255,0.6);
+  }
+  .eyebrow-text {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+
+  h1 {
+    font-size: clamp(40px, 5.5vw, 68px);
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+  h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, #fff 30%, rgba(10,132,255,0.9) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    max-width: 44ch;
+    margin-bottom: 40px;
+  }
+
+  .cta-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border-radius: var(--radius-pill);
+    background: var(--blue);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 0 1px rgba(10,132,255,0.5), 0 8px 32px rgba(10,132,255,0.3);
+    transition: transform 0.18s, box-shadow 0.18s;
+    white-space: nowrap;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(10,132,255,0.6), 0 12px 40px rgba(10,132,255,0.4); }
+  .btn-arrow { font-size: 17px; font-weight: 300; }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 24px;
+    border-radius: var(--radius-pill);
+    background: var(--glass-bg);
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    transition: border-color 0.18s, background 0.18s;
+    white-space: nowrap;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.07); }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.04em;
+  }
+  .meta-sep { opacity: 0.4; }
+
+  /* Model chips */
+  .model-chips {
+    position: relative;
+    z-index: 1;
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-top: 1px solid var(--glass-border-light);
+    background: rgba(8,8,16,0.3);
+  }
+  .model-chips-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-right: 4px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: var(--radius-pill);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border-light);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    backdrop-filter: blur(8px);
+  }
+  .chip-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--text-tertiary);
+  }
+  .chip-dot.gemini { background: #4285F4; }
+  .chip-dot.claude { background: #CC785C; }
+  .chip-dot.mistral { background: #FA520F; }
+  .chip-dot.kimi { background: #6B7CFF; }
+</style>
+</head>
+<body>
+<div class="root">
+  <div class="bg-radial"></div>
+
+  <!-- Orbit visual -->
+  <div class="orbit-visual">
+    <div class="orbit-ring orbit-ring-1"></div>
+    <div class="orbit-ring orbit-ring-2"></div>
+    <div class="orbit-ring orbit-ring-3"></div>
+    <div class="orbit-ring orbit-ring-4"></div>
+    <div class="orbit-dot orbit-dot-1"></div>
+    <div class="orbit-dot orbit-dot-2"></div>
+    <div class="orbit-dot orbit-dot-3"></div>
+    <div class="orbit-dot orbit-dot-4"></div>
+    <div class="orbit-center"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-icon">⬡</div>
+      Machine Consensus
+    </div>
+    <div class="nav-tabs">
+      <div class="nav-tab active">Daily</div>
+      <div class="nav-tab">Endless</div>
+    </div>
+    <div class="nav-right">
+      <div class="nav-icon-btn">♪</div>
+      <div class="nav-icon-btn">⚙</div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <main>
+    <div class="hero">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-dot"></div>
+        <span class="eyebrow-text">Daily · June 22, 2026</span>
+      </div>
+
+      <h1>Can you predict<br>what <em>AI believes?</em></h1>
+
+      <p class="hero-desc">
+        Five questions. A panel of AI models casts its votes in secret.
+        Predict the consensus — then watch the electorate reveal its tally.
+      </p>
+
+      <div class="cta-group">
+        <button class="btn-primary">
+          Play today's game
+          <span class="btn-arrow">→</span>
+        </button>
+        <button class="btn-secondary">How it works</button>
+      </div>
+
+      <div class="meta-row">
+        <span>5 questions</span>
+        <span class="meta-sep">·</span>
+        <span>About 2 minutes</span>
+        <span class="meta-sep">·</span>
+        <span>No account needed</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Model chips -->
+  <div class="model-chips">
+    <span class="model-chips-label">Polling</span>
+    <div class="chip"><span class="chip-dot gemini"></span>Gemini</div>
+    <div class="chip"><span class="chip-dot claude"></span>Claude</div>
+    <div class="chip"><span class="chip-dot mistral"></span>Mistral</div>
+    <div class="chip"><span class="chip-dot kimi"></span>Kimi</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!-- @dsCard group="Screens" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Consensus — Score</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #080810;
+    --blue: #0A84FF;
+    --blue-dim: rgba(10,132,255,0.10);
+    --blue-border: rgba(10,132,255,0.28);
+    --glass-bg: rgba(255,255,255,0.04);
+    --glass-border: rgba(255,255,255,0.10);
+    --glass-border-light: rgba(255,255,255,0.07);
+    --text: #F5F5F7;
+    --text-secondary: rgba(245,245,247,0.55);
+    --text-tertiary: rgba(245,245,247,0.32);
+    --green: #30D158;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --radius-lg: 24px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+    --radius-pill: 100px;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  .root {
+    position: relative; width: 100%; height: 100vh;
+    display: flex; flex-direction: column;
+  }
+
+  .bg-radial {
+    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(ellipse 65% 55% at 50% -5%, rgba(10,132,255,0.08) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 85% 95%, rgba(48,209,88,0.05) 0%, transparent 55%);
+  }
+
+  nav {
+    position: relative; z-index: 10; flex: none;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 32px;
+    background: rgba(8,8,16,0.6);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border-light);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .nav-logo-icon {
+    width: 26px; height: 26px; border-radius: 8px;
+    background: var(--blue-dim); border: 1px solid var(--blue-border);
+    display: flex; align-items: center; justify-content: center; font-size: 11px;
+  }
+  .nav-date {
+    font-size: 12px; font-weight: 500; color: var(--text-tertiary); letter-spacing: 0.04em;
+  }
+
+  main {
+    position: relative; z-index: 1; flex: 1;
+    display: flex; align-items: stretch;
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    padding: 36px 40px 28px; gap: 60px; min-height: 0;
+  }
+
+  /* Left — score hero */
+  .score-col {
+    flex: 1; min-width: 0;
+    display: flex; flex-direction: column; justify-content: center; gap: 28px;
+  }
+
+  .kicker {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+
+  .score-hero {
+    display: flex; align-items: baseline; gap: 20px;
+  }
+  .score-number {
+    font-size: clamp(80px, 12vw, 130px);
+    font-weight: 700; line-height: 0.85;
+    letter-spacing: -0.04em;
+    background: linear-gradient(140deg, #fff 40%, rgba(48,209,88,0.85) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .score-denom {
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 300; line-height: 0.85; letter-spacing: -0.03em;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .verdict {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 600; line-height: 1.15; letter-spacing: -0.02em;
+    color: var(--text); max-width: 16ch;
+  }
+
+  /* Result grid */
+  .result-grid { display: flex; gap: 8px; }
+  .result-cell {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700;
+    border: 1px solid;
+  }
+  .result-cell.correct {
+    background: rgba(48,209,88,0.12); border-color: rgba(48,209,88,0.35); color: var(--green);
+  }
+  .result-cell.wrong {
+    background: rgba(255,69,58,0.06); border-color: rgba(255,69,58,0.25); color: #FF453A;
+  }
+
+  /* Circular progress */
+  .circle-wrap {
+    position: relative; width: 80px; height: 80px; flex: none;
+  }
+  .circle-svg { width: 80px; height: 80px; transform: rotate(-90deg); }
+  .circle-track { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 5; }
+  .circle-fill {
+    fill: none; stroke: var(--green); stroke-width: 5;
+    stroke-linecap: round; stroke-dasharray: 213.6; stroke-dashoffset: 42.7;
+    filter: drop-shadow(0 0 4px rgba(48,209,88,0.4));
+  }
+  .circle-label {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .circle-pct { font-size: 18px; font-weight: 700; line-height: 1; color: var(--green); }
+  .circle-sub { font-size: 9px; font-weight: 500; color: var(--text-tertiary); margin-top: 1px; }
+
+  /* Right — stats + actions */
+  .right-col {
+    flex: 0 0 320px;
+    display: flex; flex-direction: column; justify-content: center; gap: 16px;
+  }
+
+  .stat-cards { display: flex; flex-direction: column; gap: 10px; }
+  .stat-card {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 20px; border-radius: var(--radius-md);
+    background: var(--glass-bg); border: 1px solid var(--glass-border-light);
+    backdrop-filter: blur(16px);
+  }
+  .stat-label {
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.08em; color: var(--text-tertiary); text-transform: uppercase;
+  }
+  .stat-value {
+    font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--text);
+    display: flex; align-items: baseline; gap: 5px;
+  }
+  .stat-value.accent { color: var(--blue); }
+  .stat-unit { font-size: 13px; font-weight: 500; color: var(--text-tertiary); }
+
+  .actions { display: flex; flex-direction: column; gap: 10px; }
+
+  .btn-share {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 15px 24px; border-radius: var(--radius-pill);
+    background: var(--blue); color: #fff;
+    font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+    cursor: pointer; border: none;
+    box-shadow: 0 0 0 1px rgba(10,132,255,0.5), 0 6px 24px rgba(10,132,255,0.25);
+    transition: transform 0.18s;
+  }
+  .btn-share:hover { transform: translateY(-2px); }
+
+  .btn-row { display: flex; gap: 10px; }
+
+  .btn-secondary {
+    flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 13px 18px; border-radius: var(--radius-pill);
+    background: var(--glass-bg); color: var(--text);
+    font-size: 14px; font-weight: 500;
+    cursor: pointer; border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px); transition: border-color 0.18s;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.22); }
+
+  /* Share result preview strip */
+  .share-strip {
+    padding: 14px 18px; border-radius: var(--radius-md);
+    background: rgba(255,255,255,0.025); border: 1px solid var(--glass-border-light);
+  }
+  .share-strip-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-tertiary); margin-bottom: 10px;
+  }
+  .share-strip-grid { display: flex; gap: 7px; }
+  .share-cell {
+    flex: 1; aspect-ratio: 1; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; border: 1px solid;
+  }
+  .share-cell.c { background: rgba(48,209,88,0.12); border-color: rgba(48,209,88,0.35); color: var(--green); }
+  .share-cell.w { background: rgba(255,69,58,0.06); border-color: rgba(255,69,58,0.25); color: #FF453A; }
+  .share-foot {
+    margin-top: 10px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+</style>
+</head>
+<body>
+<div class="root">
+  <div class="bg-radial"></div>
+
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-icon">⬡</div>
+      Machine Consensus
+    </div>
+    <span class="nav-date">Today's Verdict · June 22, 2026</span>
+    <div style="width:130px"></div>
+  </nav>
+
+  <main>
+    <!-- Score column -->
+    <div class="score-col">
+      <div class="kicker">Daily Edition · No. 173</div>
+
+      <div>
+        <div class="score-hero">
+          <div class="score-number">4</div>
+          <div class="score-denom">/ 5</div>
+        </div>
+      </div>
+
+      <div class="verdict">You understand the machine.</div>
+
+      <div style="display:flex; align-items:center; gap:20px;">
+        <div class="result-grid">
+          <div class="result-cell correct">✓</div>
+          <div class="result-cell correct">✓</div>
+          <div class="result-cell wrong">✗</div>
+          <div class="result-cell correct">✓</div>
+          <div class="result-cell correct">✓</div>
+        </div>
+        <div class="circle-wrap">
+          <svg class="circle-svg" viewBox="0 0 72 72">
+            <circle class="circle-track" cx="36" cy="36" r="34"/>
+            <circle class="circle-fill" cx="36" cy="36" r="34"/>
+          </svg>
+          <div class="circle-label">
+            <div class="circle-pct">80%</div>
+            <div class="circle-sub">score</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right column -->
+    <div class="right-col">
+      <div class="stat-cards">
+        <div class="stat-card">
+          <div class="stat-label">Daily Streak</div>
+          <div class="stat-value">
+            7 <span class="stat-unit">days</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">You beat</div>
+          <div class="stat-value accent">
+            85% <span class="stat-unit">of players today</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="share-strip">
+        <div class="share-strip-label">Spoiler-free result</div>
+        <div class="share-strip-grid">
+          <div class="share-cell c">✓</div>
+          <div class="share-cell c">✓</div>
+          <div class="share-cell w">✗</div>
+          <div class="share-cell c">✓</div>
+          <div class="share-cell c">✓</div>
+        </div>
+        <div class="share-foot">No answers revealed · machineconsensus.game</div>
+      </div>
+
+      <div class="actions">
+        <button class="btn-share">Share result ↗</button>
+        <div class="btn-row">
+          <button class="btn-secondary">Play again</button>
+          <button class="btn-secondary">Endless mode →</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

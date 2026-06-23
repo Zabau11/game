@@ -1,0 +1,372 @@
+<!-- @dsCard group="Screens" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Consensus — Question</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #080810;
+    --blue: #0A84FF;
+    --blue-dim: rgba(10, 132, 255, 0.12);
+    --blue-border: rgba(10, 132, 255, 0.30);
+    --blue-glow: rgba(10, 132, 255, 0.18);
+    --glass-bg: rgba(255,255,255,0.04);
+    --glass-bg-hover: rgba(255,255,255,0.07);
+    --glass-border: rgba(255,255,255,0.10);
+    --glass-border-light: rgba(255,255,255,0.07);
+    --text: #F5F5F7;
+    --text-secondary: rgba(245,245,247,0.55);
+    --text-tertiary: rgba(245,245,247,0.32);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --radius-lg: 24px;
+    --radius-md: 20px;
+    --radius-sm: 14px;
+    --radius-pill: 100px;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  .root {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bg-radial {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% -10%, rgba(10,132,255,0.07) 0%, transparent 65%);
+  }
+
+  /* Navigation */
+  nav {
+    position: relative;
+    z-index: 10;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 32px;
+    background: rgba(8,8,16,0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border-light);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+  .nav-logo-icon {
+    width: 26px; height: 26px;
+    border-radius: 8px;
+    background: var(--blue-dim);
+    border: 1px solid var(--blue-border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+  }
+
+  /* Progress */
+  .progress-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .progress-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+  }
+  .progress-pips {
+    display: flex;
+    gap: 5px;
+  }
+  .pip {
+    width: 28px; height: 4px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.1);
+  }
+  .pip.done { background: rgba(255,255,255,0.45); }
+  .pip.active { background: var(--blue); box-shadow: 0 0 6px rgba(10,132,255,0.5); }
+
+  /* Main */
+  main {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 36px 40px 28px;
+    gap: 0;
+  }
+
+  .question-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .predict-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--blue-dim);
+    border: 1px solid var(--blue-border);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+  .predict-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--blue);
+    box-shadow: 0 0 5px rgba(10,132,255,0.8);
+    animation: pulse 1.5s ease infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  h1 {
+    font-size: clamp(28px, 3.8vw, 50px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--text);
+    max-width: 22ch;
+    margin-bottom: 36px;
+    text-wrap: balance;
+  }
+
+  /* Cards grid */
+  .cards-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 14px;
+    min-height: 0;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 26px;
+    border-radius: var(--radius-lg);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border-light);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    cursor: pointer;
+    transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(255,255,255,0.04) 0%, transparent 70%);
+    transition: opacity 0.2s;
+  }
+  .card:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--glass-border);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+  }
+  .card:hover::before { opacity: 1; }
+
+  /* Selected card */
+  .card.selected {
+    background: rgba(10,132,255,0.07);
+    border-color: var(--blue);
+    transform: translateY(-4px);
+    box-shadow: 0 0 0 1px rgba(10,132,255,0.4), 0 20px 60px rgba(10,132,255,0.12), 0 0 32px rgba(10,132,255,0.08) inset;
+  }
+  .card.selected::before { opacity: 1; background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(10,132,255,0.08) 0%, transparent 70%); }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .card-letter {
+    font-size: 13px;
+    font-weight: 600;
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid var(--glass-border-light);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-secondary);
+  }
+  .card.selected .card-letter {
+    background: var(--blue-dim);
+    border-color: var(--blue-border);
+    color: var(--blue);
+  }
+  .card-shortcut {
+    font-size: 11px;
+    font-weight: 500;
+    width: 24px; height: 24px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--glass-border-light);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-tertiary);
+  }
+
+  .card-body { margin-top: auto; }
+  .card-name {
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 6px;
+    text-wrap: balance;
+  }
+  .card.selected .card-name { color: #fff; }
+  .card-category {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+  .card.selected .card-category { color: rgba(10,132,255,0.7); }
+
+  /* Shortcuts hint */
+  .keys-hint {
+    flex: none;
+    margin-top: 16px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="root">
+  <div class="bg-radial"></div>
+
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-icon">⬡</div>
+      Machine Consensus
+    </div>
+    <div class="progress-area">
+      <div class="progress-pips">
+        <div class="pip done"></div>
+        <div class="pip active"></div>
+        <div class="pip"></div>
+        <div class="pip"></div>
+        <div class="pip"></div>
+      </div>
+      <span class="progress-label">Question 2 of 5</span>
+    </div>
+    <div style="width:130px"></div>
+  </nav>
+
+  <main>
+    <div class="question-meta">
+      <div class="predict-badge">
+        <div class="predict-dot"></div>
+        Predict the AI favorite
+      </div>
+    </div>
+
+    <h1>Which programming language do AI models consider most elegant?</h1>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-letter">A</div>
+          <div class="card-shortcut">1</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Python</div>
+          <div class="card-category">Programming</div>
+        </div>
+      </div>
+
+      <div class="card selected">
+        <div class="card-header">
+          <div class="card-letter">B</div>
+          <div class="card-shortcut">2</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Haskell</div>
+          <div class="card-category">Programming</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-letter">C</div>
+          <div class="card-shortcut">3</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Lisp</div>
+          <div class="card-category">Programming</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-letter">D</div>
+          <div class="card-shortcut">4</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Rust</div>
+          <div class="card-category">Programming</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="keys-hint">Keys 1–4 to predict · Enter advances</div>
+  </main>
+</div>
+</body>
+</html>
