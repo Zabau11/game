@@ -43,13 +43,10 @@ function providerName(p: string) {
   return PROVIDER_NAMES[p] || p.charAt(0).toUpperCase() + p.slice(1);
 }
 
-const DAILY_COUNT = 5;
-
 export default function Home() {
   const all = questionsDatabase.questions;
-  const total = all.length;
 
-  // Daily edition labels + deterministic question rotation.
+  // Edition labels for the current survival run.
   const today = new Date();
   const yearStart = new Date(today.getFullYear(), 0, 0);
   const doy = Math.floor((today.getTime() - yearStart.getTime()) / 86400000);
@@ -57,13 +54,7 @@ export default function Home() {
   const dateShort = `${MON3[today.getMonth()]} ${today.getDate()}`;
   const editionLabel = `No. ${doy}`;
 
-  const startIdx = (doy * DAILY_COUNT) % total;
-  const selected = Array.from(
-    { length: DAILY_COUNT },
-    (_, i) => all[(startIdx + i) % total],
-  );
-
-  const questions: MCQuestion[] = selected.map((q) => {
+  const questions: MCQuestion[] = all.map((q) => {
     const optionIds = q.options.map((o) => o.id);
     const winnerIndex = Math.max(0, optionIds.indexOf(q.winner));
 

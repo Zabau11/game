@@ -25,19 +25,35 @@ type Props = {
 type Screen = "landing" | "playing" | "score";
 type Phase = "predict" | "locked" | "reveal";
 
-const VERDICTS = [
-  "The machine is unknowable to you.",
-  "You think like a human.",
-  "The machine remains a mystery.",
-  "A respectful disagreement.",
-  "You understand the machine.",
-  "You ARE the machine.",
-];
-const BEATS = [6, 19, 43, 68, 85, 97];
 const WORDS = ["machine", "model", "AI", "consensus", "LLM"];
 
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 const pad2 = (n: number) => String(n).padStart(2, "0");
+const survivalVerdict = (score: number) => {
+  if (score === 0) return "The machine got you immediately.";
+  if (score < 3) return "A brief contact with the machine.";
+  if (score < 7) return "You can hear the machine humming.";
+  if (score < 12) return "You understand the machine.";
+  if (score < 20) return "The machine recognizes one of its own.";
+  return "You ARE the machine.";
+};
+
+function shuffleQuestions(
+  questions: MCQuestion[],
+  avoidFirst?: MCQuestion,
+): MCQuestion[] {
+  const shuffled = [...questions];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  if (avoidFirst && shuffled.length > 1 && shuffled[0] === avoidFirst) {
+    [shuffled[0], shuffled[1]] = [shuffled[1], shuffled[0]];
+  }
+
+  return shuffled;
+}
 
 export function MachineConsensus({
   questions,
@@ -51,15 +67,14 @@ export function MachineConsensus({
   const total = questions.length;
 
   const [screen, setScreen] = useState<Screen>("landing");
+  const [questionDeck, setQuestionDeck] = useState<MCQuestion[]>(questions);
   const [qIndex, setQIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("predict");
   const [picked, setPicked] = useState<number | null>(null);
   const [progress, setProgress] = useState(0);
   const [revealDone, setRevealDone] = useState(false);
   const [results, setResults] = useState<{ correct: boolean }[]>([]);
-  const [streak, setStreak] = useState(0);
   const [shareOpen, setShareOpen] = useState(false);
-  const [endless, setEndless] = useState(false);
   const [copied, setCopied] = useState(false);
   const [reduced, setReduced] = useState(false);
   const [displayWord, setDisplayWord] = useState(WORDS[0]);
@@ -160,59 +175,51 @@ export function MachineConsensus({
     setProgress(0);
     setRevealDone(false);
     setResults([]);
-    setEndless(false);
-  }, [clearTimers]);
+    setQuestionDeck(shuffleQuestions(questions));
+  }, [clearTimers, questions]);
 
   const choose = useCallback(
     (i: number) => {
       if (phase !== "predict") return;
-      const q = questions[qIndex % total];
+      const q = questionDeck[qIndex % total];
       const correct = i === q.winnerIndex;
       setPicked(i);
       setPhase("locked");
       const go = () => {
         setPhase("reveal");
         setResults((r) => [...r, { correct }]);
-        setStreak((s) => (correct ? s + 1 : 0));
         runReveal();
       };
       if (isReduced()) go();
       else lockTimerRef.current = setTimeout(go, 560);
     },
-    [phase, questions, qIndex, total, isReduced, runReveal],
+    [phase, questionDeck, qIndex, total, isReduced, runReveal],
   );
 
   const next = useCallback(() => {
-    if (!endless && qIndex >= total - 1) {
+    const lastAnswer = results[results.length - 1];
+    if (lastAnswer && !lastAnswer.correct) {
       setScreen("score");
       return;
     }
+
+    if ((qIndex + 1) % total === 0) {
+      setQuestionDeck(shuffleQuestions(questions, questionDeck[qIndex % total]));
+    }
+
     setQIndex((q) => q + 1);
     setPhase("predict");
     setPicked(null);
     setProgress(0);
     setRevealDone(false);
-  }, [endless, qIndex, total]);
-
-  const endlessMode = useCallback(() => {
-    clearTimers();
-    setScreen("playing");
-    setEndless(true);
-    setQIndex(0);
-    setPhase("predict");
-    setPicked(null);
-    setProgress(0);
-    setRevealDone(false);
-    setResults([]);
-  }, [clearTimers]);
+  }, [qIndex, questionDeck, questions, results, total]);
 
   const copyShare = useCallback(() => {
-    const correct = results.slice(0, total).filter((r) => r.correct).length;
+    const correct = results.filter((r) => r.correct).length;
     const grid = results
-      .slice(0, total)
       .map((r) => (r.correct ? "◉" : "○"))
       .join("");
-    const txt = `MACHINE CONSENSUS — ${correct}/${total}\n${grid}\nmachineconsensus.game`;
+    const txt = `MACHINE CONSENSUS SURVIVAL — ${correct} correct\n${grid}\nmachineconsensus.game`;
     try {
       if (navigator.clipboard) navigator.clipboard.writeText(txt);
     } catch {
@@ -261,22 +268,20 @@ export function MachineConsensus({
   }, [qIndex, screen, isReduced]);
 
   // Derived
-  const q = questions[qIndex % total];
+  const q = questionDeck[qIndex % total];
   const win = q.winnerIndex;
   const maxPct = q.pct[win];
   const eased = easeOutCubic(progress);
   const inChoose = phase === "predict" || phase === "locked";
   const inReveal = phase === "reveal";
   const pickedCorrect = picked === win;
+  const runOver = inReveal && revealDone && !pickedCorrect;
 
-  const answered = Math.min(results.length, total);
-  const cur = qIndex % total;
-
-  const dailyResults = results.slice(0, total);
-  const correctCount = dailyResults.filter((r) => r.correct).length;
-  const verdict = VERDICTS[correctCount] || VERDICTS[0];
-  const beatPct = BEATS[correctCount] || 0;
-  const totalLabel = endless ? "∞" : pad2(total);
+  const correctCount = results.filter((r) => r.correct).length;
+  const recentResults = results.slice(-5);
+  const verdict = survivalVerdict(correctCount);
+  const beatPct = Math.min(99, Math.round(6 + Math.log2(correctCount + 1) * 18));
+  const totalLabel = "∞";
 
   const choiceClass = (i: number): string => {
     const cls = ["mc-choice"];
@@ -304,7 +309,7 @@ export function MachineConsensus({
 
   const roundBadgeLabel = (): string => {
     if (inReveal) return pickedCorrect ? "✓ Correct" : "✗ Missed";
-    return endless ? `Round ${qIndex + 1}` : `Question ${qIndex + 1} of ${total}`;
+    return `Round ${qIndex + 1}`;
   };
 
   return (
@@ -321,12 +326,15 @@ export function MachineConsensus({
           {screen === "playing" ? (
             <div className="mc-progress">
               <div className="mc-pips">
-                {questions.map((_, i) => (
+                {recentResults.map((result, i) => (
                   <span
-                    key={i}
-                    className={`mc-pip${i < answered ? " mc-pip--done" : i === cur ? " mc-pip--active" : ""}`}
+                    key={`${results.length - recentResults.length + i}-${result.correct ? "correct" : "wrong"}`}
+                    className={`mc-pip${result.correct ? " mc-pip--done" : " mc-pip--wrong"}`}
                   />
                 ))}
+                {phase !== "reveal" || pickedCorrect ? (
+                  <span className="mc-pip mc-pip--active" />
+                ) : null}
               </div>
               <span className="mc-counter">
                 {pad2(qIndex + 1)} / {totalLabel}
@@ -374,13 +382,13 @@ export function MachineConsensus({
               </h1>
 
               <p className="mc-lede">
-                Five questions. A panel of AI models votes in secret.
-                Predict the consensus — then watch the tally revealed.
+                A shuffled survival run through the full question bank.
+                Predict the consensus and keep going until the machine catches you.
               </p>
 
               <div className="mc-cta-wrap">
                 <button className="mc-btn-play" onClick={start}>
-                  Play today&rsquo;s five
+                  Start survival run
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -388,11 +396,11 @@ export function MachineConsensus({
               </div>
 
               <div className="mc-meta-row">
-                <span>5 questions</span>
+                <span>Endless run</span>
                 <span className="mc-meta-sep" />
-                <span>~2 minutes</span>
+                <span>One miss ends it</span>
                 <span className="mc-meta-sep" />
-                <span>No account needed</span>
+                <span>{total} shuffled questions</span>
               </div>
 
               <div className="mc-poll">
@@ -413,7 +421,7 @@ export function MachineConsensus({
               <div className="mc-streak-area">
                 <span className="mc-streak-label">Streak</span>
                 <span className="mc-streak-num">
-                  {results.filter((r) => r.correct).length}
+                  {correctCount}
                 </span>
               </div>
             </div>
@@ -480,7 +488,7 @@ export function MachineConsensus({
                         <p className="mc-dissent-text">{q.disagreement}</p>
                       </div>
                       <button className="mc-btn-next" onClick={next}>
-                        {!endless && qIndex >= total - 1 ? "See verdict" : "Next question"} →
+                        {runOver ? "See verdict" : "Next question"} →
                       </button>
                     </div>
                   )}
@@ -493,16 +501,17 @@ export function MachineConsensus({
         {/* SCORE */}
         {screen === "score" && (
           <section className="mc-score-card">
-            <div className="mc-score-over">Today&rsquo;s Verdict — {dateLabel}</div>
+            <div className="mc-score-over">Survival Verdict — {dateLabel}</div>
             <div className="mc-score-big">
               {correctCount}
-              <span className="mc-score-denom"> / {total}</span>
             </div>
-            <div className="mc-score-correct">correct answers</div>
+            <div className="mc-score-correct">
+              correct answer{correctCount === 1 ? "" : "s"} before the miss
+            </div>
             <div className="mc-score-verdict">{verdict}</div>
 
             <div className="mc-symbols">
-              {dailyResults.map((r, i) => (
+              {results.map((r, i) => (
                 <div key={i} className={`mc-symbol${r.correct ? " mc-symbol--correct" : " mc-symbol--wrong"}`}>
                   {r.correct ? "✓" : "✗"}
                 </div>
@@ -513,7 +522,7 @@ export function MachineConsensus({
               <div className="mc-stat">
                 <div className="mc-stat-label">Streak</div>
                 <div className="mc-stat-value">
-                  {streak}<span className="mc-stat-unit">days</span>
+                  {correctCount}<span className="mc-stat-unit">rounds</span>
                 </div>
               </div>
               <div className="mc-stat">
@@ -531,8 +540,8 @@ export function MachineConsensus({
               >
                 Share result
               </button>
-              <button className="mc-btn-ghost" onClick={endlessMode}>
-                Endless mode →
+              <button className="mc-btn-ghost" onClick={start}>
+                Play again →
               </button>
             </div>
           </section>
@@ -556,7 +565,7 @@ export function MachineConsensus({
               <span className="mc-share-tag">{verdict}</span>
             </div>
             <div className="mc-share-grid">
-              {dailyResults.map((r, i) => (
+              {results.map((r, i) => (
                 <div key={i} className={`mc-share-cell${r.correct ? " mc-share-cell--correct" : " mc-share-cell--wrong"}`}>
                   {r.correct ? "✓" : "✗"}
                 </div>

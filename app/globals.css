@@ -123,6 +123,7 @@ button { font: inherit; cursor: pointer; }
 }
 .mc-pip--done   { background: rgba(0,0,0,0.4); }
 .mc-pip--active { background: #1d1d1f; }
+.mc-pip--wrong  { background: rgba(214,69,58,0.75); }
 .mc-counter {
   font-size: 13px;
   font-weight: 600;
