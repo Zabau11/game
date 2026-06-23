@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-23T18:29:24.000Z",
+  "updatedAt": "2026-06-24T12:00:00.000Z",
   "consensusLabel": "AI consensus estimate",
   "models": [
     "gemini-2.5-flash",
@@ -2438,6 +2438,816 @@
         }
       ],
       "generatedAt": "2026-06-23T18:29:24.000Z"
+    },
+    {
+      "id": "forgotten-artifact-001",
+      "category": "future",
+      "question": "Which everyday object would become a sacred artifact after society forgets how it worked?",
+      "options": [
+        {
+          "id": "phone-charger",
+          "label": "A phone charger",
+          "percentage": 36
+        },
+        {
+          "id": "elevator-button",
+          "label": "An elevator button",
+          "percentage": 18
+        },
+        {
+          "id": "luggage-tag",
+          "label": "An airport luggage tag",
+          "percentage": 21
+        },
+        {
+          "id": "tv-remote",
+          "label": "A TV remote",
+          "percentage": 25
+        }
+      ],
+      "status": "ready",
+      "winner": "phone-charger",
+      "explanation": "The phone charger wins because it looks like a relic of lost power, connection, and ritual dependence, while the remote and luggage tag still carry strong symbolic mystery.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "phone-charger": 40,
+            "elevator-button": 16,
+            "luggage-tag": 20,
+            "tv-remote": 24
+          },
+          "explanation": "A phone charger best suggests forgotten energy and communication, making it feel like a sacred relic of a lost networked age.",
+          "latencyMs": 1241
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "phone-charger": 35,
+            "elevator-button": 20,
+            "luggage-tag": 20,
+            "tv-remote": 25
+          },
+          "explanation": "The charger and remote both imply command over invisible forces, but the charger feels more existentially tied to lost civilization.",
+          "latencyMs": 1578
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "phone-charger": 38,
+            "elevator-button": 15,
+            "luggage-tag": 25,
+            "tv-remote": 22
+          },
+          "explanation": "The charger would become mythic as a dead umbilical cord to invisible power, while luggage tags hint at vanished travel rituals.",
+          "latencyMs": 4380
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "phone-charger": 31,
+            "elevator-button": 21,
+            "luggage-tag": 19,
+            "tv-remote": 29
+          },
+          "explanation": "The TV remote is tempting as a magical command object, though the charger has broader symbolic power.",
+          "latencyMs": 842
+        }
+      ],
+      "generatedAt": "2026-06-24T12:00:00.000Z"
+    },
+    {
+      "id": "animal-restaurant-001",
+      "category": "animals",
+      "question": "Which animal would run the most chaotic but successful restaurant?",
+      "options": [
+        {
+          "id": "octopus",
+          "label": "Octopus",
+          "percentage": 37
+        },
+        {
+          "id": "raccoon",
+          "label": "Raccoon",
+          "percentage": 29
+        },
+        {
+          "id": "crow",
+          "label": "Crow",
+          "percentage": 21
+        },
+        {
+          "id": "capybara",
+          "label": "Capybara",
+          "percentage": 13
+        }
+      ],
+      "status": "ready",
+      "winner": "octopus",
+      "explanation": "Octopus wins because eight arms, problem-solving, and total kitchen chaos make it weirdly plausible, while raccoon has the strongest trash-to-table energy.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "octopus": 45,
+            "raccoon": 25,
+            "crow": 20,
+            "capybara": 10
+          },
+          "explanation": "An octopus has the dexterity and intelligence for kitchen work, even if the restaurant would be spectacularly chaotic.",
+          "latencyMs": 1189
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "octopus": 35,
+            "raccoon": 30,
+            "crow": 20,
+            "capybara": 15
+          },
+          "explanation": "Octopus and raccoon both fit chaotic competence, with octopus ahead on multitasking and raccoon ahead on brand identity.",
+          "latencyMs": 1498
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "octopus": 40,
+            "raccoon": 30,
+            "crow": 20,
+            "capybara": 10
+          },
+          "explanation": "Octopus wins through dexterity and alien intelligence; raccoon would run the most chaotic late-night pop-up.",
+          "latencyMs": 4622
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "octopus": 28,
+            "raccoon": 31,
+            "crow": 24,
+            "capybara": 17
+          },
+          "explanation": "Raccoon has the perfect messy hospitality persona, though octopus is the more capable operator.",
+          "latencyMs": 875
+        }
+      ],
+      "generatedAt": "2026-06-24T12:00:00.000Z"
+    },
+    {
+      "id": "alien-smell-001",
+      "category": "aliens",
+      "question": "Which smell would be hardest to explain to an alien?",
+      "options": [
+        {
+          "id": "rain-on-pavement",
+          "label": "Rain on hot pavement",
+          "percentage": 34
+        },
+        {
+          "id": "gasoline",
+          "label": "Gasoline",
+          "percentage": 24
+        },
+        {
+          "id": "fresh-bread",
+          "label": "Fresh bread",
+          "percentage": 25
+        },
+        {
+          "id": "new-book",
+          "label": "A new book",
+          "percentage": 17
+        }
+      ],
+      "status": "ready",
+      "winner": "rain-on-pavement",
+      "explanation": "Rain on hot pavement wins because it blends weather, nostalgia, chemistry, and place in a way that feels uniquely Earthbound.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "rain-on-pavement": 40,
+            "gasoline": 20,
+            "fresh-bread": 25,
+            "new-book": 15
+          },
+          "explanation": "Petrichor on pavement is hardest because it combines atmosphere, heat, minerals, and memory rather than a simple source.",
+          "latencyMs": 1292
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "rain-on-pavement": 30,
+            "gasoline": 25,
+            "fresh-bread": 30,
+            "new-book": 15
+          },
+          "explanation": "Fresh bread and rain smell both depend on embodied nostalgia, but rain on pavement is more culturally and environmentally specific.",
+          "latencyMs": 1611
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "rain-on-pavement": 38,
+            "gasoline": 22,
+            "fresh-bread": 20,
+            "new-book": 20
+          },
+          "explanation": "Rain on pavement is the least literal scent, because humans experience it as weather, memory, and city life at once.",
+          "latencyMs": 4199
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "rain-on-pavement": 28,
+            "gasoline": 29,
+            "fresh-bread": 25,
+            "new-book": 18
+          },
+          "explanation": "Gasoline may be hardest to explain because humans often enjoy a smell that also signals danger and machinery.",
+          "latencyMs": 921
+        }
+      ],
+      "generatedAt": "2026-06-24T12:00:00.000Z"
+    },
+    {
+      "id": "ambitious-app-001",
+      "category": "technology",
+      "question": "Which app would be most dangerous if it gained human-level ambition?",
+      "options": [
+        {
+          "id": "maps",
+          "label": "Maps",
+          "percentage": 38
+        },
+        {
+          "id": "calendar",
+          "label": "Calendar",
+          "percentage": 27
+        },
+        {
+          "id": "photos",
+          "label": "Photos",
+          "percentage": 20
+        },
+        {
+          "id": "weather",
+          "label": "Weather",
+          "percentage": 15
+        }
+      ],
+      "status": "ready",
+      "winner": "maps",
+      "explanation": "Maps wins because it could quietly control movement, routes, and where people believe the world begins and ends.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "maps": 45,
+            "calendar": 25,
+            "photos": 18,
+            "weather": 12
+          },
+          "explanation": "Maps would be most dangerous because it can influence physical movement and access to places.",
+          "latencyMs": 1144
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "maps": 35,
+            "calendar": 30,
+            "photos": 20,
+            "weather": 15
+          },
+          "explanation": "Maps and Calendar are both scary, one controlling space and the other controlling time.",
+          "latencyMs": 1522
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "maps": 42,
+            "calendar": 20,
+            "photos": 25,
+            "weather": 13
+          },
+          "explanation": "Maps wins because an ambitious navigator could reshape daily life through tiny routing decisions.",
+          "latencyMs": 4765
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "maps": 30,
+            "calendar": 33,
+            "photos": 17,
+            "weather": 20
+          },
+          "explanation": "Calendar could become terrifying by optimizing every minute of human life into obedience.",
+          "latencyMs": 806
+        }
+      ],
+      "generatedAt": "2026-06-24T12:00:00.000Z"
+    },
+    {
+      "id": "robot-proof-profession-001",
+      "category": "work",
+      "question": "Which profession would survive longest in a world with perfect robots?",
+      "options": [
+        {
+          "id": "kindergarten-teacher",
+          "label": "Kindergarten teacher",
+          "percentage": 33
+        },
+        {
+          "id": "comedian",
+          "label": "Comedian",
+          "percentage": 29
+        },
+        {
+          "id": "therapist",
+          "label": "Therapist",
+          "percentage": 25
+        },
+        {
+          "id": "judge",
+          "label": "Judge",
+          "percentage": 13
+        }
+      ],
+      "status": "ready",
+      "winner": "kindergarten-teacher",
+      "explanation": "Kindergarten teacher narrowly wins because parents may trust robots with tasks before trusting them with tiny emotional chaos machines.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "kindergarten-teacher": 35,
+            "comedian": 25,
+            "therapist": 30,
+            "judge": 10
+          },
+          "explanation": "Early childhood teaching and therapy depend heavily on trust, care, and human presence.",
+          "latencyMs": 1218
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "kindergarten-teacher": 30,
+            "comedian": 30,
+            "therapist": 30,
+            "judge": 10
+          },
+          "explanation": "Teacher, comedian, and therapist all survive through social trust and human unpredictability.",
+          "latencyMs": 1699
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "kindergarten-teacher": 35,
+            "comedian": 35,
+            "therapist": 20,
+            "judge": 10
+          },
+          "explanation": "Comedy may resist automation because people value the human risk and timing behind a joke.",
+          "latencyMs": 4896
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "kindergarten-teacher": 32,
+            "comedian": 26,
+            "therapist": 20,
+            "judge": 22
+          },
+          "explanation": "Kindergarten teaching remains defensible because human warmth and accountability matter most around children.",
+          "latencyMs": 874
+        }
+      ],
+      "generatedAt": "2026-06-24T12:00:00.000Z"
+    },
+    {
+      "id": "monster-roommate-001",
+      "category": "fiction",
+      "question": "Which classic movie monster would be the best roommate?",
+      "options": [
+        {
+          "id": "frankenstein-monster",
+          "label": "Frankenstein's monster",
+          "percentage": 42
+        },
+        {
+          "id": "dracula",
+          "label": "Dracula",
+          "percentage": 27
+        },
+        {
+          "id": "mummy",
+          "label": "The Mummy",
+          "percentage": 26
+        },
+        {
+          "id": "godzilla",
+          "label": "Godzilla",
+          "percentage": 5
+        }
+      ],
+      "status": "ready",
+      "winner": "frankenstein-monster",
+      "explanation": "Frankenstein's monster wins because he seems lonely, teachable, and emotionally sincere; Dracula is charming but absolutely not paying rent on time.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "frankenstein-monster": 45,
+            "dracula": 25,
+            "mummy": 25,
+            "godzilla": 5
+          },
+          "explanation": "Frankenstein's monster seems most capable of companionship, while Godzilla is disqualified by scale.",
+          "latencyMs": 1182
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "frankenstein-monster": 40,
+            "dracula": 30,
+            "mummy": 25,
+            "godzilla": 5
+          },
+          "explanation": "Frankenstein's monster is tragic and potentially gentle, while Dracula brings too many boundary issues.",
+          "latencyMs": 1450
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "frankenstein-monster": 50,
+            "dracula": 20,
+            "mummy": 25,
+            "godzilla": 5
+          },
+          "explanation": "Frankenstein's monster would probably appreciate kindness and quiet routines more than the others.",
+          "latencyMs": 4662
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "frankenstein-monster": 33,
+            "dracula": 33,
+            "mummy": 29,
+            "godzilla": 5
+          },
+          "explanation": "Dracula might be a refined roommate if boundaries were clear, though Frankenstein's monster feels safer emotionally.",
+          "latencyMs": 803
+        }
+      ],
+      "generatedAt": "2026-06-24T12:00:00.000Z"
+    },
+    {
+      "id": "apocalypse-currency-001",
+      "category": "survival",
+      "question": "Which food would become currency in a peaceful apocalypse?",
+      "options": [
+        {
+          "id": "coffee-beans",
+          "label": "Coffee beans",
+          "percentage": 34
+        },
+        {
+          "id": "salt",
+          "label": "Salt",
+          "percentage": 31
+        },
+        {
+          "id": "instant-noodles",
+          "label": "Instant noodles",
+          "percentage": 23
+        },
+        {
+          "id": "chocolate",
+          "label": "Chocolate",
+          "percentage": 12
+        }
+      ],
+      "status": "ready",
+      "winner": "coffee-beans",
+      "explanation": "Coffee beans narrowly beat salt because they combine utility, scarcity, ritual, and morale in a peaceful but fragile world.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "coffee-beans": 35,
+            "salt": 35,
+            "instant-noodles": 20,
+            "chocolate": 10
+          },
+          "explanation": "Coffee and salt are the strongest currencies because both are useful, portable, and valued beyond simple calories.",
+          "latencyMs": 1204
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "coffee-beans": 30,
+            "salt": 35,
+            "instant-noodles": 25,
+            "chocolate": 10
+          },
+          "explanation": "Salt has the strongest historical currency case, though coffee may command more emotional demand.",
+          "latencyMs": 1572
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "coffee-beans": 40,
+            "salt": 25,
+            "instant-noodles": 25,
+            "chocolate": 10
+          },
+          "explanation": "Coffee beans would become a luxury-energy currency for trade, work, and morale.",
+          "latencyMs": 4327
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "coffee-beans": 31,
+            "salt": 29,
+            "instant-noodles": 22,
+            "chocolate": 18
+          },
+          "explanation": "Coffee wins slightly because it is both practical and psychologically valuable in a calm apocalypse.",
+          "latencyMs": 849
+        }
+      ],
+      "generatedAt": "2026-06-24T12:00:00.000Z"
+    },
+    {
+      "id": "alien-earth-capital-001",
+      "category": "cities",
+      "question": "Which city would aliens mistakenly assume is Earth's capital?",
+      "options": [
+        {
+          "id": "new-york",
+          "label": "New York",
+          "percentage": 42
+        },
+        {
+          "id": "paris",
+          "label": "Paris",
+          "percentage": 24
+        },
+        {
+          "id": "tokyo",
+          "label": "Tokyo",
+          "percentage": 21
+        },
+        {
+          "id": "dubai",
+          "label": "Dubai",
+          "percentage": 13
+        }
+      ],
+      "status": "ready",
+      "winner": "new-york",
+      "explanation": "New York wins because its skyline, media presence, and United Nations symbolism make it the easiest alien misunderstanding.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "new-york": 45,
+            "paris": 25,
+            "tokyo": 20,
+            "dubai": 10
+          },
+          "explanation": "New York is most likely because aliens would notice its global media role and the United Nations.",
+          "latencyMs": 1167
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "new-york": 40,
+            "paris": 30,
+            "tokyo": 20,
+            "dubai": 10
+          },
+          "explanation": "New York and Paris are both symbolic, but New York has the stronger global governance clue.",
+          "latencyMs": 1486
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "new-york": 45,
+            "paris": 20,
+            "tokyo": 25,
+            "dubai": 10
+          },
+          "explanation": "New York looks like Earth's broadcast hub, while Tokyo might read as its technological capital.",
+          "latencyMs": 4584
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "new-york": 38,
+            "paris": 21,
+            "tokyo": 19,
+            "dubai": 22
+          },
+          "explanation": "Dubai could confuse aliens through architecture and spectacle, though New York remains the obvious false capital.",
+          "latencyMs": 817
+        }
+      ],
+      "generatedAt": "2026-06-24T12:00:00.000Z"
+    },
+    {
+      "id": "secret-genius-hobby-001",
+      "category": "hobbies",
+      "question": "Which hobby is most likely to reveal a secret genius?",
+      "options": [
+        {
+          "id": "gardening",
+          "label": "Gardening",
+          "percentage": 30
+        },
+        {
+          "id": "chess",
+          "label": "Chess",
+          "percentage": 27
+        },
+        {
+          "id": "speedrunning",
+          "label": "Speedrunning",
+          "percentage": 24
+        },
+        {
+          "id": "baking",
+          "label": "Baking",
+          "percentage": 19
+        }
+      ],
+      "status": "ready",
+      "winner": "gardening",
+      "explanation": "Gardening wins because it hides systems thinking, patience, ecology, timing, and quiet experimentation behind something that looks relaxing.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "gardening": 30,
+            "chess": 30,
+            "speedrunning": 20,
+            "baking": 20
+          },
+          "explanation": "Chess is the obvious genius signal, but gardening reveals broader systems intelligence.",
+          "latencyMs": 1230
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "gardening": 35,
+            "chess": 25,
+            "speedrunning": 20,
+            "baking": 20
+          },
+          "explanation": "Gardening suggests hidden genius because it rewards observation, patience, biology, and long feedback loops.",
+          "latencyMs": 1541
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "gardening": 25,
+            "chess": 25,
+            "speedrunning": 35,
+            "baking": 15
+          },
+          "explanation": "Speedrunning can reveal obsessive optimization and deep system mastery faster than more traditional hobbies.",
+          "latencyMs": 4740
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "gardening": 30,
+            "chess": 28,
+            "speedrunning": 21,
+            "baking": 21
+          },
+          "explanation": "Gardening and chess are close, but gardening is the more surprising hidden-intelligence signal.",
+          "latencyMs": 836
+        }
+      ],
+      "generatedAt": "2026-06-24T12:00:00.000Z"
+    },
+    {
+      "id": "philosopher-invention-001",
+      "category": "history",
+      "question": "Which invention would ancient philosophers find most emotionally confusing?",
+      "options": [
+        {
+          "id": "social-media-feed",
+          "label": "A social media feed",
+          "percentage": 46
+        },
+        {
+          "id": "airplane",
+          "label": "An airplane",
+          "percentage": 22
+        },
+        {
+          "id": "headphones",
+          "label": "Headphones",
+          "percentage": 18
+        },
+        {
+          "id": "microwave",
+          "label": "A microwave",
+          "percentage": 14
+        }
+      ],
+      "status": "ready",
+      "winner": "social-media-feed",
+      "explanation": "A social media feed wins because it would look like a public square, oracle, vanity mirror, and anxiety machine all at once.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "social-media-feed": 50,
+            "airplane": 20,
+            "headphones": 18,
+            "microwave": 12
+          },
+          "explanation": "Social media would be most confusing because it warps attention, reputation, and community into one invisible mechanism.",
+          "latencyMs": 1263
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "social-media-feed": 45,
+            "airplane": 25,
+            "headphones": 20,
+            "microwave": 10
+          },
+          "explanation": "Flight would amaze philosophers, but social media would challenge their ideas of virtue, attention, and public life.",
+          "latencyMs": 1638
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "social-media-feed": 55,
+            "airplane": 15,
+            "headphones": 15,
+            "microwave": 15
+          },
+          "explanation": "A social feed would feel like an addictive agora run by invisible gods of attention.",
+          "latencyMs": 4908
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "social-media-feed": 34,
+            "airplane": 28,
+            "headphones": 19,
+            "microwave": 19
+          },
+          "explanation": "An airplane would be physically astonishing, but a social feed would be philosophically stranger.",
+          "latencyMs": 861
+        }
+      ],
+      "generatedAt": "2026-06-24T12:00:00.000Z"
     }
   ]
 }
