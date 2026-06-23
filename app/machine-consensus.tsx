@@ -26,6 +26,7 @@ type Screen = "landing" | "playing" | "score";
 type Phase = "predict" | "locked" | "reveal";
 
 const WORDS = ["machine", "model", "AI", "consensus", "LLM"];
+const BEST_SCORE_KEY = "machine-consensus-best-score";
 
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 const pad2 = (n: number) => String(n).padStart(2, "0");
@@ -75,7 +76,9 @@ export function MachineConsensus({
   const [revealDone, setRevealDone] = useState(false);
   const [results, setResults] = useState<{ correct: boolean }[]>([]);
   const [shareOpen, setShareOpen] = useState(false);
+  const [helpOpen, setHelpOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [bestScore, setBestScore] = useState(0);
   const [reduced, setReduced] = useState(false);
   const [displayWord, setDisplayWord] = useState(WORDS[0]);
   const [wordIndex, setWordIndex] = useState(0);
@@ -116,6 +119,14 @@ export function MachineConsensus({
     try {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
         setReduced(true);
+
+      const savedBest = Number.parseInt(
+        window.localStorage.getItem(BEST_SCORE_KEY) || "0",
+        10,
+      );
+      if (Number.isFinite(savedBest) && savedBest > 0) {
+        setBestScore(savedBest);
+      }
     } catch {
       /* no-op */
     }
@@ -168,6 +179,7 @@ export function MachineConsensus({
 
   const start = useCallback(() => {
     clearTimers();
+    setHelpOpen(false);
     setScreen("playing");
     setQIndex(0);
     setPhase("predict");
@@ -232,6 +244,10 @@ export function MachineConsensus({
 
   const keyHandlerRef = useRef<(e: KeyboardEvent) => void>(() => {});
   keyHandlerRef.current = (e: KeyboardEvent) => {
+    if (helpOpen) {
+      if (e.key === "Escape") setHelpOpen(false);
+      return;
+    }
     if (shareOpen) {
       if (e.key === "Escape") setShareOpen(false);
       return;
@@ -282,6 +298,16 @@ export function MachineConsensus({
   const verdict = survivalVerdict(correctCount);
   const beatPct = Math.min(99, Math.round(6 + Math.log2(correctCount + 1) * 18));
   const totalLabel = "∞";
+
+  useEffect(() => {
+    if (correctCount <= bestScore) return;
+    setBestScore(correctCount);
+    try {
+      window.localStorage.setItem(BEST_SCORE_KEY, String(correctCount));
+    } catch {
+      /* no-op */
+    }
+  }, [bestScore, correctCount]);
 
   const choiceClass = (i: number): string => {
     const cls = ["mc-choice"];
@@ -344,12 +370,28 @@ export function MachineConsensus({
             <span className="mc-edition">{dateShort} · Edition {editionLabel}</span>
           ) : (
             <nav className="mc-nav-links">
-              <a href="#" onClick={(e) => e.preventDefault()}>How to play</a>
+              <a
+                href="#"
+                aria-haspopup="dialog"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setHelpOpen(true);
+                }}
+              >
+                How to play
+              </a>
               <a href="#" onClick={(e) => e.preventDefault()}>About</a>
             </nav>
           )}
 
-          <div style={{ width: 140, flexShrink: 0 }} />
+          {screen === "playing" ? (
+            <div className="mc-header-score" aria-label={`Score ${correctCount}`}>
+              <span>Score</span>
+              <strong>{correctCount}</strong>
+            </div>
+          ) : (
+            <div style={{ width: 140, flexShrink: 0 }} />
+          )}
         </div>
       </header>
 
@@ -419,10 +461,14 @@ export function MachineConsensus({
             <div className="mc-card-top">
               <span className={roundBadgeClass()}>{roundBadgeLabel()}</span>
               <div className="mc-streak-area">
-                <span className="mc-streak-label">Streak</span>
-                <span className="mc-streak-num">
-                  {correctCount}
-                </span>
+                <div className="mc-score-mini">
+                  <span className="mc-streak-label">Score</span>
+                  <span className="mc-streak-num">{correctCount}</span>
+                </div>
+                <div className="mc-score-mini mc-score-mini--muted">
+                  <span className="mc-streak-label">Best</span>
+                  <span className="mc-streak-num">{bestScore}</span>
+                </div>
               </div>
             </div>
 
@@ -520,9 +566,15 @@ export function MachineConsensus({
 
             <div className="mc-stats">
               <div className="mc-stat">
-                <div className="mc-stat-label">Streak</div>
+                <div className="mc-stat-label">Score</div>
                 <div className="mc-stat-value">
                   {correctCount}<span className="mc-stat-unit">rounds</span>
+                </div>
+              </div>
+              <div className="mc-stat">
+                <div className="mc-stat-label">Best</div>
+                <div className="mc-stat-value">
+                  {bestScore}<span className="mc-stat-unit">rounds</span>
                 </div>
               </div>
               <div className="mc-stat">
@@ -548,6 +600,69 @@ export function MachineConsensus({
         )}
 
       </main>
+
+      {/* ── How to play overlay ── */}
+      {helpOpen && (
+        <div className="mc-overlay" onClick={() => setHelpOpen(false)}>
+          <section
+            className="mc-help-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="mc-help-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="mc-help-kicker">How to play</div>
+            <h2 id="mc-help-title" className="mc-help-title">
+              Survive the machine.
+            </h2>
+            <p className="mc-help-text">
+              Each round asks you to predict which answer a panel of AI models
+              ranked highest. The answers are revealed after you lock in.
+            </p>
+
+            <div className="mc-help-steps">
+              <div className="mc-help-step">
+                <span>1</span>
+                <div>
+                  <strong>Choose the AI favorite</strong>
+                  <p>Pick the option you think won the model consensus.</p>
+                </div>
+              </div>
+              <div className="mc-help-step">
+                <span>2</span>
+                <div>
+                  <strong>Watch the reveal</strong>
+                  <p>The game shows the full percentage split and why AI leaned that way.</p>
+                </div>
+              </div>
+              <div className="mc-help-step">
+                <span>3</span>
+                <div>
+                  <strong>Keep your run alive</strong>
+                  <p>Correct answers add to your score. One wrong answer ends the run.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mc-help-rule">
+              <span>∞</span>
+              <p>
+                Questions are shuffled from the full bank. If you clear the bank,
+                it reshuffles and keeps going.
+              </p>
+            </div>
+
+            <div className="mc-share-actions">
+              <button className="mc-btn-copy" onClick={start}>
+                Start survival run
+              </button>
+              <button className="mc-btn-close" onClick={() => setHelpOpen(false)}>
+                Close
+              </button>
+            </div>
+          </section>
+        </div>
+      )}
 
       {/* ── Share overlay ── */}
       {shareOpen && (
