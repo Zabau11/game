@@ -82,6 +82,8 @@ export function MachineConsensus({
   const [reduced, setReduced] = useState(false);
   const [displayWord, setDisplayWord] = useState(WORDS[0]);
   const [wordIndex, setWordIndex] = useState(0);
+  const [runKey, setRunKey] = useState(0);
+  const [introEnabled, setIntroEnabled] = useState(false);
 
   const rafRef = useRef<number | null>(null);
   const lockTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -92,7 +94,14 @@ export function MachineConsensus({
   const roundBodyRef = useRef<HTMLDivElement | null>(null);
 
   const isReduced = useCallback(
-    () => reduced || forceReducedMotion,
+    () => {
+      if (reduced || forceReducedMotion) return true;
+      try {
+        return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      } catch {
+        return false;
+      }
+    },
     [reduced, forceReducedMotion],
   );
 
@@ -180,7 +189,6 @@ export function MachineConsensus({
   const start = useCallback(() => {
     clearTimers();
     setHelpOpen(false);
-    setScreen("playing");
     setQIndex(0);
     setPhase("predict");
     setPicked(null);
@@ -188,11 +196,16 @@ export function MachineConsensus({
     setRevealDone(false);
     setResults([]);
     setQuestionDeck(shuffleQuestions(questions));
-  }, [clearTimers, questions]);
+
+    const shouldAnimateIntro = !isReduced();
+    setIntroEnabled(shouldAnimateIntro);
+    setRunKey((key) => key + 1);
+    setScreen("playing");
+  }, [clearTimers, isReduced, questions]);
 
   const choose = useCallback(
     (i: number) => {
-      if (phase !== "predict") return;
+      if (screen !== "playing" || phase !== "predict") return;
       const q = questionDeck[qIndex % total];
       const correct = i === q.winnerIndex;
       setPicked(i);
@@ -205,7 +218,7 @@ export function MachineConsensus({
       if (isReduced()) go();
       else lockTimerRef.current = setTimeout(go, 560);
     },
-    [phase, questionDeck, qIndex, total, isReduced, runReveal],
+    [screen, phase, questionDeck, qIndex, total, isReduced, runReveal],
   );
 
   const next = useCallback(() => {
@@ -275,7 +288,7 @@ export function MachineConsensus({
   }, []);
 
   useEffect(() => {
-    if (screen !== "playing" || isReduced()) return;
+    if (screen !== "playing" || qIndex === 0 || isReduced()) return;
     const el = roundBodyRef.current;
     if (!el) return;
     el.style.animation = "none";
@@ -457,7 +470,10 @@ export function MachineConsensus({
 
         {/* PLAYING */}
         {screen === "playing" && (
-          <section className="mc-game-card">
+          <section
+            key={runKey}
+            className={`mc-game-card${introEnabled ? " mc-game-card--building" : ""}`}
+          >
             <div className="mc-card-top">
               <span className={roundBadgeClass()}>{roundBadgeLabel()}</span>
               <div className="mc-streak-area">
@@ -472,7 +488,7 @@ export function MachineConsensus({
               </div>
             </div>
 
-            <div ref={roundBodyRef} className="mc-round-body" key={qIndex}>
+            <div ref={roundBodyRef} className="mc-round-body">
               <div className="mc-phase-label">
                 {inReveal ? "The machine has voted" : "Predict the AI favorite"}
               </div>
