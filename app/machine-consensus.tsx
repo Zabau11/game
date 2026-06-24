@@ -146,6 +146,126 @@ function shuffleQuestions(
   return shuffled;
 }
 
+function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced: () => boolean }) {
+  const mouseRef = useRef({ x: 0, y: 0 });
+  const statesRef = useRef<{ x: number; y: number; vx: number; vy: number }[]>(
+    cards.map(() => ({ x: 0, y: 0, vx: 0, vy: 0 }))
+  );
+  const cardRefs = useRef<(HTMLDivElement | null)[]>(cards.map(() => null));
+  const rafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (isReduced()) return;
+    const states = statesRef.current;
+
+    const onMouse = (e: MouseEvent) => {
+      mouseRef.current.x = (e.clientX / window.innerWidth - 0.5) * 2;
+      mouseRef.current.y = (e.clientY / window.innerHeight - 0.5) * 2;
+    };
+    window.addEventListener("mousemove", onMouse, { passive: true });
+
+    const STIFF = 0.055;
+    const DAMP = 0.80;
+    const SEP = 0.14;
+    const GAP = 16;
+
+    const tick = () => {
+      const mx = mouseRef.current.x;
+      const my = mouseRef.current.y;
+
+      for (let i = 0; i < cards.length; i++) {
+        const s = states[i]; const c = cards[i];
+        s.vx += (mx * c.px * 80 - s.x) * STIFF;
+        s.vy += (my * c.py * 55 - s.y) * STIFF;
+        s.vx *= DAMP; s.vy *= DAMP;
+        s.x += s.vx;  s.y += s.vy;
+      }
+
+      const rects = cardRefs.current.map(el => el ? el.getBoundingClientRect() : null);
+      for (let i = 0; i < cards.length - 1; i++) {
+        for (let j = i + 1; j < cards.length; j++) {
+          const ri = rects[i]; const rj = rects[j];
+          if (!ri || !rj) continue;
+          const cxi = ri.left + ri.width / 2;  const cyi = ri.top + ri.height / 2;
+          const cxj = rj.left + rj.width / 2;  const cyj = rj.top + rj.height / 2;
+          const ox = (ri.width + rj.width) / 2 + GAP - Math.abs(cxi - cxj);
+          const oy = (ri.height + rj.height) / 2 + GAP - Math.abs(cyi - cyj);
+          if (ox > 0 && oy > 0) {
+            const dx = cxi - cxj; const dy = cyi - cyj;
+            const dist = Math.hypot(dx, dy) || 1;
+            const force = Math.min(ox, oy) * SEP;
+            const fx = (dx / dist) * force; const fy = (dy / dist) * force;
+            states[i].vx += fx; states[i].vy += fy;
+            states[j].vx -= fx; states[j].vy -= fy;
+          }
+        }
+      }
+
+      for (let i = 0; i < cards.length; i++) {
+        const el = cardRefs.current[i];
+        if (!el) continue;
+        el.style.transform = `translate(${states[i].x.toFixed(1)}px, ${states[i].y.toFixed(1)}px) rotate(${cards[i].rot})`;
+      }
+
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => {
+      window.removeEventListener("mousemove", onMouse);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [cards, isReduced]);
+
+  return (
+    <div className="mc-float-layer" aria-hidden>
+      {cards.map((card, i) => {
+        const maxPct = card.bars ? Math.max(...card.bars.map(b => b.pct)) : 100;
+        return (
+          <div
+            key={i}
+            className={`mc-float-wrap${card.mobileHide ? " mc-float-wrap--mobile-hide" : ""}`}
+            style={{ ...card.pos, animation: `${card.anim} ${card.dur} ease-in-out ${card.delay} infinite` }}
+          >
+            <div
+              ref={el => { cardRefs.current[i] = el; }}
+              className="mc-float-card"
+              style={{ width: card.width, opacity: card.opacity }}
+            >
+              <p className="mc-float-prompt">{card.prompt}</p>
+              {card.bars && (
+                <div className="mc-float-bars">
+                  {card.bars.map((bar, j) => (
+                    <div key={j} className="mc-float-bar-row">
+                      <span className="mc-float-bar-label">{bar.label}</span>
+                      <div className="mc-float-bar-track">
+                        <div
+                          className={`mc-float-bar-fill${bar.winner ? " mc-float-bar-fill--win" : ""}`}
+                          style={{ width: `${(bar.pct / maxPct) * 100}%` }}
+                        />
+                      </div>
+                      <span className="mc-float-bar-pct">{bar.pct}%</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {card.pills && (
+                <div className="mc-float-pills">
+                  {card.pills.map((pill, j) => (
+                    <span key={j} className={`mc-float-pill${pill.winner ? " mc-float-pill--win" : ""}`}>
+                      {pill.label}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export function MachineConsensus({
   questions,
   models,
@@ -174,7 +294,6 @@ export function MachineConsensus({
   const [wordIndex, setWordIndex] = useState(0);
   const [runKey, setRunKey] = useState(0);
   const [introEnabled, setIntroEnabled] = useState(false);
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
 
   const rafRef = useRef<number | null>(null);
   const lockTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -410,18 +529,6 @@ export function MachineConsensus({
     return () => window.removeEventListener("keydown", h);
   }, []);
 
-  useEffect(() => {
-    if (screen !== "landing" || isReduced()) return;
-    const handle = (e: MouseEvent) => {
-      setMouse({
-        x: (e.clientX / window.innerWidth - 0.5) * 2,
-        y: (e.clientY / window.innerHeight - 0.5) * 2,
-      });
-    };
-    window.addEventListener("mousemove", handle, { passive: true });
-    return () => window.removeEventListener("mousemove", handle);
-  }, [screen, isReduced]);
-
   // Clear the intro build class on first pick so feedback animations aren't blocked
   useEffect(() => {
     if (phase === "locked") setIntroEnabled(false);
@@ -575,57 +682,7 @@ export function MachineConsensus({
         {/* LANDING */}
         {screen === "landing" && (
           <>
-            <div className="mc-float-layer" aria-hidden>
-              {FLOAT_CARDS.map((card, i) => {
-                const maxPct = card.bars ? Math.max(...card.bars.map(b => b.pct)) : 100;
-                return (
-                  <div
-                    key={i}
-                    className={`mc-float-wrap${card.mobileHide ? " mc-float-wrap--mobile-hide" : ""}`}
-                    style={{
-                      ...card.pos,
-                      animation: `${card.anim} ${card.dur} ease-in-out ${card.delay} infinite`,
-                    }}
-                  >
-                    <div
-                      className="mc-float-card"
-                      style={{
-                        transform: `translate(${(mouse.x * card.px * 80).toFixed(1)}px, ${(mouse.y * card.py * 55).toFixed(1)}px) rotate(${card.rot})`,
-                        width: card.width,
-                        opacity: card.opacity,
-                      }}
-                    >
-                      <p className="mc-float-prompt">{card.prompt}</p>
-                      {card.bars && (
-                        <div className="mc-float-bars">
-                          {card.bars.map((bar, j) => (
-                            <div key={j} className="mc-float-bar-row">
-                              <span className="mc-float-bar-label">{bar.label}</span>
-                              <div className="mc-float-bar-track">
-                                <div
-                                  className={`mc-float-bar-fill${bar.winner ? " mc-float-bar-fill--win" : ""}`}
-                                  style={{ width: `${(bar.pct / maxPct) * 100}%` }}
-                                />
-                              </div>
-                              <span className="mc-float-bar-pct">{bar.pct}%</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                      {card.pills && (
-                        <div className="mc-float-pills">
-                          {card.pills.map((pill, j) => (
-                            <span key={j} className={`mc-float-pill${pill.winner ? " mc-float-pill--win" : ""}`}>
-                              {pill.label}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <FloatCardLayer cards={FLOAT_CARDS} isReduced={isReduced} />
 
             <div className="mc-landing">
               <div className="mc-badge">
