@@ -158,11 +158,11 @@ function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced
     };
     window.addEventListener("mousemove", onMouse, { passive: true });
 
-    const REPEL  = 10;
+    const REPEL  = 4;
     const RADIUS = 200;
-    const SPRING = 0.04;
-    const DAMP   = 0.82;
-    const SEP    = 0.12;
+    const SPRING = 0.022;
+    const DAMP   = 0.91;
+    const SEP    = 0.08;
     const GAP    = 12;
 
     const tick = () => {
