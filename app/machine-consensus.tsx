@@ -287,13 +287,29 @@ export function MachineConsensus({
     return () => window.removeEventListener("keydown", h);
   }, []);
 
+  // Clear the intro build class on first pick so feedback animations aren't blocked
+  useEffect(() => {
+    if (phase === "locked") setIntroEnabled(false);
+  }, [phase]);
+
   useEffect(() => {
     if (screen !== "playing" || qIndex === 0 || isReduced()) return;
     const el = roundBodyRef.current;
     if (!el) return;
+
+    // Fade whole body
     el.style.animation = "none";
     void el.offsetWidth;
     el.style.animation = "pk-fadeUp .4s cubic-bezier(.22,.61,.36,1)";
+
+    // Stagger choices within it
+    const buttons = [...el.querySelectorAll<HTMLButtonElement>(".mc-choice")];
+    buttons.forEach((btn) => { btn.style.animation = "none"; });
+    void el.offsetWidth;
+    buttons.forEach((btn, i) => {
+      btn.style.setProperty("--choice-x", i % 2 === 0 ? "-10px" : "10px");
+      btn.style.animation = `mc-choiceBuild .44s cubic-bezier(0.22,1,0.36,1) ${80 + i * 60}ms both`;
+    });
   }, [qIndex, screen, isReduced]);
 
   // Derived
@@ -336,6 +352,10 @@ export function MachineConsensus({
     }
     return cls.join(" ");
   };
+
+  const feedbackClass = inReveal
+    ? pickedCorrect ? " mc-game-card--correct" : " mc-game-card--wrong"
+    : "";
 
   const roundBadgeClass = (): string => {
     if (inReveal) {
@@ -439,7 +459,8 @@ export function MachineConsensus({
 
               <h1 className="mc-display">
                 Think like a<br />
-                {displayWord || " "}.
+                {displayWord || " "}
+                <span className="mc-cursor" aria-hidden />.
               </h1>
 
               <p className="mc-lede">
@@ -478,7 +499,7 @@ export function MachineConsensus({
         {screen === "playing" && (
           <section
             key={runKey}
-            className={`mc-game-card${introEnabled ? " mc-game-card--building" : ""}`}
+            className={`mc-game-card${introEnabled ? " mc-game-card--building" : ""}${feedbackClass}`}
           >
             <div className="mc-card-top">
               <span className={roundBadgeClass()}>{roundBadgeLabel()}</span>
