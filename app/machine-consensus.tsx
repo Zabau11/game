@@ -43,8 +43,19 @@ type FloatCardDef = {
 
 const FLOAT_CARDS: FloatCardDef[] = [
   {
+    prompt: "What would four AIs agree on?",
+    pos: { top: "41%", left: "29%" },
+    anim: "pk-float2", dur: "37s", delay: "-23s",
+    rot: "-1deg", width: 190, opacity: 0.22,
+    bars: [
+      { label: "Mathematics", pct: 71, winner: true },
+      { label: "Logic", pct: 20 },
+      { label: "Efficiency", pct: 9 },
+    ],
+  },
+  {
     prompt: "Which invention would confuse a medieval king?",
-    pos: { top: "11%", left: "7%" },
+    pos: { top: "14%", left: "4%" },
     anim: "pk-float2", dur: "34s", delay: "-7s",
     rot: "-3deg", width: 208, opacity: 0.30,
     bars: [
@@ -55,7 +66,7 @@ const FLOAT_CARDS: FloatCardDef[] = [
   },
   {
     prompt: "Who would survive a group project?",
-    pos: { top: "9%", right: "9%" },
+    pos: { top: "13%", left: "61%" },
     anim: "pk-float1", dur: "29s", delay: "-13s",
     rot: "2.5deg", width: 194, opacity: 0.28,
     pills: [
@@ -64,19 +75,8 @@ const FLOAT_CARDS: FloatCardDef[] = [
     ],
   },
   {
-    prompt: "What would four AIs agree on?",
-    pos: { top: "52%", left: "16%" },
-    anim: "pk-float2", dur: "37s", delay: "-23s",
-    rot: "-1.5deg", width: 190, opacity: 0.24,
-    bars: [
-      { label: "Mathematics", pct: 71, winner: true },
-      { label: "Logic", pct: 20 },
-      { label: "Efficiency", pct: 9 },
-    ],
-  },
-  {
     prompt: "Which fictional character makes the best mayor?",
-    pos: { top: "36%", right: "9%" },
+    pos: { top: "75%", left: "7%" },
     anim: "pk-float3", dur: "40s", delay: "-20s",
     rot: "-2deg", width: 214, opacity: 0.26,
     mobileHide: true,
@@ -88,7 +88,7 @@ const FLOAT_CARDS: FloatCardDef[] = [
   },
   {
     prompt: "Which animal would give the best TED talk?",
-    pos: { top: "70%", right: "14%" },
+    pos: { top: "75%", left: "63%" },
     anim: "pk-float3", dur: "33s", delay: "-9s",
     rot: "-1.5deg", width: 198, opacity: 0.24,
     mobileHide: true,
@@ -100,7 +100,7 @@ const FLOAT_CARDS: FloatCardDef[] = [
   },
   {
     prompt: "Which word best describes the internet?",
-    pos: { top: "67%", left: "6%" },
+    pos: { top: "44%", left: "73%" },
     anim: "pk-float4", dur: "38s", delay: "-18s",
     rot: "1deg", width: 190, opacity: 0.28,
     mobileHide: true,
@@ -158,8 +158,8 @@ function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced
     };
     window.addEventListener("mousemove", onMouse, { passive: true });
 
-    const REPEL  = 24;
-    const RADIUS = 280;
+    const REPEL  = 10;
+    const RADIUS = 200;
     const SPRING = 0.04;
     const DAMP   = 0.82;
     const SEP    = 0.12;
