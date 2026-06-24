@@ -28,6 +28,96 @@ type Phase = "predict" | "locked" | "reveal";
 const WORDS = ["machine", "model", "AI", "consensus", "LLM"];
 const BEST_SCORE_KEY = "machine-consensus-best-score";
 
+type FloatBarItem = { label: string; pct: number; winner?: boolean };
+type FloatPillItem = { label: string; winner?: boolean };
+type FloatCardDef = {
+  prompt: string;
+  pos: React.CSSProperties;
+  anim: string; dur: string; delay: string;
+  rot: string; px: number; py: number;
+  width: number; opacity: number;
+  mobileHide?: boolean;
+  bars?: FloatBarItem[];
+  pills?: FloatPillItem[];
+};
+
+const FLOAT_CARDS: FloatCardDef[] = [
+  {
+    prompt: "Which invention would confuse a medieval king?",
+    pos: { top: "11%", left: "7%" },
+    anim: "pk-float2", dur: "34s", delay: "-7s",
+    rot: "-3deg", px: -0.9, py: -0.5,
+    width: 208, opacity: 0.30,
+    bars: [
+      { label: "Smartphone", pct: 67, winner: true },
+      { label: "Microwave", pct: 21 },
+      { label: "Escalator", pct: 12 },
+    ],
+  },
+  {
+    prompt: "Who would survive a group project?",
+    pos: { top: "9%", right: "9%" },
+    anim: "pk-float1", dur: "29s", delay: "-13s",
+    rot: "2.5deg", px: 0.82, py: -0.6,
+    width: 194, opacity: 0.28,
+    pills: [
+      { label: "Quiet overachiever", winner: true },
+      { label: "Natural delegator" },
+    ],
+  },
+  {
+    prompt: "What would four AIs agree on?",
+    pos: { top: "52%", left: "16%" },
+    anim: "pk-float2", dur: "37s", delay: "-23s",
+    rot: "-1.5deg", px: -0.7, py: 0.65,
+    width: 190, opacity: 0.24,
+    bars: [
+      { label: "Mathematics", pct: 71, winner: true },
+      { label: "Logic", pct: 20 },
+      { label: "Efficiency", pct: 9 },
+    ],
+  },
+  {
+    prompt: "Which fictional character makes the best mayor?",
+    pos: { top: "36%", right: "9%" },
+    anim: "pk-float3", dur: "40s", delay: "-20s",
+    rot: "-2deg", px: 0.88, py: 0.1,
+    width: 214, opacity: 0.26,
+    mobileHide: true,
+    bars: [
+      { label: "Leslie Knope", pct: 58, winner: true },
+      { label: "Hermione", pct: 28 },
+      { label: "Atticus Finch", pct: 14 },
+    ],
+  },
+  {
+    prompt: "Which animal would give the best TED talk?",
+    pos: { top: "70%", right: "14%" },
+    anim: "pk-float3", dur: "33s", delay: "-9s",
+    rot: "-1.5deg", px: 0.6, py: 0.8,
+    width: 198, opacity: 0.24,
+    mobileHide: true,
+    bars: [
+      { label: "Octopus", pct: 52, winner: true },
+      { label: "Crow", pct: 31 },
+      { label: "Dolphin", pct: 17 },
+    ],
+  },
+  {
+    prompt: "Which word best describes the internet?",
+    pos: { top: "67%", left: "6%" },
+    anim: "pk-float4", dur: "38s", delay: "-18s",
+    rot: "1deg", px: -0.85, py: 0.4,
+    width: 190, opacity: 0.28,
+    mobileHide: true,
+    bars: [
+      { label: "Chaotic", pct: 44, winner: true },
+      { label: "Useful", pct: 35 },
+      { label: "Weird", pct: 21 },
+    ],
+  },
+];
+
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 const pad2 = (n: number) => String(n).padStart(2, "0");
 const survivalVerdict = (score: number) => {
@@ -84,6 +174,7 @@ export function MachineConsensus({
   const [wordIndex, setWordIndex] = useState(0);
   const [runKey, setRunKey] = useState(0);
   const [introEnabled, setIntroEnabled] = useState(false);
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
 
   const rafRef = useRef<number | null>(null);
   const lockTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -319,6 +410,18 @@ export function MachineConsensus({
     return () => window.removeEventListener("keydown", h);
   }, []);
 
+  useEffect(() => {
+    if (screen !== "landing" || isReduced()) return;
+    const handle = (e: MouseEvent) => {
+      setMouse({
+        x: (e.clientX / window.innerWidth - 0.5) * 2,
+        y: (e.clientY / window.innerHeight - 0.5) * 2,
+      });
+    };
+    window.addEventListener("mousemove", handle, { passive: true });
+    return () => window.removeEventListener("mousemove", handle);
+  }, [screen, isReduced]);
+
   // Clear the intro build class on first pick so feedback animations aren't blocked
   useEffect(() => {
     if (phase === "locked") setIntroEnabled(false);
@@ -472,15 +575,56 @@ export function MachineConsensus({
         {/* LANDING */}
         {screen === "landing" && (
           <>
-            <div className="mc-ambient" aria-hidden>
-              <span style={{ top: "11%", left: "3%",  opacity: 0.055, animation: "pk-float1 24s ease-in-out infinite" }}>Which model ranks empathy highest?</span>
-              <span style={{ top: "74%", left: "2%",  opacity: 0.045, animation: "pk-float3 30s ease-in-out infinite", animationDelay: "-6s" }}>What do AIs agree on?</span>
-              <span style={{ top: "88%", left: "22%", opacity: 0.04,  animation: "pk-float2 34s ease-in-out infinite", animationDelay: "-14s" }}>Name the most creative model.</span>
-              <span style={{ top: "18%", right: "2%", opacity: 0.055, animation: "pk-float4 27s ease-in-out infinite", animationDelay: "-3s" }}>Which AI prefers poetry over code?</span>
-              <span style={{ top: "62%", right: "3%", opacity: 0.05,  animation: "pk-float1 32s ease-in-out infinite", animationDelay: "-11s" }}>What is the consensus on beauty?</span>
-              <span style={{ top: "6%",  left: "36%", opacity: 0.038, animation: "pk-float3 38s ease-in-out infinite", animationDelay: "-20s" }}>Can machines dream of logic?</span>
-              <span style={{ top: "84%", right: "10%",opacity: 0.048, animation: "pk-float2 29s ease-in-out infinite", animationDelay: "-8s" }}>Which answer ranked first?</span>
-              <span style={{ top: "44%", left: "1%",  opacity: 0.04,  animation: "pk-float4 36s ease-in-out infinite", animationDelay: "-17s" }}>Give a synonym for &ldquo;consensus.&rdquo;</span>
+            <div className="mc-float-layer" aria-hidden>
+              {FLOAT_CARDS.map((card, i) => {
+                const maxPct = card.bars ? Math.max(...card.bars.map(b => b.pct)) : 100;
+                return (
+                  <div
+                    key={i}
+                    className={`mc-float-wrap${card.mobileHide ? " mc-float-wrap--mobile-hide" : ""}`}
+                    style={{
+                      ...card.pos,
+                      animation: `${card.anim} ${card.dur} ease-in-out ${card.delay} infinite`,
+                    }}
+                  >
+                    <div
+                      className="mc-float-card"
+                      style={{
+                        transform: `translate(${(mouse.x * card.px * 80).toFixed(1)}px, ${(mouse.y * card.py * 55).toFixed(1)}px) rotate(${card.rot})`,
+                        width: card.width,
+                        opacity: card.opacity,
+                      }}
+                    >
+                      <p className="mc-float-prompt">{card.prompt}</p>
+                      {card.bars && (
+                        <div className="mc-float-bars">
+                          {card.bars.map((bar, j) => (
+                            <div key={j} className="mc-float-bar-row">
+                              <span className="mc-float-bar-label">{bar.label}</span>
+                              <div className="mc-float-bar-track">
+                                <div
+                                  className={`mc-float-bar-fill${bar.winner ? " mc-float-bar-fill--win" : ""}`}
+                                  style={{ width: `${(bar.pct / maxPct) * 100}%` }}
+                                />
+                              </div>
+                              <span className="mc-float-bar-pct">{bar.pct}%</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      {card.pills && (
+                        <div className="mc-float-pills">
+                          {card.pills.map((pill, j) => (
+                            <span key={j} className={`mc-float-pill${pill.winner ? " mc-float-pill--win" : ""}`}>
+                              {pill.label}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
             <div className="mc-landing">

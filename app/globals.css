@@ -367,19 +367,95 @@ button { font: inherit; cursor: pointer; }
 }
 
 /* ── Landing ── */
-.mc-ambient {
+.mc-float-layer {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-  animation: pk-fadeIn 1.2s ease 0.72s both;
+  animation: pk-fadeIn 1.4s ease 0.5s both;
 }
-.mc-ambient span {
+.mc-float-wrap {
   position: absolute;
+}
+.mc-float-card {
+  background: rgba(255,255,255,0.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 18px;
+  box-shadow: 0 4px 20px -6px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+  padding: 13px 15px;
+  transition: transform 0.18s ease-out;
+}
+.mc-float-prompt {
+  margin: 0;
   font-size: 12.5px;
-  white-space: nowrap;
+  font-weight: 500;
+  line-height: 1.42;
+  letter-spacing: -0.01em;
   color: #1d1d1f;
+}
+.mc-float-bars {
+  margin-top: 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.mc-float-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.mc-float-bar-label {
+  font-size: 10px;
+  color: #86868b;
+  min-width: 60px;
+  max-width: 90px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mc-float-bar-track {
+  flex: 1;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+.mc-float-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.12);
+}
+.mc-float-bar-fill--win { background: #30a85a; }
+.mc-float-bar-pct {
+  font-size: 10px;
+  font-weight: 600;
+  color: #a1a1a6;
+  font-variant-numeric: tabular-nums;
+  min-width: 22px;
+  text-align: right;
+}
+.mc-float-pills {
+  margin-top: 9px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.mc-float-pill {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 100px;
+  background: #ececf0;
+  color: #515154;
+  white-space: nowrap;
+}
+.mc-float-pill--win {
+  background: rgba(48,164,90,0.12);
+  color: #1f7a44;
 }
 .mc-landing {
   position: relative;
@@ -1212,6 +1288,10 @@ button { font: inherit; cursor: pointer; }
 .mc-btn-close:hover { background: #e0e0e3; }
 
 @media (max-width: 760px) {
+  .mc-float-wrap--mobile-hide {
+    display: none;
+  }
+
   .mc-main {
     align-items: flex-start;
     padding: 18px;
@@ -1275,6 +1355,10 @@ button { font: inherit; cursor: pointer; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .mc-float-layer {
+    display: none;
+  }
+
   .mc-root::before {
     animation: none;
   }
