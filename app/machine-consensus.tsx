@@ -44,7 +44,7 @@ type FloatCardDef = {
 const FLOAT_CARDS: FloatCardDef[] = [
   {
     prompt: "What would four AIs agree on?",
-    pos: { top: "41%", left: "29%" },
+    pos: { top: "41%", left: "24%" },
     anim: "pk-float2", dur: "37s", delay: "-23s",
     rot: "-1deg", width: 190, opacity: 0.22,
     bars: [
@@ -679,7 +679,8 @@ export function MachineConsensus({
             </div>
           ) : bestScore > 0 ? (
             <div className="mc-best-pill" aria-label={`Best run: ${bestScore}`}>
-              <span className="mc-best-label">best run</span>
+              <span className="mc-best-icon" aria-hidden>★</span>
+              <span className="mc-best-label">best</span>
               <span className="mc-best-sep" aria-hidden />
               <span className="mc-best-num">{bestScore}</span>
             </div>
