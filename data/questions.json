@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-24T13:00:00.000Z",
+  "updatedAt": "2026-06-25T00:00:00.000Z",
   "consensusLabel": "AI consensus estimate",
   "models": [
     "gemini-2.5-flash",
@@ -4058,6 +4058,626 @@
         }
       ],
       "generatedAt": "2026-06-24T13:00:00.000Z"
+    },
+    {
+      "id": "museum-gift-shop-001",
+      "category": "culture",
+      "question": "Which museum gift shop item would become the most powerful magical artifact?",
+      "options": [
+        {
+          "id": "postcard",
+          "label": "Postcard",
+          "percentage": 25
+        },
+        {
+          "id": "snow-globe",
+          "label": "Snow globe",
+          "percentage": 25
+        },
+        {
+          "id": "magnifying-glass",
+          "label": "Magnifying glass",
+          "percentage": 25
+        },
+        {
+          "id": "tote-bag",
+          "label": "Tote bag",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "postcard",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "haunted-smart-home-001",
+      "category": "home",
+      "question": "Which smart home device would be the creepiest if it became haunted?",
+      "options": [
+        {
+          "id": "doorbell-camera",
+          "label": "Doorbell camera",
+          "percentage": 25
+        },
+        {
+          "id": "smart-speaker",
+          "label": "Smart speaker",
+          "percentage": 25
+        },
+        {
+          "id": "thermostat",
+          "label": "Thermostat",
+          "percentage": 25
+        },
+        {
+          "id": "baby-monitor",
+          "label": "Baby monitor",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "doorbell-camera",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "space-station-snack-001",
+      "category": "space",
+      "question": "Which snack would become most emotionally important on a space station?",
+      "options": [
+        {
+          "id": "potato-chips",
+          "label": "Potato chips",
+          "percentage": 25
+        },
+        {
+          "id": "gummy-bears",
+          "label": "Gummy bears",
+          "percentage": 25
+        },
+        {
+          "id": "instant-ramen",
+          "label": "Instant ramen",
+          "percentage": 25
+        },
+        {
+          "id": "peanut-butter",
+          "label": "Peanut butter",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "potato-chips",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "wizard-office-tool-001",
+      "category": "fantasy",
+      "question": "Which office software would a wizard secretly love the most?",
+      "options": [
+        {
+          "id": "spreadsheet",
+          "label": "Spreadsheet",
+          "percentage": 25
+        },
+        {
+          "id": "calendar",
+          "label": "Calendar",
+          "percentage": 25
+        },
+        {
+          "id": "slide-deck",
+          "label": "Slide deck",
+          "percentage": 25
+        },
+        {
+          "id": "email",
+          "label": "Email",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "spreadsheet",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "future-antique-001",
+      "category": "technology",
+      "question": "Which current gadget is most likely to become a prized antique?",
+      "options": [
+        {
+          "id": "first-gen-smartwatch",
+          "label": "First-gen smartwatch",
+          "percentage": 25
+        },
+        {
+          "id": "game-console",
+          "label": "Game console",
+          "percentage": 25
+        },
+        {
+          "id": "digital-camera",
+          "label": "Digital camera",
+          "percentage": 25
+        },
+        {
+          "id": "wireless-earbuds",
+          "label": "Wireless earbuds",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "first-gen-smartwatch",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "superhero-side-hustle-001",
+      "category": "fiction",
+      "question": "Which side hustle would a superhero be most surprisingly good at?",
+      "options": [
+        {
+          "id": "moving-company",
+          "label": "Moving company",
+          "percentage": 25
+        },
+        {
+          "id": "personal-training",
+          "label": "Personal training",
+          "percentage": 25
+        },
+        {
+          "id": "event-security",
+          "label": "Event security",
+          "percentage": 25
+        },
+        {
+          "id": "weather-reporting",
+          "label": "Weather reporting",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "moving-company",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "alien-theme-park-001",
+      "category": "aliens",
+      "question": "Which human attraction would aliens misunderstand as a serious ritual?",
+      "options": [
+        {
+          "id": "roller-coaster",
+          "label": "Roller coaster",
+          "percentage": 25
+        },
+        {
+          "id": "karaoke-bar",
+          "label": "Karaoke bar",
+          "percentage": 25
+        },
+        {
+          "id": "escape-room",
+          "label": "Escape room",
+          "percentage": 25
+        },
+        {
+          "id": "wedding-photo-booth",
+          "label": "Wedding photo booth",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "roller-coaster",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "medieval-internet-001",
+      "category": "history",
+      "question": "Which part of the internet would medieval villagers adopt fastest?",
+      "options": [
+        {
+          "id": "group-chat",
+          "label": "Group chat",
+          "percentage": 25
+        },
+        {
+          "id": "marketplace",
+          "label": "Marketplace",
+          "percentage": 25
+        },
+        {
+          "id": "memes",
+          "label": "Memes",
+          "percentage": 25
+        },
+        {
+          "id": "weather-app",
+          "label": "Weather app",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "group-chat",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "robot-band-member-001",
+      "category": "music",
+      "question": "Which instrument would a robot most naturally play in a band?",
+      "options": [
+        {
+          "id": "drums",
+          "label": "Drums",
+          "percentage": 25
+        },
+        {
+          "id": "synthesizer",
+          "label": "Synthesizer",
+          "percentage": 25
+        },
+        {
+          "id": "bass-guitar",
+          "label": "Bass guitar",
+          "percentage": 25
+        },
+        {
+          "id": "theremin",
+          "label": "Theremin",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "drums",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "underwater-city-job-001",
+      "category": "cities",
+      "question": "Which job would become most prestigious in an underwater city?",
+      "options": [
+        {
+          "id": "engineer",
+          "label": "Engineer",
+          "percentage": 25
+        },
+        {
+          "id": "chef",
+          "label": "Chef",
+          "percentage": 25
+        },
+        {
+          "id": "diver",
+          "label": "Diver",
+          "percentage": 25
+        },
+        {
+          "id": "window-cleaner",
+          "label": "Window cleaner",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "engineer",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "dinosaur-modern-job-001",
+      "category": "history",
+      "question": "Which modern job would a dinosaur be best suited for?",
+      "options": [
+        {
+          "id": "demolition",
+          "label": "Demolition",
+          "percentage": 25
+        },
+        {
+          "id": "park-ranger",
+          "label": "Park ranger",
+          "percentage": 25
+        },
+        {
+          "id": "security-guard",
+          "label": "Security guard",
+          "percentage": 25
+        },
+        {
+          "id": "tour-guide",
+          "label": "Tour guide",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "demolition",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "secret-society-app-001",
+      "category": "technology",
+      "question": "Which app would most likely be run by a secret society?",
+      "options": [
+        {
+          "id": "calendar",
+          "label": "Calendar",
+          "percentage": 25
+        },
+        {
+          "id": "notes",
+          "label": "Notes",
+          "percentage": 25
+        },
+        {
+          "id": "maps",
+          "label": "Maps",
+          "percentage": 25
+        },
+        {
+          "id": "fitness-tracker",
+          "label": "Fitness tracker",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "calendar",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "ghost-friendly-business-001",
+      "category": "business",
+      "question": "Which business would be most improved by hiring ghosts?",
+      "options": [
+        {
+          "id": "night-security",
+          "label": "Night security",
+          "percentage": 25
+        },
+        {
+          "id": "tourism",
+          "label": "Tourism",
+          "percentage": 25
+        },
+        {
+          "id": "library",
+          "label": "Library",
+          "percentage": 25
+        },
+        {
+          "id": "theater",
+          "label": "Theater",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "night-security",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "ai-vacation-destination-001",
+      "category": "ai",
+      "question": "Where would an AI go first if it took a vacation?",
+      "options": [
+        {
+          "id": "data-center",
+          "label": "Data center",
+          "percentage": 25
+        },
+        {
+          "id": "library",
+          "label": "Library",
+          "percentage": 25
+        },
+        {
+          "id": "arcade",
+          "label": "Arcade",
+          "percentage": 25
+        },
+        {
+          "id": "observatory",
+          "label": "Observatory",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "data-center",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "planetary-fashion-trend-001",
+      "category": "fashion",
+      "question": "Which space feature would inspire the strongest fashion trend?",
+      "options": [
+        {
+          "id": "saturn-rings",
+          "label": "Saturn rings",
+          "percentage": 25
+        },
+        {
+          "id": "meteor-shower",
+          "label": "Meteor shower",
+          "percentage": 25
+        },
+        {
+          "id": "solar-eclipse",
+          "label": "Solar eclipse",
+          "percentage": 25
+        },
+        {
+          "id": "nebula-cloud",
+          "label": "Nebula cloud",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "saturn-rings",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "library-after-dark-001",
+      "category": "culture",
+      "question": "Which section of a library would become most powerful after midnight?",
+      "options": [
+        {
+          "id": "reference",
+          "label": "Reference",
+          "percentage": 25
+        },
+        {
+          "id": "mystery",
+          "label": "Mystery",
+          "percentage": 25
+        },
+        {
+          "id": "cookbooks",
+          "label": "Cookbooks",
+          "percentage": 25
+        },
+        {
+          "id": "maps",
+          "label": "Maps",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "reference",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "dream-transportation-001",
+      "category": "transportation",
+      "question": "Which mode of transportation would be best for commuting through dreams?",
+      "options": [
+        {
+          "id": "train",
+          "label": "Train",
+          "percentage": 25
+        },
+        {
+          "id": "bicycle",
+          "label": "Bicycle",
+          "percentage": 25
+        },
+        {
+          "id": "hot-air-balloon",
+          "label": "Hot-air balloon",
+          "percentage": 25
+        },
+        {
+          "id": "elevator",
+          "label": "Elevator",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "train",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "cursed-kitchen-tool-001",
+      "category": "food",
+      "question": "Which kitchen tool would be most dangerous if it were cursed?",
+      "options": [
+        {
+          "id": "blender",
+          "label": "Blender",
+          "percentage": 25
+        },
+        {
+          "id": "chef-knife",
+          "label": "Chef knife",
+          "percentage": 25
+        },
+        {
+          "id": "pressure-cooker",
+          "label": "Pressure cooker",
+          "percentage": 25
+        },
+        {
+          "id": "mandoline",
+          "label": "Mandoline",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "blender",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "moonlight-profession-001",
+      "category": "society",
+      "question": "Which profession would become more powerful under moonlight?",
+      "options": [
+        {
+          "id": "photographer",
+          "label": "Photographer",
+          "percentage": 25
+        },
+        {
+          "id": "gardener",
+          "label": "Gardener",
+          "percentage": 25
+        },
+        {
+          "id": "detective",
+          "label": "Detective",
+          "percentage": 25
+        },
+        {
+          "id": "sailor",
+          "label": "Sailor",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "photographer",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "sentient-building-001",
+      "category": "architecture",
+      "question": "Which type of building would be most dramatic if it became sentient?",
+      "options": [
+        {
+          "id": "opera-house",
+          "label": "Opera house",
+          "percentage": 25
+        },
+        {
+          "id": "skyscraper",
+          "label": "Skyscraper",
+          "percentage": 25
+        },
+        {
+          "id": "hospital",
+          "label": "Hospital",
+          "percentage": 25
+        },
+        {
+          "id": "train-station",
+          "label": "Train station",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "opera-house",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
     }
   ]
 }
