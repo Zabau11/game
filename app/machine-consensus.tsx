@@ -132,10 +132,10 @@ export function MachineConsensus({
               typeTimerRef.current = null;
               onComplete();
             }
-          }, 52);
-        }, 1100);
+          }, 72);
+        }, 1800);
       }
-    }, 72);
+    }, 105);
   }, []);
 
   useEffect(() => {
@@ -183,8 +183,8 @@ export function MachineConsensus({
           typeTimerRef.current = null;
           cycleNext(0);
         }
-      }, 52);
-    }, 1500);
+      }, 72);
+    }, 2200);
 
     return () => {
       cancelled = true;
