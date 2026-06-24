@@ -402,6 +402,12 @@ export function MachineConsensus({
               <span>Score</span>
               <strong>{correctCount}</strong>
             </div>
+          ) : bestScore > 0 ? (
+            <div className="mc-best-pill" aria-label={`Best run: ${bestScore}`}>
+              <span className="mc-best-label">best run</span>
+              <span className="mc-best-sep" aria-hidden />
+              <span className="mc-best-num">{bestScore}</span>
+            </div>
           ) : (
             <div style={{ width: 140, flexShrink: 0 }} />
           )}
