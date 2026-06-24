@@ -34,7 +34,7 @@ type FloatCardDef = {
   prompt: string;
   pos: React.CSSProperties;
   anim: string; dur: string; delay: string;
-  rot: string; px: number; py: number;
+  rot: string;
   width: number; opacity: number;
   mobileHide?: boolean;
   bars?: FloatBarItem[];
@@ -46,8 +46,7 @@ const FLOAT_CARDS: FloatCardDef[] = [
     prompt: "Which invention would confuse a medieval king?",
     pos: { top: "11%", left: "7%" },
     anim: "pk-float2", dur: "34s", delay: "-7s",
-    rot: "-3deg", px: -0.9, py: -0.5,
-    width: 208, opacity: 0.30,
+    rot: "-3deg", width: 208, opacity: 0.30,
     bars: [
       { label: "Smartphone", pct: 67, winner: true },
       { label: "Microwave", pct: 21 },
@@ -58,8 +57,7 @@ const FLOAT_CARDS: FloatCardDef[] = [
     prompt: "Who would survive a group project?",
     pos: { top: "9%", right: "9%" },
     anim: "pk-float1", dur: "29s", delay: "-13s",
-    rot: "2.5deg", px: 0.82, py: -0.6,
-    width: 194, opacity: 0.28,
+    rot: "2.5deg", width: 194, opacity: 0.28,
     pills: [
       { label: "Quiet overachiever", winner: true },
       { label: "Natural delegator" },
@@ -69,8 +67,7 @@ const FLOAT_CARDS: FloatCardDef[] = [
     prompt: "What would four AIs agree on?",
     pos: { top: "52%", left: "16%" },
     anim: "pk-float2", dur: "37s", delay: "-23s",
-    rot: "-1.5deg", px: -0.7, py: 0.65,
-    width: 190, opacity: 0.24,
+    rot: "-1.5deg", width: 190, opacity: 0.24,
     bars: [
       { label: "Mathematics", pct: 71, winner: true },
       { label: "Logic", pct: 20 },
@@ -81,8 +78,7 @@ const FLOAT_CARDS: FloatCardDef[] = [
     prompt: "Which fictional character makes the best mayor?",
     pos: { top: "36%", right: "9%" },
     anim: "pk-float3", dur: "40s", delay: "-20s",
-    rot: "-2deg", px: 0.88, py: 0.1,
-    width: 214, opacity: 0.26,
+    rot: "-2deg", width: 214, opacity: 0.26,
     mobileHide: true,
     bars: [
       { label: "Leslie Knope", pct: 58, winner: true },
@@ -94,8 +90,7 @@ const FLOAT_CARDS: FloatCardDef[] = [
     prompt: "Which animal would give the best TED talk?",
     pos: { top: "70%", right: "14%" },
     anim: "pk-float3", dur: "33s", delay: "-9s",
-    rot: "-1.5deg", px: 0.6, py: 0.8,
-    width: 198, opacity: 0.24,
+    rot: "-1.5deg", width: 198, opacity: 0.24,
     mobileHide: true,
     bars: [
       { label: "Octopus", pct: 52, winner: true },
@@ -107,8 +102,7 @@ const FLOAT_CARDS: FloatCardDef[] = [
     prompt: "Which word best describes the internet?",
     pos: { top: "67%", left: "6%" },
     anim: "pk-float4", dur: "38s", delay: "-18s",
-    rot: "1deg", px: -0.85, py: 0.4,
-    width: 190, opacity: 0.28,
+    rot: "1deg", width: 190, opacity: 0.28,
     mobileHide: true,
     bars: [
       { label: "Chaotic", pct: 44, winner: true },
@@ -147,7 +141,7 @@ function shuffleQuestions(
 }
 
 function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced: () => boolean }) {
-  const mouseRef = useRef({ x: 0, y: 0 });
+  const mouseRef = useRef({ x: -9999, y: -9999 });
   const statesRef = useRef<{ x: number; y: number; vx: number; vy: number }[]>(
     cards.map(() => ({ x: 0, y: 0, vx: 0, vy: 0 }))
   );
@@ -159,29 +153,48 @@ function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced
     const states = statesRef.current;
 
     const onMouse = (e: MouseEvent) => {
-      mouseRef.current.x = (e.clientX / window.innerWidth - 0.5) * 2;
-      mouseRef.current.y = (e.clientY / window.innerHeight - 0.5) * 2;
+      mouseRef.current.x = e.clientX;
+      mouseRef.current.y = e.clientY;
     };
     window.addEventListener("mousemove", onMouse, { passive: true });
 
-    const STIFF = 0.055;
-    const DAMP = 0.80;
-    const SEP = 0.14;
-    const GAP = 16;
+    const REPEL  = 24;
+    const RADIUS = 280;
+    const SPRING = 0.04;
+    const DAMP   = 0.82;
+    const SEP    = 0.12;
+    const GAP    = 12;
 
     const tick = () => {
-      const mx = mouseRef.current.x;
-      const my = mouseRef.current.y;
+      const { x: mx, y: my } = mouseRef.current;
+      const rects = cardRefs.current.map(el => el ? el.getBoundingClientRect() : null);
 
       for (let i = 0; i < cards.length; i++) {
-        const s = states[i]; const c = cards[i];
-        s.vx += (mx * c.px * 80 - s.x) * STIFF;
-        s.vy += (my * c.py * 55 - s.y) * STIFF;
+        const s = states[i];
+        const r = rects[i];
+
+        // Spring back to resting position
+        s.vx += (0 - s.x) * SPRING;
+        s.vy += (0 - s.y) * SPRING;
+
+        // Repel from cursor
+        if (r) {
+          const cx = r.left + r.width / 2;
+          const cy = r.top + r.height / 2;
+          const dx = cx - mx;
+          const dy = cy - my;
+          const dist = Math.hypot(dx, dy) || 1;
+          if (dist < RADIUS) {
+            const strength = (1 - dist / RADIUS) * REPEL;
+            s.vx += (dx / dist) * strength;
+            s.vy += (dy / dist) * strength;
+          }
+        }
+
         s.vx *= DAMP; s.vy *= DAMP;
         s.x += s.vx;  s.y += s.vy;
       }
 
-      const rects = cardRefs.current.map(el => el ? el.getBoundingClientRect() : null);
       for (let i = 0; i < cards.length - 1; i++) {
         for (let j = i + 1; j < cards.length; j++) {
           const ri = rects[i]; const rj = rects[j];
