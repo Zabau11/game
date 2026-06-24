@@ -159,6 +159,7 @@ button { font: inherit; cursor: pointer; }
   50%       { opacity: 0; }
 }
 
+
 /* ── Shell ── */
 .mc-root {
   position: relative;
@@ -604,7 +605,7 @@ button { font: inherit; cursor: pointer; }
   border-radius: 1px;
   margin: 0 2px 0 1px;
   opacity: 0.45;
-  animation: mc-cursorBlink .7s steps(1) infinite;
+  animation: mc-cursorBlink 1.1s steps(1) infinite;
 }
 
 .mc-card-top {

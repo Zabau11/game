@@ -111,7 +111,7 @@ export function MachineConsensus({
     if (revealTimerRef.current) clearTimeout(revealTimerRef.current);
   }, []);
 
-  const typeWord = useCallback((target: string) => {
+  const typeWord = useCallback((target: string, onComplete?: () => void) => {
     if (typeTimerRef.current) clearInterval(typeTimerRef.current);
     setDisplayWord("");
     let i = 0;
@@ -120,6 +120,20 @@ export function MachineConsensus({
       setDisplayWord(target.slice(0, i));
       if (i >= target.length && typeTimerRef.current) {
         clearInterval(typeTimerRef.current);
+        typeTimerRef.current = null;
+        if (!onComplete) return;
+        wordTimerRef.current = setTimeout(() => {
+          let j = target.length;
+          typeTimerRef.current = setInterval(() => {
+            j--;
+            setDisplayWord(target.slice(0, j));
+            if (j <= 0) {
+              clearInterval(typeTimerRef.current!);
+              typeTimerRef.current = null;
+              onComplete();
+            }
+          }, 52);
+        }, 1100);
       }
     }, 72);
   }, []);
@@ -149,15 +163,33 @@ export function MachineConsensus({
 
   useEffect(() => {
     if (screen !== "landing" || isReduced()) return;
-    wordTimerRef.current = setInterval(() => {
-      setWordIndex((prev) => {
-        const next = (prev + 1) % WORDS.length;
-        typeWord(WORDS[next]);
-        return next;
-      });
-    }, 3000);
+
+    let cancelled = false;
+    const cycleNext = (idx: number) => {
+      if (cancelled) return;
+      const next = (idx + 1) % WORDS.length;
+      setWordIndex(next);
+      typeWord(WORDS[next], () => cycleNext(next));
+    };
+
+    const initialHold = setTimeout(() => {
+      if (cancelled) return;
+      let j = WORDS[0].length;
+      typeTimerRef.current = setInterval(() => {
+        j--;
+        setDisplayWord(WORDS[0].slice(0, j));
+        if (j <= 0) {
+          clearInterval(typeTimerRef.current!);
+          typeTimerRef.current = null;
+          cycleNext(0);
+        }
+      }, 52);
+    }, 1500);
+
     return () => {
-      if (wordTimerRef.current) clearInterval(wordTimerRef.current);
+      cancelled = true;
+      clearTimeout(initialHold);
+      if (wordTimerRef.current) clearTimeout(wordTimerRef.current);
       if (typeTimerRef.current) clearInterval(typeTimerRef.current);
     };
   }, [screen, isReduced, typeWord]);
