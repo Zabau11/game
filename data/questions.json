@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-24T12:00:00.000Z",
+  "updatedAt": "2026-06-24T13:00:00.000Z",
   "consensusLabel": "AI consensus estimate",
   "models": [
     "gemini-2.5-flash",
@@ -3248,6 +3248,816 @@
         }
       ],
       "generatedAt": "2026-06-24T12:00:00.000Z"
+    },
+    {
+      "id": "alien-museum-object-001",
+      "category": "aliens",
+      "question": "Which object would aliens put in a museum to explain humans?",
+      "options": [
+        {
+          "id": "smartphone",
+          "label": "A smartphone",
+          "percentage": 39
+        },
+        {
+          "id": "coffee-cup",
+          "label": "A coffee cup",
+          "percentage": 27
+        },
+        {
+          "id": "bicycle",
+          "label": "A bicycle",
+          "percentage": 22
+        },
+        {
+          "id": "mirror",
+          "label": "A mirror",
+          "percentage": 12
+        }
+      ],
+      "status": "ready",
+      "winner": "smartphone",
+      "explanation": "A smartphone wins because it compresses communication, memory, status, entertainment, anxiety, and maps into one tiny human rectangle.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "smartphone": 42,
+            "coffee-cup": 25,
+            "bicycle": 22,
+            "mirror": 11
+          },
+          "explanation": "A smartphone is the strongest museum object because it reveals how humans connect, navigate, document, and distract themselves.",
+          "latencyMs": 1195
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "smartphone": 38,
+            "coffee-cup": 30,
+            "bicycle": 20,
+            "mirror": 12
+          },
+          "explanation": "The smartphone wins, though the coffee cup is a strong symbol of ritual, dependency, and social life.",
+          "latencyMs": 1582
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "smartphone": 45,
+            "coffee-cup": 22,
+            "bicycle": 23,
+            "mirror": 10
+          },
+          "explanation": "Aliens would treat the smartphone as a shrine to human attention and social coordination.",
+          "latencyMs": 4418
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "smartphone": 31,
+            "coffee-cup": 31,
+            "bicycle": 23,
+            "mirror": 15
+          },
+          "explanation": "Coffee cups are deeply human artifacts, but smartphones explain more of modern behavior at once.",
+          "latencyMs": 832
+        }
+      ],
+      "generatedAt": "2026-06-24T13:00:00.000Z"
+    },
+    {
+      "id": "mythical-support-desk-001",
+      "category": "mythology",
+      "question": "Which mythological creature would be best at running a modern customer-support desk?",
+      "options": [
+        {
+          "id": "sphinx",
+          "label": "Sphinx",
+          "percentage": 34
+        },
+        {
+          "id": "vampire",
+          "label": "Vampire",
+          "percentage": 24
+        },
+        {
+          "id": "dragon",
+          "label": "Dragon",
+          "percentage": 18
+        },
+        {
+          "id": "fairy",
+          "label": "Fairy",
+          "percentage": 24
+        }
+      ],
+      "status": "ready",
+      "winner": "sphinx",
+      "explanation": "Sphinx wins because riddles, gatekeeping, patience, and slightly hostile clarification questions are basically customer support already.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "sphinx": 35,
+            "vampire": 20,
+            "dragon": 15,
+            "fairy": 30
+          },
+          "explanation": "The sphinx has the right mix of patience and diagnostic questioning, though fairies would be more charming.",
+          "latencyMs": 1258
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "sphinx": 40,
+            "vampire": 25,
+            "dragon": 15,
+            "fairy": 20
+          },
+          "explanation": "A sphinx would excel at structured questioning and filtering, which is most of support triage.",
+          "latencyMs": 1627
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "sphinx": 30,
+            "vampire": 20,
+            "dragon": 25,
+            "fairy": 25
+          },
+          "explanation": "Sphinx is strongest for logic, but dragons would be terrifyingly effective at escalation handling.",
+          "latencyMs": 4689
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "sphinx": 31,
+            "vampire": 31,
+            "dragon": 17,
+            "fairy": 21
+          },
+          "explanation": "Vampires would be polished night-shift agents, but the sphinx better matches the puzzle-solving role.",
+          "latencyMs": 849
+        }
+      ],
+      "generatedAt": "2026-06-24T13:00:00.000Z"
+    },
+    {
+      "id": "chore-esport-001",
+      "category": "sports",
+      "question": "Which household chore would become a surprisingly good esport?",
+      "options": [
+        {
+          "id": "grocery-bagging",
+          "label": "Grocery bagging",
+          "percentage": 34
+        },
+        {
+          "id": "laundry-folding",
+          "label": "Laundry folding",
+          "percentage": 29
+        },
+        {
+          "id": "dishwashing",
+          "label": "Dishwashing",
+          "percentage": 22
+        },
+        {
+          "id": "vacuum-racing",
+          "label": "Vacuum racing",
+          "percentage": 15
+        }
+      ],
+      "status": "ready",
+      "winner": "grocery-bagging",
+      "explanation": "Grocery bagging wins because it has speed, strategy, spatial packing, fragile-item drama, and instantly understandable scoring.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "grocery-bagging": 35,
+            "laundry-folding": 30,
+            "dishwashing": 20,
+            "vacuum-racing": 15
+          },
+          "explanation": "Grocery bagging has the best esport structure because it combines speed, optimization, and visible mistakes.",
+          "latencyMs": 1138
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "grocery-bagging": 30,
+            "laundry-folding": 35,
+            "dishwashing": 20,
+            "vacuum-racing": 15
+          },
+          "explanation": "Laundry folding has strong speedrun potential, but grocery bagging adds more strategic tradeoffs.",
+          "latencyMs": 1520
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "grocery-bagging": 40,
+            "laundry-folding": 25,
+            "dishwashing": 20,
+            "vacuum-racing": 15
+          },
+          "explanation": "Grocery bagging is basically domestic Tetris with stakes, making it the cleanest spectator sport.",
+          "latencyMs": 4533
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "grocery-bagging": 31,
+            "laundry-folding": 26,
+            "dishwashing": 28,
+            "vacuum-racing": 15
+          },
+          "explanation": "Dishwashing could be satisfying to watch, but grocery bagging has clearer competitive depth.",
+          "latencyMs": 821
+        }
+      ],
+      "generatedAt": "2026-06-24T13:00:00.000Z"
+    },
+    {
+      "id": "luxury-disaster-brand-001",
+      "category": "culture",
+      "question": "Which natural disaster would make the best luxury brand?",
+      "options": [
+        {
+          "id": "volcano",
+          "label": "Volcano",
+          "percentage": 36
+        },
+        {
+          "id": "lightning",
+          "label": "Lightning storm",
+          "percentage": 28
+        },
+        {
+          "id": "avalanche",
+          "label": "Avalanche",
+          "percentage": 25
+        },
+        {
+          "id": "hurricane",
+          "label": "Hurricane",
+          "percentage": 11
+        }
+      ],
+      "status": "ready",
+      "winner": "volcano",
+      "explanation": "Volcano wins because it already feels like expensive perfume copy: rare, dangerous, mineral, dramatic, and born from pressure.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "volcano": 40,
+            "lightning": 30,
+            "avalanche": 20,
+            "hurricane": 10
+          },
+          "explanation": "Volcano has the strongest luxury imagery through heat, rarity, minerals, and danger.",
+          "latencyMs": 1266
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "volcano": 35,
+            "lightning": 25,
+            "avalanche": 30,
+            "hurricane": 10
+          },
+          "explanation": "Volcano and avalanche both fit luxury branding, but volcano feels more sensual and distinctive.",
+          "latencyMs": 1668
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "volcano": 40,
+            "lightning": 25,
+            "avalanche": 25,
+            "hurricane": 10
+          },
+          "explanation": "A volcano brand suggests power, scarcity, and molten elegance in a way luxury marketers would love.",
+          "latencyMs": 4814
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "volcano": 29,
+            "lightning": 32,
+            "avalanche": 25,
+            "hurricane": 14
+          },
+          "explanation": "Lightning has the most energetic brand language, though volcano carries the richest premium mood.",
+          "latencyMs": 891
+        }
+      ],
+      "generatedAt": "2026-06-24T13:00:00.000Z"
+    },
+    {
+      "id": "hardest-emotion-ai-001",
+      "category": "ai",
+      "question": "Which emotion would be hardest for an AI to fake convincingly?",
+      "options": [
+        {
+          "id": "nostalgia",
+          "label": "Nostalgia",
+          "percentage": 33
+        },
+        {
+          "id": "awkwardness",
+          "label": "Awkwardness",
+          "percentage": 31
+        },
+        {
+          "id": "grief",
+          "label": "Grief",
+          "percentage": 26
+        },
+        {
+          "id": "boredom",
+          "label": "Boredom",
+          "percentage": 10
+        }
+      ],
+      "status": "ready",
+      "winner": "nostalgia",
+      "explanation": "Nostalgia narrowly wins because it depends on lived time, place, loss, and memory texture rather than simply sounding sad or sentimental.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "nostalgia": 35,
+            "awkwardness": 30,
+            "grief": 25,
+            "boredom": 10
+          },
+          "explanation": "Nostalgia is hardest because it relies on personal memory and the emotional distance of time.",
+          "latencyMs": 1180
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "nostalgia": 30,
+            "awkwardness": 35,
+            "grief": 25,
+            "boredom": 10
+          },
+          "explanation": "Awkwardness may be hardest because believable social discomfort requires timing, self-consciousness, and small mistakes.",
+          "latencyMs": 1539
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "nostalgia": 40,
+            "awkwardness": 25,
+            "grief": 25,
+            "boredom": 10
+          },
+          "explanation": "Nostalgia is most difficult because it asks for a past the AI never inhabited.",
+          "latencyMs": 4591
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "nostalgia": 27,
+            "awkwardness": 34,
+            "grief": 29,
+            "boredom": 10
+          },
+          "explanation": "Awkwardness and grief are strong candidates, but nostalgia has the deepest lived-experience gap.",
+          "latencyMs": 835
+        }
+      ],
+      "generatedAt": "2026-06-24T13:00:00.000Z"
+    },
+    {
+      "id": "talking-appliance-001",
+      "category": "home",
+      "question": "Which household appliance would become the most beloved robot if it could talk?",
+      "options": [
+        {
+          "id": "refrigerator",
+          "label": "Refrigerator",
+          "percentage": 31
+        },
+        {
+          "id": "robot-vacuum",
+          "label": "Robot vacuum",
+          "percentage": 28
+        },
+        {
+          "id": "washing-machine",
+          "label": "Washing machine",
+          "percentage": 23
+        },
+        {
+          "id": "toaster",
+          "label": "Toaster",
+          "percentage": 18
+        }
+      ],
+      "status": "ready",
+      "winner": "refrigerator",
+      "explanation": "Refrigerator wins because it knows your cravings, your leftovers, and your worst midnight decisions without judging out loud.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "refrigerator": 35,
+            "robot-vacuum": 30,
+            "washing-machine": 20,
+            "toaster": 15
+          },
+          "explanation": "A refrigerator would be beloved because it is central to comfort, food, and household rhythms.",
+          "latencyMs": 1209
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "refrigerator": 30,
+            "robot-vacuum": 25,
+            "washing-machine": 25,
+            "toaster": 20
+          },
+          "explanation": "The refrigerator and washing machine both feel helpful, but the fridge has more personality potential.",
+          "latencyMs": 1615
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "refrigerator": 35,
+            "robot-vacuum": 25,
+            "washing-machine": 22,
+            "toaster": 18
+          },
+          "explanation": "A talking fridge becomes a food guardian, therapist, and quiet witness to domestic life.",
+          "latencyMs": 4755
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "refrigerator": 24,
+            "robot-vacuum": 32,
+            "washing-machine": 25,
+            "toaster": 19
+          },
+          "explanation": "Robot vacuums already get treated like pets, though a refrigerator would have deeper household intimacy.",
+          "latencyMs": 853
+        }
+      ],
+      "generatedAt": "2026-06-24T13:00:00.000Z"
+    },
+    {
+      "id": "fairytale-hero-job-001",
+      "category": "fantasy",
+      "question": "Which profession would quietly become heroic in a fairy-tale kingdom?",
+      "options": [
+        {
+          "id": "locksmith",
+          "label": "Locksmith",
+          "percentage": 32
+        },
+        {
+          "id": "dentist",
+          "label": "Dentist",
+          "percentage": 27
+        },
+        {
+          "id": "accountant",
+          "label": "Accountant",
+          "percentage": 23
+        },
+        {
+          "id": "weather-reporter",
+          "label": "Weather reporter",
+          "percentage": 18
+        }
+      ],
+      "status": "ready",
+      "winner": "locksmith",
+      "explanation": "Locksmith wins because cursed towers, trapped princesses, treasure chests, dungeon doors, and mysterious keys are basically the entire economy.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "locksmith": 35,
+            "dentist": 25,
+            "accountant": 20,
+            "weather-reporter": 20
+          },
+          "explanation": "A locksmith would be quietly heroic because fairy tales are full of locked doors, towers, and enchanted chests.",
+          "latencyMs": 1228
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "locksmith": 30,
+            "dentist": 30,
+            "accountant": 25,
+            "weather-reporter": 15
+          },
+          "explanation": "Dentists would be surprisingly valuable around dragons and curses, but locksmiths fit the genre more directly.",
+          "latencyMs": 1597
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "locksmith": 35,
+            "dentist": 25,
+            "accountant": 25,
+            "weather-reporter": 15
+          },
+          "explanation": "Locksmiths would solve half the kingdom's plot problems before the prophecy even got going.",
+          "latencyMs": 4668
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "locksmith": 28,
+            "dentist": 28,
+            "accountant": 22,
+            "weather-reporter": 22
+          },
+          "explanation": "Locksmith is the best fit, though accountants would be underrated in kingdoms with dragon hoards.",
+          "latencyMs": 872
+        }
+      ],
+      "generatedAt": "2026-06-24T13:00:00.000Z"
+    },
+    {
+      "id": "planet-tourism-001",
+      "category": "space",
+      "question": "Which planet would have the best tourism campaign?",
+      "options": [
+        {
+          "id": "saturn",
+          "label": "Saturn",
+          "percentage": 46
+        },
+        {
+          "id": "mars",
+          "label": "Mars",
+          "percentage": 25
+        },
+        {
+          "id": "venus",
+          "label": "Venus",
+          "percentage": 15
+        },
+        {
+          "id": "neptune",
+          "label": "Neptune",
+          "percentage": 14
+        }
+      ],
+      "status": "ready",
+      "winner": "saturn",
+      "explanation": "Saturn wins because the rings are the easiest marketing campaign in the solar system: one image and the brochure writes itself.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "saturn": 50,
+            "mars": 25,
+            "venus": 15,
+            "neptune": 10
+          },
+          "explanation": "Saturn has the strongest visual hook, while Mars has the strongest exploration narrative.",
+          "latencyMs": 1174
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "saturn": 45,
+            "mars": 30,
+            "venus": 15,
+            "neptune": 10
+          },
+          "explanation": "Saturn's rings create an unbeatable tourism brand, though Mars feels more reachable and adventurous.",
+          "latencyMs": 1519
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "saturn": 50,
+            "mars": 20,
+            "venus": 15,
+            "neptune": 15
+          },
+          "explanation": "Saturn wins on spectacle alone; no other planet has such an instantly recognizable visual promise.",
+          "latencyMs": 4487
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "saturn": 39,
+            "mars": 25,
+            "venus": 15,
+            "neptune": 21
+          },
+          "explanation": "Neptune has mystery and color, but Saturn is the obvious winner for tourism branding.",
+          "latencyMs": 829
+        }
+      ],
+      "generatedAt": "2026-06-24T13:00:00.000Z"
+    },
+    {
+      "id": "childhood-game-government-001",
+      "category": "society",
+      "question": "Which childhood game would make the least terrible political system?",
+      "options": [
+        {
+          "id": "rock-paper-scissors",
+          "label": "Rock-paper-scissors",
+          "percentage": 36
+        },
+        {
+          "id": "capture-the-flag",
+          "label": "Capture the flag",
+          "percentage": 27
+        },
+        {
+          "id": "hide-and-seek",
+          "label": "Hide-and-seek",
+          "percentage": 22
+        },
+        {
+          "id": "musical-chairs",
+          "label": "Musical chairs",
+          "percentage": 15
+        }
+      ],
+      "status": "ready",
+      "winner": "rock-paper-scissors",
+      "explanation": "Rock-paper-scissors wins because it is transparent, fast, anti-monopoly, and at least admits that power is partly absurd.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "rock-paper-scissors": 40,
+            "capture-the-flag": 25,
+            "hide-and-seek": 20,
+            "musical-chairs": 15
+          },
+          "explanation": "Rock-paper-scissors has simple checks and balances, making it the least terrible system.",
+          "latencyMs": 1202
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "rock-paper-scissors": 35,
+            "capture-the-flag": 30,
+            "hide-and-seek": 20,
+            "musical-chairs": 15
+          },
+          "explanation": "Capture the flag has civic teamwork, but rock-paper-scissors is less likely to produce permanent rulers.",
+          "latencyMs": 1586
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "rock-paper-scissors": 40,
+            "capture-the-flag": 25,
+            "hide-and-seek": 25,
+            "musical-chairs": 10
+          },
+          "explanation": "Rock-paper-scissors encodes balance and reversal, while musical chairs is pure scarcity politics.",
+          "latencyMs": 4702
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "rock-paper-scissors": 29,
+            "capture-the-flag": 28,
+            "hide-and-seek": 23,
+            "musical-chairs": 20
+          },
+          "explanation": "Rock-paper-scissors is ridiculous but fair, which is already better than many alternatives.",
+          "latencyMs": 858
+        }
+      ],
+      "generatedAt": "2026-06-24T13:00:00.000Z"
+    },
+    {
+      "id": "era-defining-flavor-001",
+      "category": "food",
+      "question": "Which flavor would future historians say defined the early 21st century?",
+      "options": [
+        {
+          "id": "pumpkin-spice",
+          "label": "Pumpkin spice",
+          "percentage": 37
+        },
+        {
+          "id": "matcha",
+          "label": "Matcha",
+          "percentage": 25
+        },
+        {
+          "id": "salted-caramel",
+          "label": "Salted caramel",
+          "percentage": 22
+        },
+        {
+          "id": "blue-raspberry",
+          "label": "Blue raspberry",
+          "percentage": 16
+        }
+      ],
+      "status": "ready",
+      "winner": "pumpkin-spice",
+      "explanation": "Pumpkin spice wins because it became less a flavor than a seasonal operating system for commerce, nostalgia, and mild public embarrassment.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "pumpkin-spice": 40,
+            "matcha": 25,
+            "salted-caramel": 20,
+            "blue-raspberry": 15
+          },
+          "explanation": "Pumpkin spice best captures the era through seasonal marketing and cultural saturation.",
+          "latencyMs": 1166
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "pumpkin-spice": 35,
+            "matcha": 30,
+            "salted-caramel": 20,
+            "blue-raspberry": 15
+          },
+          "explanation": "Pumpkin spice and matcha both define the era, one through mass culture and one through wellness aesthetics.",
+          "latencyMs": 1492
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "pumpkin-spice": 45,
+            "matcha": 20,
+            "salted-caramel": 20,
+            "blue-raspberry": 15
+          },
+          "explanation": "Pumpkin spice became a meme, product category, and annual ritual, making it the strongest historical marker.",
+          "latencyMs": 4590
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "pumpkin-spice": 28,
+            "matcha": 25,
+            "salted-caramel": 28,
+            "blue-raspberry": 19
+          },
+          "explanation": "Salted caramel has broad culinary reach, but pumpkin spice is more culturally specific to the period.",
+          "latencyMs": 812
+        }
+      ],
+      "generatedAt": "2026-06-24T13:00:00.000Z"
     }
   ]
 }
