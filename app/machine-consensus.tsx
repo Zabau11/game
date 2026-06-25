@@ -33,7 +33,6 @@ type FloatPillItem = { label: string; winner?: boolean };
 type FloatCardDef = {
   prompt: string;
   pos: React.CSSProperties;
-  anim: string; dur: string; delay: string;
   rot: string;
   width: number; opacity: number;
   mobileHide?: boolean;
@@ -45,7 +44,6 @@ const FLOAT_CARDS: FloatCardDef[] = [
   {
     prompt: "What would four AIs agree on?",
     pos: { top: "41%", left: "24%" },
-    anim: "pk-float2", dur: "37s", delay: "-23s",
     rot: "-1deg", width: 190, opacity: 0.22,
     bars: [
       { label: "Mathematics", pct: 71, winner: true },
@@ -56,7 +54,6 @@ const FLOAT_CARDS: FloatCardDef[] = [
   {
     prompt: "Which invention would confuse a medieval king?",
     pos: { top: "14%", left: "4%" },
-    anim: "pk-float2", dur: "34s", delay: "-7s",
     rot: "-3deg", width: 208, opacity: 0.30,
     bars: [
       { label: "Smartphone", pct: 67, winner: true },
@@ -67,7 +64,6 @@ const FLOAT_CARDS: FloatCardDef[] = [
   {
     prompt: "Who would survive a group project?",
     pos: { top: "13%", left: "61%" },
-    anim: "pk-float1", dur: "29s", delay: "-13s",
     rot: "2.5deg", width: 194, opacity: 0.28,
     pills: [
       { label: "Quiet overachiever", winner: true },
@@ -77,7 +73,6 @@ const FLOAT_CARDS: FloatCardDef[] = [
   {
     prompt: "Which fictional character makes the best mayor?",
     pos: { top: "75%", left: "7%" },
-    anim: "pk-float3", dur: "40s", delay: "-20s",
     rot: "-2deg", width: 214, opacity: 0.26,
     mobileHide: true,
     bars: [
@@ -89,7 +84,6 @@ const FLOAT_CARDS: FloatCardDef[] = [
   {
     prompt: "Which animal would give the best TED talk?",
     pos: { top: "75%", left: "63%" },
-    anim: "pk-float3", dur: "33s", delay: "-9s",
     rot: "-1.5deg", width: 198, opacity: 0.24,
     mobileHide: true,
     bars: [
@@ -101,7 +95,6 @@ const FLOAT_CARDS: FloatCardDef[] = [
   {
     prompt: "Which word best describes the internet?",
     pos: { top: "44%", left: "73%" },
-    anim: "pk-float4", dur: "38s", delay: "-18s",
     rot: "1deg", width: 190, opacity: 0.28,
     mobileHide: true,
     bars: [
@@ -158,27 +151,48 @@ function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced
     };
     window.addEventListener("mousemove", onMouse, { passive: true });
 
-    const REPEL  = 4;
-    const RADIUS = 200;
-    const SPRING = 0.022;
-    const DAMP   = 0.91;
-    const SEP    = 0.08;
-    const GAP    = 12;
+    const REPEL       = 6;
+    const RADIUS      = 200;
+    const STEER       = 0.04;
+    const DAMP        = 0.94;
+    const SEP         = 0.08;
+    const GAP         = 12;
+    const EDGE_MARGIN = 48;
+    const EDGE_REPEL  = 5;
 
-    const tick = () => {
+    // Unique Lissajous wander path per card
+    const wander = cards.map((_, i) => {
+      const g = i * 1.618;
+      return {
+        fx: 0.00022 + (i % 3) * 0.000055,
+        fy: 0.00030 + (i % 4) * 0.000041,
+        px: g * 2.09,
+        py: g * 1.73,
+        ax: 40 + i * 8,
+        ay: 32 + i * 6,
+      };
+    });
+
+    const tick = (now: number) => {
       const { x: mx, y: my } = mouseRef.current;
       const rects = cardRefs.current.map(el => el ? el.getBoundingClientRect() : null);
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
 
       for (let i = 0; i < cards.length; i++) {
         const s = states[i];
         const r = rects[i];
+        const w = wander[i];
 
-        // Spring back to resting position
-        s.vx += (0 - s.x) * SPRING;
-        s.vy += (0 - s.y) * SPRING;
+        // Steer velocity toward the instantaneous wander velocity — no position pull,
+        // so a cursor push keeps the card moving in that direction rather than snapping back.
+        const wvx = w.ax * w.fx * Math.cos(now * w.fx + w.px);
+        const wvy = -w.ay * w.fy * Math.sin(now * w.fy + w.py);
+        s.vx += (wvx - s.vx) * STEER;
+        s.vy += (wvy - s.vy) * STEER;
 
-        // Repel from cursor
         if (r) {
+          // Repel from cursor
           const cx = r.left + r.width / 2;
           const cy = r.top + r.height / 2;
           const dx = cx - mx;
@@ -189,6 +203,16 @@ function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced
             s.vx += (dx / dist) * strength;
             s.vy += (dy / dist) * strength;
           }
+
+          // Repel from screen edges — clamp distance so off-screen cards still get max force
+          const dL = Math.max(0, r.left);
+          const dR = Math.max(0, vw - r.right);
+          const dT = Math.max(0, r.top);
+          const dB = Math.max(0, vh - r.bottom);
+          if (dL < EDGE_MARGIN) s.vx += (1 - dL / EDGE_MARGIN) * EDGE_REPEL;
+          if (dR < EDGE_MARGIN) s.vx -= (1 - dR / EDGE_MARGIN) * EDGE_REPEL;
+          if (dT < EDGE_MARGIN) s.vy += (1 - dT / EDGE_MARGIN) * EDGE_REPEL;
+          if (dB < EDGE_MARGIN) s.vy -= (1 - dB / EDGE_MARGIN) * EDGE_REPEL;
         }
 
         s.vx *= DAMP; s.vy *= DAMP;
@@ -238,7 +262,7 @@ function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced
           <div
             key={i}
             className={`mc-float-wrap${card.mobileHide ? " mc-float-wrap--mobile-hide" : ""}`}
-            style={{ ...card.pos, animation: `${card.anim} ${card.dur} ease-in-out ${card.delay} infinite` }}
+            style={{ ...card.pos }}
           >
             <div
               ref={el => { cardRefs.current[i] = el; }}

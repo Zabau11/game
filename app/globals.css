@@ -23,22 +23,6 @@ button { font: inherit; cursor: pointer; }
   60%  { transform: scale(1.02); }
   100% { opacity: 1; transform: scale(1); }
 }
-@keyframes pk-float1 {
-  0%, 100% { transform: translateY(0px)  rotate(-7deg); }
-  50%       { transform: translateY(-18px) rotate(-7deg); }
-}
-@keyframes pk-float2 {
-  0%, 100% { transform: translateY(4px)  rotate(4deg); }
-  50%       { transform: translateY(-22px) rotate(4deg); }
-}
-@keyframes pk-float3 {
-  0%, 100% { transform: translateY(0px)  rotate(-2deg); }
-  50%       { transform: translateY(-13px) rotate(-2deg); }
-}
-@keyframes pk-float4 {
-  0%, 100% { transform: translateY(8px)  rotate(6deg); }
-  50%       { transform: translateY(-16px) rotate(6deg); }
-}
 @keyframes pk-pulse {
   0%, 100% { opacity: .45; }
   50%       { opacity: 1; }
