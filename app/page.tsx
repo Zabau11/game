@@ -54,7 +54,9 @@ export default function Home() {
   const dateShort = `${MON3[today.getMonth()]} ${today.getDate()}`;
   const editionLabel = `No. ${doy}`;
 
-  const questions: MCQuestion[] = all.map((q) => {
+  const questions: MCQuestion[] = all.filter((q) =>
+    q.modelResults.length > 0
+  ).map((q) => {
     const optionIds = q.options.map((o) => o.id);
     const winnerIndex = Math.max(0, optionIds.indexOf(q.winner));
 

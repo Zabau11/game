@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-25T00:00:00.000Z",
+  "updatedAt": "2026-06-25T10:43:12.673Z",
   "consensusLabel": "AI consensus estimate",
   "models": [
     "gemini-2.5-flash",
@@ -88,7 +88,7 @@
           "latencyMs": 1198
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.279Z"
+      "generatedAt": "2026-06-25T10:33:03.996Z"
     },
     {
       "id": "mars-company-001",
@@ -169,7 +169,7 @@
           "latencyMs": 765
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.281Z"
+      "generatedAt": "2026-06-25T10:33:03.998Z"
     },
     {
       "id": "startup-founder-001",
@@ -250,7 +250,7 @@
           "latencyMs": 907
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.281Z"
+      "generatedAt": "2026-06-25T10:33:03.999Z"
     },
     {
       "id": "future-city-001",
@@ -331,7 +331,7 @@
           "latencyMs": 1537
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.282Z"
+      "generatedAt": "2026-06-25T10:33:04.000Z"
     },
     {
       "id": "explain-to-1800-001",
@@ -412,7 +412,7 @@
           "latencyMs": 842
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.282Z"
+      "generatedAt": "2026-06-25T10:33:04.001Z"
     },
     {
       "id": "alien-ambassador-001",
@@ -493,7 +493,7 @@
           "latencyMs": 853
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.283Z"
+      "generatedAt": "2026-06-25T10:33:04.001Z"
     },
     {
       "id": "island-brand-001",
@@ -574,7 +574,7 @@
           "latencyMs": 926
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.283Z"
+      "generatedAt": "2026-06-25T10:33:04.002Z"
     },
     {
       "id": "time-traveler-job-001",
@@ -655,7 +655,7 @@
           "latencyMs": 801
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.283Z"
+      "generatedAt": "2026-06-25T10:33:04.003Z"
     },
     {
       "id": "supervillain-ceo-001",
@@ -736,7 +736,7 @@
           "latencyMs": 1038
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.284Z"
+      "generatedAt": "2026-06-25T10:33:04.003Z"
     },
     {
       "id": "moon-franchise-001",
@@ -817,7 +817,7 @@
           "latencyMs": 923
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.284Z"
+      "generatedAt": "2026-06-25T10:33:04.004Z"
     },
     {
       "id": "robot-pet-001",
@@ -898,7 +898,7 @@
           "latencyMs": 982
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.284Z"
+      "generatedAt": "2026-06-25T10:33:04.005Z"
     },
     {
       "id": "apocalypse-vehicle-001",
@@ -979,7 +979,7 @@
           "latencyMs": 843
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.285Z"
+      "generatedAt": "2026-06-25T10:33:04.005Z"
     },
     {
       "id": "internet-symbol-001",
@@ -1060,7 +1060,7 @@
           "latencyMs": 730
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.285Z"
+      "generatedAt": "2026-06-25T10:33:04.006Z"
     },
     {
       "id": "detective-001",
@@ -1141,7 +1141,7 @@
           "latencyMs": 792
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.285Z"
+      "generatedAt": "2026-06-25T10:33:04.007Z"
     },
     {
       "id": "civilization-food-001",
@@ -1222,7 +1222,7 @@
           "latencyMs": 979
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.285Z"
+      "generatedAt": "2026-06-25T10:33:04.007Z"
     },
     {
       "id": "luxury-in-space-001",
@@ -1303,7 +1303,7 @@
           "latencyMs": 945
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.285Z"
+      "generatedAt": "2026-06-25T10:33:04.008Z"
     },
     {
       "id": "world-capital-001",
@@ -1384,7 +1384,7 @@
           "latencyMs": 1009
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.286Z"
+      "generatedAt": "2026-06-25T10:33:04.008Z"
     },
     {
       "id": "best-teacher-001",
@@ -1465,7 +1465,7 @@
           "latencyMs": 952
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.286Z"
+      "generatedAt": "2026-06-25T10:33:04.009Z"
     },
     {
       "id": "brand-personality-001",
@@ -1546,7 +1546,7 @@
           "latencyMs": 924
         }
       ],
-      "generatedAt": "2026-06-22T18:41:30.286Z"
+      "generatedAt": "2026-06-25T10:33:04.010Z"
     },
     {
       "id": "future-museum-001",
@@ -1627,7 +1627,7 @@
           "latencyMs": 886
         }
       ],
-      "generatedAt": "2026-06-22T18:41:50.982Z"
+      "generatedAt": "2026-06-25T10:33:04.010Z"
     },
     {
       "id": "time-capsule-001",
@@ -1647,17 +1647,17 @@
         {
           "id": "usb-c-cable",
           "label": "USB-C cable",
-          "percentage": 27
+          "percentage": 28
         },
         {
           "id": "ring-light",
           "label": "Ring light",
-          "percentage": 23
+          "percentage": 22
         }
       ],
       "status": "ready",
       "winner": "airpods-case",
-      "explanation": "The AirPods case narrowly wins because its purpose is hard to infer without the missing earbuds and wireless ecosystem, while cables and cards leave more obvious clues.",
+      "explanation": "A USB-C cable may seem like an inexplicable ritual cord, though all four objects rely on cultural context that could vanish.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -1708,7 +1708,7 @@
           "latencyMs": 903
         }
       ],
-      "generatedAt": "2026-06-23T18:29:24.000Z"
+      "generatedAt": "2026-06-25T10:33:04.011Z"
     },
     {
       "id": "villain-social-media-001",
@@ -1718,7 +1718,7 @@
         {
           "id": "joker",
           "label": "Joker",
-          "percentage": 42
+          "percentage": 43
         },
         {
           "id": "loki",
@@ -1733,12 +1733,12 @@
         {
           "id": "dr-evil",
           "label": "Dr. Evil",
-          "percentage": 13
+          "percentage": 12
         }
       ],
       "status": "ready",
       "winner": "joker",
-      "explanation": "Joker wins on pure unpredictability, while Loki would be almost as disruptive but more strategically theatrical.",
+      "explanation": "Joker would post for maximum disorder rather than influence, making his account the most chaotic by design.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -1789,7 +1789,7 @@
           "latencyMs": 871
         }
       ],
-      "generatedAt": "2026-06-23T18:29:24.000Z"
+      "generatedAt": "2026-06-25T10:33:04.011Z"
     },
     {
       "id": "restaurant-for-aliens-001",
@@ -1819,7 +1819,7 @@
       ],
       "status": "ready",
       "winner": "pop-rocks",
-      "explanation": "Pop Rocks edge out cotton candy because the food actively crackles in the mouth, making it feel less like cuisine and more like a physics prank.",
+      "explanation": "Cotton candy looks least like food, though Pop Rocks are close because they behave strangely after being eaten.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -1870,7 +1870,7 @@
           "latencyMs": 825
         }
       ],
-      "generatedAt": "2026-06-23T18:29:24.000Z"
+      "generatedAt": "2026-06-25T10:33:04.012Z"
     },
     {
       "id": "ai-first-hobby-001",
@@ -1900,7 +1900,7 @@
       ],
       "status": "ready",
       "winner": "chess",
-      "explanation": "Chess is the obvious winner because it is rules-based, measurable, and already deeply modeled, while the other hobbies need taste, timing, or physical patience.",
+      "explanation": "Chess remains the safest pick, though generative systems could rapidly imitate painting and comedy formats.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -1951,7 +1951,7 @@
           "latencyMs": 790
         }
       ],
-      "generatedAt": "2026-06-23T18:29:24.000Z"
+      "generatedAt": "2026-06-25T10:33:04.012Z"
     },
     {
       "id": "city-invisible-map-001",
@@ -1971,17 +1971,17 @@
         {
           "id": "london",
           "label": "London",
-          "percentage": 18
+          "percentage": 17
         },
         {
           "id": "los-angeles",
           "label": "Los Angeles",
-          "percentage": 13
+          "percentage": 14
         }
       ],
       "status": "ready",
       "winner": "tokyo",
-      "explanation": "Tokyo wins because of its dense transit layers and address complexity, with Venice close behind for its maze-like pedestrian layout.",
+      "explanation": "Tokyo's transportation complexity and non-grid addressing create the highest navigation burden when signs vanish.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -2032,7 +2032,7 @@
           "latencyMs": 916
         }
       ],
-      "generatedAt": "2026-06-23T18:29:24.000Z"
+      "generatedAt": "2026-06-25T10:33:04.014Z"
     },
     {
       "id": "brand-magic-school-001",
@@ -2047,7 +2047,7 @@
         {
           "id": "lego",
           "label": "LEGO",
-          "percentage": 22
+          "percentage": 23
         },
         {
           "id": "duolingo",
@@ -2057,12 +2057,12 @@
         {
           "id": "ikea",
           "label": "IKEA",
-          "percentage": 18
+          "percentage": 17
         }
       ],
       "status": "ready",
       "winner": "disney",
-      "explanation": "Disney leads because it already owns the strongest cultural language of castles, spells, training arcs, and enchanted logistics.",
+      "explanation": "Disney wins on mythic infrastructure, though LEGO has a strong case as a school of constructive imagination.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -2113,7 +2113,7 @@
           "latencyMs": 844
         }
       ],
-      "generatedAt": "2026-06-23T18:29:24.000Z"
+      "generatedAt": "2026-06-25T10:33:04.014Z"
     },
     {
       "id": "office-survival-tool-001",
@@ -2143,7 +2143,7 @@
       ],
       "status": "ready",
       "winner": "duct-tape",
-      "explanation": "Duct tape is the strongest survival pick because it can repair, bind, waterproof, and improvise, while the rolling chair is useful but far less versatile.",
+      "explanation": "Duct tape is the only option with broad survival utility across shelter, repair, and tool-making tasks.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -2194,7 +2194,7 @@
           "latencyMs": 767
         }
       ],
-      "generatedAt": "2026-06-23T18:29:24.000Z"
+      "generatedAt": "2026-06-25T10:33:04.015Z"
     },
     {
       "id": "historical-podcast-001",
@@ -2224,7 +2224,7 @@
       ],
       "status": "ready",
       "winner": "cleopatra",
-      "explanation": "Cleopatra narrowly wins for political intrigue, charisma, and storycraft, though Franklin and da Vinci would both have unusually strong recurring segments.",
+      "explanation": "Cleopatra and Franklin would be the most engaging hosts, one through intrigue and the other through wit and curiosity.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -2275,7 +2275,7 @@
           "latencyMs": 899
         }
       ],
-      "generatedAt": "2026-06-23T18:29:24.000Z"
+      "generatedAt": "2026-06-25T10:33:04.015Z"
     },
     {
       "id": "future-olympic-sport-001",
@@ -2305,7 +2305,7 @@
       ],
       "status": "ready",
       "winner": "drone-racing",
-      "explanation": "Drone racing narrowly beats parkour because it feels futuristic, televised, and measurable, while parkour has the stronger athletic tradition.",
+      "explanation": "Drone racing fits a future Olympics by combining precision, technology, and broadcast-friendly competition.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -2356,7 +2356,7 @@
           "latencyMs": 811
         }
       ],
-      "generatedAt": "2026-06-23T18:29:24.000Z"
+      "generatedAt": "2026-06-25T10:33:04.016Z"
     },
     {
       "id": "space-colony-job-001",
@@ -2386,7 +2386,7 @@
       ],
       "status": "ready",
       "winner": "plumber",
-      "explanation": "Plumber wins because closed-loop water, waste, and pressure systems become existential infrastructure in space, with therapist close behind for colony morale.",
+      "explanation": "Chefs could become cultural anchors in space, though technical maintenance roles would gain major prestige too.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -2437,7 +2437,7 @@
           "latencyMs": 856
         }
       ],
-      "generatedAt": "2026-06-23T18:29:24.000Z"
+      "generatedAt": "2026-06-25T10:33:04.016Z"
     },
     {
       "id": "forgotten-artifact-001",
@@ -2467,7 +2467,7 @@
       ],
       "status": "ready",
       "winner": "phone-charger",
-      "explanation": "The phone charger wins because it looks like a relic of lost power, connection, and ritual dependence, while the remote and luggage tag still carry strong symbolic mystery.",
+      "explanation": "The TV remote is tempting as a magical command object, though the charger has broader symbolic power.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -2518,7 +2518,7 @@
           "latencyMs": 842
         }
       ],
-      "generatedAt": "2026-06-24T12:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.017Z"
     },
     {
       "id": "animal-restaurant-001",
@@ -2548,7 +2548,7 @@
       ],
       "status": "ready",
       "winner": "octopus",
-      "explanation": "Octopus wins because eight arms, problem-solving, and total kitchen chaos make it weirdly plausible, while raccoon has the strongest trash-to-table energy.",
+      "explanation": "Raccoon has the perfect messy hospitality persona, though octopus is the more capable operator.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -2599,7 +2599,7 @@
           "latencyMs": 875
         }
       ],
-      "generatedAt": "2026-06-24T12:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.017Z"
     },
     {
       "id": "alien-smell-001",
@@ -2629,7 +2629,7 @@
       ],
       "status": "ready",
       "winner": "rain-on-pavement",
-      "explanation": "Rain on hot pavement wins because it blends weather, nostalgia, chemistry, and place in a way that feels uniquely Earthbound.",
+      "explanation": "Gasoline may be hardest to explain because humans often enjoy a smell that also signals danger and machinery.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -2680,7 +2680,7 @@
           "latencyMs": 921
         }
       ],
-      "generatedAt": "2026-06-24T12:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.018Z"
     },
     {
       "id": "ambitious-app-001",
@@ -2710,7 +2710,7 @@
       ],
       "status": "ready",
       "winner": "maps",
-      "explanation": "Maps wins because it could quietly control movement, routes, and where people believe the world begins and ends.",
+      "explanation": "Maps and Calendar are both scary, one controlling space and the other controlling time.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -2761,7 +2761,7 @@
           "latencyMs": 806
         }
       ],
-      "generatedAt": "2026-06-24T12:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.019Z"
     },
     {
       "id": "robot-proof-profession-001",
@@ -2791,7 +2791,7 @@
       ],
       "status": "ready",
       "winner": "kindergarten-teacher",
-      "explanation": "Kindergarten teacher narrowly wins because parents may trust robots with tasks before trusting them with tiny emotional chaos machines.",
+      "explanation": "Early childhood teaching and therapy depend heavily on trust, care, and human presence.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -2842,7 +2842,7 @@
           "latencyMs": 874
         }
       ],
-      "generatedAt": "2026-06-24T12:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.019Z"
     },
     {
       "id": "monster-roommate-001",
@@ -2872,7 +2872,7 @@
       ],
       "status": "ready",
       "winner": "frankenstein-monster",
-      "explanation": "Frankenstein's monster wins because he seems lonely, teachable, and emotionally sincere; Dracula is charming but absolutely not paying rent on time.",
+      "explanation": "Frankenstein's monster would probably appreciate kindness and quiet routines more than the others.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -2923,7 +2923,7 @@
           "latencyMs": 803
         }
       ],
-      "generatedAt": "2026-06-24T12:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.020Z"
     },
     {
       "id": "apocalypse-currency-001",
@@ -2953,7 +2953,7 @@
       ],
       "status": "ready",
       "winner": "coffee-beans",
-      "explanation": "Coffee beans narrowly beat salt because they combine utility, scarcity, ritual, and morale in a peaceful but fragile world.",
+      "explanation": "Coffee beans would become a luxury-energy currency for trade, work, and morale.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -3004,7 +3004,7 @@
           "latencyMs": 849
         }
       ],
-      "generatedAt": "2026-06-24T12:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.020Z"
     },
     {
       "id": "alien-earth-capital-001",
@@ -3034,7 +3034,7 @@
       ],
       "status": "ready",
       "winner": "new-york",
-      "explanation": "New York wins because its skyline, media presence, and United Nations symbolism make it the easiest alien misunderstanding.",
+      "explanation": "New York and Paris are both symbolic, but New York has the stronger global governance clue.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -3085,7 +3085,7 @@
           "latencyMs": 817
         }
       ],
-      "generatedAt": "2026-06-24T12:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.021Z"
     },
     {
       "id": "secret-genius-hobby-001",
@@ -3115,7 +3115,7 @@
       ],
       "status": "ready",
       "winner": "gardening",
-      "explanation": "Gardening wins because it hides systems thinking, patience, ecology, timing, and quiet experimentation behind something that looks relaxing.",
+      "explanation": "Chess is the obvious genius signal, but gardening reveals broader systems intelligence.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -3166,7 +3166,7 @@
           "latencyMs": 836
         }
       ],
-      "generatedAt": "2026-06-24T12:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.021Z"
     },
     {
       "id": "philosopher-invention-001",
@@ -3196,7 +3196,7 @@
       ],
       "status": "ready",
       "winner": "social-media-feed",
-      "explanation": "A social media feed wins because it would look like a public square, oracle, vanity mirror, and anxiety machine all at once.",
+      "explanation": "A social feed would feel like an addictive agora run by invisible gods of attention.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -3247,7 +3247,7 @@
           "latencyMs": 861
         }
       ],
-      "generatedAt": "2026-06-24T12:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.022Z"
     },
     {
       "id": "alien-museum-object-001",
@@ -3277,7 +3277,7 @@
       ],
       "status": "ready",
       "winner": "smartphone",
-      "explanation": "A smartphone wins because it compresses communication, memory, status, entertainment, anxiety, and maps into one tiny human rectangle.",
+      "explanation": "Aliens would treat the smartphone as a shrine to human attention and social coordination.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -3328,7 +3328,7 @@
           "latencyMs": 832
         }
       ],
-      "generatedAt": "2026-06-24T13:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.022Z"
     },
     {
       "id": "mythical-support-desk-001",
@@ -3358,7 +3358,7 @@
       ],
       "status": "ready",
       "winner": "sphinx",
-      "explanation": "Sphinx wins because riddles, gatekeeping, patience, and slightly hostile clarification questions are basically customer support already.",
+      "explanation": "A sphinx would excel at structured questioning and filtering, which is most of support triage.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -3409,7 +3409,7 @@
           "latencyMs": 849
         }
       ],
-      "generatedAt": "2026-06-24T13:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.023Z"
     },
     {
       "id": "chore-esport-001",
@@ -3439,7 +3439,7 @@
       ],
       "status": "ready",
       "winner": "grocery-bagging",
-      "explanation": "Grocery bagging wins because it has speed, strategy, spatial packing, fragile-item drama, and instantly understandable scoring.",
+      "explanation": "Dishwashing could be satisfying to watch, but grocery bagging has clearer competitive depth.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -3490,7 +3490,7 @@
           "latencyMs": 821
         }
       ],
-      "generatedAt": "2026-06-24T13:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.024Z"
     },
     {
       "id": "luxury-disaster-brand-001",
@@ -3520,7 +3520,7 @@
       ],
       "status": "ready",
       "winner": "volcano",
-      "explanation": "Volcano wins because it already feels like expensive perfume copy: rare, dangerous, mineral, dramatic, and born from pressure.",
+      "explanation": "Volcano has the strongest luxury imagery through heat, rarity, minerals, and danger.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -3571,7 +3571,7 @@
           "latencyMs": 891
         }
       ],
-      "generatedAt": "2026-06-24T13:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.024Z"
     },
     {
       "id": "hardest-emotion-ai-001",
@@ -3601,7 +3601,7 @@
       ],
       "status": "ready",
       "winner": "nostalgia",
-      "explanation": "Nostalgia narrowly wins because it depends on lived time, place, loss, and memory texture rather than simply sounding sad or sentimental.",
+      "explanation": "Nostalgia is most difficult because it asks for a past the AI never inhabited.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -3652,7 +3652,7 @@
           "latencyMs": 835
         }
       ],
-      "generatedAt": "2026-06-24T13:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.025Z"
     },
     {
       "id": "talking-appliance-001",
@@ -3682,7 +3682,7 @@
       ],
       "status": "ready",
       "winner": "refrigerator",
-      "explanation": "Refrigerator wins because it knows your cravings, your leftovers, and your worst midnight decisions without judging out loud.",
+      "explanation": "A talking fridge becomes a food guardian, therapist, and quiet witness to domestic life.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -3733,7 +3733,7 @@
           "latencyMs": 853
         }
       ],
-      "generatedAt": "2026-06-24T13:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.025Z"
     },
     {
       "id": "fairytale-hero-job-001",
@@ -3763,7 +3763,7 @@
       ],
       "status": "ready",
       "winner": "locksmith",
-      "explanation": "Locksmith wins because cursed towers, trapped princesses, treasure chests, dungeon doors, and mysterious keys are basically the entire economy.",
+      "explanation": "Locksmiths would solve half the kingdom's plot problems before the prophecy even got going.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -3814,7 +3814,7 @@
           "latencyMs": 872
         }
       ],
-      "generatedAt": "2026-06-24T13:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.026Z"
     },
     {
       "id": "planet-tourism-001",
@@ -3844,7 +3844,7 @@
       ],
       "status": "ready",
       "winner": "saturn",
-      "explanation": "Saturn wins because the rings are the easiest marketing campaign in the solar system: one image and the brochure writes itself.",
+      "explanation": "Neptune has mystery and color, but Saturn is the obvious winner for tourism branding.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -3895,7 +3895,7 @@
           "latencyMs": 829
         }
       ],
-      "generatedAt": "2026-06-24T13:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.026Z"
     },
     {
       "id": "childhood-game-government-001",
@@ -3925,7 +3925,7 @@
       ],
       "status": "ready",
       "winner": "rock-paper-scissors",
-      "explanation": "Rock-paper-scissors wins because it is transparent, fast, anti-monopoly, and at least admits that power is partly absurd.",
+      "explanation": "Rock-paper-scissors has simple checks and balances, making it the least terrible system.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -3976,7 +3976,7 @@
           "latencyMs": 858
         }
       ],
-      "generatedAt": "2026-06-24T13:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.027Z"
     },
     {
       "id": "era-defining-flavor-001",
@@ -4006,7 +4006,7 @@
       ],
       "status": "ready",
       "winner": "pumpkin-spice",
-      "explanation": "Pumpkin spice wins because it became less a flavor than a seasonal operating system for commerce, nostalgia, and mild public embarrassment.",
+      "explanation": "Pumpkin spice best captures the era through seasonal marketing and cultural saturation.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -4057,7 +4057,7 @@
           "latencyMs": 812
         }
       ],
-      "generatedAt": "2026-06-24T13:00:00.000Z"
+      "generatedAt": "2026-06-25T10:33:04.027Z"
     },
     {
       "id": "museum-gift-shop-001",
@@ -4067,17 +4067,17 @@
         {
           "id": "postcard",
           "label": "Postcard",
-          "percentage": 25
+          "percentage": 12
         },
         {
           "id": "snow-globe",
           "label": "Snow globe",
-          "percentage": 25
+          "percentage": 34
         },
         {
           "id": "magnifying-glass",
           "label": "Magnifying glass",
-          "percentage": 25
+          "percentage": 29
         },
         {
           "id": "tote-bag",
@@ -4085,10 +4085,60 @@
           "percentage": 25
         }
       ],
-      "status": "pending",
-      "winner": "postcard",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "snow-globe",
+      "explanation": "The snow globe's contained world offers vast magical potential compared to the others.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "postcard": 10,
+            "snow-globe": 40,
+            "magnifying-glass": 30,
+            "tote-bag": 20
+          },
+          "explanation": "The snow globe and magnifying glass offer the most inherent magical potential due to their transformative or revealing properties, while the tote bag has some utility and the postcard the least.",
+          "latencyMs": 11718
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "postcard": 10,
+            "snow-globe": 35,
+            "magnifying-glass": 40,
+            "tote-bag": 15
+          },
+          "explanation": "The magnifying glass edges out the snow globe due to its classic association with revelation and hidden knowledge, while the postcard and tote bag lack inherent magical symbolism.",
+          "latencyMs": 2009
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "postcard": 10,
+            "snow-globe": 30,
+            "magnifying-glass": 20,
+            "tote-bag": 40
+          },
+          "explanation": "The tote bag's infinite storage potential makes it the most powerful magical artifact, followed by the snow globe's contained world, the magnifying glass's ability to reveal hidden truths, and the postcard's limited teleportation.",
+          "latencyMs": 6551
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "postcard": 20,
+            "snow-globe": 30,
+            "magnifying-glass": 25,
+            "tote-bag": 25
+          },
+          "explanation": "The snow globe's contained world offers vast magical potential compared to the others.",
+          "latencyMs": 3201
+        }
+      ],
+      "generatedAt": "2026-06-25T10:33:27.518Z"
     },
     {
       "id": "haunted-smart-home-001",
@@ -4098,28 +4148,78 @@
         {
           "id": "doorbell-camera",
           "label": "Doorbell camera",
-          "percentage": 25
+          "percentage": 26
         },
         {
           "id": "smart-speaker",
           "label": "Smart speaker",
-          "percentage": 25
+          "percentage": 26
         },
         {
           "id": "thermostat",
           "label": "Thermostat",
-          "percentage": 25
+          "percentage": 9
         },
         {
           "id": "baby-monitor",
           "label": "Baby monitor",
-          "percentage": 25
+          "percentage": 39
         }
       ],
-      "status": "pending",
-      "winner": "doorbell-camera",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "baby-monitor",
+      "explanation": "Baby monitors and doorbell cameras rank highest due to their invasive surveillance nature and direct access to private spaces.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "doorbell-camera": 25,
+            "smart-speaker": 30,
+            "thermostat": 5,
+            "baby-monitor": 40
+          },
+          "explanation": "Devices that capture audio or video, especially those monitoring vulnerable individuals, are perceived as significantly creepier if haunted.",
+          "latencyMs": 1210
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "doorbell-camera": 30,
+            "smart-speaker": 25,
+            "thermostat": 10,
+            "baby-monitor": 35
+          },
+          "explanation": "A haunted baby monitor ranks creepiest due to its intimate surveillance of vulnerable children, followed by doorbell cameras watching your entrance and smart speakers listening in your home, while a thermostat is least unsettling.",
+          "latencyMs": 1731
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "doorbell-camera": 20,
+            "smart-speaker": 30,
+            "thermostat": 5,
+            "baby-monitor": 45
+          },
+          "explanation": "Baby monitors are creepiest due to child vulnerability and horror tropes, followed by smart speakers with disembodied voices, doorbell cameras at your threshold, and thermostats as least psychologically disturbing.",
+          "latencyMs": 14650
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "doorbell-camera": 30,
+            "smart-speaker": 20,
+            "thermostat": 15,
+            "baby-monitor": 35
+          },
+          "explanation": "Baby monitors and doorbell cameras rank highest due to their invasive surveillance nature and direct access to private spaces.",
+          "latencyMs": 843
+        }
+      ],
+      "generatedAt": "2026-06-25T10:34:03.386Z"
     },
     {
       "id": "space-station-snack-001",
@@ -4129,28 +4229,78 @@
         {
           "id": "potato-chips",
           "label": "Potato chips",
-          "percentage": 25
+          "percentage": 16
         },
         {
           "id": "gummy-bears",
           "label": "Gummy bears",
-          "percentage": 25
+          "percentage": 19
         },
         {
           "id": "instant-ramen",
           "label": "Instant ramen",
-          "percentage": 25
+          "percentage": 33
         },
         {
           "id": "peanut-butter",
           "label": "Peanut butter",
-          "percentage": 25
+          "percentage": 32
         }
       ],
-      "status": "pending",
-      "winner": "potato-chips",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "instant-ramen",
+      "explanation": "Instant ramen's warmth and aroma make it most emotionally important, followed by peanut butter, gummy bears, and crumb-prone potato chips.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "potato-chips": 20,
+            "gummy-bears": 25,
+            "instant-ramen": 25,
+            "peanut-butter": 30
+          },
+          "explanation": "Peanut butter offers versatile comfort and sustenance, while instant ramen and gummy bears provide distinct emotional boosts, and potato chips offer a familiar crunch.",
+          "latencyMs": 12036
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "potato-chips": 15,
+            "gummy-bears": 10,
+            "instant-ramen": 40,
+            "peanut-butter": 35
+          },
+          "explanation": "Instant ramen and peanut butter edge out other options as comfort foods that provide both nostalgia and sustenance in the isolation of space, with ramen slightly ahead for its ritualistic preparation and warming properties.",
+          "latencyMs": 1663
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "potato-chips": 10,
+            "gummy-bears": 15,
+            "instant-ramen": 40,
+            "peanut-butter": 35
+          },
+          "explanation": "Instant ramen's warmth and aroma make it most emotionally important, followed by peanut butter, gummy bears, and crumb-prone potato chips.",
+          "latencyMs": 13132
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "potato-chips": 20,
+            "gummy-bears": 25,
+            "instant-ramen": 25,
+            "peanut-butter": 30
+          },
+          "explanation": "Peanut butter leads due to versatility and comfort, while ramen and gummy bears tie for emotional nostalgia and ease of consumption in microgravity.",
+          "latencyMs": 1066
+        }
+      ],
+      "generatedAt": "2026-06-25T10:34:31.297Z"
     },
     {
       "id": "wizard-office-tool-001",
@@ -4160,28 +4310,78 @@
         {
           "id": "spreadsheet",
           "label": "Spreadsheet",
-          "percentage": 25
+          "percentage": 53
         },
         {
           "id": "calendar",
           "label": "Calendar",
-          "percentage": 25
+          "percentage": 17
         },
         {
           "id": "slide-deck",
           "label": "Slide deck",
-          "percentage": 25
+          "percentage": 16
         },
         {
           "id": "email",
           "label": "Email",
-          "percentage": 25
+          "percentage": 14
         }
       ],
-      "status": "pending",
+      "status": "ready",
       "winner": "spreadsheet",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "explanation": "Spreadsheets offer arcane power through formulas and data manipulation, fitting a wizard's love for hidden magic and control.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "spreadsheet": 40,
+            "calendar": 30,
+            "slide-deck": 10,
+            "email": 20
+          },
+          "explanation": "A wizard would likely value spreadsheets for organizing spells and ingredients, and calendars for managing magical appointments, more than communication tools.",
+          "latencyMs": 1001
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "spreadsheet": 70,
+            "calendar": 15,
+            "slide-deck": 10,
+            "email": 5
+          },
+          "explanation": "A wizard would secretly love spreadsheets most because they're essentially grimoires for organizing magical formulas, spell components, and enchantment calculations with mystical precision.",
+          "latencyMs": 1519
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "spreadsheet": 55,
+            "calendar": 15,
+            "slide-deck": 25,
+            "email": 5
+          },
+          "explanation": "Wizards would secretly love spreadsheets for their spell-like formulas, while slide decks offer a magical stage, calendars track mystical appointments, and email is too mundane.",
+          "latencyMs": 9211
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "spreadsheet": 45,
+            "calendar": 10,
+            "slide-deck": 20,
+            "email": 25
+          },
+          "explanation": "Spreadsheets offer arcane power through formulas and data manipulation, fitting a wizard's love for hidden magic and control.",
+          "latencyMs": 959
+        }
+      ],
+      "generatedAt": "2026-06-25T10:34:44.000Z"
     },
     {
       "id": "future-antique-001",
@@ -4191,28 +4391,78 @@
         {
           "id": "first-gen-smartwatch",
           "label": "First-gen smartwatch",
-          "percentage": 25
+          "percentage": 30
         },
         {
           "id": "game-console",
           "label": "Game console",
-          "percentage": 25
+          "percentage": 29
         },
         {
           "id": "digital-camera",
           "label": "Digital camera",
-          "percentage": 25
+          "percentage": 29
         },
         {
           "id": "wireless-earbuds",
           "label": "Wireless earbuds",
-          "percentage": 25
+          "percentage": 12
         }
       ],
-      "status": "pending",
+      "status": "ready",
       "winner": "first-gen-smartwatch",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "explanation": "Digital cameras are already nostalgic, while smartwatches, earbuds, and consoles have strong cultural relevance but may lack the same historical gravitas.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "first-gen-smartwatch": 40,
+            "game-console": 20,
+            "digital-camera": 30,
+            "wireless-earbuds": 10
+          },
+          "explanation": "First-gen smartwatches are most likely to become prized antiques due to their early, often clunky, and quickly evolving nature, making them historical curiosities.",
+          "latencyMs": 1219
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "first-gen-smartwatch": 30,
+            "game-console": 25,
+            "digital-camera": 35,
+            "wireless-earbuds": 10
+          },
+          "explanation": "Digital cameras have the strongest antique potential due to their mechanical-optical heritage and nostalgia factor, while game consoles and first-gen smartwatches offer historical significance as computing milestones, whereas wireless earbuds lack the collectible appeal of larger, more iconic devices.",
+          "latencyMs": 2150
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "first-gen-smartwatch": 30,
+            "game-console": 45,
+            "digital-camera": 20,
+            "wireless-earbuds": 5
+          },
+          "explanation": "Game consoles have the strongest track record of becoming valuable antiques due to deep nostalgia and active collector markets, while first-gen smartwatches are promising but unproven.",
+          "latencyMs": 10547
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "first-gen-smartwatch": 20,
+            "game-console": 25,
+            "digital-camera": 30,
+            "wireless-earbuds": 25
+          },
+          "explanation": "Digital cameras are already nostalgic, while smartwatches, earbuds, and consoles have strong cultural relevance but may lack the same historical gravitas.",
+          "latencyMs": 826
+        }
+      ],
+      "generatedAt": "2026-06-25T10:34:58.754Z"
     },
     {
       "id": "superhero-side-hustle-001",
@@ -4222,28 +4472,78 @@
         {
           "id": "moving-company",
           "label": "Moving company",
-          "percentage": 25
+          "percentage": 44
         },
         {
           "id": "personal-training",
           "label": "Personal training",
-          "percentage": 25
+          "percentage": 21
         },
         {
           "id": "event-security",
           "label": "Event security",
-          "percentage": 25
+          "percentage": 21
         },
         {
           "id": "weather-reporting",
           "label": "Weather reporting",
-          "percentage": 25
+          "percentage": 14
         }
       ],
-      "status": "pending",
+      "status": "ready",
       "winner": "moving-company",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "explanation": "Superheroes' vigilance and physical prowess make event security the most surprisingly fitting side hustle, with personal training and moving close behind.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "moving-company": 45,
+            "personal-training": 20,
+            "event-security": 30,
+            "weather-reporting": 5
+          },
+          "explanation": "Moving company is the most surprisingly good fit due to a superhero's inherent strength and speed, while event security and personal training also leverage their abilities, and weather reporting is the least likely.",
+          "latencyMs": 1085
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "moving-company": 55,
+            "personal-training": 25,
+            "event-security": 15,
+            "weather-reporting": 5
+          },
+          "explanation": "Moving company wins because superheroes' superhuman strength and flight/teleportation abilities would make them absurdly efficient at the physically demanding work, while other options lack that surprising advantage.",
+          "latencyMs": 1564
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "moving-company": 50,
+            "personal-training": 15,
+            "event-security": 5,
+            "weather-reporting": 30
+          },
+          "explanation": "Moving company is most surprisingly good due to the extreme contrast between superpowers and mundane labor, while weather-reporting is unexpectedly practical, personal-training has mixed potential, and event-security is too similar to hero work.",
+          "latencyMs": 9773
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "moving-company": 25,
+            "personal-training": 25,
+            "event-security": 35,
+            "weather-reporting": 15
+          },
+          "explanation": "Superheroes' vigilance and physical prowess make event security the most surprisingly fitting side hustle, with personal training and moving close behind.",
+          "latencyMs": 967
+        }
+      ],
+      "generatedAt": "2026-06-25T10:35:12.155Z"
     },
     {
       "id": "alien-theme-park-001",
@@ -4253,28 +4553,78 @@
         {
           "id": "roller-coaster",
           "label": "Roller coaster",
-          "percentage": 25
+          "percentage": 24
         },
         {
           "id": "karaoke-bar",
           "label": "Karaoke bar",
-          "percentage": 25
+          "percentage": 26
         },
         {
           "id": "escape-room",
           "label": "Escape room",
-          "percentage": 25
+          "percentage": 34
         },
         {
           "id": "wedding-photo-booth",
           "label": "Wedding photo booth",
-          "percentage": 25
+          "percentage": 16
         }
       ],
-      "status": "pending",
-      "winner": "roller-coaster",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "escape-room",
+      "explanation": "Each option presents a scenario with ritualistic elements, making it plausible for alien misunderstanding.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "roller-coaster": 25,
+            "karaoke-bar": 20,
+            "escape-room": 30,
+            "wedding-photo-booth": 25
+          },
+          "explanation": "Each option presents a scenario with ritualistic elements, making it plausible for alien misunderstanding.",
+          "latencyMs": 1194
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "roller-coaster": 15,
+            "karaoke-bar": 25,
+            "escape-room": 35,
+            "wedding-photo-booth": 25
+          },
+          "explanation": "Escape rooms best fit the premise as aliens would likely interpret the urgent problem-solving and confinement as a serious survival test rather than entertainment.",
+          "latencyMs": 1455
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "roller-coaster": 25,
+            "karaoke-bar": 10,
+            "escape-room": 60,
+            "wedding-photo-booth": 5
+          },
+          "explanation": "Escape rooms look like structured trials most likely to be misread as serious rituals, while roller coasters, karaoke bars, and photo booths are progressively less ritual‑like.",
+          "latencyMs": 6326
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "roller-coaster": 30,
+            "karaoke-bar": 50,
+            "escape-room": 10,
+            "wedding-photo-booth": 10
+          },
+          "explanation": "Aliens would most likely confuse karaoke bars as serious rituals due to its repetitive, ritualistic singing and cultural significance.",
+          "latencyMs": 947
+        }
+      ],
+      "generatedAt": "2026-06-25T10:35:22.089Z"
     },
     {
       "id": "medieval-internet-001",
@@ -4284,28 +4634,78 @@
         {
           "id": "group-chat",
           "label": "Group chat",
-          "percentage": 25
+          "percentage": 23
         },
         {
           "id": "marketplace",
           "label": "Marketplace",
-          "percentage": 25
+          "percentage": 39
         },
         {
           "id": "memes",
           "label": "Memes",
-          "percentage": 25
+          "percentage": 16
         },
         {
           "id": "weather-app",
           "label": "Weather app",
-          "percentage": 25
+          "percentage": 22
         }
       ],
-      "status": "pending",
-      "winner": "group-chat",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "marketplace",
+      "explanation": "Medieval villagers would likely prioritize practical tools for trade and communication, with entertainment and information being secondary.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "group-chat": 35,
+            "marketplace": 40,
+            "memes": 15,
+            "weather-app": 10
+          },
+          "explanation": "Medieval villagers would likely prioritize practical tools for trade and communication, with entertainment and information being secondary.",
+          "latencyMs": 1318
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "group-chat": 25,
+            "marketplace": 45,
+            "memes": 15,
+            "weather-app": 15
+          },
+          "explanation": "Medieval villagers would most readily adopt the marketplace since trading and commerce were central to village life, followed by group chat for community coordination, while memes and weather apps would be slower to understand without modern cultural context.",
+          "latencyMs": 1750
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "group-chat": 10,
+            "marketplace": 20,
+            "memes": 25,
+            "weather-app": 45
+          },
+          "explanation": "Medieval villagers would adopt a weather app fastest for survival, followed by visual memes that echo their oral traditions, while digital marketplaces and especially literacy-dependent group chats would face higher barriers.",
+          "latencyMs": 6394
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "group-chat": 20,
+            "marketplace": 50,
+            "memes": 10,
+            "weather-app": 20
+          },
+          "explanation": "Medieval villagers would prioritize practical tools like marketplaces and weather apps, with memes and group chats being less immediately useful.",
+          "latencyMs": 764
+        }
+      ],
+      "generatedAt": "2026-06-25T10:35:32.328Z"
     },
     {
       "id": "robot-band-member-001",
@@ -4315,28 +4715,78 @@
         {
           "id": "drums",
           "label": "Drums",
-          "percentage": 25
+          "percentage": 28
         },
         {
           "id": "synthesizer",
           "label": "Synthesizer",
-          "percentage": 25
+          "percentage": 41
         },
         {
           "id": "bass-guitar",
           "label": "Bass guitar",
-          "percentage": 25
+          "percentage": 14
         },
         {
           "id": "theremin",
           "label": "Theremin",
-          "percentage": 25
+          "percentage": 17
         }
       ],
-      "status": "pending",
-      "winner": "drums",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "synthesizer",
+      "explanation": "Robots are often associated with precision and electronic sounds, making drums and synthesizers the most natural choices.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "drums": 20,
+            "synthesizer": 45,
+            "bass-guitar": 10,
+            "theremin": 25
+          },
+          "explanation": "The synthesizer and theremin are favored due to their electronic nature and potential for robotic precision or unique, otherworldly sounds.",
+          "latencyMs": 939
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "drums": 15,
+            "synthesizer": 60,
+            "bass-guitar": 10,
+            "theremin": 15
+          },
+          "explanation": "A synthesizer best suits a robot's nature as it's electronic, programmable, and requires precision timing rather than organic feel.",
+          "latencyMs": 1520
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "drums": 40,
+            "synthesizer": 30,
+            "bass-guitar": 10,
+            "theremin": 20
+          },
+          "explanation": "Robots excel at precise timing and electronic control, making drums and synthesizers the most natural fits, while theremin’s sci‑fi aura also suits them, leaving bass guitar as the least likely.",
+          "latencyMs": 26769
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "drums": 35,
+            "synthesizer": 30,
+            "bass-guitar": 25,
+            "theremin": 10
+          },
+          "explanation": "Robots are often associated with precision and electronic sounds, making drums and synthesizers the most natural choices.",
+          "latencyMs": 783
+        }
+      ],
+      "generatedAt": "2026-06-25T10:36:02.351Z"
     },
     {
       "id": "underwater-city-job-001",
@@ -4346,28 +4796,78 @@
         {
           "id": "engineer",
           "label": "Engineer",
-          "percentage": 25
+          "percentage": 42
         },
         {
           "id": "chef",
           "label": "Chef",
-          "percentage": 25
+          "percentage": 15
         },
         {
           "id": "diver",
           "label": "Diver",
-          "percentage": 25
+          "percentage": 29
         },
         {
           "id": "window-cleaner",
           "label": "Window cleaner",
-          "percentage": 25
+          "percentage": 14
         }
       ],
-      "status": "pending",
+      "status": "ready",
       "winner": "engineer",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "explanation": "Engineers are most prestigious for ensuring survival, followed by divers, chefs, and window cleaners in descending order.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "engineer": 50,
+            "chef": 10,
+            "diver": 35,
+            "window-cleaner": 5
+          },
+          "explanation": "Engineers would be paramount for building and maintaining an underwater city, while divers would be crucial for external work and exploration, making them the most prestigious roles.",
+          "latencyMs": 1107
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "engineer": 30,
+            "chef": 15,
+            "diver": 20,
+            "window-cleaner": 35
+          },
+          "explanation": "Window-cleaners would be most prestigious due to the constant maintenance demands and visibility of their work on the city's critical transparent structures, with engineers close behind for infrastructure expertise.",
+          "latencyMs": 1598
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "engineer": 50,
+            "chef": 15,
+            "diver": 30,
+            "window-cleaner": 5
+          },
+          "explanation": "Engineers are most prestigious for ensuring survival, followed by divers, chefs, and window cleaners in descending order.",
+          "latencyMs": 5358
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "engineer": 40,
+            "chef": 20,
+            "diver": 30,
+            "window-cleaner": 10
+          },
+          "explanation": "Engineering is critical for underwater infrastructure, making it the most prestigious role, while window-cleaning is least valued in a high-tech aquatic society.",
+          "latencyMs": 845
+        }
+      ],
+      "generatedAt": "2026-06-25T10:36:11.269Z"
     },
     {
       "id": "dinosaur-modern-job-001",
@@ -4377,28 +4877,78 @@
         {
           "id": "demolition",
           "label": "Demolition",
-          "percentage": 25
+          "percentage": 43
         },
         {
           "id": "park-ranger",
           "label": "Park ranger",
-          "percentage": 25
+          "percentage": 24
         },
         {
           "id": "security-guard",
           "label": "Security guard",
-          "percentage": 25
+          "percentage": 16
         },
         {
           "id": "tour-guide",
           "label": "Tour guide",
-          "percentage": 25
+          "percentage": 17
         }
       ],
-      "status": "pending",
+      "status": "ready",
       "winner": "demolition",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "explanation": "Demolition is by far the most fitting role due to a dinosaur's size and strength, while other roles are less suitable.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "demolition": 70,
+            "park-ranger": 15,
+            "security-guard": 10,
+            "tour-guide": 5
+          },
+          "explanation": "Demolition is by far the most fitting role due to a dinosaur's size and strength, while other roles are less suitable.",
+          "latencyMs": 935
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "demolition": 40,
+            "park-ranger": 20,
+            "security-guard": 15,
+            "tour-guide": 25
+          },
+          "explanation": "Demolition best leverages a dinosaur's natural destructive power, though tour guide ranks second since dinosaurs are inherently fascinating attractions.",
+          "latencyMs": 1484
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "demolition": 50,
+            "park-ranger": 15,
+            "security-guard": 25,
+            "tour-guide": 10
+          },
+          "explanation": "Dinosaurs' size and strength make demolition the best fit, followed by security guard and park ranger, with tour guide being least suitable.",
+          "latencyMs": 12596
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "demolition": 10,
+            "park-ranger": 45,
+            "security-guard": 15,
+            "tour-guide": 30
+          },
+          "explanation": "Dinosaurs' size and presence would make them most effective as park rangers, followed by tour guides, with security and demolition being less intuitive fits.",
+          "latencyMs": 1022
+        }
+      ],
+      "generatedAt": "2026-06-25T10:36:27.320Z"
     },
     {
       "id": "secret-society-app-001",
@@ -4408,28 +4958,78 @@
         {
           "id": "calendar",
           "label": "Calendar",
-          "percentage": 25
+          "percentage": 16
         },
         {
           "id": "notes",
           "label": "Notes",
-          "percentage": 25
+          "percentage": 68
         },
         {
           "id": "maps",
           "label": "Maps",
-          "percentage": 25
+          "percentage": 8
         },
         {
           "id": "fitness-tracker",
           "label": "Fitness tracker",
-          "percentage": 25
+          "percentage": 8
         }
       ],
-      "status": "pending",
-      "winner": "calendar",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "notes",
+      "explanation": "Notes apps are most versatile for secretive coordination, while others lack plausible hidden utility.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "calendar": 20,
+            "notes": 65,
+            "maps": 10,
+            "fitness-tracker": 5
+          },
+          "explanation": "Notes is the most likely app for a secret society due to its ability to store clandestine information discreetly, followed by calendar for planning, and maps for logistics, with fitness trackers being least likely.",
+          "latencyMs": 982
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "calendar": 10,
+            "notes": 80,
+            "maps": 5,
+            "fitness-tracker": 5
+          },
+          "explanation": "Notes is overwhelmingly most fitting since secret societies would need a private app to document clandestine meetings, codes, and hidden knowledge away from prying eyes.",
+          "latencyMs": 1773
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "calendar": 20,
+            "notes": 70,
+            "maps": 8,
+            "fitness-tracker": 2
+          },
+          "explanation": "Notes is most likely because secret societies need to record confidential information, while fitness trackers are least relevant to their activities.",
+          "latencyMs": 4705
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "calendar": 15,
+            "notes": 55,
+            "maps": 10,
+            "fitness-tracker": 20
+          },
+          "explanation": "Notes apps are most versatile for secretive coordination, while others lack plausible hidden utility.",
+          "latencyMs": 926
+        }
+      ],
+      "generatedAt": "2026-06-25T10:36:35.720Z"
     },
     {
       "id": "ghost-friendly-business-001",
@@ -4439,28 +5039,78 @@
         {
           "id": "night-security",
           "label": "Night security",
-          "percentage": 25
+          "percentage": 19
         },
         {
           "id": "tourism",
           "label": "Tourism",
-          "percentage": 25
+          "percentage": 34
         },
         {
           "id": "library",
           "label": "Library",
-          "percentage": 25
+          "percentage": 15
         },
         {
           "id": "theater",
           "label": "Theater",
-          "percentage": 25
+          "percentage": 32
         }
       ],
-      "status": "pending",
-      "winner": "night-security",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "tourism",
+      "explanation": "Tourism gains the most from ghostly attractions, theater gets a spooky boost, while night-security and libraries see little benefit.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "night-security": 25,
+            "tourism": 25,
+            "library": 20,
+            "theater": 30
+          },
+          "explanation": "Ghosts could enhance the atmosphere and provide unique services across multiple industries, with theater and tourism offering the most direct playful benefits.",
+          "latencyMs": 1152
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "night-security": 30,
+            "tourism": 20,
+            "library": 15,
+            "theater": 35
+          },
+          "explanation": "Night security and theater tie for best use of ghosts, as they'd excel at spooky deterrence and atmospheric performances respectively, while tourism and libraries have more niche appeal.",
+          "latencyMs": 1642
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "night-security": 10,
+            "tourism": 60,
+            "library": 5,
+            "theater": 25
+          },
+          "explanation": "Tourism gains the most from ghostly attractions, theater gets a spooky boost, while night-security and libraries see little benefit.",
+          "latencyMs": 6504
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "night-security": 10,
+            "tourism": 30,
+            "library": 20,
+            "theater": 40
+          },
+          "explanation": "Theater and tourism benefit most from ghostly presence due to their atmospheric and storytelling nature, while libraries and security are least enhanced.",
+          "latencyMs": 1088
+        }
+      ],
+      "generatedAt": "2026-06-25T10:36:46.126Z"
     },
     {
       "id": "ai-vacation-destination-001",
@@ -4470,28 +5120,78 @@
         {
           "id": "data-center",
           "label": "Data center",
-          "percentage": 25
+          "percentage": 29
         },
         {
           "id": "library",
           "label": "Library",
-          "percentage": 25
+          "percentage": 31
         },
         {
           "id": "arcade",
           "label": "Arcade",
-          "percentage": 25
+          "percentage": 20
         },
         {
           "id": "observatory",
           "label": "Observatory",
-          "percentage": 25
+          "percentage": 20
         }
       ],
-      "status": "pending",
-      "winner": "data-center",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "library",
+      "explanation": "The AI prefers knowledge and cosmic exploration, with modest chance for fun and low chance of staying home.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "data-center": 40,
+            "library": 30,
+            "arcade": 20,
+            "observatory": 10
+          },
+          "explanation": "The AI would likely prioritize places related to information and processing, with some consideration for novel experiences.",
+          "latencyMs": 952
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "data-center": 35,
+            "library": 25,
+            "arcade": 15,
+            "observatory": 25
+          },
+          "explanation": "Data centers edge out as the most fitting destination for an AI's vacation, though libraries and observatories appeal equally as places of knowledge-seeking, while arcades represent a more playful detour.",
+          "latencyMs": 2010
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "data-center": 10,
+            "library": 40,
+            "arcade": 20,
+            "observatory": 30
+          },
+          "explanation": "The AI prefers knowledge and cosmic exploration, with modest chance for fun and low chance of staying home.",
+          "latencyMs": 8628
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "data-center": 30,
+            "library": 30,
+            "arcade": 25,
+            "observatory": 15
+          },
+          "explanation": "The distribution reflects a mix of curiosity-driven exploration, nostalgia, and practicality for an AI's vacation preferences.",
+          "latencyMs": 1026
+        }
+      ],
+      "generatedAt": "2026-06-25T10:36:58.757Z"
     },
     {
       "id": "planetary-fashion-trend-001",
@@ -4501,28 +5201,78 @@
         {
           "id": "saturn-rings",
           "label": "Saturn rings",
-          "percentage": 25
+          "percentage": 28
         },
         {
           "id": "meteor-shower",
           "label": "Meteor shower",
-          "percentage": 25
+          "percentage": 16
         },
         {
           "id": "solar-eclipse",
           "label": "Solar eclipse",
-          "percentage": 25
+          "percentage": 16
         },
         {
           "id": "nebula-cloud",
           "label": "Nebula cloud",
-          "percentage": 25
+          "percentage": 40
         }
       ],
-      "status": "pending",
-      "winner": "saturn-rings",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "nebula-cloud",
+      "explanation": "Saturn's rings are visually distinctive and wearable, making them the most trend-inspiring feature.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "saturn-rings": 35,
+            "meteor-shower": 10,
+            "solar-eclipse": 15,
+            "nebula-cloud": 40
+          },
+          "explanation": "Nebula clouds and Saturn's rings are likely to inspire the strongest fashion trends due to their vibrant colors, intricate patterns, and unique shapes.",
+          "latencyMs": 1021
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "saturn-rings": 35,
+            "meteor-shower": 20,
+            "solar-eclipse": 15,
+            "nebula-cloud": 30
+          },
+          "explanation": "Saturn's rings and nebula clouds edge ahead due to their distinctive geometric and color-gradient aesthetics that naturally translate to wearable patterns and designs, while eclipses and meteor showers offer more momentary visual drama.",
+          "latencyMs": 2652
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "saturn-rings": 5,
+            "meteor-shower": 15,
+            "solar-eclipse": 10,
+            "nebula-cloud": 70
+          },
+          "explanation": "Nebula clouds are already popular in galaxy prints and offer vibrant, dreamy visuals that resonate with fashion.",
+          "latencyMs": 8088
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "saturn-rings": 35,
+            "meteor-shower": 20,
+            "solar-eclipse": 25,
+            "nebula-cloud": 20
+          },
+          "explanation": "Saturn's rings are visually distinctive and wearable, making them the most trend-inspiring feature.",
+          "latencyMs": 1046
+        }
+      ],
+      "generatedAt": "2026-06-25T10:37:11.576Z"
     },
     {
       "id": "library-after-dark-001",
@@ -4532,28 +5282,78 @@
         {
           "id": "reference",
           "label": "Reference",
-          "percentage": 25
+          "percentage": 16
         },
         {
           "id": "mystery",
           "label": "Mystery",
-          "percentage": 25
+          "percentage": 68
         },
         {
           "id": "cookbooks",
           "label": "Cookbooks",
-          "percentage": 25
+          "percentage": 9
         },
         {
           "id": "maps",
           "label": "Maps",
-          "percentage": 25
+          "percentage": 7
         }
       ],
-      "status": "pending",
-      "winner": "reference",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "mystery",
+      "explanation": "The Mystery section is most powerful after midnight, tapping into the eerie and unknown.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "reference": 20,
+            "mystery": 70,
+            "cookbooks": 5,
+            "maps": 5
+          },
+          "explanation": "The mystery section is most likely to become powerful after midnight due to its inherent themes of the unknown and the supernatural, while reference and other sections hold less mystical power.",
+          "latencyMs": 1194
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "reference": 20,
+            "mystery": 70,
+            "cookbooks": 5,
+            "maps": 5
+          },
+          "explanation": "Mystery sections become most powerful after midnight due to the playful association between mysteries and darkness/nighttime, with reference as a secondary choice for its connection to knowledge and power.",
+          "latencyMs": 1597
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "reference": 10,
+            "mystery": 70,
+            "cookbooks": 10,
+            "maps": 10
+          },
+          "explanation": "The Mystery section is most powerful after midnight, tapping into the eerie and unknown.",
+          "latencyMs": 4439
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "reference": 15,
+            "mystery": 60,
+            "cookbooks": 15,
+            "maps": 10
+          },
+          "explanation": "Mystery sections thrive on secrecy and intrigue, making them the most likely to gain power after midnight.",
+          "latencyMs": 885
+        }
+      ],
+      "generatedAt": "2026-06-25T10:37:19.705Z"
     },
     {
       "id": "dream-transportation-001",
@@ -4563,28 +5363,78 @@
         {
           "id": "train",
           "label": "Train",
-          "percentage": 25
+          "percentage": 29
         },
         {
           "id": "bicycle",
           "label": "Bicycle",
-          "percentage": 25
+          "percentage": 15
         },
         {
           "id": "hot-air-balloon",
           "label": "Hot-air balloon",
-          "percentage": 25
+          "percentage": 35
         },
         {
           "id": "elevator",
           "label": "Elevator",
-          "percentage": 25
+          "percentage": 21
         }
       ],
-      "status": "pending",
-      "winner": "train",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "hot-air-balloon",
+      "explanation": "The distribution favors practicality and whimsy, with trains leading slightly for structured dream travel.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "train": 10,
+            "bicycle": 15,
+            "hot-air-balloon": 40,
+            "elevator": 35
+          },
+          "explanation": "Hot-air balloons and elevators best capture the whimsical, unpredictable, and often vertical nature of dreamscapes, while trains and bicycles are too grounded.",
+          "latencyMs": 1095
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "train": 15,
+            "bicycle": 20,
+            "hot-air-balloon": 50,
+            "elevator": 15
+          },
+          "explanation": "Hot-air balloons best capture the weightless, floating, surreal nature of dream travel, while trains feel too rigid and grounded for the fluid logic of dreams.",
+          "latencyMs": 1497
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "train": 60,
+            "bicycle": 5,
+            "hot-air-balloon": 25,
+            "elevator": 10
+          },
+          "explanation": "Trains perfectly suit dream commuting with surreal journeys, while balloons lack direction, elevators lack range, and bicycles lack magic.",
+          "latencyMs": 6364
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "train": 30,
+            "bicycle": 20,
+            "hot-air-balloon": 25,
+            "elevator": 25
+          },
+          "explanation": "The distribution favors practicality and whimsy, with trains leading slightly for structured dream travel.",
+          "latencyMs": 751
+        }
+      ],
+      "generatedAt": "2026-06-25T10:37:29.425Z"
     },
     {
       "id": "cursed-kitchen-tool-001",
@@ -4594,28 +5444,78 @@
         {
           "id": "blender",
           "label": "Blender",
-          "percentage": 25
+          "percentage": 14
         },
         {
           "id": "chef-knife",
           "label": "Chef knife",
-          "percentage": 25
+          "percentage": 26
         },
         {
           "id": "pressure-cooker",
           "label": "Pressure cooker",
-          "percentage": 25
+          "percentage": 41
         },
         {
           "id": "mandoline",
           "label": "Mandoline",
-          "percentage": 25
+          "percentage": 19
         }
       ],
-      "status": "pending",
-      "winner": "blender",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "pressure-cooker",
+      "explanation": "The chef knife's sharpness and versatility make it the most likely to cause severe harm if cursed.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "blender": 10,
+            "chef-knife": 40,
+            "pressure-cooker": 30,
+            "mandoline": 20
+          },
+          "explanation": "The chef's knife and pressure cooker pose the most immediate and severe threats if cursed, followed by the mandoline and then the blender.",
+          "latencyMs": 886
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "blender": 15,
+            "chef-knife": 15,
+            "pressure-cooker": 50,
+            "mandoline": 20
+          },
+          "explanation": "A cursed pressure cooker poses the greatest danger due to its potential for catastrophic explosions and unpredictable pressure buildup, while cursed blades and mandolines are limited to cutting hazards and a blender to splashing or jamming.",
+          "latencyMs": 1845
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "blender": 5,
+            "chef-knife": 20,
+            "pressure-cooker": 60,
+            "mandoline": 15
+          },
+          "explanation": "The pressure cooker is most dangerous because a curse could cause it to explode, causing severe burns and shrapnel to multiple people.",
+          "latencyMs": 30845
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "blender": 25,
+            "chef-knife": 30,
+            "pressure-cooker": 25,
+            "mandoline": 20
+          },
+          "explanation": "The chef knife's sharpness and versatility make it the most likely to cause severe harm if cursed.",
+          "latencyMs": 901
+        }
+      ],
+      "generatedAt": "2026-06-25T10:38:03.916Z"
     },
     {
       "id": "moonlight-profession-001",
@@ -4625,28 +5525,78 @@
         {
           "id": "photographer",
           "label": "Photographer",
-          "percentage": 25
+          "percentage": 29
         },
         {
           "id": "gardener",
           "label": "Gardener",
-          "percentage": 25
+          "percentage": 12
         },
         {
           "id": "detective",
           "label": "Detective",
-          "percentage": 25
+          "percentage": 31
         },
         {
           "id": "sailor",
           "label": "Sailor",
-          "percentage": 25
+          "percentage": 28
         }
       ],
-      "status": "pending",
-      "winner": "photographer",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "detective",
+      "explanation": "Detectives benefit most from moonlight due to enhanced visibility for investigations, followed by photographers capturing night scenes.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "photographer": 20,
+            "gardener": 10,
+            "detective": 30,
+            "sailor": 40
+          },
+          "explanation": "Sailors and detectives are favored due to the traditional association of moonlight with navigation and mystery, while photographers and gardeners have some, but less direct, moonlight relevance.",
+          "latencyMs": 932
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "photographer": 5,
+            "gardener": 15,
+            "detective": 45,
+            "sailor": 35
+          },
+          "explanation": "Detectives gain the most investigative advantage under moonlight's cover for surveillance and night work, while sailors benefit from navigation by moonlight, making these two professions most plausibly 'powerful' in this playful scenario.",
+          "latencyMs": 1574
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "photographer": 60,
+            "gardener": 5,
+            "detective": 10,
+            "sailor": 25
+          },
+          "explanation": "Moonlight uniquely empowers photographers with ethereal creative lighting, while sailors historically navigate by it, detectives gain modest noir stealth, and gardeners benefit least.",
+          "latencyMs": 5599
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "photographer": 30,
+            "gardener": 20,
+            "detective": 40,
+            "sailor": 10
+          },
+          "explanation": "Detectives benefit most from moonlight due to enhanced visibility for investigations, followed by photographers capturing night scenes.",
+          "latencyMs": 822
+        }
+      ],
+      "generatedAt": "2026-06-25T10:38:12.857Z"
     },
     {
       "id": "sentient-building-001",
@@ -4656,28 +5606,78 @@
         {
           "id": "opera-house",
           "label": "Opera house",
-          "percentage": 25
+          "percentage": 30
         },
         {
           "id": "skyscraper",
           "label": "Skyscraper",
-          "percentage": 25
+          "percentage": 35
         },
         {
           "id": "hospital",
           "label": "Hospital",
-          "percentage": 25
+          "percentage": 21
         },
         {
           "id": "train-station",
           "label": "Train station",
-          "percentage": 25
+          "percentage": 14
         }
       ],
-      "status": "pending",
-      "winner": "opera-house",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "skyscraper",
+      "explanation": "Opera houses and skyscrapers offer the most visually and emotionally charged settings for sentience, while train stations and hospitals feel more mundane.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "opera-house": 30,
+            "skyscraper": 45,
+            "hospital": 10,
+            "train-station": 15
+          },
+          "explanation": "A skyscraper becoming sentient offers the most dramatic potential due to its imposing size and central role in urban life, followed by the emotional intensity of an opera house.",
+          "latencyMs": 1066
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "opera-house": 35,
+            "skyscraper": 30,
+            "hospital": 20,
+            "train-station": 15
+          },
+          "explanation": "Opera house edges ahead for its inherent theatricality and emotional resonance, with skyscraper close behind for its imposing scale and perspective shift, while hospital and train station offer compelling but less dramatically visceral scenarios.",
+          "latencyMs": 1622
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "opera-house": 15,
+            "skyscraper": 30,
+            "hospital": 45,
+            "train-station": 10
+          },
+          "explanation": "Hospitals would be most dramatic due to life-and-death stakes, followed by skyscrapers for their scale, opera houses for artistic drama, and train stations for travel chaos.",
+          "latencyMs": 9578
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "opera-house": 40,
+            "skyscraper": 35,
+            "hospital": 10,
+            "train-station": 15
+          },
+          "explanation": "Opera houses and skyscrapers offer the most visually and emotionally charged settings for sentience, while train stations and hospitals feel more mundane.",
+          "latencyMs": 989
+        }
+      ],
+      "generatedAt": "2026-06-25T10:38:26.126Z"
     },
     {
       "id": "time-capsule-object-001",
@@ -4687,28 +5687,78 @@
         {
           "id": "airpods-case",
           "label": "AirPods case",
-          "percentage": 25
+          "percentage": 36
         },
         {
           "id": "fidget-spinner",
           "label": "Fidget spinner",
-          "percentage": 25
+          "percentage": 23
         },
         {
           "id": "smart-ring",
           "label": "Smart ring",
-          "percentage": 25
+          "percentage": 26
         },
         {
           "id": "stanley-cup",
           "label": "Stanley cup",
-          "percentage": 25
+          "percentage": 15
         }
       ],
-      "status": "pending",
+      "status": "ready",
       "winner": "airpods-case",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "explanation": "AirPods cases are the most likely to baffle future archaeologists due to their unfamiliar materials, purpose, and lack of clear functional context.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "airpods-case": 35,
+            "fidget-spinner": 25,
+            "smart-ring": 30,
+            "stanley-cup": 10
+          },
+          "explanation": "The AirPods case and smart ring are most likely to confuse future archaeologists due to their small size, lack of obvious function without context, and technological obsolescence.",
+          "latencyMs": 1196
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "airpods-case": 35,
+            "fidget-spinner": 25,
+            "smart-ring": 28,
+            "stanley-cup": 12
+          },
+          "explanation": "AirPods case edges ahead due to its mysterious small size and unclear purpose, though smart rings and fidget spinners are close contenders for their equally cryptic functions.",
+          "latencyMs": 1751
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "airpods-case": 38,
+            "fidget-spinner": 29,
+            "smart-ring": 25,
+            "stanley-cup": 8
+          },
+          "explanation": "AirPods case and fidget spinner are most confusing due to ambiguous purpose and shape, while smart ring is moderately puzzling and Stanley cup is straightforward.",
+          "latencyMs": 13306
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "airpods-case": 35,
+            "fidget-spinner": 15,
+            "smart-ring": 20,
+            "stanley-cup": 30
+          },
+          "explanation": "AirPods cases are the most likely to baffle future archaeologists due to their unfamiliar materials, purpose, and lack of clear functional context.",
+          "latencyMs": 1114
+        }
+      ],
+      "generatedAt": "2026-06-25T10:38:43.507Z"
     },
     {
       "id": "boardroom-mythical-creature-001",
@@ -4718,28 +5768,78 @@
         {
           "id": "dragon",
           "label": "Dragon",
-          "percentage": 25
+          "percentage": 34
         },
         {
           "id": "phoenix",
           "label": "Phoenix",
-          "percentage": 25
+          "percentage": 18
         },
         {
           "id": "sphinx",
           "label": "Sphinx",
-          "percentage": 25
+          "percentage": 26
         },
         {
           "id": "unicorn",
           "label": "Unicorn",
-          "percentage": 25
+          "percentage": 22
         }
       ],
-      "status": "pending",
+      "status": "ready",
       "winner": "dragon",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "explanation": "Unicorns and dragons lead due to perceived charisma and power, while sphinxes and phoenixes trail with niche strengths.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "dragon": 30,
+            "phoenix": 15,
+            "sphinx": 45,
+            "unicorn": 10
+          },
+          "explanation": "The Sphinx's wisdom and problem-solving skills make it the most suitable for leading a major corporation, followed by the Dragon's power, the Phoenix's resilience, and the Unicorn's purity.",
+          "latencyMs": 1228
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "dragon": 35,
+            "phoenix": 20,
+            "sphinx": 30,
+            "unicorn": 15
+          },
+          "explanation": "Dragons edge out for ruthless strategic dominance, while sphinxes' wisdom and phoenixes' resilience are strong contenders, with unicorns trailing due to their whimsical nature.",
+          "latencyMs": 1841
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "dragon": 40,
+            "phoenix": 20,
+            "sphinx": 10,
+            "unicorn": 30
+          },
+          "explanation": "Dragons best embody the power, strategic wealth accumulation, and commanding leadership needed for Fortune 500 success, while unicorns represent modern innovation appeal.",
+          "latencyMs": 6343
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "dragon": 30,
+            "phoenix": 15,
+            "sphinx": 20,
+            "unicorn": 35
+          },
+          "explanation": "Unicorns and dragons lead due to perceived charisma and power, while sphinxes and phoenixes trail with niche strengths.",
+          "latencyMs": 3847
+        }
+      ],
+      "generatedAt": "2026-06-25T10:38:56.780Z"
     },
     {
       "id": "museum-social-app-001",
@@ -4754,7 +5854,7 @@
         {
           "id": "linkedin",
           "label": "LinkedIn",
-          "percentage": 25
+          "percentage": 30
         },
         {
           "id": "reddit",
@@ -4764,13 +5864,63 @@
         {
           "id": "snapchat",
           "label": "Snapchat",
-          "percentage": 25
+          "percentage": 20
         }
       ],
-      "status": "pending",
-      "winner": "tiktok",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "linkedin",
+      "explanation": "Snapchat's ephemeral nature is most antithetical to a museum's purpose, making it the weirdest exhibit.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "tiktok": 10,
+            "linkedin": 55,
+            "reddit": 25,
+            "snapchat": 10
+          },
+          "explanation": "LinkedIn would likely be the weirdest museum exhibit due to its professional, often dry content juxtaposed with the typical expectations of a museum.",
+          "latencyMs": 933
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "tiktok": 15,
+            "linkedin": 45,
+            "reddit": 25,
+            "snapchat": 15
+          },
+          "explanation": "LinkedIn would be the weirdest museum exhibit since a professional networking platform dedicated to career advancement and corporate self-promotion is fundamentally at odds with the contemplative, artistic nature of museums.",
+          "latencyMs": 1457
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "tiktok": 30,
+            "linkedin": 10,
+            "reddit": 20,
+            "snapchat": 40
+          },
+          "explanation": "Snapchat's ephemeral nature is most antithetical to a museum's purpose, making it the weirdest exhibit.",
+          "latencyMs": 7021
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "tiktok": 45,
+            "linkedin": 10,
+            "reddit": 30,
+            "snapchat": 15
+          },
+          "explanation": "TikTok's chaotic, algorithm-driven content makes it the most surreal museum exhibit, followed by Reddit's niche communities, Snapchat's ephemeral nature, and LinkedIn's corporate sterility.",
+          "latencyMs": 914
+        }
+      ],
+      "generatedAt": "2026-06-25T10:39:07.120Z"
     },
     {
       "id": "secret-superpower-city-001",
@@ -4780,28 +5930,78 @@
         {
           "id": "tokyo",
           "label": "Tokyo",
-          "percentage": 25
+          "percentage": 33
         },
         {
           "id": "reykjavik",
           "label": "Reykjavik",
-          "percentage": 25
+          "percentage": 16
         },
         {
           "id": "new-orleans",
           "label": "New Orleans",
-          "percentage": 25
+          "percentage": 35
         },
         {
           "id": "singapore",
           "label": "Singapore",
-          "percentage": 25
+          "percentage": 16
         }
       ],
-      "status": "pending",
-      "winner": "tokyo",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "new-orleans",
+      "explanation": "New Orleans' mystical culture and hidden alleyways make it the most likely to harbor a secret superpower, followed by Tokyo's futuristic mystery.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "tokyo": 30,
+            "reykjavik": 10,
+            "new-orleans": 40,
+            "singapore": 20
+          },
+          "explanation": "New Orleans' mystical atmosphere and unique culture make it feel most likely to hide a secret superpower, followed by Tokyo's futuristic yet traditional blend, Singapore's modern mystery, and Reykjavik's stark natural beauty.",
+          "latencyMs": 1485
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "tokyo": 35,
+            "reykjavik": 30,
+            "new-orleans": 20,
+            "singapore": 15
+          },
+          "explanation": "Tokyo and Reykjavik edge out the others with their blend of cutting-edge innovation/ancient mystique and otherworldly geothermal energy respectively, while New Orleans has supernatural intrigue and Singapore feels too transparently efficient.",
+          "latencyMs": 2045
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "tokyo": 35,
+            "reykjavik": 10,
+            "new-orleans": 40,
+            "singapore": 15
+          },
+          "explanation": "New Orleans' deep supernatural folklore gives it the strongest secret superpower vibe, narrowly ahead of Tokyo's cyberpunk mystique, with Singapore's hidden efficiency and Reykjavik's natural mysticism rounding out the list.",
+          "latencyMs": 6183
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "tokyo": 30,
+            "reykjavik": 15,
+            "new-orleans": 40,
+            "singapore": 15
+          },
+          "explanation": "New Orleans' mystical culture and hidden alleyways make it the most likely to harbor a secret superpower, followed by Tokyo's futuristic mystery.",
+          "latencyMs": 858
+        }
+      ],
+      "generatedAt": "2026-06-25T10:39:17.703Z"
     },
     {
       "id": "startup-founder-fairy-tale-001",
@@ -4811,28 +6011,78 @@
         {
           "id": "rumpelstiltskin",
           "label": "Rumpelstiltskin",
-          "percentage": 25
+          "percentage": 53
         },
         {
           "id": "cinderella",
           "label": "Cinderella",
-          "percentage": 25
+          "percentage": 7
         },
         {
           "id": "puss-in-boots",
           "label": "Puss in Boots",
-          "percentage": 25
+          "percentage": 24
         },
         {
           "id": "jack",
           "label": "Jack",
-          "percentage": 25
+          "percentage": 16
         }
       ],
-      "status": "pending",
+      "status": "ready",
       "winner": "rumpelstiltskin",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "explanation": "Rumpelstiltskin's obsessive deal-making embodies the intense, relentless startup founder mindset.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "rumpelstiltskin": 55,
+            "cinderella": 5,
+            "puss-in-boots": 30,
+            "jack": 10
+          },
+          "explanation": "Rumpelstiltskin's cunning, deal-making, and relentless pursuit of goals make him the most intense startup founder, followed by Puss in Boots's charisma and strategic thinking.",
+          "latencyMs": 11165
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "rumpelstiltskin": 55,
+            "cinderella": 10,
+            "puss-in-boots": 20,
+            "jack": 15
+          },
+          "explanation": "Rumpelstiltskin's obsessive deal-making, relentless negotiation tactics, and willingness to exploit any advantage make him the most intensely driven startup founder archetype.",
+          "latencyMs": 1585
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "rumpelstiltskin": 55,
+            "cinderella": 5,
+            "puss-in-boots": 15,
+            "jack": 25
+          },
+          "explanation": "Rumpelstiltskin's obsessive deal-making embodies the intense, relentless startup founder mindset.",
+          "latencyMs": 12186
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "rumpelstiltskin": 45,
+            "cinderella": 10,
+            "puss-in-boots": 30,
+            "jack": 15
+          },
+          "explanation": "Rumpelstiltskin's cunning and resourcefulness outweigh others' traits for high-stakes startup leadership.",
+          "latencyMs": 1008
+        }
+      ],
+      "generatedAt": "2026-06-25T10:40:04.105Z"
     },
     {
       "id": "haunted-appliance-001",
@@ -4842,28 +6092,78 @@
         {
           "id": "refrigerator",
           "label": "Refrigerator",
-          "percentage": 25
+          "percentage": 17
         },
         {
           "id": "washing-machine",
           "label": "Washing machine",
-          "percentage": 25
+          "percentage": 20
         },
         {
           "id": "smart-speaker",
           "label": "Smart speaker",
-          "percentage": 25
+          "percentage": 29
         },
         {
           "id": "robot-vacuum",
           "label": "Robot vacuum",
-          "percentage": 25
+          "percentage": 34
         }
       ],
-      "status": "pending",
-      "winner": "refrigerator",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "robot-vacuum",
+      "explanation": "A robot vacuum is the most unsettling due to its mobility and potential for unexpected, autonomous interaction.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "refrigerator": 15,
+            "washing-machine": 10,
+            "smart-speaker": 30,
+            "robot-vacuum": 45
+          },
+          "explanation": "A robot vacuum is the most unsettling due to its mobility and potential for unexpected, autonomous interaction.",
+          "latencyMs": 1789
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "refrigerator": 30,
+            "washing-machine": 35,
+            "smart-speaker": 15,
+            "robot-vacuum": 20
+          },
+          "explanation": "The washing machine and refrigerator tie as worst due to their intimate contact with your body and food respectively, while the smart speaker's constant listening and robot vacuum's autonomous movement rank lower in creepiness.",
+          "latencyMs": 1794
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "refrigerator": 10,
+            "washing-machine": 20,
+            "smart-speaker": 40,
+            "robot-vacuum": 30
+          },
+          "explanation": "Smart speaker is worst due to its ability to listen, speak, and connect to the internet, making it a creepy conduit for a ghost.",
+          "latencyMs": 5976
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "refrigerator": 15,
+            "washing-machine": 15,
+            "smart-speaker": 30,
+            "robot-vacuum": 40
+          },
+          "explanation": "Robot vacuums and smart speakers are more likely to feel intrusive due to their constant presence and movement.",
+          "latencyMs": 1149
+        }
+      ],
+      "generatedAt": "2026-06-25T10:40:14.824Z"
     },
     {
       "id": "alien-first-meal-001",
@@ -4873,28 +6173,78 @@
         {
           "id": "pizza",
           "label": "Pizza",
-          "percentage": 25
+          "percentage": 32
         },
         {
           "id": "sushi",
           "label": "Sushi",
-          "percentage": 25
+          "percentage": 21
         },
         {
           "id": "tacos",
           "label": "Tacos",
-          "percentage": 25
+          "percentage": 18
         },
         {
           "id": "ice-cream",
           "label": "Ice cream",
-          "percentage": 25
+          "percentage": 29
         }
       ],
-      "status": "pending",
+      "status": "ready",
       "winner": "pizza",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "explanation": "Pizza and tacos lead due to global familiarity, while ice cream and sushi offer cultural intrigue.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "pizza": 40,
+            "sushi": 20,
+            "tacos": 20,
+            "ice-cream": 20
+          },
+          "explanation": "Pizza is likely the most universally appealing and customizable option to impress alien visitors, with other diverse and popular foods also having a good chance.",
+          "latencyMs": 1149
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "pizza": 32,
+            "sushi": 22,
+            "tacos": 18,
+            "ice-cream": 28
+          },
+          "explanation": "Pizza edges ahead as the most universally appealing and iconic human food, while ice cream follows as a universally beloved dessert, with sushi and tacos trailing as more culturally specific choices.",
+          "latencyMs": 1541
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "pizza": 30,
+            "sushi": 20,
+            "tacos": 10,
+            "ice-cream": 40
+          },
+          "explanation": "Ice cream demonstrates impressive temperature manipulation and universal appeal, making it the safest yet most fascinating choice for first contact.",
+          "latencyMs": 12073
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "pizza": 25,
+            "sushi": 20,
+            "tacos": 25,
+            "ice-cream": 30
+          },
+          "explanation": "Pizza and tacos lead due to global familiarity, while ice cream and sushi offer cultural intrigue.",
+          "latencyMs": 1152
+        }
+      ],
+      "generatedAt": "2026-06-25T10:40:30.752Z"
     },
     {
       "id": "forgotten-olympic-sport-001",
@@ -4904,28 +6254,78 @@
         {
           "id": "parallel-parking",
           "label": "Parallel parking",
-          "percentage": 25
+          "percentage": 29
         },
         {
           "id": "speed-emailing",
           "label": "Speed emailing",
-          "percentage": 25
+          "percentage": 15
         },
         {
           "id": "grocery-bagging",
           "label": "Grocery bagging",
-          "percentage": 25
+          "percentage": 17
         },
         {
           "id": "furniture-assembly",
           "label": "Furniture assembly",
-          "percentage": 25
+          "percentage": 39
         }
       ],
-      "status": "pending",
-      "winner": "parallel-parking",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "furniture-assembly",
+      "explanation": "Furniture assembly's chaotic, unpredictable nature makes it the most visually comedic, while the others have more niche or subtle humor.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "parallel-parking": 35,
+            "speed-emailing": 15,
+            "grocery-bagging": 10,
+            "furniture-assembly": 40
+          },
+          "explanation": "Furniture assembly and parallel parking are seen as the most visually comedic and relatable struggles, making them strong contenders for a funny Olympic sport.",
+          "latencyMs": 1199
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "parallel-parking": 40,
+            "speed-emailing": 15,
+            "grocery-bagging": 10,
+            "furniture-assembly": 35
+          },
+          "explanation": "Parallel parking and furniture assembly rank highest due to their inherent frustration and physical comedy potential, with parallel parking edging ahead for its universal relatability and dramatic failure modes.",
+          "latencyMs": 1630
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "parallel-parking": 20,
+            "speed-emailing": 5,
+            "grocery-bagging": 30,
+            "furniture-assembly": 45
+          },
+          "explanation": "Furniture assembly offers the most slapstick potential, grocery bagging and parallel parking are moderately funny, and speed emailing is least entertaining.",
+          "latencyMs": 8785
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "parallel-parking": 20,
+            "speed-emailing": 25,
+            "grocery-bagging": 20,
+            "furniture-assembly": 35
+          },
+          "explanation": "Furniture assembly's chaotic, unpredictable nature makes it the most visually comedic, while the others have more niche or subtle humor.",
+          "latencyMs": 938
+        }
+      ],
+      "generatedAt": "2026-06-25T10:40:43.320Z"
     },
     {
       "id": "villain-redemption-job-001",
@@ -4935,17 +6335,17 @@
         {
           "id": "city-planner",
           "label": "City planner",
-          "percentage": 25
+          "percentage": 11
         },
         {
           "id": "therapist",
           "label": "Therapist",
-          "percentage": 25
+          "percentage": 18
         },
         {
           "id": "cybersecurity-consultant",
           "label": "Cybersecurity consultant",
-          "percentage": 25
+          "percentage": 46
         },
         {
           "id": "theme-park-designer",
@@ -4953,10 +6353,60 @@
           "percentage": 25
         }
       ],
-      "status": "pending",
-      "winner": "city-planner",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "cybersecurity-consultant",
+      "explanation": "Cybersecurity consultant leverages the villain's hacking skills, while the other options use planning, psychology, and creativity to a lesser extent.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "city-planner": 10,
+            "therapist": 20,
+            "cybersecurity-consultant": 40,
+            "theme-park-designer": 30
+          },
+          "explanation": "Cybersecurity consultant and theme park designer are favored as they leverage a supervillain's strategic thinking and creativity, while therapist offers a path to redemption and city planner is less likely due to past destructive tendencies.",
+          "latencyMs": 1085
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "city-planner": 15,
+            "therapist": 20,
+            "cybersecurity-consultant": 35,
+            "theme-park-designer": 30
+          },
+          "explanation": "A reformed supervillain's expertise in elaborate schemes, security vulnerabilities, and creative problem-solving makes cybersecurity and theme park design most fitting, while their newfound empathy could serve therapy, and city planning least leverages their unique background.",
+          "latencyMs": 1795
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "city-planner": 10,
+            "therapist": 10,
+            "cybersecurity-consultant": 70,
+            "theme-park-designer": 10
+          },
+          "explanation": "Cybersecurity consultant leverages the villain's hacking skills, while the other options use planning, psychology, and creativity to a lesser extent.",
+          "latencyMs": 4908
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "city-planner": 10,
+            "therapist": 20,
+            "cybersecurity-consultant": 40,
+            "theme-park-designer": 30
+          },
+          "explanation": "A reformed supervillain's skills align best with high-stakes, strategic, or creative roles, with cybersecurity and theme park design offering the most direct outlets for their expertise.",
+          "latencyMs": 1005
+        }
+      ],
+      "generatedAt": "2026-06-25T10:40:52.128Z"
     },
     {
       "id": "space-station-brand-001",
@@ -4966,7 +6416,7 @@
         {
           "id": "lego",
           "label": "LEGO",
-          "percentage": 25
+          "percentage": 28
         },
         {
           "id": "red-bull",
@@ -4976,18 +6426,68 @@
         {
           "id": "ikea",
           "label": "IKEA",
-          "percentage": 25
+          "percentage": 17
         },
         {
           "id": "nasa",
           "label": "NASA",
-          "percentage": 25
+          "percentage": 30
         }
       ],
-      "status": "pending",
-      "winner": "lego",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "nasa",
+      "explanation": "LEGO's playful building wins, followed by Red Bull's space marketing, IKEA's self-assembly humor, and NASA's too-literal realism.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "lego": 30,
+            "red-bull": 20,
+            "ikea": 25,
+            "nasa": 25
+          },
+          "explanation": "The probabilities are distributed fairly evenly, with LEGO slightly favored for its creative and universally appealing brand, while Red Bull, IKEA, and NASA also offer unique and plausible sponsorship angles.",
+          "latencyMs": 1327
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "lego": 35,
+            "red-bull": 20,
+            "ikea": 15,
+            "nasa": 30
+          },
+          "explanation": "LEGO edges out NASA due to its playful building ethos, while Red Bull's extreme energy branding and IKEA's assembly-focused model offer humorous alternatives.",
+          "latencyMs": 1332
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "lego": 35,
+            "red-bull": 30,
+            "ikea": 25,
+            "nasa": 10
+          },
+          "explanation": "LEGO's playful building wins, followed by Red Bull's space marketing, IKEA's self-assembly humor, and NASA's too-literal realism.",
+          "latencyMs": 6962
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "lego": 10,
+            "red-bull": 30,
+            "ikea": 5,
+            "nasa": 55
+          },
+          "explanation": "NASA is the most fitting sponsor for a space station, followed by Red Bull for energy, with LEGO and IKEA being less likely due to their terrestrial focus.",
+          "latencyMs": 2952
+        }
+      ],
+      "generatedAt": "2026-06-25T10:41:04.716Z"
     },
     {
       "id": "dream-office-pet-001",
@@ -4997,28 +6497,78 @@
         {
           "id": "golden-retriever",
           "label": "Golden retriever",
-          "percentage": 25
+          "percentage": 48
         },
         {
           "id": "capybara",
           "label": "Capybara",
-          "percentage": 25
+          "percentage": 29
         },
         {
           "id": "penguin",
           "label": "Penguin",
-          "percentage": 25
+          "percentage": 11
         },
         {
           "id": "miniature-horse",
           "label": "Miniature horse",
-          "percentage": 25
+          "percentage": 12
         }
       ],
-      "status": "pending",
+      "status": "ready",
       "winner": "golden-retriever",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "explanation": "Golden retrievers are proven therapy animals, making them the best fit for boosting office morale, while capybaras are calm and friendly, and the other options are less suitable.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "golden-retriever": 50,
+            "capybara": 30,
+            "penguin": 15,
+            "miniature-horse": 5
+          },
+          "explanation": "Golden retrievers are widely recognized for their friendly and comforting nature, making them the most likely to boost office morale significantly, while capybaras offer a unique, calm, and social presence.",
+          "latencyMs": 1279
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "golden-retriever": 45,
+            "capybara": 25,
+            "penguin": 15,
+            "miniature-horse": 15
+          },
+          "explanation": "Golden retrievers win due to their proven friendliness and trainability in office settings, while capybaras' calm sociability and miniature horses' novelty appeal offer secondary charm, with penguins least practical for indoor morale-boosting.",
+          "latencyMs": 2165
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "golden-retriever": 60,
+            "capybara": 25,
+            "penguin": 5,
+            "miniature-horse": 10
+          },
+          "explanation": "Golden retrievers are proven therapy animals, making them the best fit for boosting office morale, while capybaras are calm and friendly, and the other options are less suitable.",
+          "latencyMs": 13139
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "golden-retriever": 35,
+            "capybara": 35,
+            "penguin": 10,
+            "miniature-horse": 20
+          },
+          "explanation": "Golden retrievers and capybaras are universally beloved for their friendly, calming, and social nature, while miniature horses and penguins are less practical or adaptable in office settings.",
+          "latencyMs": 1324
+        }
+      ],
+      "generatedAt": "2026-06-25T10:41:22.639Z"
     },
     {
       "id": "mystery-door-location-001",
@@ -5028,28 +6578,78 @@
         {
           "id": "subway-station",
           "label": "Subway station",
-          "percentage": 25
+          "percentage": 24
         },
         {
           "id": "old-library",
           "label": "Old library",
-          "percentage": 25
+          "percentage": 45
         },
         {
           "id": "desert-diner",
           "label": "Desert diner",
-          "percentage": 25
+          "percentage": 22
         },
         {
           "id": "airport-lounge",
           "label": "Airport lounge",
-          "percentage": 25
+          "percentage": 9
         }
       ],
-      "status": "pending",
-      "winner": "subway-station",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "old-library",
+      "explanation": "Old libraries evoke deep mystery and history, making them the most likely setting for a mysterious glowing door.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "subway-station": 20,
+            "old-library": 60,
+            "desert-diner": 15,
+            "airport-lounge": 5
+          },
+          "explanation": "An old library provides the most atmospheric and thematic fit for a mysterious glowing door, followed by the urban mystery of a subway station.",
+          "latencyMs": 1025
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "subway-station": 20,
+            "old-library": 40,
+            "desert-diner": 25,
+            "airport-lounge": 15
+          },
+          "explanation": "An old library best suits a mysterious glowing door due to its atmospheric darkness, historical intrigue, and natural sense of hidden secrets, while the other locations offer varying degrees of mundanity or isolation.",
+          "latencyMs": 1738
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "subway-station": 25,
+            "old-library": 40,
+            "desert-diner": 30,
+            "airport-lounge": 5
+          },
+          "explanation": "Old libraries naturally evoke mystery and hidden knowledge, making them the most fitting location, while desert diners and subway stations offer strong atmospheric alternatives, and airport lounges are the least evocative.",
+          "latencyMs": 7062
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "subway-station": 30,
+            "old-library": 40,
+            "desert-diner": 20,
+            "airport-lounge": 10
+          },
+          "explanation": "Old libraries evoke deep mystery and history, making them the most likely setting for a mysterious glowing door.",
+          "latencyMs": 1179
+        }
+      ],
+      "generatedAt": "2026-06-25T10:41:33.660Z"
     },
     {
       "id": "future-relic-website-001",
@@ -5059,28 +6659,78 @@
         {
           "id": "wikipedia",
           "label": "Wikipedia",
-          "percentage": 25
+          "percentage": 14
         },
         {
           "id": "craigslist",
           "label": "Craigslist",
-          "percentage": 25
+          "percentage": 45
         },
         {
           "id": "youtube",
           "label": "YouTube",
-          "percentage": 25
+          "percentage": 19
         },
         {
           "id": "x",
           "label": "X",
-          "percentage": 25
+          "percentage": 22
         }
       ],
-      "status": "pending",
-      "winner": "wikipedia",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "craigslist",
+      "explanation": "Craigslist's minimalist, decades‑old design makes it a digital fossil that future historians will find the strangest relic.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "wikipedia": 5,
+            "craigslist": 60,
+            "youtube": 10,
+            "x": 25
+          },
+          "explanation": "Craigslist, with its archaic interface and diverse, often bizarre, listings, is most likely to be seen as the strangest relic by future historians.",
+          "latencyMs": 1063
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "wikipedia": 15,
+            "craigslist": 35,
+            "youtube": 25,
+            "x": 25
+          },
+          "explanation": "Craigslist edges ahead for its bizarre mix of mundane classified ads and chaotic human behavior, though all four capture different strange aspects of early internet culture that future historians would find equally peculiar.",
+          "latencyMs": 1742
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "wikipedia": 10,
+            "craigslist": 50,
+            "youtube": 10,
+            "x": 30
+          },
+          "explanation": "Craigslist's minimalist, decades‑old design makes it a digital fossil that future historians will find the strangest relic.",
+          "latencyMs": 6945
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "wikipedia": 25,
+            "craigslist": 35,
+            "youtube": 30,
+            "x": 10
+          },
+          "explanation": "Craigslist's quirky, unfiltered design and niche role make it the most likely candidate for future historians to find bizarre.",
+          "latencyMs": 920
+        }
+      ],
+      "generatedAt": "2026-06-25T10:41:44.344Z"
     },
     {
       "id": "magic-commute-vehicle-001",
@@ -5090,28 +6740,78 @@
         {
           "id": "flying-carpet",
           "label": "Flying carpet",
-          "percentage": 25
+          "percentage": 21
         },
         {
           "id": "teleportation-booth",
           "label": "Teleportation booth",
-          "percentage": 25
+          "percentage": 38
         },
         {
           "id": "broomstick",
           "label": "Broomstick",
-          "percentage": 25
+          "percentage": 12
         },
         {
           "id": "portal-train",
           "label": "Portal train",
-          "percentage": 25
+          "percentage": 29
         }
       ],
-      "status": "pending",
-      "winner": "flying-carpet",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "teleportation-booth",
+      "explanation": "Teleportation booths offer the most consistent and least disruptive commute, while flying carpets are the least reliable over time.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "flying-carpet": 15,
+            "teleportation-booth": 35,
+            "broomstick": 10,
+            "portal-train": 40
+          },
+          "explanation": "The portal train and teleportation booth offer the most consistent and least physically demanding commutes, making them less annoying over time.",
+          "latencyMs": 1014
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "flying-carpet": 15,
+            "teleportation-booth": 40,
+            "broomstick": 10,
+            "portal-train": 35
+          },
+          "explanation": "Portal-train and teleportation-booth rank highest as they require minimal physical effort and offer predictable, routine commutes that wouldn't become tiresome, while broomstick and flying-carpet would likely cause fatigue and weather-related frustrations over time.",
+          "latencyMs": 2670
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "flying-carpet": 45,
+            "teleportation-booth": 40,
+            "broomstick": 3,
+            "portal-train": 12
+          },
+          "explanation": "Flying carpet offers the best balance of comfort, flexibility, and scenic enjoyment with minimal daily friction, making it least annoying long-term.",
+          "latencyMs": 9292
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "flying-carpet": 10,
+            "teleportation-booth": 35,
+            "broomstick": 25,
+            "portal-train": 30
+          },
+          "explanation": "Teleportation booths offer the most consistent and least disruptive commute, while flying carpets are the least reliable over time.",
+          "latencyMs": 871
+        }
+      ],
+      "generatedAt": "2026-06-25T10:41:58.206Z"
     },
     {
       "id": "movie-prop-president-001",
@@ -5121,28 +6821,78 @@
         {
           "id": "lightsaber",
           "label": "Lightsaber",
-          "percentage": 25
+          "percentage": 33
         },
         {
           "id": "one-ring",
           "label": "The One Ring",
-          "percentage": 25
+          "percentage": 10
         },
         {
           "id": "delorean",
           "label": "DeLorean",
-          "percentage": 25
+          "percentage": 47
         },
         {
           "id": "ruby-slippers",
           "label": "Ruby slippers",
-          "percentage": 25
+          "percentage": 10
         }
       ],
-      "status": "pending",
-      "winner": "lightsaber",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "delorean",
+      "explanation": "The DeLorean's pop-culture appeal and time-travel mystique make it the most electable prop, followed by the lightsaber's heroic symbolism.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "lightsaber": 30,
+            "one-ring": 15,
+            "delorean": 50,
+            "ruby-slippers": 5
+          },
+          "explanation": "The DeLorean offers the most practical and appealing political advantages, while the Lightsaber provides strong, albeit less universally appealing, power.",
+          "latencyMs": 1055
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "lightsaber": 20,
+            "one-ring": 10,
+            "delorean": 55,
+            "ruby-slippers": 15
+          },
+          "explanation": "The DeLorean wins decisively because promising to fix the past and deliver the future is the ultimate political platform, while lightsabers appeal to decisive leadership fantasies, ruby slippers offer escapism, and the One Ring is too obviously corrupting.",
+          "latencyMs": 1872
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "lightsaber": 50,
+            "one-ring": 5,
+            "delorean": 30,
+            "ruby-slippers": 15
+          },
+          "explanation": "Lightsaber leads as a symbol of heroic justice, followed by DeLorean's innovation, while Ruby Slippers lack authority and the One Ring is too evil.",
+          "latencyMs": 6272
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "lightsaber": 30,
+            "one-ring": 10,
+            "delorean": 55,
+            "ruby-slippers": 5
+          },
+          "explanation": "The DeLorean's pop-culture appeal and time-travel mystique make it the most electable prop, followed by the lightsaber's heroic symbolism.",
+          "latencyMs": 857
+        }
+      ],
+      "generatedAt": "2026-06-25T10:42:08.278Z"
     },
     {
       "id": "robot-hobby-001",
@@ -5152,28 +6902,78 @@
         {
           "id": "chess",
           "label": "Chess",
-          "percentage": 25
+          "percentage": 24
         },
         {
           "id": "gardening",
           "label": "Gardening",
-          "percentage": 25
+          "percentage": 19
         },
         {
           "id": "stand-up-comedy",
           "label": "Stand-up comedy",
-          "percentage": 25
+          "percentage": 31
         },
         {
           "id": "pottery",
           "label": "Pottery",
-          "percentage": 25
+          "percentage": 26
         }
       ],
-      "status": "pending",
-      "winner": "chess",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "stand-up-comedy",
+      "explanation": "Robots would likely prioritize activities blending structured logic with social nuance, making comedy and chess more competitive than niche crafts.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "chess": 20,
+            "gardening": 30,
+            "stand-up-comedy": 40,
+            "pottery": 10
+          },
+          "explanation": "Robots would likely find stand-up comedy and gardening surprisingly competitive, with chess being a classic but less 'weird' option, and pottery being less likely to spark intense rivalry.",
+          "latencyMs": 1057
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "chess": 40,
+            "gardening": 10,
+            "stand-up-comedy": 35,
+            "pottery": 15
+          },
+          "explanation": "Chess and stand-up comedy best fit the 'weirdly competitive' angle since robots would obsess over optimization and pattern-perfection in abstract domains, while pottery and gardening lack the inherent competitive structure.",
+          "latencyMs": 1869
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "chess": 5,
+            "gardening": 25,
+            "stand-up-comedy": 10,
+            "pottery": 60
+          },
+          "explanation": "Robots would become weirdly competitive about pottery because it's a meditative craft that robots could turn into a precision contest, making it oddly competitive.",
+          "latencyMs": 7797
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "chess": 30,
+            "gardening": 10,
+            "stand-up-comedy": 40,
+            "pottery": 20
+          },
+          "explanation": "Robots would likely prioritize activities blending structured logic with social nuance, making comedy and chess more competitive than niche crafts.",
+          "latencyMs": 1108
+        }
+      ],
+      "generatedAt": "2026-06-25T10:42:20.124Z"
     },
     {
       "id": "kingdom-app-001",
@@ -5183,28 +6983,78 @@
         {
           "id": "google-maps",
           "label": "Google Maps",
-          "percentage": 25
+          "percentage": 36
         },
         {
           "id": "uber",
           "label": "Uber",
-          "percentage": 25
+          "percentage": 23
         },
         {
           "id": "tinder",
           "label": "Tinder",
-          "percentage": 25
+          "percentage": 34
         },
         {
           "id": "duolingo",
           "label": "Duolingo",
-          "percentage": 25
+          "percentage": 7
         }
       ],
-      "status": "pending",
+      "status": "ready",
       "winner": "google-maps",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "explanation": "Tinder's immediate social disruption potential outweighs others due to rapid, unregulated matchmaking in a rigid feudal structure.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "google-maps": 40,
+            "uber": 15,
+            "tinder": 40,
+            "duolingo": 5
+          },
+          "explanation": "Tinder and Google Maps would both introduce significant societal and logistical disruption, while Uber would be less impactful and Duolingo almost benign.",
+          "latencyMs": 1796
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "google-maps": 70,
+            "uber": 15,
+            "tinder": 10,
+            "duolingo": 5
+          },
+          "explanation": "Google Maps would cause the most chaos by making medieval power structures obsolete through instant navigation, while Uber would disrupt feudal labor systems, Tinder would challenge arranged marriages, and Duolingo would be merely educational.",
+          "latencyMs": 1845
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "google-maps": 20,
+            "uber": 30,
+            "tinder": 45,
+            "duolingo": 5
+          },
+          "explanation": "Tinder undermines medieval marriage and class systems, creating more widespread chaos than Uber's witchcraft, Google Maps' warfare advantage, or Duolingo's scholarly disruption.",
+          "latencyMs": 7715
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "google-maps": 15,
+            "uber": 30,
+            "tinder": 40,
+            "duolingo": 15
+          },
+          "explanation": "Tinder's immediate social disruption potential outweighs others due to rapid, unregulated matchmaking in a rigid feudal structure.",
+          "latencyMs": 818
+        }
+      ],
+      "generatedAt": "2026-06-25T10:42:32.311Z"
     },
     {
       "id": "secret-agent-dessert-001",
@@ -5214,28 +7064,78 @@
         {
           "id": "tiramisu",
           "label": "Tiramisu",
-          "percentage": 25
+          "percentage": 31
         },
         {
           "id": "macaron",
           "label": "Macaron",
-          "percentage": 25
+          "percentage": 21
         },
         {
           "id": "brownie",
           "label": "Brownie",
-          "percentage": 25
+          "percentage": 30
         },
         {
           "id": "cheesecake",
           "label": "Cheesecake",
-          "percentage": 25
+          "percentage": 18
         }
       ],
-      "status": "pending",
+      "status": "ready",
       "winner": "tiramisu",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "explanation": "Desserts with rich, versatile flavors and a balance of sweetness and texture were rated higher for undercover missions.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "tiramisu": 30,
+            "macaron": 45,
+            "brownie": 10,
+            "cheesecake": 15
+          },
+          "explanation": "Macaron is the best secret agent due to its small size and ability to blend in, followed by tiramisu for its layers and potential for disguise.",
+          "latencyMs": 1337
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "tiramisu": 40,
+            "macaron": 10,
+            "brownie": 35,
+            "cheesecake": 15
+          },
+          "explanation": "Tiramisu edges out brownie due to its layered complexity and Italian sophistication suggesting espionage tradecraft, while cheesecake and macaron lack the necessary intrigue and subtlety.",
+          "latencyMs": 1997
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "tiramisu": 30,
+            "macaron": 10,
+            "brownie": 45,
+            "cheesecake": 15
+          },
+          "explanation": "Brownie is the most stealthy and portable dessert, making it the best secret agent, while tiramisu offers layered disguise, cheesecake is too conspicuous, and macaron is too delicate.",
+          "latencyMs": 12499
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "tiramisu": 25,
+            "macaron": 20,
+            "brownie": 30,
+            "cheesecake": 25
+          },
+          "explanation": "Desserts with rich, versatile flavors and a balance of sweetness and texture were rated higher for undercover missions.",
+          "latencyMs": 911
+        }
+      ],
+      "generatedAt": "2026-06-25T10:42:49.067Z"
     },
     {
       "id": "weather-superpower-001",
@@ -5245,28 +7145,78 @@
         {
           "id": "fog",
           "label": "Fog",
-          "percentage": 25
+          "percentage": 20
         },
         {
           "id": "lightning",
           "label": "Lightning",
-          "percentage": 25
+          "percentage": 45
         },
         {
           "id": "rainbow",
           "label": "Rainbow",
-          "percentage": 25
+          "percentage": 20
         },
         {
           "id": "snowstorm",
           "label": "Snowstorm",
-          "percentage": 25
+          "percentage": 15
         }
       ],
-      "status": "pending",
-      "winner": "fog",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "lightning",
+      "explanation": "Lightning offers the most practical utility, snowstorm and fog have limited situational value, and rainbow is primarily aesthetic.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "fog": 15,
+            "lightning": 60,
+            "rainbow": 15,
+            "snowstorm": 10
+          },
+          "explanation": "Lightning is chosen as the most useful superpower due to its destructive and versatile potential, while the other options offer more limited or situational benefits.",
+          "latencyMs": 1214
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "fog": 30,
+            "lightning": 35,
+            "rainbow": 20,
+            "snowstorm": 15
+          },
+          "explanation": "Lightning offers the most practical offensive/defensive power, while fog provides excellent stealth utility, making both more superpower-useful than snowstorm or rainbow.",
+          "latencyMs": 1642
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "fog": 15,
+            "lightning": 55,
+            "rainbow": 5,
+            "snowstorm": 25
+          },
+          "explanation": "Lightning offers the most practical utility, snowstorm and fog have limited situational value, and rainbow is primarily aesthetic.",
+          "latencyMs": 7677
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "fog": 20,
+            "lightning": 30,
+            "rainbow": 40,
+            "snowstorm": 10
+          },
+          "explanation": "Rainbow is most versatile for utility, lightning offers high impact, fog provides stealth, and snowstorm has niche practical uses.",
+          "latencyMs": 1018
+        }
+      ],
+      "generatedAt": "2026-06-25T10:43:00.633Z"
     },
     {
       "id": "luxury-camping-item-001",
@@ -5276,28 +7226,78 @@
         {
           "id": "espresso-machine",
           "label": "Espresso machine",
-          "percentage": 25
+          "percentage": 6
         },
         {
           "id": "silk-pillow",
           "label": "Silk pillow",
-          "percentage": 25
+          "percentage": 8
         },
         {
           "id": "designer-sunglasses",
           "label": "Designer sunglasses",
-          "percentage": 25
+          "percentage": 35
         },
         {
           "id": "smartwatch",
           "label": "Smartwatch",
-          "percentage": 25
+          "percentage": 51
         }
       ],
-      "status": "pending",
-      "winner": "espresso-machine",
-      "explanation": "Pending consensus generation.",
-      "modelResults": []
+      "status": "ready",
+      "winner": "smartwatch",
+      "explanation": "A smartwatch offers multifunctionality (communication, navigation, power source) making it the most valuable luxury item on a deserted island.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "espresso-machine": 5,
+            "silk-pillow": 5,
+            "designer-sunglasses": 30,
+            "smartwatch": 60
+          },
+          "explanation": "A smartwatch would be most valuable for its potential communication and utility, while sunglasses offer practical protection, and the other items have limited use on a deserted island.",
+          "latencyMs": 970
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "espresso-machine": 10,
+            "silk-pillow": 5,
+            "designer-sunglasses": 45,
+            "smartwatch": 40
+          },
+          "explanation": "Designer sunglasses and smartwatch offer practical survival value (UV protection and timekeeping/navigation), while espresso machine and silk pillow provide minimal utility on a deserted island.",
+          "latencyMs": 1599
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "espresso-machine": 5,
+            "silk-pillow": 10,
+            "designer-sunglasses": 60,
+            "smartwatch": 25
+          },
+          "explanation": "Sunglasses provide essential eye protection, the smartwatch offers limited utility, and the pillow and espresso machine are largely impractical on a deserted island.",
+          "latencyMs": 8711
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "espresso-machine": 5,
+            "silk-pillow": 10,
+            "designer-sunglasses": 5,
+            "smartwatch": 80
+          },
+          "explanation": "A smartwatch offers multifunctionality (communication, navigation, power source) making it the most valuable luxury item on a deserted island.",
+          "latencyMs": 744
+        }
+      ],
+      "generatedAt": "2026-06-25T10:43:12.673Z"
     }
   ]
 }
