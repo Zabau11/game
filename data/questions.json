@@ -4678,6 +4678,626 @@
       "winner": "opera-house",
       "explanation": "Pending consensus generation.",
       "modelResults": []
+    },
+    {
+      "id": "time-capsule-object-001",
+      "category": "objects",
+      "question": "Which everyday object would confuse archaeologists the most in 500 years?",
+      "options": [
+        {
+          "id": "airpods-case",
+          "label": "AirPods case",
+          "percentage": 25
+        },
+        {
+          "id": "fidget-spinner",
+          "label": "Fidget spinner",
+          "percentage": 25
+        },
+        {
+          "id": "smart-ring",
+          "label": "Smart ring",
+          "percentage": 25
+        },
+        {
+          "id": "stanley-cup",
+          "label": "Stanley cup",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "airpods-case",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "boardroom-mythical-creature-001",
+      "category": "fantasy",
+      "question": "Which mythical creature would be best at running a Fortune 500 company?",
+      "options": [
+        {
+          "id": "dragon",
+          "label": "Dragon",
+          "percentage": 25
+        },
+        {
+          "id": "phoenix",
+          "label": "Phoenix",
+          "percentage": 25
+        },
+        {
+          "id": "sphinx",
+          "label": "Sphinx",
+          "percentage": 25
+        },
+        {
+          "id": "unicorn",
+          "label": "Unicorn",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "dragon",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "museum-social-app-001",
+      "category": "technology",
+      "question": "Which social app would make the weirdest museum exhibit?",
+      "options": [
+        {
+          "id": "tiktok",
+          "label": "TikTok",
+          "percentage": 25
+        },
+        {
+          "id": "linkedin",
+          "label": "LinkedIn",
+          "percentage": 25
+        },
+        {
+          "id": "reddit",
+          "label": "Reddit",
+          "percentage": 25
+        },
+        {
+          "id": "snapchat",
+          "label": "Snapchat",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "tiktok",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "secret-superpower-city-001",
+      "category": "places",
+      "question": "Which city feels most like it is hiding a secret superpower?",
+      "options": [
+        {
+          "id": "tokyo",
+          "label": "Tokyo",
+          "percentage": 25
+        },
+        {
+          "id": "reykjavik",
+          "label": "Reykjavik",
+          "percentage": 25
+        },
+        {
+          "id": "new-orleans",
+          "label": "New Orleans",
+          "percentage": 25
+        },
+        {
+          "id": "singapore",
+          "label": "Singapore",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "tokyo",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "startup-founder-fairy-tale-001",
+      "category": "characters",
+      "question": "Which fairy-tale character would make the most intense startup founder?",
+      "options": [
+        {
+          "id": "rumpelstiltskin",
+          "label": "Rumpelstiltskin",
+          "percentage": 25
+        },
+        {
+          "id": "cinderella",
+          "label": "Cinderella",
+          "percentage": 25
+        },
+        {
+          "id": "puss-in-boots",
+          "label": "Puss in Boots",
+          "percentage": 25
+        },
+        {
+          "id": "jack",
+          "label": "Jack",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "rumpelstiltskin",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "haunted-appliance-001",
+      "category": "home",
+      "question": "Which household appliance would be the worst to discover is haunted?",
+      "options": [
+        {
+          "id": "refrigerator",
+          "label": "Refrigerator",
+          "percentage": 25
+        },
+        {
+          "id": "washing-machine",
+          "label": "Washing machine",
+          "percentage": 25
+        },
+        {
+          "id": "smart-speaker",
+          "label": "Smart speaker",
+          "percentage": 25
+        },
+        {
+          "id": "robot-vacuum",
+          "label": "Robot vacuum",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "refrigerator",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "alien-first-meal-001",
+      "category": "food",
+      "question": "Which food should humanity serve first to impress aliens?",
+      "options": [
+        {
+          "id": "pizza",
+          "label": "Pizza",
+          "percentage": 25
+        },
+        {
+          "id": "sushi",
+          "label": "Sushi",
+          "percentage": 25
+        },
+        {
+          "id": "tacos",
+          "label": "Tacos",
+          "percentage": 25
+        },
+        {
+          "id": "ice-cream",
+          "label": "Ice cream",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "pizza",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "forgotten-olympic-sport-001",
+      "category": "sports",
+      "question": "Which ordinary activity would become the funniest Olympic sport?",
+      "options": [
+        {
+          "id": "parallel-parking",
+          "label": "Parallel parking",
+          "percentage": 25
+        },
+        {
+          "id": "speed-emailing",
+          "label": "Speed emailing",
+          "percentage": 25
+        },
+        {
+          "id": "grocery-bagging",
+          "label": "Grocery bagging",
+          "percentage": 25
+        },
+        {
+          "id": "furniture-assembly",
+          "label": "Furniture assembly",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "parallel-parking",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "villain-redemption-job-001",
+      "category": "characters",
+      "question": "Which job would be best for a reformed supervillain?",
+      "options": [
+        {
+          "id": "city-planner",
+          "label": "City planner",
+          "percentage": 25
+        },
+        {
+          "id": "therapist",
+          "label": "Therapist",
+          "percentage": 25
+        },
+        {
+          "id": "cybersecurity-consultant",
+          "label": "Cybersecurity consultant",
+          "percentage": 25
+        },
+        {
+          "id": "theme-park-designer",
+          "label": "Theme park designer",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "city-planner",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "space-station-brand-001",
+      "category": "brands",
+      "question": "Which brand would make the best space station sponsor?",
+      "options": [
+        {
+          "id": "lego",
+          "label": "LEGO",
+          "percentage": 25
+        },
+        {
+          "id": "red-bull",
+          "label": "Red Bull",
+          "percentage": 25
+        },
+        {
+          "id": "ikea",
+          "label": "IKEA",
+          "percentage": 25
+        },
+        {
+          "id": "nasa",
+          "label": "NASA",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "lego",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "dream-office-pet-001",
+      "category": "work",
+      "question": "Which animal would improve office morale the most if it worked there full time?",
+      "options": [
+        {
+          "id": "golden-retriever",
+          "label": "Golden retriever",
+          "percentage": 25
+        },
+        {
+          "id": "capybara",
+          "label": "Capybara",
+          "percentage": 25
+        },
+        {
+          "id": "penguin",
+          "label": "Penguin",
+          "percentage": 25
+        },
+        {
+          "id": "miniature-horse",
+          "label": "Miniature horse",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "golden-retriever",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "mystery-door-location-001",
+      "category": "places",
+      "question": "Which place would make the best location for a mysterious glowing door?",
+      "options": [
+        {
+          "id": "subway-station",
+          "label": "Subway station",
+          "percentage": 25
+        },
+        {
+          "id": "old-library",
+          "label": "Old library",
+          "percentage": 25
+        },
+        {
+          "id": "desert-diner",
+          "label": "Desert diner",
+          "percentage": 25
+        },
+        {
+          "id": "airport-lounge",
+          "label": "Airport lounge",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "subway-station",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "future-relic-website-001",
+      "category": "internet",
+      "question": "Which website would future historians treat as the strangest relic of our era?",
+      "options": [
+        {
+          "id": "wikipedia",
+          "label": "Wikipedia",
+          "percentage": 25
+        },
+        {
+          "id": "craigslist",
+          "label": "Craigslist",
+          "percentage": 25
+        },
+        {
+          "id": "youtube",
+          "label": "YouTube",
+          "percentage": 25
+        },
+        {
+          "id": "x",
+          "label": "X",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "wikipedia",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "magic-commute-vehicle-001",
+      "category": "transport",
+      "question": "Which magical commuting method would be least annoying after one year?",
+      "options": [
+        {
+          "id": "flying-carpet",
+          "label": "Flying carpet",
+          "percentage": 25
+        },
+        {
+          "id": "teleportation-booth",
+          "label": "Teleportation booth",
+          "percentage": 25
+        },
+        {
+          "id": "broomstick",
+          "label": "Broomstick",
+          "percentage": 25
+        },
+        {
+          "id": "portal-train",
+          "label": "Portal train",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "flying-carpet",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "movie-prop-president-001",
+      "category": "movies",
+      "question": "Which movie prop would be most likely to win a presidential election?",
+      "options": [
+        {
+          "id": "lightsaber",
+          "label": "Lightsaber",
+          "percentage": 25
+        },
+        {
+          "id": "one-ring",
+          "label": "The One Ring",
+          "percentage": 25
+        },
+        {
+          "id": "delorean",
+          "label": "DeLorean",
+          "percentage": 25
+        },
+        {
+          "id": "ruby-slippers",
+          "label": "Ruby slippers",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "lightsaber",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "robot-hobby-001",
+      "category": "technology",
+      "question": "Which hobby would robots become weirdly competitive about?",
+      "options": [
+        {
+          "id": "chess",
+          "label": "Chess",
+          "percentage": 25
+        },
+        {
+          "id": "gardening",
+          "label": "Gardening",
+          "percentage": 25
+        },
+        {
+          "id": "stand-up-comedy",
+          "label": "Stand-up comedy",
+          "percentage": 25
+        },
+        {
+          "id": "pottery",
+          "label": "Pottery",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "chess",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "kingdom-app-001",
+      "category": "technology",
+      "question": "Which modern app would cause the most chaos in a medieval kingdom?",
+      "options": [
+        {
+          "id": "google-maps",
+          "label": "Google Maps",
+          "percentage": 25
+        },
+        {
+          "id": "uber",
+          "label": "Uber",
+          "percentage": 25
+        },
+        {
+          "id": "tinder",
+          "label": "Tinder",
+          "percentage": 25
+        },
+        {
+          "id": "duolingo",
+          "label": "Duolingo",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "google-maps",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "secret-agent-dessert-001",
+      "category": "food",
+      "question": "Which dessert would make the best secret agent?",
+      "options": [
+        {
+          "id": "tiramisu",
+          "label": "Tiramisu",
+          "percentage": 25
+        },
+        {
+          "id": "macaron",
+          "label": "Macaron",
+          "percentage": 25
+        },
+        {
+          "id": "brownie",
+          "label": "Brownie",
+          "percentage": 25
+        },
+        {
+          "id": "cheesecake",
+          "label": "Cheesecake",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "tiramisu",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "weather-superpower-001",
+      "category": "nature",
+      "question": "Which weather event would be most useful as a personal superpower?",
+      "options": [
+        {
+          "id": "fog",
+          "label": "Fog",
+          "percentage": 25
+        },
+        {
+          "id": "lightning",
+          "label": "Lightning",
+          "percentage": 25
+        },
+        {
+          "id": "rainbow",
+          "label": "Rainbow",
+          "percentage": 25
+        },
+        {
+          "id": "snowstorm",
+          "label": "Snowstorm",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "fog",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
+    },
+    {
+      "id": "luxury-camping-item-001",
+      "category": "objects",
+      "question": "Which luxury item would become most valuable on a deserted island?",
+      "options": [
+        {
+          "id": "espresso-machine",
+          "label": "Espresso machine",
+          "percentage": 25
+        },
+        {
+          "id": "silk-pillow",
+          "label": "Silk pillow",
+          "percentage": 25
+        },
+        {
+          "id": "designer-sunglasses",
+          "label": "Designer sunglasses",
+          "percentage": 25
+        },
+        {
+          "id": "smartwatch",
+          "label": "Smartwatch",
+          "percentage": 25
+        }
+      ],
+      "status": "pending",
+      "winner": "espresso-machine",
+      "explanation": "Pending consensus generation.",
+      "modelResults": []
     }
   ]
 }
