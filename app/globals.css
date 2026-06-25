@@ -806,10 +806,46 @@ button { font: inherit; cursor: pointer; }
   font-weight: 450;
   color: #1d1d1f;
   transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease,
-              background .25s ease, opacity .25s ease;
+              background .25s ease, opacity .25s ease,
+              min-height .28s cubic-bezier(.22,1,.36,1), padding .28s cubic-bezier(.22,1,.36,1);
   box-shadow: 0 1px 2px rgba(0,0,0,0.03);
   letter-spacing: -0.01em;
+  position: relative;
+  overflow: hidden;
 }
+.mc-choice--compact {
+  min-height: 68px;
+  padding: 16px 20px;
+}
+.mc-choice-fill {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  background: rgba(0,0,0,0.05);
+  border-radius: inherit;
+  pointer-events: none;
+}
+.mc-choice--winner .mc-choice-fill { background: rgba(48,164,90,0.18); }
+.mc-choice--wrong  .mc-choice-fill { background: rgba(214,69,58,0.10); }
+.mc-choice-name {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+.mc-choice-pct-label {
+  position: relative;
+  z-index: 1;
+  margin-left: auto;
+  padding-left: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  color: #86868b;
+  flex-shrink: 0;
+  animation: pk-fadeIn 0.25s ease both;
+}
+.mc-choice--winner .mc-choice-pct-label { color: #1f7a44; }
+.mc-choice--wrong  .mc-choice-pct-label { color: #b23a30; }
 .mc-choice:hover:not(:disabled):not(.mc-choice--locked) {
   transform: translateY(-2px);
   border-color: #c7c7cc;
@@ -1368,9 +1404,6 @@ button { font: inherit; cursor: pointer; }
     font-size: 15.5px;
   }
 
-  .mc-reveal-bars {
-    margin-top: 24px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

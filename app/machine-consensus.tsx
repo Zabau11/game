@@ -599,7 +599,7 @@ export function MachineConsensus({
       if (i === win) cls.push("mc-choice--winner");
       else if (i === picked) cls.push("mc-choice--wrong");
       else cls.push("mc-choice--faded");
-      cls.push("mc-choice--locked");
+      cls.push("mc-choice--locked", "mc-choice--compact");
     } else if (phase === "locked") {
       if (i === picked) cls.push("mc-choice--selected");
       else cls.push("mc-choice--faded");
@@ -785,50 +785,36 @@ export function MachineConsensus({
                     onClick={() => choose(i)}
                     disabled={phase !== "predict"}
                   >
-                    {opt.name}
+                    {inReveal && (
+                      <span
+                        className="mc-choice-fill"
+                        style={{ width: `${((q.pct[i] / maxPct) * eased * 100).toFixed(1)}%` }}
+                      />
+                    )}
+                    <span className="mc-choice-name">{opt.name}</span>
+                    {inReveal && (
+                      <span className="mc-choice-pct-label">
+                        {Math.round(q.pct[i] * eased)}%
+                      </span>
+                    )}
                   </button>
                 ))}
               </div>
 
-              {inReveal && (
-                <>
-                  <div className="mc-reveal-bars">
-                    {q.options.map((opt, i) => (
-                      <div key={i} className="mc-bar-item">
-                        <div className="mc-bar-header">
-                          <span className={`mc-bar-name${i === win ? " mc-bar-name--winner" : ""}`}>
-                            {opt.name}
-                          </span>
-                          <span className={`mc-bar-pct${i === win ? " mc-bar-pct--winner" : ""}`}>
-                            {Math.round(q.pct[i] * eased)}%
-                          </span>
-                        </div>
-                        <div className="mc-bar-track">
-                          <div
-                            className={`mc-bar-fill${i === win ? " mc-bar-fill--winner" : ""}`}
-                            style={{ width: `${((q.pct[i] / maxPct) * eased * 100).toFixed(2)}%` }}
-                          />
-                        </div>
-                      </div>
-                    ))}
+              {inReveal && revealDone && (
+                <div className="mc-explain">
+                  <div className={`mc-result-line${pickedCorrect ? " mc-result-line--correct" : " mc-result-line--wrong"}`}>
+                    {pickedCorrect ? "✓ You read the machine" : "✗ The machine disagreed"}
                   </div>
-
-                  {revealDone && (
-                    <div className="mc-explain">
-                      <div className={`mc-result-line${pickedCorrect ? " mc-result-line--correct" : " mc-result-line--wrong"}`}>
-                        {pickedCorrect ? "✓ You read the machine" : "✗ The machine disagreed"}
-                      </div>
-                      <p className="mc-explain-text">{q.explanation}</p>
-                      <div className="mc-dissent-row">
-                        <span className="mc-dissent-tag">Dissent</span>
-                        <p className="mc-dissent-text">{q.disagreement}</p>
-                      </div>
-                      <button className="mc-btn-next" onClick={next}>
-                        {runOver ? "See verdict" : "Next question"} →
-                      </button>
-                    </div>
-                  )}
-                </>
+                  <p className="mc-explain-text">{q.explanation}</p>
+                  <div className="mc-dissent-row">
+                    <span className="mc-dissent-tag">Dissent</span>
+                    <p className="mc-dissent-text">{q.disagreement}</p>
+                  </div>
+                  <button className="mc-btn-next" onClick={next}>
+                    {runOver ? "See verdict" : "Next question"} →
+                  </button>
+                </div>
               )}
             </div>
           </section>
