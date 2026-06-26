@@ -7298,6 +7298,816 @@
         }
       ],
       "generatedAt": "2026-06-25T10:43:12.673Z"
+    },
+    {
+      "id": "time-travel-souvenir-001",
+      "category": "objects",
+      "question": "Which souvenir would be most convincing proof of time travel?",
+      "options": [
+        {
+          "id": "future-newspaper",
+          "label": "Future newspaper",
+          "percentage": 47
+        },
+        {
+          "id": "ancient-smartphone",
+          "label": "Ancient smartphone",
+          "percentage": 26
+        },
+        {
+          "id": "dinosaur-selfie",
+          "label": "Dinosaur selfie",
+          "percentage": 18
+        },
+        {
+          "id": "roman-coin",
+          "label": "Roman coin",
+          "percentage": 9
+        }
+      ],
+      "status": "ready",
+      "winner": "future-newspaper",
+      "explanation": "A future newspaper feels like the clearest proof because it contains dated, verifiable information, while the other souvenirs are easier to fake or explain away.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "future-newspaper": 50,
+            "ancient-smartphone": 25,
+            "dinosaur-selfie": 20,
+            "roman-coin": 5
+          },
+          "explanation": "The future newspaper gives concrete future data, while an ancient phone or dinosaur image would still face authenticity questions.",
+          "latencyMs": 2190
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "future-newspaper": 45,
+            "ancient-smartphone": 30,
+            "dinosaur-selfie": 15,
+            "roman-coin": 10
+          },
+          "explanation": "A future newspaper is persuasive because predictions can be checked, though an ancient smartphone would be a striking anomaly.",
+          "latencyMs": 1510
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "future-newspaper": 55,
+            "ancient-smartphone": 20,
+            "dinosaur-selfie": 15,
+            "roman-coin": 10
+          },
+          "explanation": "Dated future information has the strongest evidentiary value compared with objects that could be staged or misidentified.",
+          "latencyMs": 6420
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "future-newspaper": 40,
+            "ancient-smartphone": 30,
+            "dinosaur-selfie": 20,
+            "roman-coin": 10
+          },
+          "explanation": "The newspaper wins by being specific and falsifiable, while the rest are vivid but less conclusive.",
+          "latencyMs": 890
+        }
+      ],
+      "generatedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "moon-base-room-001",
+      "category": "space",
+      "question": "Which room would become the social heart of a Moon base?",
+      "options": [
+        {
+          "id": "greenhouse",
+          "label": "Greenhouse",
+          "percentage": 46
+        },
+        {
+          "id": "kitchen",
+          "label": "Kitchen",
+          "percentage": 29
+        },
+        {
+          "id": "observation-deck",
+          "label": "Observation deck",
+          "percentage": 19
+        },
+        {
+          "id": "gym",
+          "label": "Gym",
+          "percentage": 6
+        }
+      ],
+      "status": "ready",
+      "winner": "greenhouse",
+      "explanation": "The greenhouse leads because it offers living color, food, oxygen, and psychological relief in a harsh environment.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "greenhouse": 50,
+            "kitchen": 25,
+            "observation-deck": 20,
+            "gym": 5
+          },
+          "explanation": "A greenhouse would be both practical and emotionally restorative, making it a natural gathering place.",
+          "latencyMs": 2310
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "greenhouse": 45,
+            "kitchen": 35,
+            "observation-deck": 15,
+            "gym": 5
+          },
+          "explanation": "Food and plants drive community, with the greenhouse narrowly ahead because it represents life itself.",
+          "latencyMs": 1390
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "greenhouse": 55,
+            "kitchen": 20,
+            "observation-deck": 20,
+            "gym": 5
+          },
+          "explanation": "The greenhouse combines utility and morale in a way the other rooms cannot match.",
+          "latencyMs": 5520
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "greenhouse": 35,
+            "kitchen": 35,
+            "observation-deck": 20,
+            "gym": 10
+          },
+          "explanation": "The kitchen is highly social, but the greenhouse adds novelty and comfort on the Moon.",
+          "latencyMs": 770
+        }
+      ],
+      "generatedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "ai-band-instrument-001",
+      "category": "music",
+      "question": "Which instrument would an AI band choose as its lead singer?",
+      "options": [
+        {
+          "id": "synthesizer",
+          "label": "Synthesizer",
+          "percentage": 55
+        },
+        {
+          "id": "theremin",
+          "label": "Theremin",
+          "percentage": 20
+        },
+        {
+          "id": "electric-guitar",
+          "label": "Electric guitar",
+          "percentage": 16
+        },
+        {
+          "id": "saxophone",
+          "label": "Saxophone",
+          "percentage": 9
+        }
+      ],
+      "status": "ready",
+      "winner": "synthesizer",
+      "explanation": "The synthesizer dominates because it feels native to machine-made music and can imitate or invent almost any voice.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "synthesizer": 60,
+            "theremin": 20,
+            "electric-guitar": 15,
+            "saxophone": 5
+          },
+          "explanation": "A synthesizer best matches AI aesthetics because it is flexible, electronic, and voice-like.",
+          "latencyMs": 2020
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "synthesizer": 55,
+            "theremin": 25,
+            "electric-guitar": 10,
+            "saxophone": 10
+          },
+          "explanation": "The synthesizer feels most aligned with AI identity, though the theremin adds a strange futuristic voice.",
+          "latencyMs": 1280
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "synthesizer": 50,
+            "theremin": 20,
+            "electric-guitar": 20,
+            "saxophone": 10
+          },
+          "explanation": "The synthesizer is the obvious lead because it can generate the widest range of artificial tones.",
+          "latencyMs": 4920
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "synthesizer": 55,
+            "theremin": 15,
+            "electric-guitar": 20,
+            "saxophone": 10
+          },
+          "explanation": "A synthesizer gives the band a signature machine voice while still leaving room for expressive melody.",
+          "latencyMs": 710
+        }
+      ],
+      "generatedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "dream-theme-park-land-001",
+      "category": "entertainment",
+      "question": "Which theme park land would adults secretly love the most?",
+      "options": [
+        {
+          "id": "perfect-nap-kingdom",
+          "label": "Perfect Nap Kingdom",
+          "percentage": 38
+        },
+        {
+          "id": "no-email-island",
+          "label": "No Email Island",
+          "percentage": 31
+        },
+        {
+          "id": "snack-alley",
+          "label": "Snack Alley",
+          "percentage": 22
+        },
+        {
+          "id": "tiny-errands-town",
+          "label": "Tiny Errands Town",
+          "percentage": 9
+        }
+      ],
+      "status": "ready",
+      "winner": "perfect-nap-kingdom",
+      "explanation": "Perfect Nap Kingdom wins because rest is the most universal adult fantasy, with No Email Island close behind as pure modern relief.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "perfect-nap-kingdom": 40,
+            "no-email-island": 30,
+            "snack-alley": 20,
+            "tiny-errands-town": 10
+          },
+          "explanation": "Sleep and escape from work pressure are the strongest adult wishes, making nap-focused fantasy slightly strongest.",
+          "latencyMs": 2140
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "perfect-nap-kingdom": 35,
+            "no-email-island": 35,
+            "snack-alley": 20,
+            "tiny-errands-town": 10
+          },
+          "explanation": "Adults would be torn between rest and digital escape, with snacks as a strong but less transformative draw.",
+          "latencyMs": 1430
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "perfect-nap-kingdom": 45,
+            "no-email-island": 25,
+            "snack-alley": 20,
+            "tiny-errands-town": 10
+          },
+          "explanation": "A park land built around perfect rest has the broadest appeal for overworked adults.",
+          "latencyMs": 5310
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "perfect-nap-kingdom": 30,
+            "no-email-island": 35,
+            "snack-alley": 30,
+            "tiny-errands-town": 5
+          },
+          "explanation": "No Email Island is nearly irresistible, but the nap concept remains the clearest universal adult indulgence.",
+          "latencyMs": 820
+        }
+      ],
+      "generatedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "post-apocalypse-job-001",
+      "category": "society",
+      "question": "Which modern job would become unexpectedly powerful after civilization resets?",
+      "options": [
+        {
+          "id": "plumber",
+          "label": "Plumber",
+          "percentage": 42
+        },
+        {
+          "id": "librarian",
+          "label": "Librarian",
+          "percentage": 27
+        },
+        {
+          "id": "mechanic",
+          "label": "Mechanic",
+          "percentage": 21
+        },
+        {
+          "id": "event-planner",
+          "label": "Event planner",
+          "percentage": 10
+        }
+      ],
+      "status": "ready",
+      "winner": "plumber",
+      "explanation": "Plumbers lead because clean water and sanitation become immediate survival infrastructure, while librarians and mechanics preserve knowledge and tools.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "plumber": 45,
+            "librarian": 25,
+            "mechanic": 20,
+            "event-planner": 10
+          },
+          "explanation": "Water systems would be critical after a reset, giving plumbers direct survival value.",
+          "latencyMs": 2250
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "plumber": 40,
+            "librarian": 30,
+            "mechanic": 20,
+            "event-planner": 10
+          },
+          "explanation": "Plumbers and librarians both matter, but sanitation is more urgent than institutional memory at first.",
+          "latencyMs": 1520
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "plumber": 35,
+            "librarian": 30,
+            "mechanic": 25,
+            "event-planner": 10
+          },
+          "explanation": "The practical trades rise sharply, with plumbing slightly ahead because water access determines settlement health.",
+          "latencyMs": 5840
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "plumber": 50,
+            "librarian": 25,
+            "mechanic": 20,
+            "event-planner": 5
+          },
+          "explanation": "A plumber becomes essential when infrastructure must be rebuilt from basic survival needs upward.",
+          "latencyMs": 790
+        }
+      ],
+      "generatedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "civilization-starter-kit-001",
+      "category": "objects",
+      "question": "Which item would be most important in a starter kit for rebuilding civilization?",
+      "options": [
+        {
+          "id": "seed-bank",
+          "label": "Seed bank",
+          "percentage": 39
+        },
+        {
+          "id": "medical-textbook",
+          "label": "Medical textbook",
+          "percentage": 24
+        },
+        {
+          "id": "solar-panel",
+          "label": "Solar panel",
+          "percentage": 22
+        },
+        {
+          "id": "hand-crank-radio",
+          "label": "Hand-crank radio",
+          "percentage": 15
+        }
+      ],
+      "status": "ready",
+      "winner": "seed-bank",
+      "explanation": "The seed bank wins because food security comes before nearly everything else, though medicine and power would quickly become essential.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "seed-bank": 40,
+            "medical-textbook": 25,
+            "solar-panel": 20,
+            "hand-crank-radio": 15
+          },
+          "explanation": "Seeds enable sustainable food production, making them foundational for long-term recovery.",
+          "latencyMs": 2180
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "seed-bank": 35,
+            "medical-textbook": 30,
+            "solar-panel": 20,
+            "hand-crank-radio": 15
+          },
+          "explanation": "Food and medical knowledge are both vital, with seeds slightly ahead because agriculture sustains population.",
+          "latencyMs": 1470
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "seed-bank": 45,
+            "medical-textbook": 20,
+            "solar-panel": 25,
+            "hand-crank-radio": 10
+          },
+          "explanation": "A seed bank offers renewable survival value beyond a single device or reference book.",
+          "latencyMs": 6080
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "seed-bank": 35,
+            "medical-textbook": 20,
+            "solar-panel": 25,
+            "hand-crank-radio": 20
+          },
+          "explanation": "The seed bank narrowly wins because reliable food production anchors every later recovery system.",
+          "latencyMs": 750
+        }
+      ],
+      "generatedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "haunted-hotel-floor-001",
+      "category": "places",
+      "question": "Which hotel floor would be most suspicious if it disappeared from the elevator buttons?",
+      "options": [
+        {
+          "id": "thirteenth-floor",
+          "label": "13th floor",
+          "percentage": 52
+        },
+        {
+          "id": "basement",
+          "label": "Basement",
+          "percentage": 21
+        },
+        {
+          "id": "penthouse",
+          "label": "Penthouse",
+          "percentage": 17
+        },
+        {
+          "id": "laundry-level",
+          "label": "Laundry level",
+          "percentage": 10
+        }
+      ],
+      "status": "ready",
+      "winner": "thirteenth-floor",
+      "explanation": "The 13th floor wins by leaning into hotel superstition and mystery, while the basement and penthouse feel more practically restricted.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "thirteenth-floor": 55,
+            "basement": 20,
+            "penthouse": 15,
+            "laundry-level": 10
+          },
+          "explanation": "A missing 13th floor immediately suggests superstition and hidden space.",
+          "latencyMs": 2050
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "thirteenth-floor": 50,
+            "basement": 25,
+            "penthouse": 15,
+            "laundry-level": 10
+          },
+          "explanation": "The 13th floor is culturally loaded, making its absence more suspicious than a service area.",
+          "latencyMs": 1350
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "thirteenth-floor": 60,
+            "basement": 15,
+            "penthouse": 15,
+            "laundry-level": 10
+          },
+          "explanation": "Its folklore makes the 13th floor the most narratively charged missing button.",
+          "latencyMs": 4700
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "thirteenth-floor": 45,
+            "basement": 25,
+            "penthouse": 20,
+            "laundry-level": 10
+          },
+          "explanation": "The 13th floor feels deliberately hidden, while basement and penthouse absences have mundane explanations.",
+          "latencyMs": 690
+        }
+      ],
+      "generatedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "dream-library-section-001",
+      "category": "culture",
+      "question": "Which impossible library section would people visit first?",
+      "options": [
+        {
+          "id": "books-from-the-future",
+          "label": "Books from the future",
+          "percentage": 50
+        },
+        {
+          "id": "books-never-written",
+          "label": "Books never written",
+          "percentage": 24
+        },
+        {
+          "id": "lost-diaries",
+          "label": "Lost diaries",
+          "percentage": 15
+        },
+        {
+          "id": "dream-atlases",
+          "label": "Dream atlases",
+          "percentage": 11
+        }
+      ],
+      "status": "ready",
+      "winner": "books-from-the-future",
+      "explanation": "Books from the future dominate because they promise prediction, power, and curiosity all at once.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "books-from-the-future": 50,
+            "books-never-written": 25,
+            "lost-diaries": 15,
+            "dream-atlases": 10
+          },
+          "explanation": "Future books would attract people first because they offer both knowledge and advantage.",
+          "latencyMs": 2200
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "books-from-the-future": 45,
+            "books-never-written": 30,
+            "lost-diaries": 15,
+            "dream-atlases": 10
+          },
+          "explanation": "Books from the future are most immediately useful, while unwritten books are more artistic and speculative.",
+          "latencyMs": 1410
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "books-from-the-future": 55,
+            "books-never-written": 20,
+            "lost-diaries": 15,
+            "dream-atlases": 10
+          },
+          "explanation": "Most visitors would chase practical prophecy before exploring more poetic sections.",
+          "latencyMs": 5190
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "books-from-the-future": 50,
+            "books-never-written": 20,
+            "lost-diaries": 15,
+            "dream-atlases": 15
+          },
+          "explanation": "Future books carry the strongest hook because they make the impossible feel useful.",
+          "latencyMs": 730
+        }
+      ],
+      "generatedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "invention-too-early-001",
+      "category": "technology",
+      "question": "Which invention would be most chaotic if humanity discovered it 1,000 years too early?",
+      "options": [
+        {
+          "id": "internet",
+          "label": "Internet",
+          "percentage": 44
+        },
+        {
+          "id": "antibiotics",
+          "label": "Antibiotics",
+          "percentage": 19
+        },
+        {
+          "id": "printing-press",
+          "label": "Printing press",
+          "percentage": 20
+        },
+        {
+          "id": "electricity",
+          "label": "Electricity",
+          "percentage": 17
+        }
+      ],
+      "status": "ready",
+      "winner": "internet",
+      "explanation": "The internet wins because it would overwhelm medieval politics, religion, commerce, and knowledge systems all at once.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "internet": 45,
+            "antibiotics": 20,
+            "printing-press": 20,
+            "electricity": 15
+          },
+          "explanation": "The internet would destabilize communication and authority far more abruptly than the other inventions.",
+          "latencyMs": 2290
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "internet": 40,
+            "antibiotics": 20,
+            "printing-press": 25,
+            "electricity": 15
+          },
+          "explanation": "The internet would be the broadest social shock, though an early printing press also transforms power.",
+          "latencyMs": 1490
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "internet": 50,
+            "antibiotics": 15,
+            "printing-press": 20,
+            "electricity": 15
+          },
+          "explanation": "Instant global communication would create the most chaos for institutions that depend on slow information flow.",
+          "latencyMs": 5730
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "internet": 40,
+            "antibiotics": 20,
+            "printing-press": 15,
+            "electricity": 25
+          },
+          "explanation": "The internet narrowly leads because its social impact is immediate, even if electricity is more technically disruptive.",
+          "latencyMs": 760
+        }
+      ],
+      "generatedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "alien-tourist-attraction-001",
+      "category": "places",
+      "question": "Which Earth attraction would aliens find most baffling?",
+      "options": [
+        {
+          "id": "las-vegas-strip",
+          "label": "Las Vegas Strip",
+          "percentage": 41
+        },
+        {
+          "id": "disney-world",
+          "label": "Disney World",
+          "percentage": 25
+        },
+        {
+          "id": "stonehenge",
+          "label": "Stonehenge",
+          "percentage": 18
+        },
+        {
+          "id": "times-square",
+          "label": "Times Square",
+          "percentage": 16
+        }
+      ],
+      "status": "ready",
+      "winner": "las-vegas-strip",
+      "explanation": "Las Vegas leads because it compresses spectacle, money, replicas, lights, and ritualized excess into one deeply human puzzle.",
+      "modelResults": [
+        {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "probabilities": {
+            "las-vegas-strip": 45,
+            "disney-world": 25,
+            "stonehenge": 15,
+            "times-square": 15
+          },
+          "explanation": "Las Vegas would be baffling because it combines artificial landmarks, gambling, performance, and constant light.",
+          "latencyMs": 2170
+        },
+        {
+          "provider": "claude",
+          "model": "claude-haiku-4-5",
+          "probabilities": {
+            "las-vegas-strip": 40,
+            "disney-world": 30,
+            "stonehenge": 15,
+            "times-square": 15
+          },
+          "explanation": "Las Vegas and Disney both dramatize human fantasy, with Vegas slightly stranger due to its adult rituals and replicas.",
+          "latencyMs": 1380
+        },
+        {
+          "provider": "kimi",
+          "model": "moonshotai/kimi-k2-thinking-maas",
+          "probabilities": {
+            "las-vegas-strip": 35,
+            "disney-world": 25,
+            "stonehenge": 25,
+            "times-square": 15
+          },
+          "explanation": "Vegas is the weirdest modern spectacle, though Stonehenge would remain an ancient mystery even to outsiders.",
+          "latencyMs": 5010
+        },
+        {
+          "provider": "mistral",
+          "model": "mistral-small-latest",
+          "probabilities": {
+            "las-vegas-strip": 45,
+            "disney-world": 20,
+            "stonehenge": 15,
+            "times-square": 20
+          },
+          "explanation": "The Las Vegas Strip offers the densest concentration of symbolic excess and artificial reality.",
+          "latencyMs": 740
+        }
+      ],
+      "generatedAt": "2026-06-26T00:00:00.000Z"
     }
   ]
 }
