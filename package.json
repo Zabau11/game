@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "audit:questions": "node scripts/audit-question-bank.mjs",
     "build": "next build",
     "start": "next start"
   },
@@ -19,4 +20,3 @@
     "typescript": "latest"
   }
 }
-

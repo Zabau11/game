@@ -48,6 +48,8 @@ A session should contain approximately 5–10 rounds and require no account.
 
 Questions should use recognizable brands, products, fictional characters, cities, celebrities, or cultural objects. Players must be able to reason from familiar associations.
 
+For the main bank, every answer should pass a quick recognition test: a casual player should know what the answer represents without having to read the book, watch the show, follow a niche fandom, or recognize a minor celebrity. Use names like Tony Stark, Google, BMW, McDonald's, Batman, Paris, pizza, smartphone, or LEGO before using cult characters, specialist objects, or deep-cut media references.
+
 Good:
 
 - Which brand would survive longest in a zombie apocalypse?
@@ -61,6 +63,8 @@ Weak:
 - Which of these unrelated brands would AI choose?
 - Questions with one objectively factual answer
 - Questions requiring obscure knowledge
+- Choices where the hard part is knowing what an answer means
+- Niche actors, minor fictional characters, cult books, specialist tools, or fandom-only references
 - Questions whose choices are not reasonably comparable
 
 The ideal result makes players react with either:
