@@ -819,59 +819,67 @@ export function Outguess({
             </div>
 
             <div ref={roundBodyRef} className="mc-round-body">
-              <div className="mc-phase-label">
-                {inReveal ? "The machine has voted" : "Predict the AI favorite"}
-              </div>
 
-              <div className="mc-prompt-box">
-                <p className="mc-prompt-text">{q.prompt}</p>
-              </div>
-
-              {inChoose && (
-                <p className="mc-choices-hint">
-                  Which answer did the AI panel rank first?
-                </p>
-              )}
-
-              <div className="mc-choices">
-                {q.options.map((opt, i) => (
-                  <button
-                    key={i}
-                    className={choiceClass(i)}
-                    onClick={() => choose(i)}
-                    disabled={phase !== "predict"}
-                  >
-                    {inReveal && (
-                      <span
-                        className="mc-choice-fill"
-                        style={{ width: `${((q.pct[i] / maxPct) * eased * 100).toFixed(1)}%` }}
-                      />
-                    )}
-                    <span className="mc-choice-name">{opt.name}</span>
-                    {inReveal && (
-                      <span className="mc-choice-pct-label">
-                        {Math.round(q.pct[i] * eased)}%
-                      </span>
-                    )}
-                  </button>
-                ))}
-              </div>
-
-              {inReveal && revealDone && (
-                <div className="mc-explain">
-                  <div className={`mc-result-line${pickedCorrect ? " mc-result-line--correct" : " mc-result-line--wrong"}`}>
-                    {pickedCorrect ? "✓ You read the machine" : "✗ The machine disagreed"}
-                  </div>
-                  <p className="mc-explain-text">{q.explanation}</p>
-                  <div className="mc-dissent-row">
-                    <span className="mc-dissent-tag">Dissent</span>
-                    <p className="mc-dissent-text">{q.disagreement}</p>
-                  </div>
-                  <button className="mc-btn-next" onClick={next}>
-                    {runOver ? "See verdict" : "Next question"} →
-                  </button>
+              {/* Predict area — compacts upward on reveal */}
+              <div className={`mc-predict-area${inReveal ? " mc-predict-area--compact" : ""}`}>
+                <div className="mc-phase-label">
+                  {inReveal ? "The machine has voted" : "Predict the AI favorite"}
                 </div>
-              )}
+
+                <div className="mc-prompt-box">
+                  <p className="mc-prompt-text">{q.prompt}</p>
+                </div>
+
+                {inChoose && (
+                  <p className="mc-choices-hint">
+                    Which answer did the AI panel rank first?
+                  </p>
+                )}
+
+                <div className="mc-choices">
+                  {q.options.map((opt, i) => (
+                    <button
+                      key={i}
+                      className={choiceClass(i)}
+                      onClick={() => choose(i)}
+                      disabled={phase !== "predict"}
+                    >
+                      {inReveal && (
+                        <span
+                          className="mc-choice-fill"
+                          style={{ width: `${((q.pct[i] / maxPct) * eased * 100).toFixed(1)}%` }}
+                        />
+                      )}
+                      <span className="mc-choice-name">{opt.name}</span>
+                      {inReveal && (
+                        <span className="mc-choice-pct-label">
+                          {Math.round(q.pct[i] * eased)}%
+                        </span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Explain area — slides in on reveal */}
+              <div className={`mc-explain-outer${inReveal ? " mc-explain-outer--open" : ""}`}>
+                {inReveal && revealDone && (
+                  <div className="mc-explain">
+                    <div className={`mc-result-line${pickedCorrect ? " mc-result-line--correct" : " mc-result-line--wrong"}`}>
+                      {pickedCorrect ? "✓ You read the machine" : "✗ The machine disagreed"}
+                    </div>
+                    <p className="mc-explain-text">{q.explanation}</p>
+                    <div className="mc-dissent-row">
+                      <span className="mc-dissent-tag">Dissent</span>
+                      <p className="mc-dissent-text">{q.disagreement}</p>
+                    </div>
+                    <button className="mc-btn-next" onClick={next}>
+                      {runOver ? "See verdict" : "Next question"} →
+                    </button>
+                  </div>
+                )}
+              </div>
+
             </div>
           </section>
         )}
