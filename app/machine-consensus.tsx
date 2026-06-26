@@ -688,10 +688,10 @@ export function Outguess({
       {/* ── Header ── */}
       <header className="mc-header">
         <div className="mc-header-inner">
-          <div className="mc-brand">
+          <button className="mc-brand" onClick={() => setScreen("landing")}>
             <span className="mc-logo-dot" />
             Outguess
-          </div>
+          </button>
 
           {screen === "playing" ? (
             <div className="mc-progress">

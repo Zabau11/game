@@ -210,6 +210,15 @@ button { font: inherit; cursor: pointer; }
   color: #1d1d1f;
   white-space: nowrap;
   flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity .15s ease;
+}
+.mc-brand:hover {
+  opacity: 0.55;
 }
 .mc-logo-dot {
   width: 8px;
