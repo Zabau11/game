@@ -562,6 +562,11 @@ button { font: inherit; cursor: pointer; }
   font-weight: 500;
   color: #515154;
 }
+.mc-chip--logo {
+  padding: 6px 14px;
+  line-height: 0;
+  background: #fff;
+}
 
 /* ── Game card ── */
 .mc-game-card {

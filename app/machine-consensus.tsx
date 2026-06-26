@@ -133,6 +133,27 @@ function shuffleQuestions(
   return shuffled;
 }
 
+function ModelLogo({ id }: { id: string }) {
+  const logos: Record<string, { src: string; w: number; label: string }> = {
+    gemini: { src: "/logos/gemini.svg", w: 72,  label: "Gemini"    },
+    claude: { src: "/logos/claude.svg", w: 76,  label: "Claude"    },
+    kimi:   { src: "/logos/kimi.svg",   w: 38,  label: "Kimi"      },
+    mistral:{ src: "/logos/mistral.svg",w: 90,  label: "Mistral AI" },
+  };
+  const logo = logos[id];
+  if (!logo) return <span>{id}</span>;
+  return (
+    <img
+      src={logo.src}
+      alt={logo.label}
+      width={logo.w}
+      height={18}
+      style={{ display: "block", objectFit: "contain" }}
+      draggable={false}
+    />
+  );
+}
+
 function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced: () => boolean }) {
   const mouseRef = useRef({ x: -9999, y: -9999 });
   const statesRef = useRef<{ x: number; y: number; vx: number; vy: number }[]>(
@@ -770,7 +791,9 @@ export function MachineConsensus({
               <div className="mc-poll">
                 <span className="mc-poll-label">Polling</span>
                 {models.map((m) => (
-                  <span key={m} className="mc-chip">{m}</span>
+                  <span key={m} className="mc-chip mc-chip--logo">
+                    <ModelLogo id={m.toLowerCase()} />
+                  </span>
                 ))}
               </div>
             </div>
