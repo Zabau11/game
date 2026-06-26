@@ -767,8 +767,8 @@ export function MachineConsensus({
               </h1>
 
               <p className="mc-lede">
-                A shuffled survival run through the full question bank.
-                Predict the consensus and keep going until the machine catches you.
+                It&apos;s you against 4 AI models. Predict how the machine thinks.
+                One wrong answer ends the run.
               </p>
 
               <div className="mc-cta-wrap">
@@ -780,21 +780,21 @@ export function MachineConsensus({
                 </button>
               </div>
 
-              <div className="mc-meta-row">
-                <span>Endless run</span>
-                <span className="mc-meta-sep" />
-                <span>One miss ends it</span>
-                <span className="mc-meta-sep" />
-                <span>{total} shuffled questions</span>
+              <div className="mc-poll">
+                <span className="mc-poll-label">Your opponents</span>
+                <div className="mc-poll-logos">
+                  {models.map((m) => (
+                    <span key={m} className="mc-chip mc-chip--logo">
+                      <ModelLogo id={m.toLowerCase()} />
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="mc-poll">
-                <span className="mc-poll-label">Polling</span>
-                {models.map((m) => (
-                  <span key={m} className="mc-chip mc-chip--logo">
-                    <ModelLogo id={m.toLowerCase()} />
-                  </span>
-                ))}
+              <div className="mc-meta-row">
+                <span>{total} questions</span>
+                <span className="mc-meta-sep" />
+                <span>1 life</span>
               </div>
             </div>
           </>

@@ -488,7 +488,7 @@ button { font: inherit; cursor: pointer; }
   animation: mc-heroTitle .75s cubic-bezier(0.22, 1, 0.36, 1) .04s both;
 }
 .mc-lede {
-  margin: 0 0 40px;
+  margin: 0 0 24px;
   font-size: 18px;
   line-height: 1.55;
   color: #515154;
@@ -540,12 +540,18 @@ button { font: inherit; cursor: pointer; }
 }
 .mc-poll {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  animation: pk-fadeUp .5s ease .66s both;
+}
+.mc-poll-logos {
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 7px;
-  margin-top: 18px;
   flex-wrap: wrap;
-  animation: pk-fadeUp .5s ease .66s both;
 }
 .mc-poll-label {
   font-size: 12px;
