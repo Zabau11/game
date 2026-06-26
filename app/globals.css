@@ -224,6 +224,9 @@ button { font: inherit; cursor: pointer; }
   color: #86868b;
 }
 .mc-nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 22px;
   font-size: 13.5px;

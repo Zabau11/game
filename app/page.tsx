@@ -1,5 +1,5 @@
 import questionsDatabase from "@/data/questions.json";
-import { MachineConsensus, type MCQuestion } from "./machine-consensus";
+import { Outguess, type MCQuestion } from "./machine-consensus";
 
 const MON = [
   "JANUARY",
@@ -109,7 +109,7 @@ export default function Home() {
   );
 
   return (
-    <MachineConsensus
+    <Outguess
       questions={questions}
       models={models}
       dateLabel={dateLabel}

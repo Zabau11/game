@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Machine Consensus",
-  description: "Can you predict what the machines agree on?",
+  title: "Outguess",
+  description: "Can you outguess 4 AI models?",
 };
 
 export default function RootLayout({

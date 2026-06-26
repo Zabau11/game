@@ -26,7 +26,7 @@ type Screen = "landing" | "playing" | "score";
 type Phase = "predict" | "locked" | "reveal";
 
 const WORDS = ["machine", "model", "AI", "consensus", "LLM"];
-const BEST_SCORE_KEY = "machine-consensus-best-score";
+const BEST_SCORE_KEY = "outguess-best-score";
 
 type FloatBarItem = { label: string; pct: number; winner?: boolean };
 type FloatPillItem = { label: string; winner?: boolean };
@@ -335,7 +335,7 @@ function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced
   );
 }
 
-export function MachineConsensus({
+export function Outguess({
   questions,
   models,
   dateLabel,
@@ -555,7 +555,7 @@ export function MachineConsensus({
     const grid = results
       .map((r) => (r.correct ? "◉" : "○"))
       .join("");
-    const txt = `MACHINE CONSENSUS SURVIVAL — ${correct} correct\n${grid}\nmachineconsensus.game`;
+    const txt = `OUTGUESS — ${correct} correct\n${grid}\noutguess.game`;
     try {
       if (navigator.clipboard) navigator.clipboard.writeText(txt);
     } catch {
@@ -690,7 +690,7 @@ export function MachineConsensus({
         <div className="mc-header-inner">
           <div className="mc-brand">
             <span className="mc-logo-dot" />
-            Machine Consensus
+            Outguess
           </div>
 
           {screen === "playing" ? (
@@ -733,15 +733,13 @@ export function MachineConsensus({
               <span>Score</span>
               <strong>{correctCount}</strong>
             </div>
-          ) : bestScore > 0 ? (
+          ) : (
             <div className="mc-best-pill" aria-label={`Best run: ${bestScore}`}>
               <span className="mc-best-icon" aria-hidden>★</span>
               <span className="mc-best-label">best</span>
               <span className="mc-best-sep" aria-hidden />
               <span className="mc-best-num">{bestScore}</span>
             </div>
-          ) : (
-            <div style={{ width: 140, flexShrink: 0 }} />
           )}
         </div>
       </header>
@@ -1004,7 +1002,7 @@ export function MachineConsensus({
           <div className="mc-share-card" onClick={(e) => e.stopPropagation()}>
             <div className="mc-share-brand">
               <span className="mc-logo-dot" />
-              Machine Consensus
+              Outguess
             </div>
             <div className="mc-share-edition">
               Edition {editionLabel} · {dateLabel}
