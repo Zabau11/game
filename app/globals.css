@@ -572,6 +572,12 @@ button { font: inherit; cursor: pointer; }
   padding: 6px 14px;
   line-height: 0;
   background: #fff;
+  transition: transform .18s ease, box-shadow .18s ease;
+  cursor: default;
+}
+.mc-chip--logo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.18);
 }
 
 /* ── Game card ── */
