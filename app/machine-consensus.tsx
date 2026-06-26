@@ -136,7 +136,11 @@ function shuffleQuestions(
 function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced: () => boolean }) {
   const mouseRef = useRef({ x: -9999, y: -9999 });
   const statesRef = useRef<{ x: number; y: number; vx: number; vy: number }[]>(
-    cards.map(() => ({ x: 0, y: 0, vx: 0, vy: 0 }))
+    cards.map((_, i) => {
+      const angle = (i * Math.PI * 2 / cards.length) + Math.PI / 5;
+      const speed = 0.35 + (i % 3) * 0.12;
+      return { x: 0, y: 0, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed };
+    })
   );
   const cardRefs = useRef<(HTMLDivElement | null)[]>(cards.map(() => null));
   const rafRef = useRef<number | null>(null);
@@ -151,29 +155,17 @@ function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced
     };
     window.addEventListener("mousemove", onMouse, { passive: true });
 
-    const REPEL       = 6;
-    const RADIUS      = 200;
-    const STEER       = 0.04;
-    const DAMP        = 0.94;
-    const SEP         = 0.08;
-    const GAP         = 12;
-    const EDGE_MARGIN = 48;
-    const EDGE_REPEL  = 5;
+    const REPEL        = 0.12;
+    const RADIUS       = 130;
+    const SEP          = 0.12;
+    const GAP          = 20;
+    const WALL_PAD     = 6;
+    const RESTITUTION  = 0.92;
+    const CARD_MIN     = 0.8;
+    const TARGET_SPEED = 0.45;
+    const SPEED_CORR   = 0.015;
 
-    // Unique Lissajous wander path per card
-    const wander = cards.map((_, i) => {
-      const g = i * 1.618;
-      return {
-        fx: 0.00022 + (i % 3) * 0.000055,
-        fy: 0.00030 + (i % 4) * 0.000041,
-        px: g * 2.09,
-        py: g * 1.73,
-        ax: 40 + i * 8,
-        ay: 32 + i * 6,
-      };
-    });
-
-    const tick = (now: number) => {
+    const tick = () => {
       const { x: mx, y: my } = mouseRef.current;
       const rects = cardRefs.current.map(el => el ? el.getBoundingClientRect() : null);
       const vw = window.innerWidth;
@@ -182,17 +174,17 @@ function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced
       for (let i = 0; i < cards.length; i++) {
         const s = states[i];
         const r = rects[i];
-        const w = wander[i];
 
-        // Steer velocity toward the instantaneous wander velocity — no position pull,
-        // so a cursor push keeps the card moving in that direction rather than snapping back.
-        const wvx = w.ax * w.fx * Math.cos(now * w.fx + w.px);
-        const wvy = -w.ay * w.fy * Math.sin(now * w.fy + w.py);
-        s.vx += (wvx - s.vx) * STEER;
-        s.vy += (wvy - s.vy) * STEER;
+        // Gently nudge speed toward TARGET_SPEED without changing direction
+        const spd = Math.hypot(s.vx, s.vy);
+        if (spd > 0.01) {
+          const nudge = (TARGET_SPEED - spd) * SPEED_CORR;
+          s.vx += (s.vx / spd) * nudge;
+          s.vy += (s.vy / spd) * nudge;
+        }
 
         if (r) {
-          // Repel from cursor
+          // Cursor repulsion
           const cx = r.left + r.width / 2;
           const cy = r.top + r.height / 2;
           const dx = cx - mx;
@@ -204,19 +196,27 @@ function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced
             s.vy += (dy / dist) * strength;
           }
 
-          // Repel from screen edges — clamp distance so off-screen cards still get max force
-          const dL = Math.max(0, r.left);
-          const dR = Math.max(0, vw - r.right);
-          const dT = Math.max(0, r.top);
-          const dB = Math.max(0, vh - r.bottom);
-          if (dL < EDGE_MARGIN) s.vx += (1 - dL / EDGE_MARGIN) * EDGE_REPEL;
-          if (dR < EDGE_MARGIN) s.vx -= (1 - dR / EDGE_MARGIN) * EDGE_REPEL;
-          if (dT < EDGE_MARGIN) s.vy += (1 - dT / EDGE_MARGIN) * EDGE_REPEL;
-          if (dB < EDGE_MARGIN) s.vy -= (1 - dB / EDGE_MARGIN) * EDGE_REPEL;
+          // Wall bounce — reflect and push card back inside
+          if (r.left < WALL_PAD && s.vx < 0) {
+            s.vx = Math.abs(s.vx) * RESTITUTION;
+            s.x += WALL_PAD - r.left;
+          }
+          if (r.right > vw - WALL_PAD && s.vx > 0) {
+            s.vx = -Math.abs(s.vx) * RESTITUTION;
+            s.x -= r.right - (vw - WALL_PAD);
+          }
+          if (r.top < WALL_PAD && s.vy < 0) {
+            s.vy = Math.abs(s.vy) * RESTITUTION;
+            s.y += WALL_PAD - r.top;
+          }
+          if (r.bottom > vh - WALL_PAD && s.vy > 0) {
+            s.vy = -Math.abs(s.vy) * RESTITUTION;
+            s.y -= r.bottom - (vh - WALL_PAD);
+          }
         }
 
-        s.vx *= DAMP; s.vy *= DAMP;
-        s.x += s.vx;  s.y += s.vy;
+        s.x += s.vx;
+        s.y += s.vy;
       }
 
       for (let i = 0; i < cards.length - 1; i++) {
@@ -230,10 +230,21 @@ function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced
           if (ox > 0 && oy > 0) {
             const dx = cxi - cxj; const dy = cyi - cyj;
             const dist = Math.hypot(dx, dy) || 1;
-            const force = Math.min(ox, oy) * SEP;
-            const fx = (dx / dist) * force; const fy = (dy / dist) * force;
-            states[i].vx += fx; states[i].vy += fy;
-            states[j].vx -= fx; states[j].vy -= fy;
+            const nx = dx / dist; const ny = dy / dist;
+
+            // Positional separation nudge
+            const sep = Math.min(ox, oy) * SEP;
+            states[i].vx += nx * sep; states[i].vy += ny * sep;
+            states[j].vx -= nx * sep; states[j].vy -= ny * sep;
+
+            // Elastic collision: swap normal velocity components, enforce minimum impulse
+            const v1n = states[i].vx * nx + states[i].vy * ny;
+            const v2n = states[j].vx * nx + states[j].vy * ny;
+            if (v1n - v2n < 0) {
+              const dv = Math.min(v1n - v2n, -CARD_MIN);
+              states[i].vx -= dv * nx; states[i].vy -= dv * ny;
+              states[j].vx += dv * nx; states[j].vy += dv * ny;
+            }
           }
         }
       }
