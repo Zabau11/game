@@ -8,7 +8,7 @@ const databasePath = path.join(root, "data", "questions.json");
 const modelIds = {
   gemini: "gemini-2.5-flash",
   claude: "claude-haiku-4-5",
-  kimi: "moonshotai/kimi-k2-thinking-maas",
+  gpt: process.env.OPENAI_MODEL || "gpt-5.4-nano",
   mistral: "mistral-small-latest",
 };
 
@@ -250,27 +250,27 @@ async function callClaude(prompt) {
     .join("") ?? "";
 }
 
-async function callKimi(prompt) {
-  const projectId = process.env.PROJECT_ID;
-  const key = process.env.API_KEY;
-  const url = `https://aiplatform.googleapis.com/v1/projects/${encodeURIComponent(projectId)}/locations/global/endpoints/openapi/chat/completions?key=${encodeURIComponent(key)}`;
+async function callGpt(prompt) {
   const data = await fetchJson(
-    url,
+    "https://api.openai.com/v1/chat/completions",
     {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+      },
       body: JSON.stringify({
-        model: modelIds.kimi,
+        model: modelIds.gpt,
         messages: [{ role: "user", content: prompt }],
-        max_tokens: 8000,
+        max_completion_tokens: 500,
         temperature: 0.35,
+        response_format: { type: "json_object" },
         stream: false,
       }),
     },
-    "Kimi",
+    "GPT",
   );
-  const message = data.choices?.[0]?.message;
-  return message?.content || message?.reasoning_content || "";
+  return data.choices?.[0]?.message?.content ?? "";
 }
 
 async function callMistral(prompt) {
@@ -299,9 +299,11 @@ async function callMistral(prompt) {
 const callers = {
   gemini: callGemini,
   claude: callClaude,
-  kimi: callKimi,
+  gpt: callGpt,
   mistral: callMistral,
 };
+
+const activeProviders = new Set(Object.keys(callers));
 
 function aggregate(question) {
   const optionIds = question.options.map((option) => option.id);
@@ -340,8 +342,8 @@ async function main() {
   await loadEnv();
   const required = [
     "API_KEY",
-    "PROJECT_ID",
     "ANTHROPIC_API_KEY",
+    "OPENAI_API_KEY",
     "MISTRAL_API_KEY",
   ];
   const missing = required.filter((key) => !process.env[key]);
@@ -360,6 +362,9 @@ async function main() {
   for (let questionIndex = 0; questionIndex < questions.length; questionIndex += 1) {
     const question = questions[questionIndex];
     question.modelResults ||= [];
+    question.modelResults = question.modelResults.filter((result) =>
+      activeProviders.has(result.provider),
+    );
     const completed = new Set(question.modelResults.map((result) => result.provider));
     const prompt = promptFor(question).text;
 

@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-26T22:41:35.587Z",
+  "updatedAt": "2026-06-27T13:52:26.401Z",
   "consensusLabel": "AI consensus estimate",
   "models": [
     "gemini-2.5-flash",
     "claude-haiku-4-5",
-    "moonshotai/kimi-k2-thinking-maas",
+    "gpt-5.4-nano",
     "mistral-small-latest"
   ],
   "questions": [
@@ -62,18 +62,6 @@
           },
           "explanation": "Tony Stark dominates as the obvious choice due to his tech innovation, risk-taking, and business acumen, while the others offer compelling but narrower founder qualities like determination, creativity, or resourcefulness.",
           "latencyMs": 1936
-        },
-        {
-          "provider": "kimi",
-          "model": "moonshotai/kimi-k2-thinking-maas",
-          "probabilities": {
-            "tony-stark": 70,
-            "batman": 15,
-            "hermione-granger": 10,
-            "willy-wonka": 5
-          },
-          "explanation": "Tony Stark's proven track record as a tech entrepreneur and inventor makes him the ideal startup founder, while the others have significant limitations in business focus or modern startup skills.",
-          "latencyMs": 4047
         },
         {
           "provider": "mistral",
@@ -145,18 +133,6 @@
           "latencyMs": 1732
         },
         {
-          "provider": "kimi",
-          "model": "moonshotai/kimi-k2-thinking-maas",
-          "probabilities": {
-            "google": 45,
-            "apple": 30,
-            "mcdonalds": 10,
-            "disney": 15
-          },
-          "explanation": "Google dominates through existing global information infrastructure, while Apple offers ecosystem control, Disney cultural narrative power, and McDonald's logistical ubiquity.",
-          "latencyMs": 7571
-        },
-        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -224,18 +200,6 @@
           },
           "explanation": "Pickup trucks dominate as the most practical choice for apocalyptic survival due to cargo capacity and off-road capability, with Tesla gaining appeal for self-sufficiency, while BMWs and school buses lag due to fuel dependency and impracticality respectively.",
           "latencyMs": 1969
-        },
-        {
-          "provider": "kimi",
-          "model": "moonshotai/kimi-k2-thinking-maas",
-          "probabilities": {
-            "pickup-truck": 65,
-            "bmw": 5,
-            "tesla": 10,
-            "school-bus": 20
-          },
-          "explanation": "Pickup trucks offer the best balance of utility, durability, and adaptability for survival scenarios, while school buses appeal to group survivalists, Teslas attract those planning for renewable energy, and BMWs are largely impractical.",
-          "latencyMs": 4020
         },
         {
           "provider": "mistral",
@@ -307,18 +271,6 @@
           "latencyMs": 1851
         },
         {
-          "provider": "kimi",
-          "model": "moonshotai/kimi-k2-thinking-maas",
-          "probabilities": {
-            "pizza": 40,
-            "chocolate": 30,
-            "ice-cream": 20,
-            "sushi": 10
-          },
-          "explanation": "Pizza offers the best combination of culinary sophistication, cultural universality, and safe complexity to showcase human achievement without undue risk.",
-          "latencyMs": 6009
-        },
-        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -386,18 +338,6 @@
           },
           "explanation": "Spider web best captures the internet's interconnected, decentralized nature, while smartphone represents the primary access point, and the others are weaker metaphors for information access.",
           "latencyMs": 1711
-        },
-        {
-          "provider": "kimi",
-          "model": "moonshotai/kimi-k2-thinking-maas",
-          "probabilities": {
-            "smartphone": 20,
-            "spider-web": 60,
-            "shopping-mall": 10,
-            "library": 10
-          },
-          "explanation": "The spider web best captures the internet's metaphorical name and interconnected structure, while other options represent specific functions or access points.",
-          "latencyMs": 4250
         },
         {
           "provider": "mistral",
@@ -469,18 +409,6 @@
           "latencyMs": 1532
         },
         {
-          "provider": "kimi",
-          "model": "moonshotai/kimi-k2-thinking-maas",
-          "probabilities": {
-            "mary-poppins": 50,
-            "yoda": 15,
-            "dumbledore": 30,
-            "spider-man": 5
-          },
-          "explanation": "Mary Poppins is the most qualified, Dumbledore is a close second, Yoda is too cryptic, and Spider-Man is too young.",
-          "latencyMs": 9339
-        },
-        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -548,18 +476,6 @@
           },
           "explanation": "Singapore edges ahead for its seamless blend of cutting-edge technology, efficient systems, and forward-thinking urban planning, though Tokyo, Dubai, and New York each offer compelling futuristic qualities.",
           "latencyMs": 1980
-        },
-        {
-          "provider": "kimi",
-          "model": "moonshotai/kimi-k2-thinking-maas",
-          "probabilities": {
-            "tokyo": 40,
-            "dubai": 15,
-            "new-york": 10,
-            "singapore": 35
-          },
-          "explanation": "Tokyo leads due to its iconic cyberpunk aesthetic and cultural imprint, while Singapore represents practical smart-city futurism; Dubai and New York offer spectacle and human energy respectively.",
-          "latencyMs": 5127
         },
         {
           "provider": "mistral",
@@ -631,18 +547,6 @@
           "latencyMs": 1921
         },
         {
-          "provider": "kimi",
-          "model": "moonshotai/kimi-k2-thinking-maas",
-          "probabilities": {
-            "refrigerator": 15,
-            "washing-machine": 25,
-            "smart-speaker": 50,
-            "toaster": 10
-          },
-          "explanation": "One concise sentence.",
-          "latencyMs": 42983
-        },
-        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -712,18 +616,6 @@
           "latencyMs": 1712
         },
         {
-          "provider": "kimi",
-          "model": "moonshotai/kimi-k2-thinking-maas",
-          "probabilities": {
-            "mcdonalds": 20,
-            "starbucks": 40,
-            "dominos": 30,
-            "subway": 10
-          },
-          "explanation": "One concise sentence.",
-          "latencyMs": 33556
-        },
-        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -791,18 +683,6 @@
           },
           "explanation": "Video games require explaining interactive digital worlds and virtual reality concepts that have no 1800s analogue, making them hardest to convey compared to devices that extend existing concepts like flight, cooking, or communication.",
           "latencyMs": 1834
-        },
-        {
-          "provider": "kimi",
-          "model": "moonshotai/kimi-k2-thinking-maas",
-          "probabilities": {
-            "smartphone": 40,
-            "airplane": 10,
-            "microwave": 20,
-            "video-game": 30
-          },
-          "explanation": "Smartphones require explaining the most disparate concepts (wireless communication, internet, computing, touchscreens, satellites) with no 1800s analog, while video games are abstract but single-purpose, microwaves use one counterintuitive principle, and airplanes are mechanically demonstrable.",
-          "latencyMs": 10659
         },
         {
           "provider": "mistral",

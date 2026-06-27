@@ -10,8 +10,10 @@ Create a `.env` file:
 ```bash
 API_KEY=your_vertex_api_key
 ANTHROPIC_API_KEY=your_anthropic_api_key
+OPENAI_API_KEY=your_openai_api_key
+# Optional; defaults to a cheap GPT nano model.
+OPENAI_MODEL=gpt-5.4-nano
 MISTRAL_API_KEY=your_mistral_api_key
-PROJECT_ID=your_google_cloud_project_id
 PROJECT_LOCATION=us-central1
 ```
 
@@ -31,7 +33,5 @@ The diagnostic panel tests:
 
 - Gemini 2.5 Flash through Vertex AI express mode
 - Claude Haiku 4.5 through Anthropic's direct Messages API
-- Kimi K2 Thinking through Vertex AI's managed open-model endpoint
+- GPT through OpenAI's direct Chat Completions API
 - Mistral Small through Mistral's direct Chat Completions API
-
-Vertex AI currently lists Kimi K2 Thinking, not Kimi K2.5.

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
-type ModelName = "gemini" | "claude" | "kimi" | "mistral";
+type ModelName = "gemini" | "claude" | "gpt" | "mistral";
 
 type ProviderError = {
   error?: {
@@ -16,8 +16,9 @@ function env() {
   return {
     apiKey: process.env.API_KEY ?? process.env.GOOGLE_API_KEY,
     anthropicApiKey: process.env.ANTHROPIC_API_KEY,
+    openaiApiKey: process.env.OPENAI_API_KEY,
+    openaiModel: process.env.OPENAI_MODEL ?? "gpt-5.4-nano",
     mistralApiKey: process.env.MISTRAL_API_KEY,
-    projectId: process.env.PROJECT_ID ?? process.env.GOOGLE_CLOUD_PROJECT,
   };
 }
 
@@ -154,26 +155,28 @@ async function testClaude(
   });
 }
 
-async function testKimi(
-  apiKey: string,
-  projectId: string,
+async function testGpt(
+  openaiApiKey: string,
+  model: string,
   startedAt: number,
 ) {
-  const model = "moonshotai/kimi-k2-thinking-maas";
   const response = await fetch(
-    `https://aiplatform.googleapis.com/v1/projects/${encodeURIComponent(projectId)}/locations/global/endpoints/openapi/chat/completions?key=${encodeURIComponent(apiKey)}`,
+    "https://api.openai.com/v1/chat/completions",
     {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${openaiApiKey}`,
+      },
       body: JSON.stringify({
         model,
         messages: [
           {
             role: "user",
-            content: "Reply only with: Kimi connection successful",
+            content: "Reply only with: GPT connection successful",
           },
         ],
-        max_tokens: 256,
+        max_completion_tokens: 40,
         temperature: 0,
         stream: false,
       }),
@@ -192,21 +195,22 @@ async function testKimi(
     return errorResponse(
       model,
       response.status,
-      data.error?.message || `Vertex AI returned HTTP ${response.status}.`,
-      "Confirm that Kimi K2 Thinking is enabled in Model Garden and billing is active for this project.",
+      data.error?.message || `OpenAI returned HTTP ${response.status}.`,
+      response.status === 401
+        ? "Check that OPENAI_API_KEY contains a valid OpenAI API key."
+        : "Check your OpenAI account balance, project limits, and model access.",
       startedAt,
     );
   }
 
   return NextResponse.json({
     ok: true,
-    message: "Kimi responded through Vertex AI’s managed open-model endpoint.",
+    message: "GPT responded through the OpenAI API.",
     response:
       data.choices?.[0]?.message?.content?.trim() ||
-      "Successful response (the model used its output allowance for reasoning).",
+      "Successful empty response.",
     model,
     latencyMs: Math.round(performance.now() - startedAt),
-    note: "Vertex AI currently offers Kimi K2 Thinking, not Kimi K2.5.",
   });
 }
 
@@ -270,7 +274,8 @@ export async function POST(request: NextRequest) {
   const startedAt = performance.now();
   const model = (request.nextUrl.searchParams.get("model") ||
     "gemini") as ModelName;
-  const { apiKey, anthropicApiKey, mistralApiKey, projectId } = env();
+  const { apiKey, anthropicApiKey, openaiApiKey, openaiModel, mistralApiKey } =
+    env();
 
   if (model === "claude" && !anthropicApiKey) {
     return errorResponse(
@@ -292,7 +297,17 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  if (model !== "claude" && model !== "mistral" && !apiKey) {
+  if (model === "gpt" && !openaiApiKey) {
+    return errorResponse(
+      model,
+      500,
+      "No OpenAI API key was found.",
+      "Add OPENAI_API_KEY=your_key to .env and restart the server.",
+      startedAt,
+    );
+  }
+
+  if (model !== "claude" && model !== "gpt" && model !== "mistral" && !apiKey) {
     return errorResponse(
       model,
       500,
@@ -302,23 +317,13 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  if (model === "kimi" && !projectId) {
-    return errorResponse(
-      model,
-      500,
-      "No Google Cloud project ID was found.",
-      "Add PROJECT_ID=your_project_id to .env and restart the server.",
-      startedAt,
-    );
-  }
-
   try {
     if (model === "claude") {
       return await testClaude(anthropicApiKey!, startedAt);
     }
 
-    if (model === "kimi") {
-      return await testKimi(apiKey!, projectId!, startedAt);
+    if (model === "gpt") {
+      return await testGpt(openaiApiKey!, openaiModel, startedAt);
     }
 
     if (model === "mistral") {
@@ -330,7 +335,7 @@ export async function POST(request: NextRequest) {
     return errorResponse(
       model,
       502,
-      "Could not connect to Vertex AI.",
+      "Could not connect to the model provider.",
       error instanceof Error ? error.message : "Unknown connection error.",
       startedAt,
     );

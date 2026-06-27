@@ -137,7 +137,7 @@ function ModelLogo({ id }: { id: string }) {
   const logos: Record<string, { src: string; w: number; label: string }> = {
     gemini: { src: "/logos/gemini.svg", w: 72,  label: "Gemini"    },
     claude: { src: "/logos/claude.svg", w: 76,  label: "Claude"    },
-    kimi:   { src: "/logos/kimi.svg",   w: 38,  label: "Kimi"      },
+    gpt:    { src: "/logos/gpt.svg",    w: 64,  label: "GPT"       },
     mistral:{ src: "/logos/mistral.svg",w: 90,  label: "Mistral AI" },
   };
   const logo = logos[id];

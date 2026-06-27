@@ -33,7 +33,7 @@ const MON3 = [
 const PROVIDER_NAMES: Record<string, string> = {
   gemini: "Gemini",
   claude: "Claude",
-  kimi: "Kimi",
+  gpt: "GPT",
   mistral: "Mistral",
   grok: "Grok",
   llama: "Llama",
