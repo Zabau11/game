@@ -708,7 +708,7 @@ button { font: inherit; cursor: pointer; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 34px;
+  margin-bottom: 18px;
 }
 .mc-round-badge {
   display: inline-flex;
@@ -1391,7 +1391,7 @@ button { font: inherit; cursor: pointer; }
   }
 
   .mc-card-top {
-    margin-bottom: 24px;
+    margin-bottom: 14px;
     gap: 14px;
   }
 
