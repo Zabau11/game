@@ -598,6 +598,46 @@ button { font: inherit; cursor: pointer; }
   box-shadow: 0 8px 20px -6px rgba(0,0,0,0.18);
 }
 
+/* ── Streak glow ── */
+.mc-game-card-outer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 34px;
+}
+.mc-game-card-outer > .mc-game-card {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes mc-borderGlow1 {
+  0%, 100% { box-shadow: 0 0 10px 2px rgba(0,122,255,0.10),   0 0 28px 7px rgba(0,122,255,0.04); }
+  50%       { box-shadow: 0 0 10px 2px rgba(175,82,222,0.10), 0 0 28px 7px rgba(175,82,222,0.04); }
+}
+@keyframes mc-borderGlow2 {
+  0%, 100% { box-shadow: 0 0 16px 4px rgba(0,122,255,0.28),   0 0 50px 14px rgba(0,122,255,0.11); }
+  50%       { box-shadow: 0 0 16px 4px rgba(175,82,222,0.28), 0 0 50px 14px rgba(175,82,222,0.11); }
+}
+@keyframes mc-borderGlow3 {
+  0%   { box-shadow: 0 0 20px 5px rgba(255,149,0,0.36),   0 0 60px 18px rgba(255,149,0,0.14); }
+  33%  { box-shadow: 0 0 20px 5px rgba(175,82,222,0.36),  0 0 60px 18px rgba(175,82,222,0.14); }
+  66%  { box-shadow: 0 0 20px 5px rgba(0,122,255,0.36),   0 0 60px 18px rgba(0,122,255,0.14); }
+  100% { box-shadow: 0 0 20px 5px rgba(255,149,0,0.36),   0 0 60px 18px rgba(255,149,0,0.14); }
+}
+@keyframes mc-borderGlow4 {
+  0%   { box-shadow: 0 0 26px 7px rgba(255,149,0,0.46),   0 0 75px 22px rgba(255,149,0,0.18); }
+  25%  { box-shadow: 0 0 26px 7px rgba(52,199,89,0.46),   0 0 75px 22px rgba(52,199,89,0.18); }
+  50%  { box-shadow: 0 0 26px 7px rgba(0,122,255,0.46),   0 0 75px 22px rgba(0,122,255,0.18); }
+  75%  { box-shadow: 0 0 26px 7px rgba(175,82,222,0.46),  0 0 75px 22px rgba(175,82,222,0.18); }
+  100% { box-shadow: 0 0 26px 7px rgba(255,149,0,0.46),   0 0 75px 22px rgba(255,149,0,0.18); }
+}
+
+.mc-game-card-outer--glow-1 { animation: mc-borderGlow1 9s   ease-in-out infinite; }
+.mc-game-card-outer--glow-2 { animation: mc-borderGlow2 5s   ease-in-out infinite; }
+.mc-game-card-outer--glow-3 { animation: mc-borderGlow3 2.5s linear infinite; }
+.mc-game-card-outer--glow-4 { animation: mc-borderGlow4 1.2s linear infinite; }
+
 /* ── Game card ── */
 .mc-game-card {
   position: relative;
@@ -1487,5 +1527,10 @@ button { font: inherit; cursor: pointer; }
   .mc-choice--selected {
     animation: none !important;
     opacity: 1;
+  }
+
+  .mc-game-card-outer[class*="--glow"] {
+    animation: none !important;
+    box-shadow: none;
   }
 }

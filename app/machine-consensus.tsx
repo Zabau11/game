@@ -658,6 +658,7 @@ export function Outguess({
   const runOver = inReveal && revealDone && !pickedCorrect;
 
   const correctCount = results.filter((r) => r.correct).length;
+  const glowTier = correctCount >= 12 ? 4 : correctCount >= 6 ? 3 : correctCount >= 2 ? 2 : 1;
   const recentResults = results.slice(-5);
   const verdict = survivalVerdict(correctCount);
   const beatPct = Math.min(99, Math.round(6 + Math.log2(correctCount + 1) * 18));
@@ -824,6 +825,7 @@ export function Outguess({
 
         {/* PLAYING */}
         {screen === "playing" && (
+          <div className={`mc-game-card-outer${glowTier > 0 ? ` mc-game-card-outer--glow-${glowTier}` : ""}`}>
           <section
             key={runKey}
             className={`mc-game-card${introEnabled ? " mc-game-card--building" : ""}${feedbackClass}`}
@@ -906,6 +908,7 @@ export function Outguess({
 
             </div>
           </section>
+          </div>
         )}
 
         {/* SCORE */}
