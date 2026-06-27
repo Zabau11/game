@@ -120,17 +120,41 @@ function shuffleQuestions(
   questions: MCQuestion[],
   avoidFirst?: MCQuestion,
 ): MCQuestion[] {
-  const shuffled = [...questions];
+  const shuffled = questions.map(shuffleQuestionOptions);
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
 
-  if (avoidFirst && shuffled.length > 1 && shuffled[0] === avoidFirst) {
+  if (
+    avoidFirst &&
+    shuffled.length > 1 &&
+    shuffled[0].prompt === avoidFirst.prompt
+  ) {
     [shuffled[0], shuffled[1]] = [shuffled[1], shuffled[0]];
   }
 
   return shuffled;
+}
+
+function shuffleQuestionOptions(question: MCQuestion): MCQuestion {
+  const choices = question.options.map((option, index) => ({
+    option,
+    pct: question.pct[index],
+    wasWinner: index === question.winnerIndex,
+  }));
+
+  for (let i = choices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [choices[i], choices[j]] = [choices[j], choices[i]];
+  }
+
+  return {
+    ...question,
+    options: choices.map((choice) => choice.option),
+    pct: choices.map((choice) => choice.pct),
+    winnerIndex: choices.findIndex((choice) => choice.wasWinner),
+  };
 }
 
 function ModelLogo({ id }: { id: string }) {
