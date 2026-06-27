@@ -134,11 +134,11 @@ function shuffleQuestions(
 }
 
 function ModelLogo({ id }: { id: string }) {
-  const logos: Record<string, { src: string; w: number; label: string }> = {
-    gemini: { src: "/logos/gemini.svg", w: 72,  label: "Gemini"    },
-    claude: { src: "/logos/claude.svg", w: 76,  label: "Claude"    },
-    gpt:    { src: "/logos/gpt.svg",    w: 64,  label: "GPT"       },
-    mistral:{ src: "/logos/mistral.svg",w: 90,  label: "Mistral AI" },
+  const logos: Record<string, { src: string; w: number; h: number; label: string }> = {
+    gemini: { src: "/logos/gemini.svg", w: 72, h: 18, label: "Gemini"    },
+    claude: { src: "/logos/claude.svg", w: 76, h: 18, label: "Claude"    },
+    gpt:    { src: "/logos/openai.svg", w: 74, h: 20, label: "OpenAI"    },
+    mistral:{ src: "/logos/mistral.svg",w: 90, h: 18, label: "Mistral AI" },
   };
   const logo = logos[id];
   if (!logo) return <span>{id}</span>;
@@ -147,7 +147,7 @@ function ModelLogo({ id }: { id: string }) {
       src={logo.src}
       alt={logo.label}
       width={logo.w}
-      height={18}
+      height={logo.h}
       style={{ display: "block", objectFit: "contain" }}
       draggable={false}
     />

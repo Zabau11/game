@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-27T13:52:26.401Z",
+  "updatedAt": "2026-06-27T14:09:24.868Z",
   "consensusLabel": "AI consensus estimate",
   "models": [
     "gemini-2.5-flash",
@@ -17,27 +17,27 @@
         {
           "id": "tony-stark",
           "label": "Tony Stark",
-          "percentage": 48
+          "percentage": 40
         },
         {
           "id": "batman",
           "label": "Batman",
-          "percentage": 17
+          "percentage": 23
         },
         {
           "id": "hermione-granger",
           "label": "Hermione Granger",
-          "percentage": 21
+          "percentage": 22
         },
         {
           "id": "willy-wonka",
           "label": "Willy Wonka",
-          "percentage": 14
+          "percentage": 15
         }
       ],
       "status": "ready",
       "winner": "tony-stark",
-      "explanation": "Tony Stark's proven track record as a tech entrepreneur and inventor makes him the ideal startup founder, while the others have significant limitations in business focus or modern startup skills.",
+      "explanation": "Hermione Granger leads due to her strategic brilliance and adaptability, while Tony Stark and Batman offer strong leadership but with higher risks, and Willy Wonka brings creativity but lacks discipline.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -64,6 +64,18 @@
           "latencyMs": 1936
         },
         {
+          "provider": "gpt",
+          "model": "gpt-5.4-nano",
+          "probabilities": {
+            "tony-stark": 40,
+            "batman": 35,
+            "hermione-granger": 15,
+            "willy-wonka": 10
+          },
+          "explanation": "Tony Stark and Batman lead as the most startup-ready mix of vision, execution, and resources, while Hermione leans toward disciplined problem-solving and Willy Wonka toward playful but riskier experimentation.",
+          "latencyMs": 2638
+        },
+        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -76,7 +88,7 @@
           "latencyMs": 1486
         }
       ],
-      "generatedAt": "2026-06-26T22:38:49.288Z"
+      "generatedAt": "2026-06-27T13:59:29.821Z"
     },
     {
       "id": "world-capital-brand-001",
@@ -86,27 +98,27 @@
         {
           "id": "google",
           "label": "Google",
-          "percentage": 33
+          "percentage": 32
         },
         {
           "id": "apple",
           "label": "Apple",
-          "percentage": 32
+          "percentage": 29
         },
         {
           "id": "mcdonalds",
           "label": "McDonald's",
-          "percentage": 10
+          "percentage": 11
         },
         {
           "id": "disney",
           "label": "Disney",
-          "percentage": 25
+          "percentage": 28
         }
       ],
       "status": "ready",
       "winner": "google",
-      "explanation": "Google dominates through existing global information infrastructure, while Apple offers ecosystem control, Disney cultural narrative power, and McDonald's logistical ubiquity.",
+      "explanation": "Google gets the highest likelihood for running the world for a day, with Disney next for whimsical control, and Apple and McDonald's trailing as more niche-feeling contenders.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -133,6 +145,18 @@
           "latencyMs": 1732
         },
         {
+          "provider": "gpt",
+          "model": "gpt-5.4-nano",
+          "probabilities": {
+            "google": 45,
+            "apple": 15,
+            "mcdonalds": 15,
+            "disney": 25
+          },
+          "explanation": "Google gets the highest likelihood for running the world for a day, with Disney next for whimsical control, and Apple and McDonald's trailing as more niche-feeling contenders.",
+          "latencyMs": 1065
+        },
+        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -145,7 +169,7 @@
           "latencyMs": 1001
         }
       ],
-      "generatedAt": "2026-06-26T22:39:01.464Z"
+      "generatedAt": "2026-06-27T13:59:30.889Z"
     },
     {
       "id": "apocalypse-car-001",
@@ -155,22 +179,22 @@
         {
           "id": "pickup-truck",
           "label": "Pickup truck",
-          "percentage": 62
+          "percentage": 54
         },
         {
           "id": "bmw",
           "label": "BMW",
-          "percentage": 4
+          "percentage": 6
         },
         {
           "id": "tesla",
           "label": "Tesla",
-          "percentage": 14
+          "percentage": 16
         },
         {
           "id": "school-bus",
           "label": "School bus",
-          "percentage": 20
+          "percentage": 24
         }
       ],
       "status": "ready",
@@ -202,6 +226,18 @@
           "latencyMs": 1969
         },
         {
+          "provider": "gpt",
+          "model": "gpt-5.4-nano",
+          "probabilities": {
+            "pickup-truck": 30,
+            "bmw": 15,
+            "tesla": 20,
+            "school-bus": 35
+          },
+          "explanation": "Most people would likely pick a school-bus for capacity and practicality, with pickup-trucks close behind, while Teslas and BMWs are less favored.",
+          "latencyMs": 1330
+        },
+        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -214,7 +250,7 @@
           "latencyMs": 780
         }
       ],
-      "generatedAt": "2026-06-26T22:39:09.474Z"
+      "generatedAt": "2026-06-27T13:59:32.221Z"
     },
     {
       "id": "alien-food-001",
@@ -224,22 +260,22 @@
         {
           "id": "pizza",
           "label": "Pizza",
-          "percentage": 33
+          "percentage": 34
         },
         {
           "id": "chocolate",
           "label": "Chocolate",
-          "percentage": 26
+          "percentage": 25
         },
         {
           "id": "ice-cream",
           "label": "Ice cream",
-          "percentage": 21
+          "percentage": 18
         },
         {
           "id": "sushi",
           "label": "Sushi",
-          "percentage": 20
+          "percentage": 23
         }
       ],
       "status": "ready",
@@ -271,6 +307,18 @@
           "latencyMs": 1851
         },
         {
+          "provider": "gpt",
+          "model": "gpt-5.4-nano",
+          "probabilities": {
+            "pizza": 45,
+            "chocolate": 25,
+            "ice-cream": 10,
+            "sushi": 20
+          },
+          "explanation": "Pizza is most likely to impress due to its universal appeal and easy shareability, with chocolate and sushi as strong runner-ups and ice-cream as a lighter, novelty choice.",
+          "latencyMs": 1541
+        },
+        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -283,7 +331,7 @@
           "latencyMs": 824
         }
       ],
-      "generatedAt": "2026-06-26T22:39:20.108Z"
+      "generatedAt": "2026-06-27T13:59:33.765Z"
     },
     {
       "id": "internet-object-001",
@@ -293,12 +341,12 @@
         {
           "id": "smartphone",
           "label": "Smartphone",
-          "percentage": 28
+          "percentage": 31
         },
         {
           "id": "spider-web",
           "label": "Spider web",
-          "percentage": 46
+          "percentage": 41
         },
         {
           "id": "shopping-mall",
@@ -308,7 +356,7 @@
         {
           "id": "library",
           "label": "Library",
-          "percentage": 13
+          "percentage": 15
         }
       ],
       "status": "ready",
@@ -340,6 +388,18 @@
           "latencyMs": 1711
         },
         {
+          "provider": "gpt",
+          "model": "gpt-5.4-nano",
+          "probabilities": {
+            "smartphone": 35,
+            "spider-web": 40,
+            "shopping-mall": 10,
+            "library": 15
+          },
+          "explanation": "The internet is most like a spider-web of interconnected links, with smartphones as a common access point, and smaller shares for library-like information and mall-like browsing.",
+          "latencyMs": 1744
+        },
+        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -352,7 +412,7 @@
           "latencyMs": 964
         }
       ],
-      "generatedAt": "2026-06-26T22:39:33.723Z"
+      "generatedAt": "2026-06-27T13:59:35.511Z"
     },
     {
       "id": "best-teacher-famous-character-001",
@@ -362,27 +422,27 @@
         {
           "id": "mary-poppins",
           "label": "Mary Poppins",
-          "percentage": 39
+          "percentage": 34
         },
         {
           "id": "yoda",
           "label": "Yoda",
-          "percentage": 17
+          "percentage": 19
         },
         {
           "id": "dumbledore",
           "label": "Dumbledore",
-          "percentage": 35
+          "percentage": 36
         },
         {
           "id": "spider-man",
           "label": "Spider-Man",
-          "percentage": 9
+          "percentage": 11
         }
       ],
       "status": "ready",
-      "winner": "mary-poppins",
-      "explanation": "Mary Poppins is the most qualified, Dumbledore is a close second, Yoda is too cryptic, and Spider-Man is too young.",
+      "winner": "dumbledore",
+      "explanation": "Dumbledore leads due to wisdom and authority, while Mary Poppins and Yoda offer charm and patience, with Spider-Man being the least practical.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -409,6 +469,18 @@
           "latencyMs": 1532
         },
         {
+          "provider": "gpt",
+          "model": "gpt-5.4-nano",
+          "probabilities": {
+            "mary-poppins": 30,
+            "yoda": 20,
+            "dumbledore": 35,
+            "spider-man": 15
+          },
+          "explanation": "Dumbledore leads for wise, mentor-like teaching, with Mary Poppins close behind for structured kindness, while Yoda and Spider-Man offer more unconventional but inspiring styles.",
+          "latencyMs": 1410
+        },
+        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -421,7 +493,7 @@
           "latencyMs": 897
         }
       ],
-      "generatedAt": "2026-06-26T22:39:46.523Z"
+      "generatedAt": "2026-06-27T13:59:36.923Z"
     },
     {
       "id": "future-city-simple-001",
@@ -431,27 +503,27 @@
         {
           "id": "tokyo",
           "label": "Tokyo",
-          "percentage": 31
+          "percentage": 26
         },
         {
           "id": "dubai",
           "label": "Dubai",
-          "percentage": 21
+          "percentage": 26
         },
         {
           "id": "new-york",
           "label": "New York",
-          "percentage": 16
+          "percentage": 18
         },
         {
           "id": "singapore",
           "label": "Singapore",
-          "percentage": 32
+          "percentage": 30
         }
       ],
       "status": "ready",
       "winner": "singapore",
-      "explanation": "Singapore and Tokyo lead due to their advanced infrastructure and technological integration, with Dubai close behind for its rapid, futuristic development.",
+      "explanation": "Dubai is most often perceived as futuristic, with Singapore and Tokyo close behind and New York trailing slightly.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -478,6 +550,18 @@
           "latencyMs": 1980
         },
         {
+          "provider": "gpt",
+          "model": "gpt-5.4-nano",
+          "probabilities": {
+            "tokyo": 20,
+            "dubai": 34,
+            "new-york": 18,
+            "singapore": 28
+          },
+          "explanation": "Dubai is most often perceived as futuristic, with Singapore and Tokyo close behind and New York trailing slightly.",
+          "latencyMs": 799
+        },
+        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -490,7 +574,7 @@
           "latencyMs": 1037
         }
       ],
-      "generatedAt": "2026-06-26T22:39:56.372Z"
+      "generatedAt": "2026-06-27T13:59:37.723Z"
     },
     {
       "id": "haunted-appliance-simple-001",
@@ -500,27 +584,27 @@
         {
           "id": "refrigerator",
           "label": "Refrigerator",
-          "percentage": 30
+          "percentage": 33
         },
         {
           "id": "washing-machine",
           "label": "Washing machine",
-          "percentage": 29
+          "percentage": 31
         },
         {
           "id": "smart-speaker",
           "label": "Smart speaker",
-          "percentage": 29
+          "percentage": 20
         },
         {
           "id": "toaster",
           "label": "Toaster",
-          "percentage": 12
+          "percentage": 16
         }
       ],
       "status": "ready",
       "winner": "refrigerator",
-      "explanation": "One concise sentence.",
+      "explanation": "Smart speakers and refrigerators are perceived as most unsettling due to their eerie silence and cold storage associations.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -547,6 +631,18 @@
           "latencyMs": 1921
         },
         {
+          "provider": "gpt",
+          "model": "gpt-5.4-nano",
+          "probabilities": {
+            "refrigerator": 25,
+            "washing-machine": 35,
+            "smart-speaker": 15,
+            "toaster": 25
+          },
+          "explanation": "A haunted washing-machine is most likely to feel worst, while toaster and refrigerator are close behind and a haunted smart-speaker is least bad.",
+          "latencyMs": 1390
+        },
+        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -559,7 +655,7 @@
           "latencyMs": 924
         }
       ],
-      "generatedAt": "2026-06-26T22:40:43.312Z"
+      "generatedAt": "2026-06-27T13:59:39.116Z"
     },
     {
       "id": "moon-restaurant-001",
@@ -574,22 +670,22 @@
         {
           "id": "starbucks",
           "label": "Starbucks",
-          "percentage": 25
+          "percentage": 21
         },
         {
           "id": "dominos",
           "label": "Domino's",
-          "percentage": 25
+          "percentage": 20
         },
         {
           "id": "subway",
           "label": "Subway",
-          "percentage": 12
+          "percentage": 21
         }
       ],
       "status": "ready",
       "winner": "mcdonalds",
-      "explanation": "One concise sentence.",
+      "explanation": "McDonald's is the most likely due to its global ubiquity and history of pioneering new markets, with Domino's a strong contender given its delivery model.",
       "modelResults": [
         {
           "provider": "gemini",
@@ -616,6 +712,18 @@
           "latencyMs": 1712
         },
         {
+          "provider": "gpt",
+          "model": "gpt-5.4-nano",
+          "probabilities": {
+            "mcdonalds": 20,
+            "starbucks": 25,
+            "dominos": 10,
+            "subway": 45
+          },
+          "explanation": "Subway is most likely due to its fast, modular sandwich concept and broad global footprint, with Starbucks and McDonald's next and Domino's least likely given delivery-centric logistics.",
+          "latencyMs": 1040
+        },
+        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -628,7 +736,7 @@
           "latencyMs": 1098
         }
       ],
-      "generatedAt": "2026-06-26T22:41:21.039Z"
+      "generatedAt": "2026-06-27T13:59:40.158Z"
     },
     {
       "id": "time-travel-product-001",
@@ -685,6 +793,18 @@
           "latencyMs": 1834
         },
         {
+          "provider": "gpt",
+          "model": "gpt-5.4-nano",
+          "probabilities": {
+            "smartphone": 40,
+            "airplane": 10,
+            "microwave": 20,
+            "video-game": 30
+          },
+          "explanation": "A smartphone is most difficult to explain due to its complex invisible electronics and software, with video games and microwaves also challenging, while airplanes are comparatively easier to relate to 1800-era engineering.",
+          "latencyMs": 1073
+        },
+        {
           "provider": "mistral",
           "model": "mistral-small-latest",
           "probabilities": {
@@ -697,7 +817,7 @@
           "latencyMs": 713
         }
       ],
-      "generatedAt": "2026-06-26T22:41:35.587Z"
+      "generatedAt": "2026-06-27T13:59:41.232Z"
     }
   ]
 }
