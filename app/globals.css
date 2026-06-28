@@ -1618,65 +1618,389 @@ button { font: inherit; cursor: pointer; }
 .mc-btn-close:hover { background: #e0e0e3; }
 
 @media (max-width: 760px) {
+  html, body {
+    overflow: auto;
+  }
+
+  .mc-root {
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .mc-root::before {
+    opacity: 0.68;
+    filter: blur(28px);
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, transparent 54px, rgba(0,0,0,0.5) 120px, #000 210px);
+    mask-image: linear-gradient(180deg, transparent 0, transparent 54px, rgba(0,0,0,0.5) 120px, #000 210px);
+  }
+
+  .mc-header {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.78);
+    backdrop-filter: saturate(180%) blur(18px);
+    -webkit-backdrop-filter: saturate(180%) blur(18px);
+  }
+
+  .mc-header-inner {
+    height: 50px;
+    padding: 0 16px;
+    gap: 10px;
+  }
+
+  .mc-brand {
+    font-size: 15px;
+  }
+
+  .mc-nav-links {
+    display: none;
+  }
+
+  .mc-best-pill,
+  .mc-header-score {
+    width: auto;
+    min-width: 76px;
+  }
+
+  .mc-best-pill {
+    gap: 6px;
+    padding: 6px 10px;
+  }
+
+  .mc-best-label,
+  .mc-best-sep,
+  .mc-header-score span {
+    display: none;
+  }
+
+  .mc-best-num {
+    font-size: 16px;
+  }
+
+  .mc-header-score strong {
+    min-width: 32px;
+    padding: 5px 10px;
+  }
+
+  .mc-progress {
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .mc-pips {
+    max-width: 112px;
+    overflow: hidden;
+  }
+
+  .mc-pip {
+    width: 18px;
+  }
+
+  .mc-counter {
+    font-size: 12px;
+  }
+
   .mc-float-wrap--mobile-hide {
     display: none;
   }
 
+  .mc-float-layer {
+    opacity: 0.54;
+  }
+
+  .mc-float-wrap {
+    transform: scale(0.78);
+    transform-origin: top left;
+  }
+
   .mc-main {
     align-items: flex-start;
-    padding: 18px;
+    justify-content: flex-start;
+    padding: 18px 14px calc(20px + env(safe-area-inset-bottom));
+    overflow: visible;
+  }
+
+  .mc-landing {
+    display: flex;
+    min-height: calc(100dvh - 88px);
+    flex-direction: column;
+    justify-content: center;
+    padding: 18px 0 26px;
+  }
+
+  .mc-badge {
+    max-width: 100%;
+    margin-bottom: 22px;
+    font-size: 10.5px;
+    white-space: normal;
+  }
+
+  .mc-display {
+    font-size: clamp(44px, 15vw, 62px);
+    line-height: 1.02;
+    margin-bottom: 16px;
+  }
+
+  .mc-lede {
+    max-width: 330px;
+    margin: 0 auto 22px;
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .mc-btn-play {
+    width: min(100%, 304px);
+    min-height: 54px;
+    padding: 15px 26px;
+    font-size: 16px;
+  }
+
+  .mc-poll {
+    margin-top: 16px;
+  }
+
+  .mc-poll-logos {
+    gap: 6px;
+  }
+
+  .mc-chip--logo {
+    min-width: 86px;
+    justify-content: center;
+    padding: 6px 10px;
+  }
+
+  .mc-meta-row {
+    margin-top: 16px;
   }
 
   .mc-game-card {
     width: 100%;
+    min-height: calc(100dvh - 86px);
     max-height: none;
-    border-radius: 28px;
-    padding: 24px;
+    border-radius: 24px;
+    padding: 20px;
+  }
+
+  .mc-game-card-outer {
+    width: 100%;
+    align-items: stretch;
+    border-radius: 24px;
   }
 
   .mc-card-top {
     margin-bottom: 14px;
-    gap: 14px;
-  }
-
-  .mc-streak-area {
     gap: 10px;
   }
 
+  .mc-round-badge {
+    padding: 7px 12px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .mc-streak-area {
+    gap: 8px;
+  }
+
   .mc-streak-label {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .mc-streak-num {
-    font-size: 18px;
+    min-width: 16px;
+    font-size: 17px;
   }
 
   .mc-phase-label {
     text-align: left;
+    margin-bottom: 10px;
+    font-size: 11px;
   }
 
   .mc-prompt-box {
-    border-radius: 20px;
-    padding: 22px;
-    margin-bottom: 22px;
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 18px;
   }
 
   .mc-prompt-text {
-    font-size: 22px;
+    font-size: clamp(21px, 6.3vw, 26px);
     line-height: 1.25;
+    text-align: left;
+    letter-spacing: -0.025em;
+  }
+
+  .mc-choices-hint {
+    margin-bottom: 12px;
+    font-size: 13px;
+    text-align: left;
+  }
+
+  .mc-choices-error {
+    margin: -2px 0 12px;
     text-align: left;
   }
 
   .mc-choices {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
   }
 
   .mc-choice {
-    min-height: 76px;
-    padding: 18px 20px;
-    border-radius: 18px;
-    font-size: 15.5px;
+    min-height: 64px;
+    padding: 15px 16px;
+    border-radius: 16px;
+    font-size: 15px;
+    line-height: 1.28;
+  }
+
+  .mc-choice--compact {
+    min-height: 54px;
+    padding: 13px 15px;
+  }
+
+  .mc-choice-pct-label {
+    padding-left: 10px;
+    font-size: 14px;
+  }
+
+  .mc-predict-area {
+    max-height: none;
+  }
+
+  .mc-predict-area--compact {
+    max-height: none;
+  }
+
+  .mc-predict-area--compact .mc-prompt-box {
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+
+  .mc-explain-outer--open {
+    max-height: 520px;
+  }
+
+  .mc-explain {
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+
+  .mc-explain-text {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .mc-dissent-row {
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .mc-dissent-tag {
+    display: inline-flex;
+    margin: 0 0 7px;
+  }
+
+  .mc-dissent-text {
+    font-size: 13.5px;
+  }
+
+  .mc-btn-next {
+    min-height: 52px;
+    padding: 14px 24px;
+    font-size: 16px;
+  }
+
+  .mc-score-card {
+    width: 100%;
+    border-radius: 24px;
+    padding: 30px 22px 24px;
+  }
+
+  .mc-score-big {
+    font-size: clamp(72px, 22vw, 92px);
+  }
+
+  .mc-score-denom {
+    font-size: 30px;
+  }
+
+  .mc-score-verdict {
+    margin-bottom: 18px;
+  }
+
+  .mc-symbols {
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+
+  .mc-symbol {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .mc-stats {
+    gap: 0;
+    justify-content: space-between;
+    padding: 14px 0;
+    margin-bottom: 18px;
+  }
+
+  .mc-stat {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .mc-stat-value {
+    font-size: 24px;
+  }
+
+  .mc-stat-unit {
+    display: block;
+    margin: 1px 0 0;
+    font-size: 11px;
+  }
+
+  .mc-overlay {
+    align-items: flex-end;
+    padding: 12px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+
+  .mc-help-card,
+  .mc-share-card {
+    max-height: min(88dvh, 680px);
+    border-radius: 24px;
+    padding: 26px 22px 22px;
+  }
+
+  .mc-help-title {
+    font-size: 34px;
+  }
+
+  .mc-share-scorerow {
+    align-items: center;
+  }
+
+  .mc-share-score {
+    font-size: 60px;
+  }
+
+  .mc-share-actions {
+    flex-direction: column;
+  }
+
+  .mc-btn-copy,
+  .mc-btn-close {
+    width: 100%;
+    min-height: 48px;
   }
 
 }
