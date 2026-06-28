@@ -563,8 +563,9 @@ export function Outguess({
       return;
     }
 
-    if ((qIndex + 1) % total === 0) {
-      setQuestionDeck(shuffleQuestions(questions, questionDeck[qIndex % total]));
+    if (qIndex + 1 >= total) {
+      setScreen("score");
+      return;
     }
 
     setQIndex((q) => q + 1);
@@ -572,7 +573,7 @@ export function Outguess({
     setPicked(null);
     setProgress(0);
     setRevealDone(false);
-  }, [qIndex, questionDeck, questions, results, total]);
+  }, [qIndex, results, total]);
 
   const copyShare = useCallback(() => {
     const correct = results.filter((r) => r.correct).length;
@@ -656,13 +657,15 @@ export function Outguess({
   const inReveal = phase === "reveal";
   const pickedCorrect = picked === win;
   const runOver = inReveal && revealDone && !pickedCorrect;
+  const runComplete = inReveal && revealDone && pickedCorrect && qIndex + 1 >= total;
 
   const correctCount = results.filter((r) => r.correct).length;
+  const isPerfectRun = results.length >= total && correctCount === total;
   const glowTier = correctCount >= 12 ? 4 : correctCount >= 6 ? 3 : correctCount >= 2 ? 2 : 1;
   const recentResults = results.slice(-5);
-  const verdict = survivalVerdict(correctCount);
+  const verdict = isPerfectRun ? "You outguessed the entire machine." : survivalVerdict(correctCount);
   const beatPct = Math.min(99, Math.round(6 + Math.log2(correctCount + 1) * 18));
-  const totalLabel = "∞";
+  const totalLabel = String(total);
 
   useEffect(() => {
     if (correctCount <= bestScore) return;
@@ -900,7 +903,7 @@ export function Outguess({
                       <p className="mc-dissent-text">{q.disagreement}</p>
                     </div>
                     <button className="mc-btn-next" onClick={next}>
-                      {runOver ? "See verdict" : "Next question"} →
+                      {runOver || runComplete ? "See verdict" : "Next question"} →
                     </button>
                   </div>
                 )}
@@ -913,13 +916,25 @@ export function Outguess({
 
         {/* SCORE */}
         {screen === "score" && (
-          <section className="mc-score-card">
-            <div className="mc-score-over">Survival Verdict — {dateLabel}</div>
+          <section className={`mc-score-card${isPerfectRun ? " mc-score-card--perfect" : ""}`}>
+            {isPerfectRun && (
+              <div className="mc-perfect-burst" aria-hidden>
+                {Array.from({ length: 18 }, (_, i) => (
+                  <span key={i} style={{ "--i": i } as React.CSSProperties} />
+                ))}
+              </div>
+            )}
+            <div className="mc-score-over">
+              {isPerfectRun ? "Perfect Run" : "Survival Verdict"} — {dateLabel}
+            </div>
             <div className="mc-score-big">
               {correctCount}
+              {isPerfectRun ? <span className="mc-score-denom">/{total}</span> : null}
             </div>
             <div className="mc-score-correct">
-              correct answer{correctCount === 1 ? "" : "s"} before the miss
+              {isPerfectRun
+                ? "you cleared every question"
+                : `correct answer${correctCount === 1 ? "" : "s"} before the miss`}
             </div>
             <div className="mc-score-verdict">{verdict}</div>
 
@@ -1012,10 +1027,10 @@ export function Outguess({
             </div>
 
             <div className="mc-help-rule">
-              <span>∞</span>
+              <span>{total}</span>
               <p>
-                Questions are shuffled from the full bank. If you clear the bank,
-                it reshuffles and keeps going.
+                Questions are shuffled from the full bank. Clear all {total} in
+                one run to trigger a perfect finish.
               </p>
             </div>
 

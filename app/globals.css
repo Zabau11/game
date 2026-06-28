@@ -144,6 +144,66 @@ button { font: inherit; cursor: pointer; }
   32%  { box-shadow: 0 20px 44px -20px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.03), 0 0 0 7px rgba(214,69,58,0.2); }
   100% { box-shadow: 0 24px 56px -20px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.04), 0 0 0 16px rgba(214,69,58,0); }
 }
+@keyframes mc-perfectCardIn {
+  0% {
+    opacity: 0;
+    transform: perspective(1000px) translate3d(0, 44px, 0) rotateX(12deg) rotateZ(-4deg) scale(.82);
+    filter: blur(18px) saturate(140%);
+  }
+  42% {
+    opacity: 1;
+    transform: perspective(1000px) translate3d(0, -10px, 0) rotateX(-3deg) rotateZ(2deg) scale(1.075);
+    filter: blur(0) saturate(170%);
+  }
+  68% {
+    transform: perspective(1000px) translate3d(0, 4px, 0) rotateX(1deg) rotateZ(-.8deg) scale(.985);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1000px) translate3d(0, 0, 0) rotateX(0) rotateZ(0) scale(1);
+    filter: blur(0) saturate(120%);
+  }
+}
+@keyframes mc-perfectFloat {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
+  50%      { transform: translate3d(0, -7px, 0) rotateZ(.45deg); }
+}
+@keyframes mc-perfectAura {
+  from { transform: rotate(0deg) scale(1); }
+  to   { transform: rotate(360deg) scale(1.04); }
+}
+@keyframes mc-perfectSweep {
+  0%   { transform: translateX(-130%) skewX(-10deg); opacity: 0; }
+  18%  { opacity: .9; }
+  46%  { opacity: .18; }
+  100% { transform: translateX(130%) skewX(-10deg); opacity: 0; }
+}
+@keyframes mc-perfectScorePulse {
+  0%   { transform: scale(.84); filter: blur(8px); opacity: .35; }
+  48%  { transform: scale(1.16); filter: blur(0); opacity: 1; }
+  72%  { transform: scale(.97); }
+  100% { transform: scale(1); }
+}
+@keyframes mc-perfectSymbol {
+  0%   { opacity: 0; transform: translateY(18px) scale(.35) rotate(-18deg); }
+  58%  { opacity: 1; transform: translateY(-7px) scale(1.18) rotate(8deg); }
+  100% { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
+}
+@keyframes mc-perfectSpark {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-12px) scale(.3);
+  }
+  18% { opacity: 1; }
+  72% {
+    opacity: .95;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-215px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-250px) scale(.18);
+  }
+}
 @keyframes mc-cursorBlink {
   0%, 100% { opacity: 0.45; }
   50%       { opacity: 0; }
@@ -1069,6 +1129,9 @@ button { font: inherit; cursor: pointer; }
 
 /* ── Score card ── */
 .mc-score-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   width: 480px;
   max-width: 100%;
   background: rgba(255,255,255,0.82);
@@ -1080,6 +1143,125 @@ button { font: inherit; cursor: pointer; }
   padding: 48px 40px;
   text-align: center;
   animation: pk-fadeIn .4s ease both;
+}
+.mc-score-card > * {
+  position: relative;
+  z-index: 1;
+}
+.mc-score-card--perfect {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.78)),
+    radial-gradient(circle at 20% 15%, rgba(0,122,255,0.24), transparent 32%),
+    radial-gradient(circle at 80% 18%, rgba(191,90,242,0.22), transparent 30%),
+    radial-gradient(circle at 50% 86%, rgba(255,204,0,0.24), transparent 36%);
+  border-color: rgba(255,149,0,0.32);
+  box-shadow:
+    0 34px 90px -28px rgba(0,0,0,0.24),
+    0 0 0 1px rgba(255,255,255,0.72) inset,
+    0 0 46px rgba(255,149,0,0.18);
+  animation:
+    mc-perfectCardIn .95s cubic-bezier(.16,1,.3,1) both,
+    mc-perfectFloat 3.6s ease-in-out .95s infinite;
+}
+.mc-score-card--perfect::before,
+.mc-score-card--perfect::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+.mc-score-card--perfect::before {
+  inset: -38%;
+  z-index: 0;
+  background:
+    conic-gradient(
+      from 0deg,
+      rgba(0,122,255,0.0),
+      rgba(0,122,255,0.34),
+      rgba(52,199,89,0.28),
+      rgba(255,204,0,0.34),
+      rgba(191,90,242,0.32),
+      rgba(0,122,255,0.0)
+    );
+  opacity: .72;
+  filter: blur(30px);
+  animation: mc-perfectAura 4.8s linear infinite;
+}
+.mc-score-card--perfect::after {
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(
+      112deg,
+      transparent 0%,
+      transparent 36%,
+      rgba(255,255,255,0.72) 45%,
+      rgba(255,255,255,0.22) 50%,
+      transparent 62%,
+      transparent 100%
+    );
+  transform: translateX(-130%) skewX(-10deg);
+  animation: mc-perfectSweep 2.6s cubic-bezier(.16,1,.3,1) .4s infinite;
+}
+.mc-score-card--perfect .mc-score-over {
+  color: #9a5a00;
+}
+.mc-score-card--perfect .mc-score-big {
+  color: #111;
+  text-shadow:
+    0 0 22px rgba(255,204,0,0.18),
+    0 10px 36px rgba(0,0,0,0.10);
+  animation:
+    pk-pop .5s cubic-bezier(.22,.61,.36,1) .1s both,
+    mc-perfectScorePulse 1.25s cubic-bezier(.16,1,.3,1) .7s both;
+}
+.mc-score-card--perfect .mc-score-correct,
+.mc-score-card--perfect .mc-score-verdict {
+  color: #3f3f46;
+}
+.mc-score-card--perfect .mc-symbol {
+  animation: mc-perfectSymbol .88s cubic-bezier(.16,1,.3,1) both;
+}
+.mc-score-card--perfect .mc-symbol:nth-child(1) { animation-delay: .34s; }
+.mc-score-card--perfect .mc-symbol:nth-child(2) { animation-delay: .40s; }
+.mc-score-card--perfect .mc-symbol:nth-child(3) { animation-delay: .46s; }
+.mc-score-card--perfect .mc-symbol:nth-child(4) { animation-delay: .52s; }
+.mc-score-card--perfect .mc-symbol:nth-child(5) { animation-delay: .58s; }
+.mc-score-card--perfect .mc-symbol:nth-child(6) { animation-delay: .64s; }
+.mc-score-card--perfect .mc-symbol:nth-child(7) { animation-delay: .70s; }
+.mc-score-card--perfect .mc-symbol:nth-child(8) { animation-delay: .76s; }
+.mc-score-card--perfect .mc-symbol:nth-child(9) { animation-delay: .82s; }
+.mc-score-card--perfect .mc-symbol:nth-child(10) { animation-delay: .88s; }
+.mc-perfect-burst {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.mc-perfect-burst span {
+  --angle: calc(var(--i) * 20deg);
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 7px;
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ffcc00, #ff9500);
+  box-shadow: 0 0 14px rgba(255,149,0,0.42);
+  opacity: 0;
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle))
+    translateY(-12px)
+    scale(.4);
+  animation: mc-perfectSpark 1.15s cubic-bezier(.16,1,.3,1) calc(.06s * var(--i)) both;
+}
+.mc-perfect-burst span:nth-child(3n) {
+  background: linear-gradient(180deg, #34c759, #00c7be);
+  box-shadow: 0 0 14px rgba(52,199,89,0.34);
+}
+.mc-perfect-burst span:nth-child(3n + 1) {
+  background: linear-gradient(180deg, #0a84ff, #bf5af2);
+  box-shadow: 0 0 14px rgba(10,132,255,0.34);
 }
 .mc-score-over {
   font-size: 11.5px;
@@ -1120,6 +1302,7 @@ button { font: inherit; cursor: pointer; }
 .mc-symbols {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 22px;
   animation: pk-fadeUp .45s ease .26s both;
@@ -1532,5 +1715,21 @@ button { font: inherit; cursor: pointer; }
   .mc-game-card-outer[class*="--glow"] {
     animation: none !important;
     box-shadow: none;
+  }
+
+  .mc-score-card--perfect,
+  .mc-score-card--perfect .mc-score-big,
+  .mc-score-card--perfect .mc-symbol,
+  .mc-perfect-burst span {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .mc-score-card--perfect::before,
+  .mc-score-card--perfect::after,
+  .mc-perfect-burst {
+    display: none;
   }
 }
