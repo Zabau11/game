@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "audit:questions": "node scripts/audit-question-bank.mjs",
+    "db:seed": "node scripts/seed-questions.mjs",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"

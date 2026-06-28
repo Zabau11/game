@@ -4,13 +4,49 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 export type MCOption = { name: string; mark: string };
 export type MCQuestion = {
+  id: string;
   prompt: string;
-  options: MCOption[];
-  pct: number[];
-  winnerIndex: number;
+  options: Array<MCOption & { id: string }>;
+  pct?: number[];
+  winnerIndex?: number;
+  explanation?: string;
+  disagreement?: string;
+};
+
+type RevealResponse = {
+  questionId: string;
+  pickedOptionId: string;
+  winnerId: string;
+  correct: boolean;
+  percentages: Record<string, number>;
   explanation: string;
   disagreement: string;
 };
+
+function isRevealResponse(value: unknown): value is RevealResponse {
+  if (!value || typeof value !== "object") return false;
+
+  const candidate = value as Partial<RevealResponse>;
+  return (
+    typeof candidate.questionId === "string" &&
+    typeof candidate.pickedOptionId === "string" &&
+    typeof candidate.winnerId === "string" &&
+    typeof candidate.correct === "boolean" &&
+    !!candidate.percentages &&
+    typeof candidate.percentages === "object" &&
+    typeof candidate.explanation === "string" &&
+    typeof candidate.disagreement === "string"
+  );
+}
+
+function revealErrorMessage(value: unknown) {
+  if (value && typeof value === "object" && "error" in value) {
+    const error = (value as { error?: unknown }).error;
+    if (typeof error === "string" && error.trim()) return error;
+  }
+
+  return "Could not reveal this answer.";
+}
 
 type Props = {
   questions: MCQuestion[];
@@ -140,8 +176,8 @@ function shuffleQuestions(
 function shuffleQuestionOptions(question: MCQuestion): MCQuestion {
   const choices = question.options.map((option, index) => ({
     option,
-    pct: question.pct[index],
-    wasWinner: index === question.winnerIndex,
+    pct: question.pct?.[index],
+    wasWinner: question.winnerIndex === index,
   }));
 
   for (let i = choices.length - 1; i > 0; i--) {
@@ -152,8 +188,10 @@ function shuffleQuestionOptions(question: MCQuestion): MCQuestion {
   return {
     ...question,
     options: choices.map((choice) => choice.option),
-    pct: choices.map((choice) => choice.pct),
-    winnerIndex: choices.findIndex((choice) => choice.wasWinner),
+    pct: question.pct ? choices.map((choice) => choice.pct ?? 0) : undefined,
+    winnerIndex: question.winnerIndex === undefined
+      ? undefined
+      : choices.findIndex((choice) => choice.wasWinner),
   };
 }
 
@@ -378,6 +416,7 @@ export function Outguess({
   const [progress, setProgress] = useState(0);
   const [revealDone, setRevealDone] = useState(false);
   const [results, setResults] = useState<{ correct: boolean }[]>([]);
+  const [revealError, setRevealError] = useState("");
   const [shareOpen, setShareOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -530,6 +569,7 @@ export function Outguess({
     setProgress(0);
     setRevealDone(false);
     setResults([]);
+    setRevealError("");
     setQuestionDeck(shuffleQuestions(questions));
 
     const shouldAnimateIntro = !isReduced();
@@ -539,19 +579,61 @@ export function Outguess({
   }, [clearTimers, isReduced, questions]);
 
   const choose = useCallback(
-    (i: number) => {
+    async (i: number) => {
       if (screen !== "playing" || phase !== "predict") return;
       const q = questionDeck[qIndex % total];
-      const correct = i === q.winnerIndex;
+      const pickedOptionId = q.options[i]?.id;
+      if (!pickedOptionId) return;
+
       setPicked(i);
       setPhase("locked");
-      const go = () => {
-        setPhase("reveal");
-        setResults((r) => [...r, { correct }]);
-        runReveal();
-      };
-      if (isReduced()) go();
-      else lockTimerRef.current = setTimeout(go, 560);
+      setRevealError("");
+
+      try {
+        const response = await fetch("/api/reveal", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ questionId: q.id, pickedOptionId }),
+        });
+        const payload = (await response.json()) as unknown;
+        if (!response.ok) {
+          throw new Error(revealErrorMessage(payload));
+        }
+        if (!isRevealResponse(payload)) {
+          throw new Error("The answer data came back in an unexpected shape.");
+        }
+
+        const reveal = payload;
+        const pct = q.options.map((option) => reveal.percentages[option.id] ?? 0);
+        const winnerIndex = q.options.findIndex((option) => option.id === reveal.winnerId);
+        setQuestionDeck((deck) =>
+          deck.map((question, index) =>
+            index === qIndex % total
+              ? {
+                  ...question,
+                  pct,
+                  winnerIndex,
+                  explanation: reveal.explanation,
+                  disagreement: reveal.disagreement,
+                }
+              : question,
+          ),
+        );
+
+        const go = () => {
+          setPhase("reveal");
+          setResults((r) => [...r, { correct: reveal.correct }]);
+          runReveal();
+        };
+        if (isReduced()) go();
+        else lockTimerRef.current = setTimeout(go, 360);
+      } catch (error) {
+        setRevealError(
+          error instanceof Error ? error.message : "Could not reveal this answer.",
+        );
+        setPicked(null);
+        setPhase("predict");
+      }
     },
     [screen, phase, questionDeck, qIndex, total, isReduced, runReveal],
   );
@@ -573,6 +655,7 @@ export function Outguess({
     setPicked(null);
     setProgress(0);
     setRevealDone(false);
+    setRevealError("");
   }, [qIndex, results, total]);
 
   const copyShare = useCallback(() => {
@@ -650,12 +733,13 @@ export function Outguess({
 
   // Derived
   const q = questionDeck[qIndex % total];
-  const win = q.winnerIndex;
-  const maxPct = q.pct[win];
+  const win = q.winnerIndex ?? -1;
+  const percentages = q.pct ?? q.options.map(() => 0);
+  const maxPct = win >= 0 ? Math.max(1, percentages[win]) : 100;
   const eased = easeOutCubic(progress);
   const inChoose = phase === "predict" || phase === "locked";
   const inReveal = phase === "reveal";
-  const pickedCorrect = picked === win;
+  const pickedCorrect = win >= 0 && picked === win;
   const runOver = inReveal && revealDone && !pickedCorrect;
   const runComplete = inReveal && revealDone && pickedCorrect && qIndex + 1 >= total;
 
@@ -865,6 +949,10 @@ export function Outguess({
                   </p>
                 )}
 
+                {revealError ? (
+                  <p className="mc-choices-error">{revealError}</p>
+                ) : null}
+
                 <div className="mc-choices">
                   {q.options.map((opt, i) => (
                     <button
@@ -876,13 +964,13 @@ export function Outguess({
                       {inReveal && (
                         <span
                           className="mc-choice-fill"
-                          style={{ width: `${((q.pct[i] / maxPct) * eased * 100).toFixed(1)}%` }}
+                          style={{ width: `${((percentages[i] / maxPct) * eased * 100).toFixed(1)}%` }}
                         />
                       )}
                       <span className="mc-choice-name">{opt.name}</span>
                       {inReveal && (
                         <span className="mc-choice-pct-label">
-                          {Math.round(q.pct[i] * eased)}%
+                          {Math.round(percentages[i] * eased)}%
                         </span>
                       )}
                     </button>

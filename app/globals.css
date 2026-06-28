@@ -921,6 +921,13 @@ button { font: inherit; cursor: pointer; }
   text-align: center;
   letter-spacing: -0.005em;
 }
+.mc-choices-error {
+  margin: -6px 0 16px;
+  font-size: 13px;
+  color: #b23a30;
+  text-align: center;
+  letter-spacing: -0.005em;
+}
 .mc-choices {
   display: grid;
   grid-template-columns: 1fr 1fr;
