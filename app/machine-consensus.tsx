@@ -1173,6 +1173,12 @@ export function Outguess({
 
       </main>
 
+      <footer className="mc-footer">
+        <a href="https://zabau.ceo" target="_blank" rel="noreferrer">
+          made by zabau
+        </a>
+      </footer>
+
       {/* ── How to play overlay ── */}
       {helpOpen && (
         <div className="mc-overlay" onClick={() => setHelpOpen(false)}>

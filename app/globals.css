@@ -435,6 +435,31 @@ button { font: inherit; cursor: pointer; }
   min-height: 0;
   overflow-y: auto;
 }
+.mc-footer {
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 24px 14px;
+  font-size: 12px;
+  letter-spacing: -0.005em;
+  color: rgba(29,29,31,0.42);
+}
+.mc-footer a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .15s ease, transform .15s ease;
+}
+.mc-footer a:hover {
+  color: rgba(29,29,31,0.72);
+  transform: translateY(-1px);
+}
+.mc-footer a:focus-visible {
+  outline: 2px solid #1d1d1f;
+  outline-offset: 4px;
+  border-radius: 999px;
+}
 
 /* ── Landing ── */
 .mc-float-layer {
@@ -1805,6 +1830,11 @@ button { font: inherit; cursor: pointer; }
     justify-content: flex-start;
     padding: 18px 14px calc(20px + env(safe-area-inset-bottom));
     overflow: visible;
+  }
+
+  .mc-footer {
+    padding: 0 16px calc(12px + env(safe-area-inset-bottom));
+    font-size: 11.5px;
   }
 
   .mc-landing {
