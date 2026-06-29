@@ -1256,54 +1256,23 @@ export function Outguess({
             <h2 id="mc-about-title" className="mc-help-title">
               A game about reading the machine.
             </h2>
-            <p className="mc-help-text">
-              Outguess asks you to predict how a panel of AI models will answer
-              the same question. The fun is not knowing the answer yourself. It
-              is learning whether you can sense the shape of the model consensus.
-            </p>
-
-            <div className="mc-about-sections">
-              <div className="mc-about-section">
-                <span>01</span>
-                <div>
-                  <strong>How it works</strong>
-                  <p>
-                    Each question is scored by {models.length} AI models. Their
-                    estimates are combined into one hidden consensus, then
-                    revealed only after you lock in your guess.
-                  </p>
-                </div>
-              </div>
-              <div className="mc-about-section">
-                <span>02</span>
-                <div>
-                  <strong>Why it exists</strong>
-                  <p>
-                    The game started as a small experiment in model behavior:
-                    where AIs agree, where they split, and how predictable their
-                    taste can feel.
-                  </p>
-                </div>
-              </div>
-              <div className="mc-about-section">
-                <span>03</span>
-                <div>
-                  <strong>Made by David Sabau</strong>
-                  <p>
-                    I like building compact AI products, startup experiments,
-                    and weird little internet games that make technical systems
-                    feel easier to poke at.
-                  </p>
-                </div>
-              </div>
+            <div className="mc-about-copy">
+              <p>
+                Outguess asks you to predict how a panel of AI models will
+                answer the same question. Each model scores the options, the
+                answers are combined into a hidden consensus, and the result is
+                revealed only after you lock in.
+              </p>
+              <p>
+                I built it as a small experiment in model behavior: where AIs
+                agree, where they split, and how predictable their taste can
+                feel when the question is a little strange.
+              </p>
             </div>
 
             <div className="mc-about-note">
-              <span>{total}</span>
-              <p>
-                Current run: {total} questions, one life, four model voices, and
-                one chance to think like the machine.
-              </p>
+              <span>DS</span>
+              <p>Made by David Sabau, builder of compact AI products and weird little internet experiments.</p>
             </div>
 
             <div className="mc-share-actions">

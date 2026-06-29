@@ -1462,7 +1462,7 @@ button { font: inherit; cursor: pointer; }
   animation: pk-pop .3s cubic-bezier(.22,.61,.36,1) both;
 }
 .mc-about-card {
-  width: min(560px, 100%);
+  width: min(500px, 100%);
   max-height: 92vh;
   overflow-y: auto;
   background: rgba(255,255,255,0.96);
@@ -1539,74 +1539,47 @@ button { font: inherit; cursor: pointer; }
   line-height: 1.45;
   color: #86868b;
 }
-.mc-about-sections {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 16px;
-}
-.mc-about-section {
+.mc-about-copy {
   display: grid;
-  grid-template-columns: 42px 1fr;
   gap: 14px;
-  padding: 15px 0;
-  border-top: 1px solid rgba(0,0,0,0.06);
+  margin: 0 0 24px;
 }
-.mc-about-section:first-child {
-  border-top: none;
-  padding-top: 2px;
-}
-.mc-about-section > span {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #a1a1a6;
-  padding-top: 2px;
-}
-.mc-about-section strong {
-  display: block;
-  font-size: 15px;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-  color: #1d1d1f;
-  margin-bottom: 5px;
-}
-.mc-about-section p {
+.mc-about-copy p {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.55;
-  letter-spacing: -0.005em;
-  color: #68686d;
+  font-size: 15px;
+  line-height: 1.62;
+  letter-spacing: -0.01em;
+  color: #515154;
 }
 .mc-about-note {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
-  padding: 15px;
+  padding: 12px 0;
   margin-bottom: 22px;
-  background: rgba(0,122,255,0.06);
-  border: 1px solid rgba(0,122,255,0.10);
-  border-radius: 18px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 .mc-about-note span {
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(0,122,255,0.12);
-  color: #007aff;
-  font-size: 17px;
-  font-weight: 650;
+  background: #1d1d1f;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums;
 }
 .mc-about-note p {
-  margin: 1px 0 0;
+  margin: 0;
   font-size: 13.5px;
   line-height: 1.5;
-  color: #515154;
+  color: #68686d;
 }
 .mc-help-rule {
   display: flex;
@@ -2098,13 +2071,7 @@ button { font: inherit; cursor: pointer; }
     font-size: 34px;
   }
 
-  .mc-about-section {
-    grid-template-columns: 34px 1fr;
-    gap: 10px;
-    padding: 13px 0;
-  }
-
-  .mc-about-section p,
+  .mc-about-copy p,
   .mc-about-note p {
     font-size: 13px;
   }
