@@ -48,6 +48,62 @@ function revealErrorMessage(value: unknown) {
   return "Could not reveal this answer.";
 }
 
+type AudioWindow = Window & {
+  webkitAudioContext?: typeof AudioContext;
+};
+
+function createAudioContext() {
+  const AudioContextClass = window.AudioContext || (window as AudioWindow).webkitAudioContext;
+  return AudioContextClass ? new AudioContextClass() : null;
+}
+
+function playTone(
+  context: AudioContext,
+  frequency: number,
+  startTime: number,
+  duration: number,
+  volume: number,
+  type: OscillatorType = "sine",
+) {
+  const oscillator = context.createOscillator();
+  const gain = context.createGain();
+
+  oscillator.type = type;
+  oscillator.frequency.setValueAtTime(frequency, startTime);
+  gain.gain.setValueAtTime(0.0001, startTime);
+  gain.gain.exponentialRampToValueAtTime(volume, startTime + 0.018);
+  gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+
+  oscillator.connect(gain);
+  gain.connect(context.destination);
+  oscillator.start(startTime);
+  oscillator.stop(startTime + duration + 0.025);
+}
+
+function playAnswerSound(context: AudioContext | null, correct: boolean) {
+  if (!context) return;
+
+  const now = context.currentTime;
+  if (correct) {
+    playTone(context, 523.25, now, 0.11, 0.032);
+    playTone(context, 783.99, now + 0.095, 0.16, 0.026);
+    return;
+  }
+
+  playTone(context, 164.81, now, 0.13, 0.026, "triangle");
+  playTone(context, 123.47, now + 0.08, 0.18, 0.022, "triangle");
+}
+
+function playPerfectSound(context: AudioContext | null) {
+  if (!context) return;
+
+  const now = context.currentTime;
+  playTone(context, 392, now, 0.1, 0.026);
+  playTone(context, 523.25, now + 0.075, 0.12, 0.028);
+  playTone(context, 659.25, now + 0.15, 0.14, 0.026);
+  playTone(context, 1046.5, now + 0.28, 0.22, 0.022);
+}
+
 type Props = {
   questions: MCQuestion[];
   models: string[];
@@ -432,6 +488,7 @@ export function Outguess({
   const wordTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const typeTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const roundBodyRef = useRef<HTMLDivElement | null>(null);
+  const audioContextRef = useRef<AudioContext | null>(null);
 
   const isReduced = useCallback(
     () => {
@@ -449,6 +506,37 @@ export function Outguess({
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
     if (lockTimerRef.current) clearTimeout(lockTimerRef.current);
     if (revealTimerRef.current) clearTimeout(revealTimerRef.current);
+  }, []);
+
+  const primeAudio = useCallback(() => {
+    try {
+      audioContextRef.current ??= createAudioContext();
+      if (audioContextRef.current?.state === "suspended") {
+        void audioContextRef.current.resume();
+      }
+    } catch {
+      audioContextRef.current = null;
+    }
+  }, []);
+
+  const playRevealSound = useCallback((correct: boolean) => {
+    try {
+      const context = audioContextRef.current;
+      if (context?.state === "suspended") void context.resume();
+      playAnswerSound(context, correct);
+    } catch {
+      audioContextRef.current = null;
+    }
+  }, []);
+
+  const playPerfectRunSound = useCallback(() => {
+    try {
+      const context = audioContextRef.current;
+      if (context?.state === "suspended") void context.resume();
+      playPerfectSound(context);
+    } catch {
+      audioContextRef.current = null;
+    }
   }, []);
 
   const typeWord = useCallback((target: string, onComplete?: () => void) => {
@@ -583,6 +671,7 @@ export function Outguess({
       const pickedOptionId = q.options[i]?.id;
       if (!pickedOptionId) return;
 
+      primeAudio();
       setPicked(i);
       setPhase("locked");
       setRevealError("");
@@ -619,6 +708,7 @@ export function Outguess({
         );
 
         const go = () => {
+          playRevealSound(reveal.correct);
           setPhase("reveal");
           setResults((r) => [...r, { correct: reveal.correct }]);
           runReveal();
@@ -633,7 +723,7 @@ export function Outguess({
         setPhase("predict");
       }
     },
-    [screen, phase, questionDeck, qIndex, total, isReduced, runReveal],
+    [screen, phase, questionDeck, qIndex, total, primeAudio, playRevealSound, isReduced, runReveal],
   );
 
   const next = useCallback(() => {
@@ -644,6 +734,7 @@ export function Outguess({
     }
 
     if (qIndex + 1 >= total) {
+      playPerfectRunSound();
       setScreen("score");
       return;
     }
@@ -654,7 +745,7 @@ export function Outguess({
     setProgress(0);
     setRevealDone(false);
     setRevealError("");
-  }, [qIndex, results, total]);
+  }, [qIndex, results, total, playPerfectRunSound]);
 
   const copyShare = useCallback(() => {
     const correct = results.filter((r) => r.correct).length;
