@@ -473,6 +473,7 @@ export function Outguess({
   const [revealError, setRevealError] = useState("");
   const [shareOpen, setShareOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [bestScore, setBestScore] = useState(0);
   const [reduced, setReduced] = useState(false);
@@ -649,6 +650,7 @@ export function Outguess({
   const start = useCallback(() => {
     clearTimers();
     setHelpOpen(false);
+    setAboutOpen(false);
     setQIndex(0);
     setPhase("predict");
     setPicked(null);
@@ -767,6 +769,10 @@ export function Outguess({
   keyHandlerRef.current = (e: KeyboardEvent) => {
     if (helpOpen) {
       if (e.key === "Escape") setHelpOpen(false);
+      return;
+    }
+    if (aboutOpen) {
+      if (e.key === "Escape") setAboutOpen(false);
       return;
     }
     if (shareOpen) {
@@ -923,7 +929,16 @@ export function Outguess({
               >
                 How to play
               </a>
-              <a href="#" onClick={(e) => e.preventDefault()}>About</a>
+              <a
+                href="#"
+                aria-haspopup="dialog"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setAboutOpen(true);
+                }}
+              >
+                About
+              </a>
             </nav>
           )}
 
@@ -1214,6 +1229,82 @@ export function Outguess({
                 Start survival run
               </button>
               <button className="mc-btn-close" onClick={() => setHelpOpen(false)}>
+                Close
+              </button>
+            </div>
+          </section>
+        </div>
+      )}
+
+      {/* ── About overlay ── */}
+      {aboutOpen && (
+        <div className="mc-overlay" onClick={() => setAboutOpen(false)}>
+          <section
+            className="mc-about-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="mc-about-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="mc-help-kicker">About Outguess</div>
+            <h2 id="mc-about-title" className="mc-help-title">
+              A game about reading the machine.
+            </h2>
+            <p className="mc-help-text">
+              Outguess asks you to predict how a panel of AI models will answer
+              the same question. The fun is not knowing the answer yourself. It
+              is learning whether you can sense the shape of the model consensus.
+            </p>
+
+            <div className="mc-about-sections">
+              <div className="mc-about-section">
+                <span>01</span>
+                <div>
+                  <strong>How it works</strong>
+                  <p>
+                    Each question is scored by {models.length} AI models. Their
+                    estimates are combined into one hidden consensus, then
+                    revealed only after you lock in your guess.
+                  </p>
+                </div>
+              </div>
+              <div className="mc-about-section">
+                <span>02</span>
+                <div>
+                  <strong>Why it exists</strong>
+                  <p>
+                    The game started as a small experiment in model behavior:
+                    where AIs agree, where they split, and how predictable their
+                    taste can feel.
+                  </p>
+                </div>
+              </div>
+              <div className="mc-about-section">
+                <span>03</span>
+                <div>
+                  <strong>Made by David Sabau</strong>
+                  <p>
+                    I like building compact AI products, startup experiments,
+                    and weird little internet games that make technical systems
+                    feel easier to poke at.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mc-about-note">
+              <span>{total}</span>
+              <p>
+                Current run: {total} questions, one life, four model voices, and
+                one chance to think like the machine.
+              </p>
+            </div>
+
+            <div className="mc-share-actions">
+              <button className="mc-btn-copy" onClick={start}>
+                Start survival run
+              </button>
+              <button className="mc-btn-close" onClick={() => setAboutOpen(false)}>
                 Close
               </button>
             </div>
