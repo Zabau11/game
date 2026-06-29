@@ -52,7 +52,6 @@ type Props = {
   questions: MCQuestion[];
   models: string[];
   dateLabel: string;
-  dateShort: string;
   editionLabel: string;
   revealMs?: number;
   forceReducedMotion?: boolean;
@@ -401,7 +400,6 @@ export function Outguess({
   questions,
   models,
   dateLabel,
-  dateShort,
   editionLabel,
   revealMs = 1500,
   forceReducedMotion = false,
@@ -822,9 +820,7 @@ export function Outguess({
                 {pad2(qIndex + 1)} / {totalLabel}
               </span>
             </div>
-          ) : screen === "score" ? (
-            <span className="mc-edition">{dateShort} · Edition {editionLabel}</span>
-          ) : (
+          ) : screen === "score" ? null : (
             <nav className="mc-nav-links">
               <a
                 href="#"
