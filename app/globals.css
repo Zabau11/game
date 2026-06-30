@@ -621,12 +621,28 @@ button { font: inherit; cursor: pointer; }
   transition: transform .2s ease, box-shadow .2s ease, background .15s ease;
   box-shadow: 0 6px 22px -6px rgba(0,0,0,0.42);
 }
-.mc-btn-play:hover {
+.mc-btn-play:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 14px 30px -8px rgba(0,0,0,0.48);
   background: #000;
 }
+.mc-btn-play:disabled,
+.mc-btn-share:disabled,
+.mc-btn-ghost:disabled {
+  cursor: default;
+  opacity: 0.58;
+  transform: none;
+  box-shadow: none;
+}
 .mc-btn-play:focus-visible { outline: 2px solid #1d1d1f; outline-offset: 3px; }
+
+.mc-start-error {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: #b23a30;
+  text-align: center;
+  letter-spacing: -0.005em;
+}
 
 .mc-meta-row {
   display: flex;
@@ -1409,7 +1425,7 @@ button { font: inherit; cursor: pointer; }
   transition: transform .2s ease, box-shadow .2s ease, background .15s ease;
   box-shadow: 0 6px 20px -6px rgba(0,0,0,0.42);
 }
-.mc-btn-share:hover {
+.mc-btn-share:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 14px 28px -8px rgba(0,0,0,0.45);
   background: #000;
@@ -1423,7 +1439,7 @@ button { font: inherit; cursor: pointer; }
   letter-spacing: -0.01em;
   transition: color .15s;
 }
-.mc-btn-ghost:hover { color: #515154; }
+.mc-btn-ghost:hover:not(:disabled) { color: #515154; }
 
 /* ── Share overlay ── */
 .mc-overlay {

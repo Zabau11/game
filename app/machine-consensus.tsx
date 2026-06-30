@@ -25,6 +25,12 @@ type RevealResponse = {
   nextQuestion?: MCQuestion | null;
 };
 
+type RunResponse = {
+  token: string;
+  questions: MCQuestion[];
+  total: number;
+};
+
 function isRevealResponse(value: unknown): value is RevealResponse {
   if (!value || typeof value !== "object") return false;
 
@@ -38,6 +44,17 @@ function isRevealResponse(value: unknown): value is RevealResponse {
     typeof candidate.percentages === "object" &&
     typeof candidate.explanation === "string" &&
     typeof candidate.disagreement === "string"
+  );
+}
+
+function isRunResponse(value: unknown): value is RunResponse {
+  if (!value || typeof value !== "object") return false;
+
+  const candidate = value as Partial<RunResponse>;
+  return (
+    typeof candidate.token === "string" &&
+    Array.isArray(candidate.questions) &&
+    typeof candidate.total === "number"
   );
 }
 
@@ -218,27 +235,6 @@ const survivalVerdict = (score: number) => {
   if (score < 20) return "The machine recognizes one of its own.";
   return "You ARE the machine.";
 };
-
-function shuffleQuestions(
-  questions: MCQuestion[],
-  avoidFirst?: MCQuestion,
-): MCQuestion[] {
-  const shuffled = questions.map(shuffleQuestionOptions);
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-
-  if (
-    avoidFirst &&
-    shuffled.length > 1 &&
-    shuffled[0].prompt === avoidFirst.prompt
-  ) {
-    [shuffled[0], shuffled[1]] = [shuffled[1], shuffled[0]];
-  }
-
-  return shuffled;
-}
 
 function shuffleQuestionOptions(question: MCQuestion): MCQuestion {
   const choices = question.options.map((option, index) => ({
@@ -474,11 +470,10 @@ export function Outguess({
   revealMs = 1500,
   forceReducedMotion = false,
 }: Props) {
-  const total = questionCount;
-
   const [screen, setScreen] = useState<Screen>("landing");
   const [questionDeck, setQuestionDeck] = useState<MCQuestion[]>(questions);
   const [activeRunToken, setActiveRunToken] = useState(runToken);
+  const [total, setTotal] = useState(questionCount);
   const [qIndex, setQIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("predict");
   const [picked, setPicked] = useState<number | null>(null);
@@ -492,6 +487,8 @@ export function Outguess({
   const [copied, setCopied] = useState(false);
   const [bestScore, setBestScore] = useState(0);
   const [reduced, setReduced] = useState(false);
+  const [isStarting, setIsStarting] = useState(false);
+  const [startError, setStartError] = useState("");
   const [displayWord, setDisplayWord] = useState(WORDS[0]);
   const [wordIndex, setWordIndex] = useState(0);
   const [runKey, setRunKey] = useState(0);
@@ -662,10 +659,40 @@ export function Outguess({
     }, dur + 300);
   }, [isReduced, revealMs]);
 
-  const start = useCallback(() => {
+  const start = useCallback(async () => {
+    if (isStarting) return;
+
     clearTimers();
     setHelpOpen(false);
     setAboutOpen(false);
+    setShareOpen(false);
+    setCopied(false);
+    setIsStarting(true);
+    setStartError("");
+
+    try {
+      const response = await fetch("/api/run", { method: "POST" });
+      const payload = (await response.json()) as unknown;
+      if (!response.ok) {
+        throw new Error(revealErrorMessage(payload));
+      }
+      if (!isRunResponse(payload) || payload.questions.length === 0) {
+        throw new Error("The new run data came back in an unexpected shape.");
+      }
+
+      const deck = payload.questions.map((question) => shuffleQuestionOptions(question));
+
+      setQuestionDeck(deck);
+      setActiveRunToken(payload.token);
+      setTotal(payload.total);
+    } catch (error) {
+      setStartError(
+        error instanceof Error ? error.message : "Could not start a new run.",
+      );
+      setIsStarting(false);
+      return;
+    }
+
     setQIndex(0);
     setPhase("predict");
     setPicked(null);
@@ -673,14 +700,13 @@ export function Outguess({
     setRevealDone(false);
     setResults([]);
     setRevealError("");
-    setQuestionDeck(shuffleQuestions(questions));
-    setActiveRunToken(runToken);
 
     const shouldAnimateIntro = !isReduced();
     setIntroEnabled(shouldAnimateIntro);
     setRunKey((key) => key + 1);
     setScreen("playing");
-  }, [clearTimers, isReduced, questions, runToken]);
+    setIsStarting(false);
+  }, [clearTimers, isReduced, isStarting]);
 
   const choose = useCallback(
     async (i: number) => {
@@ -799,7 +825,7 @@ export function Outguess({
       return;
     }
     if (screen === "landing") {
-      if (e.key === "Enter") start();
+      if (e.key === "Enter") void start();
       return;
     }
     if (screen === "playing") {
@@ -997,13 +1023,16 @@ export function Outguess({
               </p>
 
               <div className="mc-cta-wrap">
-                <button className="mc-btn-play" onClick={start}>
-                  Start survival run
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                <button className="mc-btn-play" onClick={start} disabled={isStarting}>
+                  {isStarting ? "Starting run..." : "Start survival run"}
+                  {!isStarting ? (
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  ) : null}
                 </button>
               </div>
+              {startError ? <p className="mc-start-error">{startError}</p> : null}
 
               <div className="mc-poll">
                 <span className="mc-poll-label">Your opponents</span>
@@ -1177,10 +1206,11 @@ export function Outguess({
               >
                 Share result
               </button>
-              <button className="mc-btn-ghost" onClick={start}>
-                Play again →
+              <button className="mc-btn-ghost" onClick={start} disabled={isStarting}>
+                {isStarting ? "Starting..." : "Play again →"}
               </button>
             </div>
+            {startError ? <p className="mc-start-error">{startError}</p> : null}
           </section>
         )}
 
