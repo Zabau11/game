@@ -1849,10 +1849,10 @@ button { font: inherit; cursor: pointer; }
   }
 
   .mc-float-card {
-    width: 128px !important;
+    width: 142px !important;
     padding: 9px 10px;
     border-radius: 14px;
-    opacity: 0.34 !important;
+    opacity: 0.38 !important;
   }
 
   .mc-float-prompt {
@@ -1871,12 +1871,20 @@ button { font: inherit; cursor: pointer; }
   }
 
   .mc-float-bar-row {
-    gap: 0;
+    gap: 5px;
   }
 
-  .mc-float-bar-label,
+  .mc-float-bar-label {
+    display: inline;
+    min-width: 38px;
+    max-width: 44px;
+    font-size: 8.5px;
+  }
+
   .mc-float-bar-pct {
-    display: none;
+    display: inline;
+    min-width: 18px;
+    font-size: 8.5px;
   }
 
   .mc-float-bar-track {
@@ -1889,11 +1897,11 @@ button { font: inherit; cursor: pointer; }
   }
 
   .mc-float-pill {
-    width: 34px;
-    height: 7px;
-    padding: 0;
-    color: transparent;
-    overflow: hidden;
+    width: auto;
+    height: auto;
+    padding: 2px 7px;
+    font-size: 8.5px;
+    color: #515154;
   }
 
   .mc-main {
