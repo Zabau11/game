@@ -21,6 +21,8 @@ type RevealResponse = {
   percentages: Record<string, number>;
   explanation: string;
   disagreement: string;
+  nextRunToken?: string;
+  nextQuestion?: MCQuestion | null;
 };
 
 function isRevealResponse(value: unknown): value is RevealResponse {
@@ -106,6 +108,8 @@ function playPerfectSound(context: AudioContext | null) {
 
 type Props = {
   questions: MCQuestion[];
+  questionCount: number;
+  runToken: string;
   models: string[];
   dateLabel: string;
   editionLabel: string;
@@ -133,65 +137,65 @@ type FloatCardDef = {
 
 const FLOAT_CARDS: FloatCardDef[] = [
   {
-    prompt: "What would four AIs agree on?",
+    prompt: "Hidden prompt",
     pos: { top: "41%", left: "24%" },
     rot: "-1deg", width: 190, opacity: 0.22,
     bars: [
-      { label: "Mathematics", pct: 71, winner: true },
-      { label: "Logic", pct: 20 },
-      { label: "Efficiency", pct: 9 },
+      { label: "Signal A", pct: 71, winner: true },
+      { label: "Signal B", pct: 20 },
+      { label: "Signal C", pct: 9 },
     ],
   },
   {
-    prompt: "Which invention would confuse a medieval king?",
+    prompt: "Consensus hidden",
     pos: { top: "14%", left: "4%" },
     rot: "-3deg", width: 208, opacity: 0.30,
     bars: [
-      { label: "Smartphone", pct: 67, winner: true },
-      { label: "Microwave", pct: 21 },
-      { label: "Escalator", pct: 12 },
+      { label: "Option A", pct: 67, winner: true },
+      { label: "Option B", pct: 21 },
+      { label: "Option C", pct: 12 },
     ],
   },
   {
-    prompt: "Who would survive a group project?",
+    prompt: "Round locked",
     pos: { top: "13%", left: "61%" },
     rot: "2.5deg", width: 194, opacity: 0.28,
     pills: [
-      { label: "Quiet overachiever", winner: true },
-      { label: "Natural delegator" },
+      { label: "Choice A", winner: true },
+      { label: "Choice B" },
     ],
   },
   {
-    prompt: "Which fictional character makes the best mayor?",
+    prompt: "Model vote pending",
     pos: { top: "75%", left: "7%" },
     rot: "-2deg", width: 214, opacity: 0.26,
     mobileHide: true,
     bars: [
-      { label: "Leslie Knope", pct: 58, winner: true },
-      { label: "Hermione", pct: 28 },
-      { label: "Atticus Finch", pct: 14 },
+      { label: "Path A", pct: 58, winner: true },
+      { label: "Path B", pct: 28 },
+      { label: "Path C", pct: 14 },
     ],
   },
   {
-    prompt: "Which animal would give the best TED talk?",
+    prompt: "Answer masked",
     pos: { top: "75%", left: "63%" },
     rot: "-1.5deg", width: 198, opacity: 0.24,
     mobileHide: true,
     bars: [
-      { label: "Octopus", pct: 52, winner: true },
-      { label: "Crow", pct: 31 },
-      { label: "Dolphin", pct: 17 },
+      { label: "Node A", pct: 52, winner: true },
+      { label: "Node B", pct: 31 },
+      { label: "Node C", pct: 17 },
     ],
   },
   {
-    prompt: "Which word best describes the internet?",
+    prompt: "Prediction sealed",
     pos: { top: "44%", left: "73%" },
     rot: "1deg", width: 190, opacity: 0.28,
     mobileHide: true,
     bars: [
-      { label: "Chaotic", pct: 44, winner: true },
-      { label: "Useful", pct: 35 },
-      { label: "Weird", pct: 21 },
+      { label: "Branch A", pct: 44, winner: true },
+      { label: "Branch B", pct: 35 },
+      { label: "Branch C", pct: 21 },
     ],
   },
 ];
@@ -462,16 +466,19 @@ function FloatCardLayer({ cards, isReduced }: { cards: FloatCardDef[]; isReduced
 
 export function Outguess({
   questions,
+  questionCount,
+  runToken,
   models,
   dateLabel,
   editionLabel,
   revealMs = 1500,
   forceReducedMotion = false,
 }: Props) {
-  const total = questions.length;
+  const total = questionCount;
 
   const [screen, setScreen] = useState<Screen>("landing");
   const [questionDeck, setQuestionDeck] = useState<MCQuestion[]>(questions);
+  const [activeRunToken, setActiveRunToken] = useState(runToken);
   const [qIndex, setQIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("predict");
   const [picked, setPicked] = useState<number | null>(null);
@@ -667,19 +674,20 @@ export function Outguess({
     setResults([]);
     setRevealError("");
     setQuestionDeck(shuffleQuestions(questions));
+    setActiveRunToken(runToken);
 
     const shouldAnimateIntro = !isReduced();
     setIntroEnabled(shouldAnimateIntro);
     setRunKey((key) => key + 1);
     setScreen("playing");
-  }, [clearTimers, isReduced, questions]);
+  }, [clearTimers, isReduced, questions, runToken]);
 
   const choose = useCallback(
     async (i: number) => {
       if (screen !== "playing" || phase !== "predict") return;
-      const q = questionDeck[qIndex % total];
+      const q = questionDeck[qIndex];
       const pickedOptionId = q.options[i]?.id;
-      if (!pickedOptionId) return;
+      if (!pickedOptionId || !activeRunToken) return;
 
       primeAudio();
       setPicked(i);
@@ -690,7 +698,7 @@ export function Outguess({
         const response = await fetch("/api/reveal", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ questionId: q.id, pickedOptionId }),
+          body: JSON.stringify({ questionId: q.id, pickedOptionId, runToken: activeRunToken }),
         });
         const payload = (await response.json()) as unknown;
         if (!response.ok) {
@@ -704,8 +712,9 @@ export function Outguess({
         const pct = q.options.map((option) => reveal.percentages[option.id] ?? 0);
         const winnerIndex = q.options.findIndex((option) => option.id === reveal.winnerId);
         setQuestionDeck((deck) =>
-          deck.map((question, index) =>
-            index === qIndex % total
+          deck
+            .map((question, index) =>
+              index === qIndex
               ? {
                   ...question,
                   pct,
@@ -713,9 +722,11 @@ export function Outguess({
                   explanation: reveal.explanation,
                   disagreement: reveal.disagreement,
                 }
-              : question,
-          ),
+                : question,
+            )
+            .concat(reveal.correct && reveal.nextQuestion ? [shuffleQuestionOptions(reveal.nextQuestion)] : []),
         );
+        if (reveal.nextRunToken) setActiveRunToken(reveal.nextRunToken);
 
         const go = () => {
           playRevealSound(reveal.correct);
@@ -733,7 +744,7 @@ export function Outguess({
         setPhase("predict");
       }
     },
-    [screen, phase, questionDeck, qIndex, total, primeAudio, playRevealSound, isReduced, runReveal],
+    [screen, phase, questionDeck, qIndex, activeRunToken, primeAudio, playRevealSound, isReduced, runReveal],
   );
 
   const next = useCallback(() => {
@@ -835,7 +846,7 @@ export function Outguess({
   }, [qIndex, screen, isReduced]);
 
   // Derived
-  const q = questionDeck[qIndex % total];
+  const q = questionDeck[qIndex] ?? questionDeck[0];
   const win = q.winnerIndex ?? -1;
   const percentages = q.pct ?? q.options.map(() => 0);
   const maxPct = win >= 0 ? Math.max(1, percentages[win]) : 100;

@@ -1,7 +1,7 @@
 import "server-only";
 
+import { createHmac, randomInt, randomUUID, timingSafeEqual } from "node:crypto";
 import { neon } from "@neondatabase/serverless";
-import questionsDatabase from "@/data/questions.json";
 
 export type QuestionOption = {
   id: string;
@@ -49,6 +49,18 @@ export type RevealResult = {
   disagreement: string;
 };
 
+export type QuestionRun = {
+  token: string;
+  questions: PublicQuestion[];
+  total: number;
+};
+
+export type ActiveQuestionRun = {
+  id: string;
+  deck: string[];
+  currentIndex: number;
+};
+
 const PROVIDER_NAMES: Record<string, string> = {
   gemini: "Gemini",
   claude: "Claude",
@@ -68,8 +80,31 @@ function databaseUrl() {
 
 function getSql() {
   const url = databaseUrl();
-  if (!url) return null;
+  if (!url) throw new Error("Missing DATABASE_URL or POSTGRES_URL.");
   return neon(url);
+}
+
+let ensuredRunTable = false;
+
+async function ensureRunTable() {
+  if (ensuredRunTable) return;
+  const sql = getSql();
+  await sql`
+    create table if not exists question_runs (
+      id text primary key,
+      deck jsonb not null,
+      current_index integer not null default 0,
+      completed boolean not null default false,
+      created_at timestamptz not null default now(),
+      updated_at timestamptz not null default now(),
+      expires_at timestamptz not null default now() + interval '2 hours'
+    )
+  `;
+  await sql`
+    create index if not exists question_runs_expires_idx
+      on question_runs (expires_at)
+  `;
+  ensuredRunTable = true;
 }
 
 function normalizeQuestion(row: Record<string, unknown>): QuestionRecord {
@@ -85,13 +120,8 @@ function normalizeQuestion(row: Record<string, unknown>): QuestionRecord {
   };
 }
 
-function localQuestions(): QuestionRecord[] {
-  return questionsDatabase.questions as QuestionRecord[];
-}
-
 export async function getReadyQuestions(): Promise<QuestionRecord[]> {
   const sql = getSql();
-  if (!sql) return localQuestions().filter((question) => question.status === "ready");
 
   const rows = await sql`
     select id, category, question, options, status, winner, explanation, model_results
@@ -105,9 +135,6 @@ export async function getReadyQuestions(): Promise<QuestionRecord[]> {
 
 export async function getQuestionById(id: string): Promise<QuestionRecord | null> {
   const sql = getSql();
-  if (!sql) {
-    return localQuestions().find((question) => question.id === id && question.status === "ready") ?? null;
-  }
 
   const rows = await sql`
     select id, category, question, options, status, winner, explanation, model_results
@@ -182,4 +209,111 @@ export async function getModelNames() {
   return firstQuestion.modelResults.map((result) =>
     providerName(result.provider).toUpperCase(),
   );
+}
+
+function tokenSecret() {
+  const secret = process.env.RUN_TOKEN_SECRET || databaseUrl();
+  if (!secret) throw new Error("Missing RUN_TOKEN_SECRET or database URL.");
+  return secret;
+}
+
+function signPayload(payload: string) {
+  return createHmac("sha256", tokenSecret()).update(payload).digest("base64url");
+}
+
+function createRunToken(runId: string) {
+  return `${runId}.${signPayload(runId)}`;
+}
+
+export function readRunToken(token: string): string | null {
+  const [runId, signature] = token.split(".");
+  if (!runId || !signature) return null;
+
+  const expected = signPayload(runId);
+  const expectedBuffer = Buffer.from(expected);
+  const actualBuffer = Buffer.from(signature);
+  if (
+    expectedBuffer.length !== actualBuffer.length ||
+    !timingSafeEqual(expectedBuffer, actualBuffer)
+  ) {
+    return null;
+  }
+
+  return runId;
+}
+
+function shuffleRecords<T>(items: T[]) {
+  const shuffled = [...items];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = randomInt(i + 1);
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+export async function createQuestionRun(limit = 10): Promise<QuestionRun> {
+  await ensureRunTable();
+  const readyQuestions = shuffleRecords(await getReadyQuestions()).slice(0, limit);
+  const deck = readyQuestions.map((question) => question.id);
+  if (!readyQuestions.length) {
+    return { token: "", questions: [], total: 0 };
+  }
+
+  const runId = randomUUID();
+  const sql = getSql();
+  await sql`delete from question_runs where expires_at < now()`;
+  await sql`
+    insert into question_runs (id, deck)
+    values (${runId}, ${JSON.stringify(deck)})
+  `;
+
+  return {
+    token: createRunToken(runId),
+    questions: [publicQuestion(readyQuestions[0])],
+    total: readyQuestions.length,
+  };
+}
+
+export async function getQuestionRun(runId: string): Promise<ActiveQuestionRun | null> {
+  await ensureRunTable();
+  const sql = getSql();
+  const rows = await sql`
+    select id, deck, current_index
+    from question_runs
+    where id = ${runId}
+      and completed = false
+      and expires_at > now()
+    limit 1
+  `;
+
+  if (!rows[0]) return null;
+  const deck = rows[0].deck as string[];
+  const currentIndex = Number(rows[0].current_index);
+  if (!Array.isArray(deck) || !Number.isInteger(currentIndex) || currentIndex < 0) {
+    return null;
+  }
+
+  return { id: String(rows[0].id), deck, currentIndex };
+}
+
+export async function consumeQuestionRunAnswer(
+  run: ActiveQuestionRun,
+  correct: boolean,
+): Promise<boolean> {
+  const hasNextQuestion = correct && run.currentIndex + 1 < run.deck.length;
+  const sql = getSql();
+  const rows = await sql`
+    update question_runs
+    set
+      current_index = ${hasNextQuestion ? run.currentIndex + 1 : run.currentIndex},
+      completed = ${!hasNextQuestion},
+      updated_at = now()
+    where id = ${run.id}
+      and current_index = ${run.currentIndex}
+      and completed = false
+      and expires_at > now()
+    returning id
+  `;
+
+  return rows.length > 0;
 }

@@ -1,5 +1,5 @@
 import { Outguess, type MCQuestion } from "./machine-consensus";
-import { getModelNames, getReadyQuestions, publicQuestion } from "@/lib/questions";
+import { createQuestionRun, getModelNames } from "@/lib/questions";
 
 export const dynamic = "force-dynamic";
 
@@ -25,13 +25,15 @@ export default async function Home() {
   const dateLabel = `${MON[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`;
   const editionLabel = `No. ${doy}`;
 
-  const readyQuestions = await getReadyQuestions();
-  const questions: MCQuestion[] = readyQuestions.map(publicQuestion);
+  const run = await createQuestionRun();
+  const questions: MCQuestion[] = run.questions;
   const models = await getModelNames();
 
   return (
     <Outguess
       questions={questions}
+      questionCount={run.total}
+      runToken={run.token}
       models={models}
       dateLabel={dateLabel}
       editionLabel={editionLabel}
