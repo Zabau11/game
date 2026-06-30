@@ -985,11 +985,6 @@ export function Outguess({
             <FloatCardLayer cards={FLOAT_CARDS} isReduced={isReduced} />
 
             <div className="mc-landing">
-              <div className="mc-badge">
-                <span className="mc-badge-dot" />
-                The AI prediction game
-              </div>
-
               <h1 className="mc-display">
                 Think like a<br />
                 {displayWord || " "}
