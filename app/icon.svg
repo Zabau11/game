@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="modelmind-m" x1="24" y1="20" x2="108" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#007aff" />
+      <stop offset="0.54" stop-color="#af52de" />
+      <stop offset="1" stop-color="#ff9500" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="32" fill="#ffffff" />
+  <text
+    x="64"
+    y="68"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', Arial, sans-serif"
+    font-size="92"
+    font-weight="800"
+    fill="url(#modelmind-m)"
+  >m</text>
+</svg>

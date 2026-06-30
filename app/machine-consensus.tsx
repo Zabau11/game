@@ -117,7 +117,7 @@ type Screen = "landing" | "playing" | "score";
 type Phase = "predict" | "locked" | "reveal";
 
 const WORDS = ["machine", "model", "AI", "consensus", "LLM"];
-const BEST_SCORE_KEY = "outguess-best-score";
+const BEST_SCORE_KEY = "modelmind-best-score";
 
 type FloatBarItem = { label: string; pct: number; winner?: boolean };
 type FloatPillItem = { label: string; winner?: boolean };
@@ -195,6 +195,14 @@ const FLOAT_CARDS: FloatCardDef[] = [
     ],
   },
 ];
+
+function BrandName() {
+  return (
+    <span className="mc-brand-name" aria-label="Modelmind">
+      <span className="mc-brand-m">m</span>odel<span className="mc-brand-m">m</span>ind
+    </span>
+  );
+}
 
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 const pad2 = (n: number) => String(n).padStart(2, "0");
@@ -754,7 +762,7 @@ export function Outguess({
     const grid = results
       .map((r) => (r.correct ? "◉" : "○"))
       .join("");
-    const txt = `OUTGUESS — ${correct} correct\n${grid}\noutguess.game`;
+    const txt = `MODELMIND — ${correct} correct\n${grid}\nmodelmind`;
     try {
       if (navigator.clipboard) navigator.clipboard.writeText(txt);
     } catch {
@@ -896,8 +904,7 @@ export function Outguess({
       <header className="mc-header">
         <div className="mc-header-inner">
           <button className="mc-brand" onClick={() => setScreen("landing")}>
-            <span className="mc-logo-dot" />
-            Outguess
+            <BrandName />
           </button>
 
           {screen === "playing" ? (
@@ -1252,13 +1259,13 @@ export function Outguess({
             aria-labelledby="mc-about-title"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="mc-help-kicker">About Outguess</div>
+            <div className="mc-help-kicker">About Modelmind</div>
             <h2 id="mc-about-title" className="mc-help-title">
               A game about reading the machine.
             </h2>
             <div className="mc-about-copy">
               <p>
-                Outguess asks you to predict how a panel of AI models will
+                Modelmind asks you to predict how a panel of AI models will
                 answer the same question. Each model scores the options, the
                 answers are combined into a hidden consensus, and the result is
                 revealed only after you lock in.
@@ -1292,8 +1299,7 @@ export function Outguess({
         <div className="mc-overlay" onClick={() => setShareOpen(false)}>
           <div className="mc-share-card" onClick={(e) => e.stopPropagation()}>
             <div className="mc-share-brand">
-              <span className="mc-logo-dot" />
-              Outguess
+              <BrandName />
             </div>
             <div className="mc-share-edition">
               Edition {editionLabel} · {dateLabel}
@@ -1309,7 +1315,7 @@ export function Outguess({
                 </div>
               ))}
             </div>
-            <div className="mc-share-foot">No answers revealed · machineconsensus.game</div>
+            <div className="mc-share-foot">No answers revealed · Modelmind</div>
             <div className="mc-share-actions">
               <button className="mc-btn-copy" onClick={copyShare}>
                 {copied ? "Copied ✓" : "Copy result"}

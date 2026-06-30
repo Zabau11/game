@@ -286,13 +286,17 @@ button { font: inherit; cursor: pointer; }
 .mc-brand:hover {
   opacity: 0.55;
 }
-.mc-logo-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #1d1d1f;
-  flex-shrink: 0;
-  display: inline-block;
+.mc-brand-name {
+  display: inline-flex;
+  align-items: baseline;
+  color: #1d1d1f;
+}
+.mc-brand-m {
+  color: #007aff;
+  background: linear-gradient(135deg, #007aff 0%, #af52de 54%, #ff9500 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .mc-edition {
   font-size: 13px;
