@@ -869,6 +869,14 @@ export function Outguess({
       btn.style.setProperty("--choice-x", i % 2 === 0 ? "-10px" : "10px");
       btn.style.animation = `mc-choiceBuild .44s cubic-bezier(0.22,1,0.36,1) ${80 + i * 60}ms both`;
     });
+
+    const clearButtonAnimations = setTimeout(() => {
+      buttons.forEach((btn) => {
+        btn.style.animation = "";
+      });
+    }, 720);
+
+    return () => clearTimeout(clearButtonAnimations);
   }, [qIndex, screen, isReduced]);
 
   // Derived
@@ -1111,6 +1119,7 @@ export function Outguess({
                           style={{ width: `${((percentages[i] / maxPct) * eased * 100).toFixed(1)}%` }}
                         />
                       )}
+                      <span className="mc-choice-key" aria-hidden>{String.fromCharCode(65 + i)}</span>
                       <span className="mc-choice-name">{opt.name}</span>
                       {inReveal && (
                         <span className="mc-choice-pct-label">
